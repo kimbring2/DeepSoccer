@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<robot name="jetbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:include filename="$(find my_robot_urdf)/urdf/jetbot.gazebo" />
+
+    <link name="world"/>
+
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="chassis"/>
+    </joint>
+
+
+    <link name="chassis">
+        <inertial>
+            <mass value="5"/>
+            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.043"/>
+            <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+        </inertial>
+
+        <collision>
+            <geometry>
+                <mesh filename="file://$(find my_robot_urdf)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.043"/>
+            <geometry>
+                <mesh filename="file://$(find my_robot_urdf)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <link name="left_wheel">
+        <inertial>
+            <mass value="0.2"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find my_robot_urdf)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+	    <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find my_robot_urdf)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+    </link>
+
+
+    <joint name='left_wheel_hinge' type='revolute'>
+        <origin rpy="0.0 0.0 1.57079632679" xyz="0.03 0.05125 0.03"/>
+        <child  link="left_wheel"/>
+        <parent link="chassis"/>
+        <axis rpy="0 0 0" xyz="1 0 0"/>
+        <limit lower="-2.2" upper="0.7" effort="100" velocity="100"/>
+    </joint>
+
+
+    <link name="right_wheel">
+        <inertial>
+            <mass value="0.2"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+	        <geometry>
+	            <mesh filename="file://$(find my_robot_urdf)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+	        </geometry>
+        </collision>
+
+	    <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+	        <geometry>
+	            <mesh filename="file://$(find my_robot_urdf)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+	        </geometry>
+	    </visual>
+    </link>
+
+
+    <joint name='right_wheel_hinge' type='revolute'>
+        <origin rpy="0.0 0.0 1.57079632679 " xyz="0.03 -0.0595 0.03"/>
+        <child  link="right_wheel"/>
+        <parent link="chassis"/>
+        <axis rpy="0 0 0" xyz="1 0 0"/>
+        <limit lower="-2.2" upper="0.7" effort="100" velocity="100"/>
+    </joint>
+
+
+    <link name="camera_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.1" />
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1.0 1.0"/>
+            </material>
+        </visual>
+    </link>
+
+    <joint name="camera_joint" type="fixed">
+        <parent link="chassis"/>
+        <child link="camera_link"/>
+        <origin rpy="0 0 0" xyz="0.047 0.0 0.0"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+
+    <transmission name="tran1">
+      <type>transmission_interface/SimpleTransmission</type>
+
+      <joint name="left_wheel_hinge">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+
+      <actuator name="motor1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+
+    <transmission name="tran2">
+      <type>transmission_interface/SimpleTransmission</type>
+
+      <joint name="right_wheel_hinge">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+
+      <actuator name="motor2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+</robot>
