@@ -14,10 +14,14 @@ source devel/setup.bash
 ```
 
 # How to view in Rviz
-```roslaunch jetbot_description jetbot_rviz.launch```
+```
+roslaunch jetbot_description jetbot_rviz.launch
+```
 
 # How to view in Gazebo
-```roslaunch jetbot_gazebo jetbot_world.launch```
+```
+roslaunch jetbot_gazebo jetbot_world.launch
+```
 
 # How to start the controllers using roslaunch
 ```
