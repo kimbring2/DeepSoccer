@@ -31,6 +31,11 @@ roslaunch jetbot_gazebo jetbot_world.launch
 roslaunch jetbot_control jetbot_control.launch
 ```
 
+# Troubleshooting 
+<img src="image/Error_Message.png" width="300">
+
+If you get a RLException error message, type 'source devel/setup.bash' and try again.
+
 # How to manually send example commands
 The range of commands that can be given to the wheel is 0 to 6.28319, changing 0 to 360 degrees in radian units.
 
