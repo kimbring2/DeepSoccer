@@ -37,11 +37,11 @@ roslaunch jetbot_control jetbot_control.launch
 If you get a RLException error message, type 'source devel/setup.bash' and try again.
 
 # How to manually send example commands
-The range of commands that can be given to the wheel is 0 to 6.28319, changing 0 to 360 degrees in radian units.
+The range of commands that can be given to the wheel is -360 to 360.
 
 ## Left Wheel 
-```rostopic pub -1 /jetbot/joint2_position_controller/command std_msgs/Float64 "data: 3.0"```
+```rostopic pub -1 /jetbot/joint2_position_controller/command std_msgs/Float64 "data: 50"```
 
 ## Right Wheel 
-```rostopic pub -1 /jetbot/joint1_position_controller/command std_msgs/Float64 "data: 3.0"```
+```rostopic pub -1 /jetbot/joint1_position_controller/command std_msgs/Float64 "data: 50"```
 
