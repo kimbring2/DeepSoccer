@@ -32,7 +32,7 @@ roslaunch jetbot_control jetbot_control.launch
 ```
 
 # Troubleshooting 
-<img src="image/Error_Message.png" width="300">
+<img src="image/Error_Message.png" width="600">
 
 If you get a RLException error message, type 'source devel/setup.bash' and try again.
 
