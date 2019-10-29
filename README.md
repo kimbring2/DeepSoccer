@@ -31,6 +31,13 @@ roslaunch jetbot_gazebo jetbot_world.launch
 roslaunch jetbot_control jetbot_control.launch
 ```
 
+# Soccer Model path setting
+You should change a some code of sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
+
+```
+<uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot/jetbot_gazebo/materials/scripts/gazebo.material</uri>
+```
+
 # Troubleshooting 
 <img src="image/Error_Message.png" width="600">
 
