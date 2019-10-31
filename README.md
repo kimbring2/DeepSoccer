@@ -15,8 +15,8 @@ catkin_make
 source devel/setup.bash
 ```
 # Package Defendencies
-Move to your 'catkin_ws/src' folder and type 
-'git clone https://bitbucket.org/theconstructcore/spawn_robot_tools.git'.
+Move to your ```catkin_ws/src``` folder and type 
+```git clone https://bitbucket.org/theconstructcore/spawn_robot_tools.git```.
 
 # How to view in Rviz
 ```
