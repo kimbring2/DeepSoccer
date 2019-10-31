@@ -48,8 +48,8 @@ If you get a RLException error message, type 'source devel/setup.bash' and try a
 The range of commands that can be given to the wheel is -360 to 360.
 
 ## Left Wheel 
-```rostopic pub -1 /jetbot/joint2_position_controller/command std_msgs/Float64 "data: 50"```
+```rostopic pub -1 /jetbot/joint1_velocity_controller/command std_msgs/Float64 "data: 150"```
 
 ## Right Wheel 
-```rostopic pub -1 /jetbot/joint1_position_controller/command std_msgs/Float64 "data: 50"```
+```rostopic pub -1 /jetbot/joint2_velocity_controller/command std_msgs/Float64 "data: 150"```
 
