@@ -2,6 +2,14 @@
 <robot>
   <!-- ros_control plugin -->
   <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/jetbot</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!-- ros_control plugin -->
+  <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <alwaysOn>true</alwaysOn>
       <updateRate>20</updateRate>
@@ -18,20 +26,46 @@
     </plugin>
   </gazebo>
 
+  <gazebo reference="left_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <slip1>0.05</slip1>
+            <slip2>0.12</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
+  <gazebo reference="right_wheel">
+    <collision>
+      <surface>
+        <friction>
+          <ode>
+            <slip1>0.05</slip1>
+            <slip2>0.12</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </gazebo>
+
   <!-- camera -->
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
-      <update_rate>30.0</update_rate>
+      <update_rate>10.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>720</width>
+          <height>720</height>
           <format>R8G8B8</format>
         </image>
         <clip>
-          <near>0.02</near>
-          <far>300</far>
+          <near>0.01</near>
+          <far>1</far>
         </clip>
         <noise>
           <type>gaussian</type>
