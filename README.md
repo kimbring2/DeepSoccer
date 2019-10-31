@@ -14,7 +14,7 @@ cd ..
 catkin_make
 source devel/setup.bash
 ```
-# Package Defendencies
+# Dependent package install
 Move to your ```catkin_ws/src``` folder and type 
 ```git clone https://bitbucket.org/theconstructcore/spawn_robot_tools.git```.
 
