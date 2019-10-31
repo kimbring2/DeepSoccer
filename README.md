@@ -15,8 +15,7 @@ catkin_make
 source devel/setup.bash
 ```
 # Dependent package install
-Move to your ```catkin_ws/src``` folder and type 
-```git clone https://bitbucket.org/theconstructcore/spawn_robot_tools.git```.
+Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
 # How to view in Rviz
 ```
