@@ -17,22 +17,22 @@
 
     <link name="chassis">
         <inertial>
-            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.043"/>
+            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.084"/>
             <mass value="50"/>
-            <inertia ixx="10"  ixy="0"  ixz="0" iyy="8" iyz="0" izz="6" />
+            <inertia ixx="1"  ixy="0"  ixz="0" iyy="0.8" iyz="0" izz="0.6" />
         </inertial>
 
         <collision>
-            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.043"/>
+            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.084"/>
             <geometry>
-                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.001 0.001 0.001"/>
+                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.002 0.002 0.002"/>
             </geometry>
         </collision>
 
         <visual>
-            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.043"/>
+            <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.084"/>
             <geometry>
-                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.001 0.001 0.001"/>
+                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.002 0.002 0.002"/>
             </geometry>
         </visual>
     </link>
@@ -40,7 +40,7 @@
 
     <link name="left_wheel">
         <inertial>
-            <mass value="10"/>
+            <mass value="5"/>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <inertia ixx="1"  ixy="0"  ixz="0" iyy="8" iyz="0" izz="6" /> 
         </inertial>
@@ -48,7 +48,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
             </geometry>
 
             <surface>
@@ -65,14 +65,14 @@
 	    <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
             </geometry>
         </visual>
     </link>
 
 
     <joint name='left_wheel_hinge' type='revolute'>
-        <origin rpy="0.0 0.0 1.57079632679" xyz="0.03 0.05125 0.03"/>
+        <origin rpy="0.0 0.0 1.57079632679" xyz="0.06 0.1025 0.06"/>
         <child  link="left_wheel"/>
         <parent link="chassis"/>
         <axis rpy="0 0 0" xyz="1 0 0"/>
@@ -82,7 +82,7 @@
 
     <link name="right_wheel">
         <inertial>
-            <mass value="10"/>
+            <mass value="5"/>
             <origin rpy="0 0 0" xyz="0 0 0"/>
             <inertia ixx="1" ixy="0" ixz="0" iyy="8" iyz="0" izz="6" /> 
         </inertial>
@@ -90,7 +90,7 @@
         <collision>
             <origin rpy="0 0 0" xyz="0 0 0"/>
 	        <geometry>
-	            <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+	            <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
 	        </geometry>
 
             <surface>
@@ -104,16 +104,16 @@
             </surface>
         </collision>
 	<visual>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
 	    <geometry>
-	        <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.001 0.001 0.001"/>
+	        <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
 	    </geometry>
 	</visual>
     </link>
 
 
     <joint name='right_wheel_hinge' type='revolute'>
-        <origin rpy="0.0 0.0 1.57079632679 " xyz="0.03 -0.0595 0.03"/>
+        <origin rpy="0.0 0.0 1.57079632679 " xyz="0.06 -0.1025 0.06"/>
         <child  link="right_wheel"/>
         <parent link="chassis"/>
         <axis rpy="0 0 0" xyz="1 0 0"/>
@@ -122,29 +122,28 @@
 
 
     <link name="camera_link">
+        <gravity>false</gravity>
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="0.1" />
-            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+            <inertia ixx="1" ixy="0" ixz="0" iyy="8" iyz="0" izz="6" /> 
+	    <mass value="1"/>
         </inertial>
-        <visual>
+        <visual name="visual">
+            <origin rpy="0 0 0" xyz="0 0.0 0"/>
             <geometry>
-                <box size="0.001 0.001 0.001"/>
+                <box size="0.002 0.002 0.002"/>
             </geometry>
-            <material name="blue">
-                <color rgba="0 0 1.0 1.0"/>
-            </material>
         </visual>
     </link>
 
-
     <joint name="camera_joint" type="fixed">
+        <origin rpy="0 0.25 0" xyz="0.11 0.0 0.1714"/>
+        <child  link="camera_link"/>
         <parent link="chassis"/>
-        <child link="camera_link"/>
-        <origin rpy="0 0 0" xyz="0.047 0.0 0.0"/>
-        <axis xyz="1 0 0" />
+        <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+        <axis>
+            <xyz>0.1 0.0 0.0</xyz>
+        </axis>
     </joint>
-
 
     <transmission name="tran1">
       <type>transmission_interface/SimpleTransmission</type>
@@ -158,7 +157,6 @@
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
-
 
     <transmission name="tran2">
       <type>transmission_interface/SimpleTransmission</type>
