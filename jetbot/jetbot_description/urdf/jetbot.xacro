@@ -18,8 +18,8 @@
     <link name="chassis">
       <inertial>
         <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.086"/>
-        <mass value="50"/>
-        <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        <mass value="100"/>
+        <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" />
       </inertial>
 
       <collision>
@@ -40,9 +40,9 @@
 
     <link name="left_wheel">
       <inertial>
-        <mass value="1"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        <mass value="5"/>
+        <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01" />
       </inertial>
 
       <collision>
@@ -66,15 +66,16 @@
       <child  link="left_wheel"/>
       <parent link="chassis"/>
       <axis rpy="0 0 0" xyz="1 0 0"/>
-      <limit lower="-360" upper="360" effort="50" velocity="100"/>
+      <limit lower="-1e+16" upper="1e+16" effort="200" velocity="100"/>
     </joint>
 
 
     <link name="right_wheel">
       <inertial>
-        <mass value="1"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        <mass value="5"/>
+        <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01" />
+        <mass value="1"/>
       </inertial>
 
       <collision>
@@ -98,7 +99,7 @@
       <child  link="right_wheel"/>
       <parent link="chassis"/>
       <axis rpy="0 0 0" xyz="1 0 0"/>
-      <limit lower="-360" upper="360" effort="50" velocity="100"/>
+      <limit lower="-1e+16" upper="1e+16" effort="200" velocity="100"/>
     </joint>
 
 
@@ -118,7 +119,7 @@
       <gravity>false</gravity>
       <inertial>
         <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
-        <mass value="1"/>
+        <mass value="0.1"/>
       </inertial>
       <visual name="visual">
         <origin rpy="0 0 0" xyz="0 0.0 0"/>
