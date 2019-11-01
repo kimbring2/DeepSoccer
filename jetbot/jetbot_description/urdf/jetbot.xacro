@@ -18,7 +18,7 @@
     <link name="chassis">
       <inertial>
         <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.086"/>
-        <mass value="100"/>
+        <mass value="50"/>
         <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" />
       </inertial>
 
@@ -41,8 +41,8 @@
     <link name="left_wheel">
       <inertial>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <mass value="5"/>
-        <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01" />
+        <mass value="3"/>
+        <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" />
       </inertial>
 
       <collision>
@@ -73,8 +73,8 @@
     <link name="right_wheel">
       <inertial>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <mass value="5"/>
-        <inertia ixx="0.01" ixy="0.01" ixz="0.01" iyy="0.01" iyz="0.01" izz="0.01" />
+        <mass value="3"/>
+        <inertia ixx="0.001" ixy="0.001" ixz="0.001" iyy="0.001" iyz="0.001" izz="0.001" />
         <mass value="1"/>
       </inertial>
 

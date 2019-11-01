@@ -25,36 +25,36 @@
   </gazebo>
 
   <gazebo reference="chassis">
-    <mu>0</mu>
-    <mu2>0</mu2>
+    <mu1>0.0</mu1>
+    <mu2>0.0</mu2>
     <slip1>1.0</slip1>
     <slip2>1.0</slip2>
-    <kp>60000000.0</kp> 
-    <kd>6000000.0</kd>
+    <kp>6000000000.0</kp> 
+    <kd>600000000.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>100</maxVel>
+    <maxVel>10</maxVel>
   </gazebo>
  
   <gazebo reference="left_wheel">
-    <mu1>2.0</mu1>
-    <mu2>2.0</mu2>
-    <slip1>1.0</slip1>
-    <slip2>1.0</slip2>
-    <kp>60000000.0</kp> 
-    <kd>6000000.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+    <kp>6000000000.0</kp> 
+    <kd>600000000.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>100</maxVel>
+    <maxVel>10</maxVel>
   </gazebo>
 
   <gazebo reference="right_wheel">
-    <mu1>2.0</mu1>
-    <mu2>2.0</mu2>
-    <slip1>1.0</slip1>
-    <slip2>1.0</slip2>
-    <kp>6000000.0</kp> 
-    <kd>10000000.0</kd>
+    <mu1>1.0</mu1>
+    <mu2>1.0</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+    <kp>6000000000.0</kp> 
+    <kd>600000000.0</kd>
     <minDepth>0.001</minDepth>
-    <maxVel>100</maxVel>
+    <maxVel>10</maxVel>
   </gazebo>
 
   <!-- camera -->
