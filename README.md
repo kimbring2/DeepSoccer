@@ -55,5 +55,7 @@ The range of commands that can be given to the wheel is -360 to 360.
 ## Right Wheel 
 ```rostopic pub -1 /jetbot/joint2_velocity_controller/command std_msgs/Float64 "data: 150"```
 
-# Sending a commands in Python
-Move to jetbot/jetbot_control/src/ and type ```python main.py```. It will send a velocity command to each wheel.
+# Python code for Jetbot
+Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
+It will send a velocity command to each wheel and show a camera sensor image and print position of each model.
+
