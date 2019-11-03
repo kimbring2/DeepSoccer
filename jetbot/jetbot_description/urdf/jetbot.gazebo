@@ -2,7 +2,6 @@
 <robot>
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/jetbot</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
@@ -60,12 +59,12 @@
   <!-- camera -->
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
-      <update_rate>10.0</update_rate>
+      <update_rate>30.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>720</width>
-          <height>720</height>
+          <width>360</width>
+          <height>360</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -84,8 +83,8 @@
 
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>10.0</updateRate>
-        <cameraName>jetbot/camera1</cameraName>
+        <updateRate>30.0</updateRate>
+        <cameraName>camera1</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera_link_optical</frameName>
