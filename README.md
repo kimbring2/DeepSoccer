@@ -24,12 +24,12 @@ roslaunch jetbot_description jetbot_rviz.launch
 
 # How to view in Gazebo
 ```
-roslaunch jetbot_gazebo jetbot_world.launch
+roslaunch jetbot_gazebo main.launch
 ```
 
 # How to start the controllers using roslaunch
 ```
-roslaunch jetbot_gazebo jetbot_world.launch
+roslaunch jetbot_gazebo main.launch
 roslaunch jetbot_control jetbot_control.launch
 ```
 
@@ -46,14 +46,22 @@ It is just example line of uri. Please change all uri path for your PC environme
 
 If you get a RLException error message, type 'source devel/setup.bash' and try again.
 
-# How to manually send example commands
-The range of commands that can be given to the wheel is -360 to 360.
+# How to manually send a wheel velocity commands
+The range of velocity that can be given to the wheel is 0 to 100.
 
 ## Left Wheel 
-```rostopic pub -1 /jetbot/joint1_velocity_controller/command std_msgs/Float64 "data: 150"```
+For robot1
+```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-## Right Wheel 
-```rostopic pub -1 /jetbot/joint2_velocity_controller/command std_msgs/Float64 "data: 150"```
+For robot2
+```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
+
+## Right Wheel
+For robot1
+```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
+
+For robot2
+```rostopic pub -1 /robot2/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
 # Python code for Jetbot
 Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
