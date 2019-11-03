@@ -22,15 +22,9 @@ Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools'
 roslaunch jetbot_description jetbot_rviz.launch
 ```
 
-# How to view in Gazebo
+# How to start Jetbot model and controllers using roslaunch
 ```
 roslaunch jetbot_gazebo main.launch
-```
-
-# How to start the controllers using roslaunch
-```
-roslaunch jetbot_gazebo main.launch
-roslaunch jetbot_control jetbot_control.launch
 ```
 
 # Soccer model path setting
