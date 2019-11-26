@@ -1,5 +1,11 @@
-# Introduction
+# Future plan
+First, I plan to play a soccer game using Jetbot. However, as a result of investigating the specs of the robot that can participate in offical robot soccer competiton such as Robocup, it it determined that the Jetbot hardware can not do the soccer immediately. This is because an additional part for catching and throwing the football is required.
 
+<img src="image/robocup.jpg" width="600">
+
+So I am currently studying how to design a robot directly using a CAD program. Still, there seems to be no significant change in Jetbot's URDF file or Gazebo simulation method, so uploaded files can be used as they are.
+
+# Introduction
 You can see a original Jetbot related code at https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. But, there is no URDF file of Jetbot which is needed for simulating a robot in Gazebo. Thus, I change SDF file of Jetbot to URDF. 
 
 And all code are based on ROS URDF official tutorial http://gazebosim.org/tutorials?tut=ros_urdf where you can learn how to simulate a robot in Gazebo. I just chanage a simple 3-linkage, 2-joint arm robot of tutorial to Jetbot. 
