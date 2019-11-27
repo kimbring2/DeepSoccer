@@ -1,7 +1,7 @@
 # Future plan
 First, I plan to play a soccer game using Jetbot. However, as a result of investigating the specs of the robot that can participate in offical robot soccer competiton such as Robocup, it it determined that the Jetbot hardware can not do the soccer immediately. This is because an additional part for catching and throwing the football is required.
 
-<img src="image/09-10-34.png" width="600">
+<img src="image/09-10-34.png" width="900">
 
 So I am currently studying how to design a robot directly using a CAD program. Still, there seems to be no significant change in Jetbot's URDF file or Gazebo simulation method, so uploaded files can be used as they are.
 
