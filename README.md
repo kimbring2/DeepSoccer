@@ -1,9 +1,5 @@
-# Future plan
-First, I plan to play a soccer game using Jetbot. However, as a result of investigating the specs of the robot that can participate in offical robot soccer competiton such as Robocup, it it determined that the Jetbot hardware can not do the soccer immediately. This is because an additional part for catching and throwing the football is required.
-
-<img src="image/09-10-34.png" width="900">
-
-So I am currently studying how to design a robot directly using a CAD program. Still, there seems to be no significant change in Jetbot's URDF file or Gazebo simulation method, so uploaded files can be used as they are.
+# Physical issue in Gazebo simulation
+There is still a problem that the robot does not move smoothly at high speed. It seems that the physical settings of the chassis and wheel are not set correctly in Gazebo. I am checking a parameter of other robot for solving that issue.
 
 # Introduction
 You can see a original Jetbot related code at https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. But, there is no URDF file of Jetbot which is needed for simulating a robot in Gazebo. Thus, I change SDF file of Jetbot to URDF. 
@@ -67,3 +63,9 @@ For robot2
 Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
 It will send a velocity command to each wheel and show a camera sensor image and print position of each model.
 
+# Future plan
+First, I plan to play a soccer game using Jetbot. However, as a result of investigating the specs of the robot that can participate in offical robot soccer competiton such as Robocup, it it determined that the Jetbot hardware can not do the soccer immediately. This is because an additional part for catching and throwing the football is required.
+
+<img src="image/09-10-34.png" width="900">
+
+So I am currently studying how to design a robot directly using a CAD program. Still, there seems to be no significant change in Jetbot's URDF file or Gazebo simulation method, so uploaded files can be used as they are.
