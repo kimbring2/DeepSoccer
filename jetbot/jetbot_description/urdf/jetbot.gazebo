@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <robot>
+  <surface>
+    <bounce restitution_coefficient="1.0" threshold="0.01"/>
+  </surface>
+
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
@@ -13,9 +17,9 @@
       <updateRate>20</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>0.5380</wheelSeparation>
-      <wheelDiameter>0.2410</wheelDiameter>
-      <torque>500</torque>
+      <wheelSeparation>0.2</wheelSeparation>
+      <wheelDiameter>0.1</wheelDiameter>
+      <torque>10</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -28,32 +32,35 @@
     <mu2>0.0</mu2>
     <slip1>1.0</slip1>
     <slip2>1.0</slip2>
-    <kp>6000000000.0</kp> 
-    <kd>600000000.0</kd>
-    <minDepth>0.001</minDepth>
-    <maxVel>10</maxVel>
+    <kp>10000000</kp>
+    <kd>1</kd>
+    <fdir1>1 0 0</fdir1>
+    <minDepth>0.0001</minDepth>
+    <maxContacts>1</maxContacts>
   </gazebo>
  
   <gazebo reference="left_wheel">
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>50</mu1>
+    <mu2>10</mu2>
     <slip1>0.0</slip1>
     <slip2>0.0</slip2>
-    <kp>6000000000.0</kp> 
-    <kd>600000000.0</kd>
-    <minDepth>0.001</minDepth>
-    <maxVel>10</maxVel>
+    <kp>10000000</kp> 
+    <kd>1</kd>
+    <fdir1>1 0 0</fdir1>
+    <minDepth>0.0001</minDepth>
+    <maxContacts>1</maxContacts>
   </gazebo>
 
   <gazebo reference="right_wheel">
-    <mu1>1.0</mu1>
-    <mu2>1.0</mu2>
+    <mu1>50</mu1>
+    <mu2>10</mu2>
     <slip1>0.0</slip1>
     <slip2>0.0</slip2>
-    <kp>6000000000.0</kp> 
-    <kd>600000000.0</kd>
-    <minDepth>0.001</minDepth>
-    <maxVel>10</maxVel>
+    <kp>10000000</kp> 
+    <kd>1</kd>
+    <fdir1>1 0 0</fdir1>
+    <minDepth>0.0001</minDepth>
+    <maxContacts>1</maxContacts>
   </gazebo>
 
   <!-- camera -->
@@ -69,7 +76,7 @@
         </image>
         <clip>
           <near>0.01</near>
-          <far>1</far>
+          <far>5</far>
         </clip>
         <noise>
           <type>gaussian</type>
