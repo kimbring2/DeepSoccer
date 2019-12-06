@@ -1,9 +1,5 @@
 <?xml version="1.0"?>
 <robot>
-  <surface>
-    <bounce restitution_coefficient="1.0" threshold="0.01"/>
-  </surface>
-
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
@@ -14,12 +10,13 @@
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
       <alwaysOn>true</alwaysOn>
-      <updateRate>20</updateRate>
+      <updateRate>10</updateRate>
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
-      <wheelSeparation>0.2</wheelSeparation>
-      <wheelDiameter>0.1</wheelDiameter>
-      <torque>10</torque>
+      <wheelAcceleration>1.8</wheelAcceleration>
+      <wheelSeparation>0.205</wheelSeparation>
+      <wheelDiameter>0.0610616</wheelDiameter>
+      <torque>0.1</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
@@ -76,7 +73,7 @@
         </image>
         <clip>
           <near>0.01</near>
-          <far>5</far>
+          <far>50</far>
         </clip>
         <noise>
           <type>gaussian</type>

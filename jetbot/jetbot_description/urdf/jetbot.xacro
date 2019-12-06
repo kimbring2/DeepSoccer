@@ -4,7 +4,7 @@
 
     <link name="chassis">
       <inertial>
-        <mass value="10"/>
+        <mass value="2.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="0.08025" ixy="0" ixz="0" iyy="0.08025" iyz="0" izz="0.1445"/>
       </inertial>
@@ -28,7 +28,7 @@
     <link name="left_wheel">
       <inertial>
         <mass value="0.3"/>
-        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="0.000129167" ixy="0" ixz="0" iyy="0.000129167" iyz="0" izz="0.0000225"/>
       </inertial>
 
@@ -53,14 +53,14 @@
       <child  link="left_wheel"/>
       <parent link="chassis"/>
       <axis rpy="0 0 0" xyz="1 0 0"/>
-      <limit lower="-1e+16" upper="1e+16" effort="1000" velocity="100"/>
+      <limit lower="-1e+16" upper="1e+16" effort="100" velocity="100"/>
     </joint>
 
 
     <link name="right_wheel">
       <inertial>
         <mass value="0.3"/>
-        <origin rpy="0 1.5707 1.5707" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="0.000129167" ixy="0" ixz="0" iyy="0.000129167" iyz="0" izz="0.0000225"/>
       </inertial>
 
@@ -85,7 +85,7 @@
       <child  link="right_wheel"/>
       <parent link="chassis"/>
       <axis rpy="0 0 0" xyz="1 0 0"/>
-      <limit lower="-1e+16" upper="1e+16" effort="1000" velocity="100"/>
+      <limit lower="-1e+16" upper="1e+16" effort="100" velocity="100"/>
     </joint>
 
 
@@ -132,10 +132,10 @@
     <transmission name="tran1">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="left_wheel_hinge">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor1">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -144,10 +144,10 @@
     <transmission name="tran2">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="right_wheel_hinge">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor2">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
