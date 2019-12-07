@@ -1,12 +1,13 @@
-# Physical issue in Gazebo simulation
-There is still a problem that the robot does not move smoothly at high speed. It seems that the physical settings of the chassis and wheel are not set correctly in Gazebo. I am checking a parameter of other robot for solving that issue.
-
 # Introduction
 You can see a original Jetbot related code at https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. But, there is no URDF file of Jetbot which is needed for simulating a robot in Gazebo. Thus, I change SDF file of Jetbot to URDF. 
 
 And all code are based on ROS URDF official tutorial http://gazebosim.org/tutorials?tut=ros_urdf where you can learn how to simulate a robot in Gazebo. I just chanage a simple 3-linkage, 2-joint arm robot of tutorial to Jetbot. 
 
 I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please rereference it if you need more information about uploaded code. 
+
+# Physical issue in Gazebo simulation
+~There is still a problem that the robot does not move smoothly at high speed. It seems that the physical settings of the chassis and wheel are not set correctly in Gazebo. I am checking a parameter of other robot for solving that issue.~
+- solved
 
 # How to Build
 ```
