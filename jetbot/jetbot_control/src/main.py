@@ -2,12 +2,15 @@
 ############## ROS Import ###############
 import rospy
 from gazebo_msgs.msg import ModelStates
+from gazebo_msgs.msg import ModelState
+from gazebo_msgs.srv import SetModelState
 from sensor_msgs.msg import Image
 from std_msgs.msg import Float64
 from std_srvs.srv import Empty
 from tf.transformations import euler_from_quaternion
 from geometry_msgs.msg import Twist
 from geometry_msgs.msg import Point
+from geometry_msgs.msg import Pose
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
 import cvlib as cv
@@ -31,8 +34,8 @@ class Qnetwork():
     def __init__(self, h_size, rnn_cell, myScope):
         # The network recieves a frame from the game, flattened into an array.
         # It then resizes it and processes it through four convolutional layers.
-        self.scalarInput =  tf.placeholder(shape=[None,21168],dtype=tf.float32)
-        self.imageIn = tf.reshape(self.scalarInput,shape=[-1,84,84,3])
+        self.scalarInput =  tf.placeholder(shape=[None,21168], dtype=tf.float32)
+        self.imageIn = tf.reshape(self.scalarInput, shape=[-1,84,84,3])
         self.conv1 = slim.convolution2d(inputs=self.imageIn, num_outputs=32, kernel_size=[8,8],
                                         stride=[4,4], padding='VALID', biases_initializer=None, scope=myScope + '_conv1')
         self.conv2 = slim.convolution2d(inputs=self.conv1, num_outputs=64, kernel_size=[4,4], stride=[2,2], padding='VALID',
@@ -51,8 +54,8 @@ class Qnetwork():
         self.convFlat = tf.reshape(slim.flatten(self.conv4), [self.batch_size,self.trainLength,h_size])
         self.state_in = rnn_cell.zero_state(self.batch_size, tf.float32)
         self.rnn, self.rnn_state = tf.nn.dynamic_rnn(inputs=self.convFlat, cell=rnn_cell, dtype=tf.float32, 
-													 initial_state=self.state_in, scope=myScope + '_rnn')
-        self.rnn = tf.reshape(self.rnn,shape=[-1,h_size])
+                                                     initial_state=self.state_in, scope=myScope + '_rnn')
+        self.rnn = tf.reshape(self.rnn, shape=[-1,h_size])
 
         # The output from the recurrent player is then split into separate Value and Advantage streams
         self.streamA,self.streamV = tf.split(self.rnn, 2, 1)
@@ -73,7 +76,6 @@ class Qnetwork():
         self.actions_onehot = tf.one_hot(self.actions, 6, dtype=tf.float32)
         
         self.Q = tf.reduce_sum(tf.multiply(self.Qout, self.actions_onehot), axis=1)
-        
         self.td_error = tf.square(self.targetQ - self.Q)
         
         # In order to only propogate accurate gradients through the network, we will mask the first
@@ -103,9 +105,9 @@ class experience_buffer():
         sampled_episodes = random.sample(self.buffer, batch_size)
         sampledTraces = []
         for episode in sampled_episodes:
-            print("len(episode): " + str(len(episode)))
-            if (len(episode) != 51):
-                return -1
+            #print("len(episode): " + str(len(episode)))
+            #if (len(episode) != 51):
+            #    return -1
 
             point = np.random.randint(0, len(episode) + 1 - trace_length)
             sampledTraces.append(episode[point:point + trace_length])
@@ -140,41 +142,10 @@ def updateTarget(op_holder, sess):
 
 #This is a simple function to reshape our game frames.
 def processState(state1):
-    return np.reshape(state1,[21168])
+    return np.reshape(state1, [21168])
 
 
 ############## Deep Learning Part ###############
-# Setting the training parameters
-batch_size = 4 # How many experience traces to use for each training step.
-trace_length = 4 # How long each experience trace will be when training
-update_freq = 5 # How often to perform a training step.
-y = .99 # Discount factor on the target Q-values
-startE = 1 # Starting chance of random action
-endE = 0.1 # Final chance of random action
-anneling_steps = 2000 # How many steps of training to reduce startE to endE.
-#num_episodes = 100 # How many episodes of game environment to train network with.
-pre_train_steps = 200 # How many steps of random actions before training begins.
-load_model = False # Whether to load a saved model.
-path = "./drqn" # The path to save our model to.
-h_size = 512 # The size of the final convolutional layer before splitting it into Advantage and Value streams.
-#max_epLength = 50 # The max allowed length of our episode.
-time_per_step = 1 # Length of each step used in gif creation
-summaryLength = 100 # Number of epidoes to periodically save for analysis
-tau = 0.001
-
-
-############## ROS Part ###############
-# start is x:0, y:0
-x = 0.0
-y = 0.0
-theta = 0.0 # current angle of robot
-
-bridge = CvBridge()
-
-
-############## Deep Learning Part ###############
-state = (np.zeros([1,h_size]), np.zeros([1,h_size])) # Reset the recurrent layer's hidden state
-
 timestep = 0
 episodeBuffer = []
 d = False
@@ -188,6 +159,8 @@ s1 = s
 r = 0
 
 ############## ROS Part ###############
+bridge = CvBridge()
+
 image_j = j
 def image_callback_1(msg):
     global image_state
@@ -247,10 +220,6 @@ def image_callback_2(msg):
     except CvBridgeError, e:
         rospy.logerr("CvBridge Error: {0}".format(e))
 
-    # Show the converted image
-    #cv2.imshow("Robot2 Image Window", cv_image)
-    #cv2.waitKey(3)
-
 
 # maybe do some 'wait for service' here
 reset_simulation = rospy.ServiceProxy('/gazebo/reset_simulation', Empty)
@@ -300,6 +269,7 @@ def state_callback(msg):
 
 ############## ROS Part ###############
 rospy.init_node('jetbot')
+
 sub_image_1 = rospy.Subscriber("/robot1/camera1/image_raw", Image, image_callback_1)
 sub_image_2 = rospy.Subscriber("/robot2/camera1/image_raw", Image, image_callback_2)
 sub_state = rospy.Subscriber('/gazebo/model_states', ModelStates, state_callback)
@@ -311,13 +281,7 @@ pub_vel_right_1 = rospy.Publisher('/robot1/joint2_velocity_controller/command', 
 pub_vel_left_2 = rospy.Publisher('/robot2/joint1_velocity_controller/command', Float64, queue_size=5)
 pub_vel_right_2 = rospy.Publisher('/robot2/joint2_velocity_controller/command', Float64, queue_size=5)
  
-speed = Twist()
-
 rate = rospy.Rate(2000)
-
-goal = Point()
-goal.x = -2
-goal.y = -1
 
 stop_action = [0, 0]
 forward_action = [40, 40]
@@ -329,8 +293,27 @@ robot_action_list = [stop_action, forward_action, left_action, right_action, bac
 
 
 ############## Deep Learning Part ###############
-tf.reset_default_graph()
+# Setting the training parameters
+batch_size = 4 # How many experience traces to use for each training step.
+trace_length = 4 # How long each experience trace will be when training
+update_freq = 5 # How often to perform a training step.
+y = .99 # Discount factor on the target Q-values
+startE = 1 # Starting chance of random action
+endE = 0.1 # Final chance of random action
+anneling_steps = 2000 # How many steps of training to reduce startE to endE.
+#num_episodes = 100 # How many episodes of game environment to train network with.
+pre_train_steps = 200 # How many steps of random actions before training begins.
+load_model = False # Whether to load a saved model.
+path = "./drqn" # The path to save our model to.
+h_size = 512 # The size of the final convolutional layer before splitting it into Advantage and Value streams.
+#max_epLength = 50 # The max allowed length of our episode.
+time_per_step = 1 # Length of each step used in gif creation
+summaryLength = 100 # Number of epidoes to periodically save for analysis
+tau = 0.001
 
+state = (np.zeros([1,h_size]), np.zeros([1,h_size])) # Reset the recurrent layer's hidden state
+
+tf.reset_default_graph()
 
 # We define the cells for the primary and target q-networks
 cell = tf.contrib.rnn.BasicLSTMCell(num_units=h_size, state_is_tuple=True)
@@ -345,11 +328,9 @@ trainables = tf.trainable_variables()
 targetOps = updateTargetGraph(trainables, tau)
 myBuffer = experience_buffer()
 
-
 # Set the rate of random action decrease. 
 e = startE
 stepDrop = (startE - endE) / anneling_steps
-
 
 # Create lists to contain total rewards and steps per episode
 jList = []
@@ -361,7 +342,14 @@ if not os.path.exists(path):
     os.makedirs(path)
 
 sess = tf.Session()
-sess.run(init)
+
+if load_model == True:
+    print ('Loading Model...')
+    ckpt = tf.train.get_checkpoint_state(path)
+    saver.restore(sess, ckpt.model_checkpoint_path)
+else:
+    sess.run(init)
+
 updateTarget(targetOps,sess)
 
 
@@ -375,22 +363,7 @@ while not rospy.is_shutdown():
         a, state1 = sess.run([mainQN.predict, mainQN.rnn_state],
                               feed_dict = {mainQN.scalarInput:[s/255.0], mainQN.trainLength:1, mainQN.state_in:state, mainQN.batch_size:1})
         a = a[0]
-
-    inc_x = goal.x - x                      #distance robot to goal in x
-    inc_y = goal.y - y                      #distance robot to goal in y
-    angle_to_goal = atan2 (inc_y, inc_x)    #calculate angle through distance from robot to goal in x and y
-    #print abs(angle_to_goal - theta)
-    if abs(angle_to_goal - theta) > 0.1:    #0.1 because it too exact for a robot if both angles should be exactly 0
-        speed.linear.x = 0.0
-        speed.angular.z = 0.3
-    else:
-        speed.linear.x = 0.3                #drive towards goal
-        speed.angular.z = 0.0
     
-    #rospy.loginfo(velocity_1)
-    #rospy.loginfo(velocity_2)
-    #robot1_action_index = random.randint(0,6)
-    #robot2_action_index = random.randint(0,6)
     robot1_action = robot_action_list[a]
     pub_vel_left_1.publish(robot1_action[0])
     pub_vel_right_1.publish(robot1_action[1])
@@ -406,7 +379,6 @@ while not rospy.is_shutdown():
         d = True
     
     s1 = processState(image_state)
-    #print("s.shape: " + str(s.shape))
     
     total_steps += 1
     episodeBuffer.append(np.reshape(np.array([s,a,r,s1,d]), [1,5]))
@@ -441,30 +413,42 @@ while not rospy.is_shutdown():
 						       						  mainQN.targetQ:targetQ, mainQN.actions:trainBatch[:,1], mainQN.trainLength:trace_length,
  						       						  mainQN.state_in:state_train, mainQN.batch_size:batch_size})
 
-    #pub.publish(speed)
     rAll += r
     print("rAll: " + str(rAll))
-    #print("len(myBuffer.buffer): " + str(len(myBuffer.buffer)))
-    #print("myBuffer.buffer: " + str(myBuffer.buffer))
     print("")
 
     s = s1
     state = state1
-
     if d == True:
-        timestep = 0
-        episodeBuffer = []
-        d = False
-        rAll = 0
-        j = 0
-        
         bufferArray = np.array(episodeBuffer)
         episodeBuffer = list(zip(bufferArray))
         myBuffer.add(episodeBuffer)
         jList.append(j)
         rList.append(rAll)
 
-        reset_simulation()
+        timestep = 0
+        episodeBuffer = []
+        d = False
+        rAll = 0
+        j = 0
+
+        reset_simulation()        
+
+        set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+        pose = Pose() 
+        pose.position.x = np.random.randint(0,6)
+        pose.position.y = np.random.randint(0,6)
+        pose.position.z = 0.12
+  
+        pose.orientation.x = 0
+        pose.orientation.y = 0
+        pose.orientation.z = 0
+        pose.orientation.w = 0
+    
+        state_model = ModelState()   
+        state_model.model_name = "football"
+        state_model.pose = pose
+        resp = set_state(state_model)
 
     # Periodically save the model. 
     if total_steps % 100 == 0 and total_steps != 0:
