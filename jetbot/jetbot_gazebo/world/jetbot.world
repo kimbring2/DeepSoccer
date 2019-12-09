@@ -24,78 +24,55 @@
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>0.0 6.0 0 0 0 0</pose>
+        <pose>0.0 3.0 0 0 0 0</pose>
     </include>
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>6.25 6.0 0 0 0 0</pose>
+        <pose>3.25 3.0 0 0 0 0</pose>
     </include>
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>-6.25 6.0 0 0 0 0</pose>
+        <pose>-3.25 3.0 0 0 0 0</pose>
     </include>
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>6.25 -6.0 0 0 0 0</pose>
+        <pose>3.25 -3.0 0 0 0 0</pose>
     </include>
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>0.0 -6.0 0 0 0 0</pose>
+        <pose>0.0 -3.0 0 0 0 0</pose>
     </include> 
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>-6.25 -6.0 0 0 0 0</pose>
+        <pose>-3.25 -3.0 0 0 0 0</pose>
     </include> 
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>10.0 0.0 0 0 0 1.57</pose>
+        <pose>7.0 0.0 0 0 0 1.57</pose>
     </include>
 
     <include>
         <uri>model://grey_wall</uri>
         <name>grey_wall</name>
-        <pose>10.0 2.25 0 0 0 1.57</pose>
+        <pose>-7.0 0.0 0 0 0 1.57</pose>
     </include>
 
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>10.0 -2.25 0 0 0 1.57</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>-10.0 0.0 0 0 0 1.57</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>-10.0 2.25 0 0 0 1.57</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>-10.0 -2.25 0 0 0 1.57</pose>
-    </include>
 
     <!-- RoboCup 2015 MSL Goal left -->
     <include>
-        <pose>-9 0 0.01 0 0 3.14 </pose>
+        <pose>-6 0 0.01 0 0 3.14 </pose>
         <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/models/RoboCup15_MSL_Goal</uri>
         <name>left_goal</name>
         <static>true</static>
@@ -103,7 +80,7 @@
 
     <!-- RoboCup 2015 MSL Goal right -->
     <include>
-        <pose>9 0 0.01 0 0 0 </pose>
+        <pose>6 0 0.01 0 0 0 </pose>
         <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/models/RoboCup15_MSL_Goal</uri>
         <name>right_goal</name>
         <static>true</static>
