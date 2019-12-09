@@ -67,10 +67,3 @@ Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```.
 It will send a velocity command to each wheel and show a camera sensor image. Furthermore, Tensorflow code for Reinforcement Learning is implemented. Jetbot is able to only learn how to track a soccer ball at now. However, I train more advanced behavior after finishing first task.
 
 If you run a code, it will store a Tensorflow weight file at drqn folder of your workspace. 
-
-# Future plan
-First, I plan to play a soccer game using Jetbot. However, as a result of investigating the specs of the robot that can participate in offical robot soccer competiton such as Robocup, it it determined that the Jetbot hardware can not do the soccer immediately. This is because an additional part for catching and throwing the football is required.
-
-<img src="image/09-10-34.png" width="900">
-
-So I am currently studying how to design a robot directly using a CAD program. Still, there seems to be no significant change in Jetbot's URDF file or Gazebo simulation method, so uploaded files can be used as they are.
