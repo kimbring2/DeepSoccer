@@ -183,14 +183,20 @@ def image_callback_1(msg):
     r = 0
     for obj in label:
         if obj == "sports ball":
-            r = 1
             index = label.index(obj)
-            #print("index: " + str(index))
-            #x1 = int(bbox[index][0])
-            #y1 = int(bbox[index][1])
-            #x2 = int(bbox[index][2])
-            #y2 = int(bbox[index][3])
-            #cv2.rectangle(cv_image, (x1,y1), (x2,y2), (0,255,0), 2)
+            ball_bbox_x1 = bbox[index][0]
+            ball_bbox_x2 = bbox[index][2]
+            ball_bbox_middle = (ball_bbox_x1 + ball_bbox_x2) / 2.0
+            #print("ball_bbox_middle: " + str(ball_bbox_middle))
+            
+            if ( (ball_bbox_middle > 330) | (ball_bbox_middle < 390) ):
+                r = 1
+            
+            x1 = int(bbox[index][0])
+            y1 = int(bbox[index][1])
+            x2 = int(bbox[index][2])
+            y2 = int(bbox[index][3])
+            cv2.rectangle(cv_image, (x1,y1), (x2,y2), (0,255,0), 2)
     
     #print("cv_image.shape: " + str(cv_image.shape))
     ratio = 84.0 / cv_image.shape[1]
@@ -291,6 +297,23 @@ bacward_action = [-40, -40]
 kick_action = [100, 100]
 robot_action_list = [stop_action, forward_action, left_action, right_action, bacward_action, kick_action]
 
+set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+pose = Pose() 
+pose.position.x = np.random.randint(1,20) / 10.0
+pose.position.y = np.random.randint(1,20) / 10.0
+#pose.position.x = 0
+#pose.position.y = 0
+pose.position.z = 0.12
+  
+pose.orientation.x = 0
+pose.orientation.y = 0
+pose.orientation.z = 0
+pose.orientation.w = 0
+    
+state_model = ModelState()   
+state_model.model_name = "football"
+state_model.pose = pose
+resp = set_state(state_model)
 
 ############## Deep Learning Part ###############
 # Setting the training parameters
@@ -300,9 +323,9 @@ update_freq = 5 # How often to perform a training step.
 y = .99 # Discount factor on the target Q-values
 startE = 1 # Starting chance of random action
 endE = 0.1 # Final chance of random action
-anneling_steps = 2000 # How many steps of training to reduce startE to endE.
+anneling_steps = 20000 # How many steps of training to reduce startE to endE.
 #num_episodes = 100 # How many episodes of game environment to train network with.
-pre_train_steps = 200 # How many steps of random actions before training begins.
+pre_train_steps = 2000 # How many steps of random actions before training begins.
 load_model = False # Whether to load a saved model.
 path = "./drqn" # The path to save our model to.
 h_size = 512 # The size of the final convolutional layer before splitting it into Advantage and Value streams.
@@ -352,7 +375,6 @@ else:
 
 updateTarget(targetOps,sess)
 
-
 ############## ROS + Deep Learning Part ###############
 while not rospy.is_shutdown():
     if np.random.rand(1) < e or total_steps < pre_train_steps:
@@ -367,6 +389,8 @@ while not rospy.is_shutdown():
     robot1_action = robot_action_list[a]
     pub_vel_left_1.publish(robot1_action[0])
     pub_vel_right_1.publish(robot1_action[1])
+    #pub_vel_left_1.publish(0)
+    #pub_vel_right_1.publish(0)
 
     #robot2_action = robot_action_list[a]
     #pub_vel_left_2.publish(robot2_action[0])
@@ -375,7 +399,7 @@ while not rospy.is_shutdown():
     time.sleep(0.5)
     j = j + 1
     print("j: " + str(j))
-    if j > 50:
+    if j > 100:
         d = True
     
     s1 = processState(image_state)
@@ -415,6 +439,7 @@ while not rospy.is_shutdown():
 
     rAll += r
     print("rAll: " + str(rAll))
+    print("e: " + str(e))
     print("")
 
     s = s1
@@ -436,8 +461,10 @@ while not rospy.is_shutdown():
 
         set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
         pose = Pose() 
-        pose.position.x = np.random.randint(0,6)
-        pose.position.y = np.random.randint(0,6)
+        pose.position.x = np.random.randint(1,20) / 10.0
+        pose.position.y = np.random.randint(1,20) / 10.0
+        #pose.position.x = 0
+        #pose.position.y = 0
         pose.position.z = 0.12
   
         pose.orientation.x = 0
