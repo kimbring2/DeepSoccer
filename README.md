@@ -8,7 +8,7 @@ I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.h
 # Issue list
 1. ~There is a problem that robot does not move smoothly at high speed. It seems that the physical settings of the chassis and wheel are not set correctly. I am checking a parameter of other robot for solving that issue.~(solved)
 
-# Python package for Reinforcement Learning
+# Python package
 I use a tensorflow-gpu==1.13.1 for neural network part. And opencv-python, cvlib is neeed for soccer ball detection. 
 
 # Reference
