@@ -74,8 +74,15 @@ For robot1
 For robot2
 ```rostopic pub -1 /robot2/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-# Python code for Jetbot
+# Python code for Gazebo Simulator
 Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
 It will send a velocity command to each wheel and show a camera sensor image. Furthermore, Tensorflow code for Reinforcement Learning is implemented. Jetbot is able to only learn how to track a soccer ball at now. However, I train more advanced behavior after finishing first task.
 
 If you run a code, it will store a Tensorflow weight file at drqn folder of your workspace. 
+
+# Python code for real Jetbot
+```$ roscore ```
+```$ rosrun jetbot_ros jetbot_camera ```
+```$ python ```
+
+First, set up ROS at https://github.com/dusty-nv/jetbot_ros with actual Jetbot hardware. Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node. After that, when the uploaded jetbot_ros.py file is executed, it is possible to receive the camera frame as an input and output the speed of the left and right motors as an input in the same manner as one method in Gazebo. Also in this code, the part that detected the soccer ball using cvlib can be done with Jetson board using jetson.utils, jetson.inference.
