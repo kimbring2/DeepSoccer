@@ -82,7 +82,9 @@ If you run a code, it will store a Tensorflow weight file at drqn folder of your
 
 # Python code for real Jetbot
 ```$ roscore ```
+
 ```$ rosrun jetbot_ros jetbot_camera ```
-```$ python ```
+
+```$ python jetbot_ros.py ```
 
 First, set up ROS at https://github.com/dusty-nv/jetbot_ros with actual Jetbot hardware. Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node. After that, when the uploaded jetbot_ros.py file is executed, it is possible to receive the camera frame as an input and output the speed of the left and right motors as an input in the same manner as one method in Gazebo. Also in this code, the part that detected the soccer ball using cvlib can be done with Jetson board using jetson.utils, jetson.inference.
