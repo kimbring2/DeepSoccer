@@ -1,8 +1,7 @@
 # Introduction
 I started this is a project for making NVIDIA Jetbot playing soccer. I mainly use a Gazebo of ROS for traning Jetbot to play soccer. Traning Deep Learning algorithm is Reinforcmenet Learning. Thus, I need a virtual environment. After training, the trained model is moved to the actual Jetbot. I need to check that kind of approach will work well.
 
-<img src="image/POM_Jetson.png">
-<strong>I get a prize from NVIDIA for this project!</strong>
+<img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project!</strong>
 
 You can see a original Jetbot related code at https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. But, there is no URDF file of Jetbot which is needed for simulating a robot in Gazebo. Thus, I change SDF file of Jetbot to URDF. 
 
