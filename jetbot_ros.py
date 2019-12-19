@@ -34,7 +34,7 @@ rospy.loginfo("Hello Jetbot!")
 bridge = CvBridge()
 
 # load the recognition network
-net = jetson.inference.imageNet("googlenet")
+net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.3)
 
 # Define a callback for the Image message
 def image_callback(img_msg):
@@ -56,11 +56,19 @@ def image_callback(img_msg):
     in_arr = jetson.utils.cudaFromNumpy(img_BGRA)
     
     #jetson.utils.saveImageRGBA('ros_camera_image.jpg', in_arr, 1280, 720)
+    overlay = "box,labels,conf"
+    
+    width = 1280
+    height = 720
     
     # classify the image
-    class_idx, confidence = net.Classify(in_arr, 1280, 720)
-    #print("class_idx: " + str(class_idx))
-    #print("confidence: " + str(confidence))
+    detections = net.Detect(in_arr, width, height, overlay)
+    
+    # print the detections
+    print("detected {:d} objects in image".format(len(detections)))
+    
+    # find the object description
+    jetson.utils.saveImageRGBA("detect_result.jpg", in_arr, width, height)
 
 # Initalize a subscriber to the "/jetbot_camera/raw" topic with the function "image_callback" as a callback
 sub_image = rospy.Subscriber("/jetbot_camera/raw", Image, image_callback)
