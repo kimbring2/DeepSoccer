@@ -92,7 +92,7 @@ First, set up ROS in actual Jetbot hardware based on manual of https://github.co
 # Tensorflow model freezing for TensorRT inference
 Tensorflow model trained using Gazebo simulation can be used without installing Tensorflow on Jetson Nano. However, the saved model needs to be freezing by using first part of 'RL_model_froze.ipynb'. You need to change a 'model_dir = "/home/kimbring2/catkin_ws/src/jetbot/jetbot_control/src/drqn"' line for your workplace setting.
 
-<img src="image/model_freezing.png" width="600">
+<img src="image/jetbot_frozen_graph.png" width="600">
 
-You should check 'frozen_model.pb' file generated in drqn folder. After generating, you can check the frozen graph by using a second part of 'RL_model_froze.ipynb' file.
+You should check a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
 
