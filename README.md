@@ -102,9 +102,13 @@ I am currently remodeling Jetbot's hardware because it is not suitable for socce
 
 <img src="image/jetbot_soccer.png" width="800">
 
+There are two main types of equipment. They are divided for kicking and holding soccer ball.
+
 <img src="image/jetbot_board.png" width="400"> <img src="image/jetbot_antenna_hori.png" width="400">
 
 <img src="image/jetbot_dcmotor.png" width="400"> <img src="image/jetbot_omniwheel.png" width="400">
+
+<img src="image/solenoid_motor.jpg" width="400"> <img src="image/rubber_roller.png" width="400">
 
 I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
 
