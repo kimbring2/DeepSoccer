@@ -108,4 +108,4 @@ I am currently remodeling Jetbot's hardware because it is not suitable for socce
 
 I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
 
-[Jetbot for soccer 3d model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b63970)
+[Modified Jetbot Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b63970)
