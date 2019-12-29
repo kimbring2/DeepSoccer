@@ -108,7 +108,7 @@ There are two main types of equipment. They are divided for kicking and holding 
 
 <img src="image/jetbot_dcmotor.png" width="400"> <img src="image/jetbot_omniwheel.png" width="400">
 
-<img src="image/solenoid_motor.jpg" width="400"> <img src="image/rubber_roller.png" width="400">
+<img src="image/solenoid_motor.jpg" width="400"> <img src="image/rubber_roller.jpg" width="400">
 
 I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
 
