@@ -97,7 +97,7 @@ You should check a inference output at bottom of cell and modify 'model-1.cptk.m
 # Modify Jetbot for soccer
 I am currently remodeling Jetbot's hardware because it is not suitable for soccer. The new Jetbot will secure a soccer ball and kick it. The wheels will also be changed to omniwheel type for moving more freely. Batterie and WiFi antennas of previous Jetbot seem to be reused for saving money.
 
-<img src="/jetbot_soccer_proto_1.png" width="800">
+<img src="/image/jetbot_soccer_proto_1.png" width="800">
 
 There are two main types of equipment. They are divided for kicking and holding soccer ball. I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
 
