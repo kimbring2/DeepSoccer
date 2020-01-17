@@ -97,11 +97,13 @@ You should check a inference output at bottom of cell and modify 'model-1.cptk.m
 # Modify Jetbot for soccer
 I am currently remodeling Jetbot's hardware because it is not suitable for soccer. The new Jetbot will secure a soccer ball and kick it. The wheels will also be changed to omniwheel type for moving more freely. Batterie and WiFi antennas of previous Jetbot seem to be reused for saving money.
 
-<img src="image/jetbot_soccer_1.png" width="400"> <img src="image/dynamixel_connect.jpg" width="400">
+<img src="/jetbot_soccer_proto_1.png" width="800">
 
 There are two main types of equipment. They are divided for kicking and holding soccer ball. I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
 
 [Modified Jetbot Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700)
+
+I complete design, production and assembly of prototype. I am going to convert the 3D model of Onshape into a model for Gazebo simulation.
 
 [![Protoype test 1](https://img.youtube.com/vi/zNTldaCe1ZQ/0.jpg)](https://youtu.be/zNTldaCe1ZQ "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
