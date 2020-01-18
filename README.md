@@ -107,3 +107,13 @@ There are two main types of equipment. They are divided for kicking and holding 
 <strong>Click to Watch!</strong>
 
 I complete design, production and assembly of prototype. Thus, I need to convert the 3D model of Onshape into a model for Gazebo simulation and make a code for controlloing Dynamixel.
+
+# Dynamixel SDK test
+The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robotis.
+
+1. Check your connection between motor and control board(I recommend checking a operation of motor using Dynamixel Wizard).
+2. First, download a SDK from 'https://github.com/ROBOTIS-GIT/DynamixelSDK.git' to your Jetson Nano.
+3. Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py' first. I should show a return like a below picture
+<img src="/image/dynamixel_ping_test.png" width="800">
+
+4. 
