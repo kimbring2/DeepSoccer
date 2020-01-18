@@ -118,3 +118,6 @@ The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robot
 
 4. Open 'read_write.py' using a text editor and change a paramter for MX-12W(You can also change a parameter using Dynamixel Wizard).
 <img src="/image/rw_setting.png" width="800">
+
+5. Run 'read_write.py' and you should see a success return like a below picture.
+<img src="/image/rw_success.png" width="800">
