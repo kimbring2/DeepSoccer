@@ -124,3 +124,6 @@ The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robot
 
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
+
+
+Please check it for all motor of each wheel.
