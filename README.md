@@ -121,3 +121,6 @@ The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robot
 
 5. Run 'read_write.py' and you should see a success return like a below picture.
 <img src="/image/rw_success.png" width="800">
+
+[![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
