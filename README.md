@@ -131,6 +131,6 @@ Please check it for all motor of each wheel.
 # Transform Onshape 3D model to URDF
 The new Jetbot for Soccer is built using Onshape, and Gazebo needs a URDF file as it was for the first time. There is a program that does this automatically, and I use it in my project. The converted file has been uploaded to https://github.com/kimbring2/jetbot_soccer/tree/master/skeleton and Pybullet simulation is possible.
 
-<img src="/image/Jetbot_Soccer_Pybullet_Test.gif" width="800">
+<img src="/image/Jetbot_Soccer_Pybullet_Test.gif" width="500">
 
 Although still light and incomplete, the basic skeleton can be confirmed to have been constructed.
