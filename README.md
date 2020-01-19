@@ -20,6 +20,7 @@ I use a tensorflow-gpu==1.13.1 for neural network part. And opencv-python, cvlib
 5. Soccer field, ball model: [Soccer field, ball model](https://github.com/RoboCup-MSL/MSL-Simulator)
 6. Reinforcement Learnig model : [Reinforcement Learnig model](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc)
 7. Inference saved model : [Tensorrt](http://litaotju.github.io/2019/01/24/Tensorflow-Tutorial-6,-Using-TensorRT-to-speedup-inference/)
+8. Onshape 3D model to URDF: [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
 
 # How to Build
 ```
@@ -125,5 +126,11 @@ The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robot
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-
 Please check it for all motor of each wheel.
+
+# Transform Onshape 3D model to URDF
+The new Jetbot for Soccer is built using Onshape, and Gazebo needs a URDF file as it was for the first time. There is a program that does this automatically, and I use it in my project. The converted file has been uploaded to https://github.com/kimbring2/jetbot_soccer/tree/master/skeleton and Pybullet simulation is possible.
+
+<img src="/image/Jetbot_Soccer_Pybullet_Test.gif" width="800">
+
+Although still light and incomplete, the basic skeleton can be confirmed to have been constructed.
