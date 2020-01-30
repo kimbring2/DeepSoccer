@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<robot name="jetbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:include filename="$(find jetbot_description)/urdf/jetbot.gazebo" />
+
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
+    <link name="world"/>
+
+    <joint name="fixed" type="fixed">
+      <parent link="world"/>
+      <child link="chassis"/>
+    </joint>
+
+    <link name="chassis">
+      <inertial>
+        <mass value="2.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="0.08025" ixy="0" ixz="0" iyy="0.08025" iyz="0" izz="0.1445"/>
+      </inertial>
+
+      <collision>
+        <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.086"/>
+        <geometry>
+          <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.002 0.002 0.002"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin rpy="1.57079632679 0.0 1.57079632679" xyz="0.0 0.0 0.086"/>
+        <geometry>
+          <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Chassis.dae" scale="0.002 0.002 0.002"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="left_wheel">
+      <inertial>
+        <mass value="0.3"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="0.000129167" ixy="0" ixz="0" iyy="0.000129167" iyz="0" izz="0.0000225"/>
+      </inertial>
+
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+          <geometry>
+            <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
+          </geometry>
+      </visual>
+    </link>
+
+
+    <joint name='left_wheel_hinge' type='revolute'>
+      <origin rpy="0.0 0.0 1.57079632679" xyz="0.06 0.1025 0.06"/>
+      <child  link="left_wheel"/>
+      <parent link="chassis"/>
+      <axis rpy="0 0 0" xyz="1 0 0"/>
+      <limit lower="-1e+16" upper="1e+16" effort="100" velocity="100"/>
+    </joint>
+
+
+    <link name="right_wheel">
+      <inertial>
+        <mass value="0.3"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="0.000129167" ixy="0" ixz="0" iyy="0.000129167" iyz="0" izz="0.0000225"/>
+      </inertial>
+
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find jetbot_description)/urdf/jetbot/meshes/JetBot-v3-Wheel.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint name='right_wheel_hinge' type='revolute'>
+      <origin rpy="0.0 0.0 1.57079632679 " xyz="0.06 -0.119 0.06"/>
+      <child  link="right_wheel"/>
+      <parent link="chassis"/>
+      <axis rpy="0 0 0" xyz="1 0 0"/>
+      <limit lower="-1e+16" upper="1e+16" effort="100" velocity="100"/>
+    </joint>
+
+
+    <joint name="camera_joint" type="fixed">
+      <origin rpy="0 0.25 0" xyz="0.11 0.0 0.1714"/>
+      <child  link="camera_link"/>
+      <parent link="chassis"/>
+      <pose>0.0 0.0 0.0 0.0 0.0 0.0</pose>
+      <axis>
+        <xyz>0.1 0.0 0.0</xyz>
+      </axis>
+    </joint>
+
+
+    <!-- Camera -->
+    <link name="camera_link">
+      <gravity>false</gravity>
+      <inertial>
+        <inertia ixx="0"  ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+        <mass value="0.1"/>
+      </inertial>
+      <visual name="visual">
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <geometry>
+          <box size="0.002 0.002 0.002"/>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <joint name="camera_optical_joint" type="fixed">
+      <!-- these values have to be these values otherwise the gazebo camera image
+          won't be aligned properly with the frame it is supposedly originating from -->
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="camera_link"/>
+      <child link="camera_link_optical"/>
+    </joint>
+
+
+    <link name="camera_link_optical">
+    </link>
+
+
+    <transmission name="tran1">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="left_wheel_hinge">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor1">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+
+    <transmission name="tran2">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="right_wheel_hinge">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="motor2">
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+</robot>
