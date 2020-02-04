@@ -1,5 +1,5 @@
 <launch>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find jetbot_description)/urdf/robot_rviz.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find jetbot_description)/urdf/jetbot_soccer_rviz.xacro'"/>
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model m2wr" />

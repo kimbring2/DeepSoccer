@@ -21,55 +21,6 @@
         <static>true</static>
     </include>
 
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>0.0 3.0 0 0 0 0</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>3.25 3.0 0 0 0 0</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>-3.25 3.0 0 0 0 0</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>3.25 -3.0 0 0 0 0</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>0.0 -3.0 0 0 0 0</pose>
-    </include> 
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>-3.25 -3.0 0 0 0 0</pose>
-    </include> 
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>7.0 0.0 0 0 0 1.57</pose>
-    </include>
-
-    <include>
-        <uri>model://grey_wall</uri>
-        <name>grey_wall</name>
-        <pose>-7.0 0.0 0 0 0 1.57</pose>
-    </include>
-
-
     <!-- RoboCup 2015 MSL Goal left -->
     <include>
         <pose>-6 0 0.01 0 0 3.14 </pose>
