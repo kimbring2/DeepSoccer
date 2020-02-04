@@ -115,13 +115,13 @@ The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robot
 1. Check your connection between motor and control board(I recommend checking a operation of motor using Dynamixel Wizard).
 2. First, download a SDK from 'https://github.com/ROBOTIS-GIT/DynamixelSDK.git' to your Jetson Nano.
 3. Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py' first. I should show a return like a below picture
-<img src="/image/dynamixel_ping_test.png" width="800">
+<img src="/image/dynamixel_ping_test.png" width="600">
 
 4. Open 'read_write.py' using a text editor and change a paramter for MX-12W(You can also change a parameter using Dynamixel Wizard).
-<img src="/image/rw_setting.png" width="800">
+<img src="/image/rw_setting.png" width="600">
 
 5. Run 'read_write.py' and you should see a success return like a below picture.
-<img src="/image/rw_success.png" width="800">
+<img src="/image/rw_success.png" width="600">
 
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
