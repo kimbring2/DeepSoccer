@@ -143,10 +143,12 @@ After launching a RViz, you can control of each wheel and roller using dialog bo
 After checking a Jetbot soccer version at RViz, try to control it at Gazebo simulation.
 
 ```
-roslaunch jetbot_description robot_rviz.launch
+roslaunch jetbot_gazebo main_soccer.launch
 ```
 
-After launching a RViz, you can control of each wheel and roller using dialog box.
+You can control of each wheel and roller motor using Add Force / Torqu function like a original Jetbot Gazebo test.
 
-[![Protoype Gazebo 1](https://img.youtube.com/vi/-cd3EM6_G4k/hqdefault.jpg)](https://youtu.be/-cd3EM6_G4k "Jetbot Soccer Play - Click to Watch!")
+[![Protoype Gazebo Test 1](https://img.youtube.com/vi/-cd3EM6_G4k/hqdefault.jpg)](https://youtu.be/-cd3EM6_G4k "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
+
+Implementing catching the ball using rollers need time more.
