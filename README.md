@@ -131,7 +131,7 @@ Please check it for all motor of each wheel.
 # RViz test for Jetbot soccer version
 You can see a RViz 3D Model of Jetbot soccer using below command.
 ```
-roslaunch jetbot_description robot_rviz.launch
+roslaunch jetbot_description jetbot_soccer_rviz.launch
 ```
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
