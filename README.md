@@ -44,7 +44,7 @@ roslaunch jetbot_gazebo main.launch
 ```
 
 # Soccer model path setting
-You should change a some code of sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
+You should change a modeling path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
 
 It is just example line of uri. Please change all uri path for your PC environment.
 ```
