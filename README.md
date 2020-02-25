@@ -53,9 +53,19 @@ It is just example line of uri. Please change all uri path for your PC environme
 ```
 
 # Troubleshooting 
+## RLException Error
 <img src="image/Error_Message.png" width="600">
 
-If you get a RLException error message, type 'source devel/setup.bash' and try again.
+If you get a 'RLException' error message, type 'source devel/setup.bash' and try again.
+
+## Could not load controller Error
+<img src="image/controller_error.png" width="600">
+
+If you get a 'Could not load controller' error message, try to install related package using below command at your terminal.
+
+```
+$ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
+```
 
 # How to manually send a wheel velocity commands
 The range of velocity that can be given to the wheel is 0 to 100.
