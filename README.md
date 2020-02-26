@@ -162,4 +162,14 @@ You can control of each wheel and roller motor using Add Force / Torqu function 
 [![Protoype Gazebo Test 1](https://img.youtube.com/vi/-cd3EM6_G4k/hqdefault.jpg)](https://youtu.be/-cd3EM6_G4k "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-Implementing catching the ball using rollers needs time more.
+In addition, each wheel can be controlled using rostopic command like a previous Jetbot test.
+
+```
+rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/joint3_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/joint4_velocity_controller/command std_msgs/Float64 "data: 30"
+```
+
+[![Protoype Gazebo Test 2](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
