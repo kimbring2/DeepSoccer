@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="jetbot_soccer" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:include filename="$(find jetbot_description)/urdf/jetbot_soccer.gazebo" />
+
+	<link name="body_1_0_body_3">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/body_3.stl"/>
+			</geometry>
+			<material name="body_1_0_body_3_material">
+				<color rgba="0.917647 0.917647 0.917647 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/body_3.stl"/>
+			</geometry>
+			<material name="body_1_0_body_3_material">
+				<color rgba="0.917647 0.917647 0.917647 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="0.250754 0.114603 0.00127" rpy="0 0 0"/>
+			<mass value="0.0740803"/>
+			<inertia ixx="0.000127348" ixy="-7.58421e-09"  ixz="0" iyy="0.000127085" iyz="0" izz="0.000254353" />
+		</inertial>
+	</link>
+</robot>

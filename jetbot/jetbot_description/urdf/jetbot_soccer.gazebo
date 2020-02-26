@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="body_1">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="horn4_1">
+    <material>Gazebo/RedBright</material>
+  </gazebo>
+
+  <gazebo reference="horn1_1">
+    <material>Gazebo/RedBright</material>
+  </gazebo>
+
+  <gazebo reference="horn4_2">
+    <material>Gazebo/RedBright</material>
+  </gazebo>
+
+  <gazebo reference="horn2_1">
+    <material>Gazebo/RedBright</material>
+  </gazebo>
+</robot>

@@ -16,7 +16,7 @@ joint3_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: wheel3
   pid: {p: 100.0, i: 0.01, d: 10.0}
-joint3_velocity_controller:
+joint4_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: wheel4
   pid: {p: 100.0, i: 0.01, d: 10.0}
