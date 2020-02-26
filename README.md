@@ -164,12 +164,12 @@ You can control of each wheel and roller motor using Add Force / Torqu function 
 
 In addition, each wheel can be controlled using rostopic command like a previous Jetbot test.
 
+[![Protoype Gazebo Test 2](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
 ```
 rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint3_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint4_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
-
-[![Protoype Gazebo Test 2](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
