@@ -173,3 +173,6 @@ rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "dat
 rostopic pub -1 /robot1/joint3_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint4_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
+
+# License
+Apache License 2.0
