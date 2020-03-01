@@ -9,8 +9,11 @@ And all code are based on ROS URDF official tutorial http://gazebosim.org/tutori
 
 I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please see it if you need more information about code. 
 
+# Python version
+Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7 version environment.
+
 # Python package
-I use a tensorflow-gpu==1.13.1 for neural network part. And opencv-python, cvlib is neeed for soccer ball detection. 
+I use a tensorflow-gpu==1.13.1 for neural network part. And opencv-python, cvlib(1.8.0), requests, progressbar, keras is neeed for soccer ball detection. 
 
 # Reference
 1. Jetbot SDF file, ROS : [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
