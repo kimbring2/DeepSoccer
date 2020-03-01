@@ -54,18 +54,23 @@ It is just example line of uri. Please change all uri path for your PC environme
 
 # Troubleshooting 
 ## RLException Error
+If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
+
 <img src="image/Error_Message.png" width="600">
 
-If you get a 'RLException' error message, type 'source devel/setup.bash' and try again.
+## Could not find the GUI, install the 'joint_state_publisher_gui' package Error
+If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, use 'sudo apt install ros-melodic-joint-state-publisher-gui' command for installing it.
+
+<img src="image/joint_state_error.jpg" width="600">
 
 ## Could not load controller Error
-<img src="image/controller_error.png" width="600">
-
 If you get a 'Could not load controller' error message, try to install related package using below command at your terminal.
 
 ```
 $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 ```
+
+<img src="image/controller_error.png" width="600">
 
 # How to manually send a wheel velocity commands
 The range of velocity that can be given to the wheel is 0 to 100.
