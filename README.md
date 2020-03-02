@@ -155,7 +155,7 @@ roslaunch jetbot_description jetbot_soccer_rviz.launch
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
-[![Protoype RViz](https://img.youtube.com/vi/yrkl0Nk2Q7U/hqdefault.jpg)](https://youtu.be/yrkl0Nk2Q7U "Jetbot Soccer Play - Click to Watch!")
+[![Protoype RViz](https://img.youtube.com/vi/CnO9fYR_8H8/hqdefault.jpg)](https://youtu.be/CnO9fYR_8H8 "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 # Gazebo test for Jetbot soccer version
