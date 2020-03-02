@@ -165,14 +165,9 @@ After checking a Jetbot soccer version at RViz, try to control it at Gazebo simu
 roslaunch jetbot_gazebo main_soccer.launch
 ```
 
-You can control of each wheel and roller motor using Add Force / Torqu function like a original Jetbot Gazebo test.
+You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
 
-[![Protoype Gazebo Test 1](https://img.youtube.com/vi/-cd3EM6_G4k/hqdefault.jpg)](https://youtu.be/-cd3EM6_G4k "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
-In addition, each wheel can be controlled using rostopic command like a previous Jetbot test.
-
-[![Protoype Gazebo Test 2](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
+[![Protoype Gazebo Test](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 ```
