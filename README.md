@@ -187,5 +187,7 @@ Finally kick the ball via speed control of solenoid motor.
 rostopic pub -1 /robot1/joint6_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
+Please check blog for video of that command(https://kimbring2.github.io/2019/10/26/jetbot.html#soccer_robot_design_simulation)
+
 # License
 Apache License 2.0
