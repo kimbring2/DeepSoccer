@@ -155,9 +155,6 @@ roslaunch jetbot_description jetbot_soccer_rviz.launch
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
-[![Protoype RViz](https://img.youtube.com/vi/CnO9fYR_8H8/hqdefault.jpg)](https://youtu.be/CnO9fYR_8H8 "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
 # Gazebo test for Jetbot soccer version
 After checking a Jetbot soccer version at RViz, try to control it at Gazebo simulation.
 
@@ -166,10 +163,6 @@ roslaunch jetbot_gazebo main_soccer.launch
 ```
 
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
-
-[![Gazebo ball holding test](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
 First, adjust the speed of the wheels to approach to the ball.
 
 1. Command for wheel motor
@@ -193,9 +186,6 @@ Finally kick the ball via speed control of solenoid motor.
 ```
 rostopic pub -1 /robot1/joint6_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
-
-[![Gazebo ball kicking test](https://img.youtube.com/vi/_qAQUwCy2ck/hqdefault.jpg)](https://youtu.be/_qAQUwCy2ck "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
 
 # License
 Apache License 2.0
