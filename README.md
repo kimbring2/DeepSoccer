@@ -167,21 +167,35 @@ roslaunch jetbot_gazebo main_soccer.launch
 
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
 
-[![Protoype Gazebo Test](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
+[![Gazebo ball holding test](https://img.youtube.com/vi/r4q-eAadR_o/hqdefault.jpg)](https://youtu.be/r4q-eAadR_o "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
+First, adjust the speed of the wheels to approach to the ball.
+
+1. Command for wheel motor
 ```
 rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint3_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/joint4_velocity_controller/command std_msgs/Float64 "data: 30"
-
-rostopic pub -1 /robot1/joint5_velocity_controller/command std_msgs/Float64 "data: 30"
-
-rostopic pub -1 /robot1/joint5_velocity_controller/command std_msgs/Float64 "data: 30"
-
-rostopic pub -1 /robot1/joint6_position_controller/command std_msgs/Float64 "data: 0.02"
 ```
+
+Next, rotate a roller motor to pull the ball.
+
+2. Command for roller motor
+```
+rostopic pub -1 /robot1/joint5_velocity_controller/command std_msgs/Float64 "data: 30"
+```
+
+Finally kick the ball via speed control of solenoid motor.
+
+3. Command for solenoid motor
+```
+rostopic pub -1 /robot1/joint6_velocity_controller/command std_msgs/Float64 "data: 30"
+```
+
+[![Gazebo ball kicking test](https://img.youtube.com/vi/_qAQUwCy2ck/hqdefault.jpg)](https://youtu.be/_qAQUwCy2ck "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
 
 # License
 Apache License 2.0
