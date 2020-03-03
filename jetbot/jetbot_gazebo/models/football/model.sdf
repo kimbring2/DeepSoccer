@@ -4,15 +4,15 @@
    <!-- inertia 3.2e-03 -->
    <model name="football">
       <static>0</static>
-      <pose>0 0 0 0 -0 0</pose>
+      <pose>0 0 5 0 0 0</pose>
       <link name="chassis">
          <self_collide>0</self_collide>
          <inertial>
-            <mass>0.41</mass>
+            <mass>0.041</mass>
             <inertia>
-               <ixx>3.2e-03</ixx>
-               <iyy>3.2e-03</iyy>
-               <izz>3.2e-03</izz>
+               <ixx>3.2e-04</ixx>
+               <iyy>3.2e-04</iyy>
+               <izz>3.2e-04</izz>
                <ixy>0</ixy>
                <ixz>0</ixz>
                <iyz>0</iyz>
@@ -21,17 +21,17 @@
          <collision name="collision">
             <geometry>
                <sphere>
-                  <radius>0.10</radius>
+                  <radius>0.04</radius>
                </sphere>
             </geometry>
             <surface>
                <bounce>
-                  <restitution_coefficient>0.05</restitution_coefficient>
+                  <restitution_coefficient>0.20</restitution_coefficient>
                   <threshold>10</threshold>
                </bounce>
                <friction>
                   <torsional>
-                     <coefficient>1.0</coefficient>
+                     <coefficient>0.1</coefficient>
                      <use_patch_radius>true</use_patch_radius>
                      <patch_radius>0.05</patch_radius>
                   </torsional>
@@ -50,7 +50,7 @@
          <visual name="visual">
             <geometry>
                <mesh>
-                  <scale>0.10 0.10 0.10</scale>
+                  <scale>0.04 0.04 0.04</scale>
                   <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/meshes/ball.dae</uri>
                </mesh>
             </geometry>

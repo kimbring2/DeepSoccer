@@ -5,7 +5,7 @@
 
      <param name="/robot1/robot_description" command="$(find xacro)/xacro --inorder '$(find jetbot_description)/urdf/jetbot_soccer.xacro'"/>
         <node name="urdf_spawner_1" pkg="gazebo_ros" type="spawn_model"
-          args="-z 1.0 -unpause -urdf -model robot1 -param robot_description -x -1 -y 0 -z 1
+          args="-z 1.0 -unpause -urdf -model robot1 -param robot_description -x -1 -y 0 -z 0.2
               -R 0 -P 0 -Y 1.57" respawn="false" output="screen">
         </node>
 
@@ -20,36 +20,8 @@
           joint2_velocity_controller
           joint3_velocity_controller
           joint4_velocity_controller
-          --shutdown-timeout 3">
-        </node>
-        <!--
-        <node name="rqt_robot_steering1" pkg="rqt_robot_steering" type="rqt_robot_steering">
-          <param name="default_topic" value="/robot1/joint1_velocity_controller/command"/>
-        </node>
-        -->
-  </group>
-
-  <group ns="/robot2">
-    <param name="tf_prefix" value="jetbot2" />
-     <rosparam file="$(find jetbot_control)/config/jetbot_soccer_control.yaml" command="load" ns="/robot2" />
-
-     <param name="/robot2/robot_description" command="$(find xacro)/xacro --inorder '$(find jetbot_description)/urdf/jetbot_soccer.xacro'"/>
-        <node name="urdf_spawner_1" pkg="gazebo_ros" type="spawn_model"
-          args="-z 1.0 -unpause -urdf -model robot2 -param robot_description -x 5 -y 0 -z 1
-              -R 0 -P 0 -Y 1.57" respawn="false" output="screen">
-        </node>
-
-        <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher_2">
-          <param name="publish_frequency" type="double" value="30.0" />
-        </node>
-
-        <node name="robot2_controller_spawner" pkg="controller_manager" type="spawner" 
-          args="--namespace=/robot2
-          joint_state_controller
-          joint1_velocity_controller
-          joint2_velocity_controller
-          joint3_velocity_controller
-          joint4_velocity_controller
+          joint5_velocity_controller
+          joint6_position_controller
           --shutdown-timeout 3">
         </node>
         <!--

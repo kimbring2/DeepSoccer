@@ -79,7 +79,6 @@
       </visual>
     </link>
 
-
     <joint name='right_wheel_hinge' type='revolute'>
       <origin rpy="0.0 0.0 1.57079632679 " xyz="0.06 -0.119 0.06"/>
       <child  link="right_wheel"/>
@@ -87,7 +86,6 @@
       <axis rpy="0 0 0" xyz="1 0 0"/>
       <limit lower="-1e+16" upper="1e+16" effort="100" velocity="100"/>
     </joint>
-
 
     <joint name="camera_joint" type="fixed">
       <origin rpy="0 0.25 0" xyz="0.11 0.0 0.1714"/>
@@ -98,7 +96,6 @@
         <xyz>0.1 0.0 0.0</xyz>
       </axis>
     </joint>
-
 
     <!-- Camera -->
     <link name="camera_link">
@@ -115,7 +112,6 @@
       </visual>
     </link>
 
-
     <joint name="camera_optical_joint" type="fixed">
       <!-- these values have to be these values otherwise the gazebo camera image
           won't be aligned properly with the frame it is supposedly originating from -->
@@ -124,10 +120,8 @@
       <child link="camera_link_optical"/>
     </joint>
 
-
     <link name="camera_link_optical">
     </link>
-
 
     <transmission name="tran1">
       <type>transmission_interface/SimpleTransmission</type>

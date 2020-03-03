@@ -8,11 +8,11 @@
     </joint>
 
 	<link name="body_1">
-		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0" />
-			<mass value="1e-9" />
-			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
-		</inertial>
+	<inertial>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<mass value="1e-9" />
+		<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+	</inertial>
 	</link>
 	<link name="body_1_0_body_3">
 		<visual>
@@ -90,9 +90,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="4.83699e-18 -2.58534e-16 0.0170962" rpy="0 0 0"/>
+			<mass value="0.0218513"/>
+			<inertia ixx="3.91997e-06" ixy="0"  ixz="0" iyy="3.66242e-06" iyz="0" izz="1.61449e-06" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_2_gearbox_fixing" type="fixed">
@@ -101,33 +101,33 @@
 		<child link="body_1_2_gearbox" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_3_document">
+	<link name="body_1_3_m3_l30mm">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_3_document_material">
+			<material name="body_1_3_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_3_document_material">
+			<material name="body_1_3_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+			<mass value="0.000771083"/>
+			<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_3_document_fixing" type="fixed">
+	<joint name="body_1_body_1_3_m3_l30mm_fixing" type="fixed">
 		<origin xyz="-0.141841 -0.014347 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_3_document" />
+		<child link="body_1_3_m3_l30mm" />
 		<axis xyz="0 0 0"/>
 	</joint>
 	<link name="body_1_4_m3_40mm_supporter">
@@ -148,9 +148,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.18 -1.5606e-11 -0.02" rpy="0 0 0"/>
+			<mass value="0.00107203"/>
+			<inertia ixx="1.32091e-07" ixy="5.85025e-15"  ixz="3.17107e-16" iyy="1.32091e-07" iyz="2.04825e-16" izz="4.07814e-09" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_4_m3_40mm_supporter_fixing" type="fixed">
@@ -177,9 +177,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0566812 0.00635 0.0216284" rpy="0 0 0"/>
+			<mass value="1.66881e-05"/>
+			<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_5_____.step_fixing" type="fixed">
@@ -206,9 +206,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.057953 0.0136724 0.0389997" rpy="0 0 0"/>
+			<mass value="0.00502468"/>
+			<inertia ixx="3.59049e-07" ixy="1.69985e-09"  ixz="6.81694e-12" iyy="1.10073e-07" iyz="9.90347e-12" izz="3.57826e-07" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_6_antenna_hub.step_fixing" type="fixed">
@@ -235,9 +235,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0566812 0.00635 0.0241684" rpy="0 0 0"/>
+			<mass value="1.66881e-05"/>
+			<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_7_____.step_fixing" type="fixed">
@@ -264,9 +264,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.057953 0.0136724 0.0389997" rpy="0 0 0"/>
+			<mass value="0.00502468"/>
+			<inertia ixx="3.59049e-07" ixy="1.69985e-09"  ixz="6.81694e-12" iyy="1.10073e-07" iyz="9.90347e-12" izz="3.57826e-07" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_8_antenna_hub.step_fixing" type="fixed">
@@ -322,9 +322,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0566812 0.00635 0.0190884" rpy="0 0 0"/>
+			<mass value="1.66881e-05"/>
+			<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_10_____.step_fixing" type="fixed">
@@ -351,9 +351,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.18 -1.5606e-11 -0.02" rpy="0 0 0"/>
+			<mass value="0.00107203"/>
+			<inertia ixx="1.32091e-07" ixy="5.85025e-15"  ixz="3.17107e-16" iyy="1.32091e-07" iyz="2.04825e-16" izz="4.07814e-09" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_11_m3_40mm_supporter_fixing" type="fixed">
@@ -391,33 +391,33 @@
 		<child link="body_1_12_body_2" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_13_document">
+	<link name="body_1_13_m3_l30mm">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_13_document_material">
+			<material name="body_1_13_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_13_document_material">
+			<material name="body_1_13_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+			<mass value="0.000771083"/>
+			<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_13_document_fixing" type="fixed">
+	<joint name="body_1_body_1_13_m3_l30mm_fixing" type="fixed">
 		<origin xyz="-0.143222 0.115428 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_13_document" />
+		<child link="body_1_13_m3_l30mm" />
 		<axis xyz="0 0 0"/>
 	</joint>
 	<link name="body_1_14_jetson_nano_board">
@@ -438,9 +438,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0431301 0.0303966 0.0091596" rpy="0 0 0"/>
+			<mass value="0.313249"/>
+			<inertia ixx="0.000145269" ixy="-1.186e-05"  ixz="1.72812e-06" iyy="0.000198778" iyz="-2.02085e-05" izz="0.000304634" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_14_jetson_nano_board_fixing" type="fixed">
@@ -467,9 +467,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-0.0228199 -0.236326 -0.0239225" rpy="0 0 0"/>
+			<mass value="0.096502"/>
+			<inertia ixx="0.000181039" ixy="-2.80846e-05"  ixz="-1.52129e-07" iyy="0.000148471" iyz="8.69589e-08" izz="0.000327931" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_15_suspention_fixing" type="fixed">
@@ -478,33 +478,33 @@
 		<child link="body_1_15_suspention" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_16_document">
+	<link name="body_1_16_m3_l30mm">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_16_document_material">
+			<material name="body_1_16_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_16_document_material">
+			<material name="body_1_16_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+			<mass value="0.000771083"/>
+			<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_16_document_fixing" type="fixed">
+	<joint name="body_1_body_1_16_m3_l30mm_fixing" type="fixed">
 		<origin xyz="-0.0682963 0.116225 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_16_document" />
+		<child link="body_1_16_m3_l30mm" />
 		<axis xyz="0 0 0"/>
 	</joint>
 	<link name="body_1_17_____.step">
@@ -525,9 +525,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0579666 0.0092 0.021663" rpy="0 0 0"/>
+			<mass value="1.44368e-05"/>
+			<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_17_____.step_fixing" type="fixed">
@@ -554,9 +554,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.00115354 0.0049 -0.000292476" rpy="0 0 0"/>
+			<mass value="0.022861"/>
+			<inertia ixx="1.1405e-05" ixy="2.57626e-16"  ixz="6.63789e-09" iyy="3.74833e-05" iyz="4.54387e-16" izz="2.60906e-05" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_18_pcb.step_fixing" type="fixed">
@@ -565,33 +565,33 @@
 		<child link="body_1_18_pcb.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_19_____.step">
+	<link name="body_1_19_camera_holder">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/camera_holder.stl"/>
 			</geometry>
-			<material name="body_1_19_____.step_material">
-				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+			<material name="body_1_19_camera_holder_material">
+				<color rgba="0.498039 0.498039 0.498039 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/camera_holder.stl"/>
 			</geometry>
-			<material name="body_1_19_____.step_material">
-				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+			<material name="body_1_19_camera_holder_material">
+				<color rgba="0.498039 0.498039 0.498039 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.341188 -0.0184062 0.00628482" rpy="0 0 0"/>
+			<mass value="0.00309401"/>
+			<inertia ixx="4.84446e-07" ixy="1.03899e-09"  ixz="-1.24063e-07" iyy="3.40447e-07" iyz="1.07635e-09" izz="4.68613e-07" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_19_____.step_fixing" type="fixed">
-		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
+	<joint name="body_1_body_1_19_camera_holder_fixing" type="fixed">
+		<origin xyz="-0.195323 0.125091 0.00281866" rpy="-1.52656e-16 -2.76211e-17 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_19_____.step" />
+		<child link="body_1_19_camera_holder" />
 		<axis xyz="0 0 0"/>
 	</joint>
 	<link name="body_1_20_____.step">
@@ -612,9 +612,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0554267 0.0092 0.021663" rpy="0 0 0"/>
+			<mass value="1.44368e-05"/>
+			<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_20_____.step_fixing" type="fixed">
@@ -623,12 +623,70 @@
 		<child link="body_1_20_____.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_21_prt0007_3">
+	<link name="body_1_21_____.step">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
+			</geometry>
+			<material name="body_1_21_____.step_material">
+				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
+			</geometry>
+			<material name="body_1_21_____.step_material">
+				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="0.0579666 0.0092 0.019123" rpy="0 0 0"/>
+			<mass value="1.44368e-05"/>
+			<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_21_____.step_fixing" type="fixed">
+		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
+		<parent link="body_1" />
+		<child link="body_1_21_____.step" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_22_picamerapcb">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/picamerapcb.stl"/>
+			</geometry>
+			<material name="body_1_22_picamerapcb_material">
+				<color rgba="0 0.517647 0 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/picamerapcb.stl"/>
+			</geometry>
+			<material name="body_1_22_picamerapcb_material">
+				<color rgba="0 0.517647 0 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="0.000339127 -0.000114193 0.000499726" rpy="0 0 0"/>
+			<mass value="0.000788269"/>
+			<inertia ixx="3.8565e-08" ixy="-2.25994e-13"  ixz="-7.47607e-13" iyy="3.68628e-08" iyz="1.35988e-14" izz="7.52997e-08" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_22_picamerapcb_fixing" type="fixed">
+		<origin xyz="0.0968459 -0.065042 0.0143025" rpy="-3.14159 -1.34625 -0.523599" />
+		<parent link="body_1" />
+		<child link="body_1_22_picamerapcb" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_23_prt0007_3">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0007_3.stl"/>
 			</geometry>
-			<material name="body_1_21_prt0007_3_material">
+			<material name="body_1_23_prt0007_3_material">
 				<color rgba="0.498039 0.498039 0.498039 1.0"/>
 			</material>
 		</visual>
@@ -636,28 +694,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0007_3.stl"/>
 			</geometry>
-			<material name="body_1_21_prt0007_3_material">
+			<material name="body_1_23_prt0007_3_material">
 				<color rgba="0.498039 0.498039 0.498039 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-0.0170541 -0.296506 -0.00120586" rpy="0 0 0"/>
+			<mass value="0.0568507"/>
+			<inertia ixx="8.73711e-06" ixy="-2.19732e-07"  ixz="1.45771e-08" iyy="1.38518e-05" iyz="1.91693e-09" izz="1.6021e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_21_prt0007_3_fixing" type="fixed">
+	<joint name="body_1_body_1_23_prt0007_3_fixing" type="fixed">
 		<origin xyz="-0.161769 -0.165807 -0.0987357" rpy="-3.14159 -6.48787e-16 -1.0472" />
 		<parent link="body_1" />
-		<child link="body_1_21_prt0007_3" />
+		<child link="body_1_23_prt0007_3" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_22_pcb.step">
+	<link name="body_1_24_pcb.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/pcb.step.stl"/>
 			</geometry>
-			<material name="body_1_22_pcb.step_material">
+			<material name="body_1_24_pcb.step_material">
 				<color rgba="0.792157 0.792157 0.792157 1.0"/>
 			</material>
 		</visual>
@@ -665,28 +723,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/pcb.step.stl"/>
 			</geometry>
-			<material name="body_1_22_pcb.step_material">
+			<material name="body_1_24_pcb.step_material">
 				<color rgba="0.792157 0.792157 0.792157 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.00281781 -0.001 -0.00411411" rpy="0 0 0"/>
+			<mass value="0.000473713"/>
+			<inertia ixx="4.49035e-09" ixy="0"  ixz="0" iyy="3.87759e-09" iyz="0" izz="7.28246e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_22_pcb.step_fixing" type="fixed">
+	<joint name="body_1_body_1_24_pcb.step_fixing" type="fixed">
 		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
 		<parent link="body_1" />
-		<child link="body_1_22_pcb.step" />
+		<child link="body_1_24_pcb.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_23_antennae.step">
+	<link name="body_1_25_antennae.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/antennae.step.stl"/>
 			</geometry>
-			<material name="body_1_23_antennae.step_material">
+			<material name="body_1_25_antennae.step_material">
 				<color rgba="0.109804 0.109804 0.109804 1.0"/>
 			</material>
 		</visual>
@@ -694,28 +752,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/antennae.step.stl"/>
 			</geometry>
-			<material name="body_1_23_antennae.step_material">
+			<material name="body_1_25_antennae.step_material">
 				<color rgba="0.109804 0.109804 0.109804 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0578996 0.0921429 0.0389994" rpy="0 0 0"/>
+			<mass value="0.0180219"/>
+			<inertia ixx="3.50659e-05" ixy="-1.16532e-07"  ixz="4.17062e-11" iyy="2.77141e-07" iyz="-6.64058e-10" izz="3.50587e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_23_antennae.step_fixing" type="fixed">
+	<joint name="body_1_body_1_25_antennae.step_fixing" type="fixed">
 		<origin xyz="-0.0201051 0.105376 0.00281866" rpy="1.5708 -9.33379e-17 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_23_antennae.step" />
+		<child link="body_1_25_antennae.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_24_antennae.step">
+	<link name="body_1_26_antennae.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/antennae.step.stl"/>
 			</geometry>
-			<material name="body_1_24_antennae.step_material">
+			<material name="body_1_26_antennae.step_material">
 				<color rgba="0.109804 0.109804 0.109804 1.0"/>
 			</material>
 		</visual>
@@ -723,28 +781,57 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/antennae.step.stl"/>
 			</geometry>
-			<material name="body_1_24_antennae.step_material">
+			<material name="body_1_26_antennae.step_material">
 				<color rgba="0.109804 0.109804 0.109804 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0578996 0.0921429 0.0389994" rpy="0 0 0"/>
+			<mass value="0.0180219"/>
+			<inertia ixx="3.50659e-05" ixy="-1.16532e-07"  ixz="4.17062e-11" iyy="2.77141e-07" iyz="-6.64058e-10" izz="3.50587e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_24_antennae.step_fixing" type="fixed">
+	<joint name="body_1_body_1_26_antennae.step_fixing" type="fixed">
 		<origin xyz="-0.0693687 0.0211565 0.00281866" rpy="1.5708 -9.33379e-17 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_24_antennae.step" />
+		<child link="body_1_26_antennae.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_25_______.step">
+	<link name="body_1_27_ova5647_lens_fov">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/ova5647_lens_fov.stl"/>
+			</geometry>
+			<material name="body_1_27_ova5647_lens_fov_material">
+				<color rgba="0 0 0 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/ova5647_lens_fov.stl"/>
+			</geometry>
+			<material name="body_1_27_ova5647_lens_fov_material">
+				<color rgba="0 0 0 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="5.54032e-09 -0.000854564 -9.04488e-09" rpy="0 0 0"/>
+			<mass value="0.000111896"/>
+			<inertia ixx="3.19404e-10" ixy="-1.01e-15"  ixz="-8.05746e-16" iyy="4.5485e-10" iyz="1.33717e-15" izz="3.19403e-10" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_27_ova5647_lens_fov_fixing" type="fixed">
+		<origin xyz="0.102447 -0.0681464 0.0155562" rpy="-1.5708 1.34625 2.61799" />
+		<parent link="body_1" />
+		<child link="body_1_27_ova5647_lens_fov" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_28_______.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/______.step.stl"/>
 			</geometry>
-			<material name="body_1_25_______.step_material">
+			<material name="body_1_28_______.step_material">
 				<color rgba="1 1 1 1.0"/>
 			</material>
 		</visual>
@@ -752,107 +839,20 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/______.step.stl"/>
 			</geometry>
-			<material name="body_1_25_______.step_material">
+			<material name="body_1_28_______.step_material">
 				<color rgba="1 1 1 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-0.000399961 0.0109757 -0.000299917" rpy="0 0 0"/>
+			<mass value="0.0249892"/>
+			<inertia ixx="1.87787e-05" ixy="-9.12923e-12"  ixz="3.19582e-12" iyy="2.66904e-05" iyz="-2.04002e-11" izz="9.41616e-06" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_25_______.step_fixing" type="fixed">
+	<joint name="body_1_body_1_28_______.step_fixing" type="fixed">
 		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
 		<parent link="body_1" />
-		<child link="body_1_25_______.step" />
-		<axis xyz="0 0 0"/>
-	</joint>
-	<link name="body_1_26_____.step">
-		<visual>
-			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
-			</geometry>
-			<material name="body_1_26_____.step_material">
-				<color rgba="0.784314 0.784314 0.784314 1.0"/>
-			</material>
-		</visual>
-		<collision>
-			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
-			</geometry>
-			<material name="body_1_26_____.step_material">
-				<color rgba="0.784314 0.784314 0.784314 1.0"/>
-			</material>
-		</collision>
-		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
-		</inertial>
-	</link>
-	<joint name="body_1_body_1_26_____.step_fixing" type="fixed">
-		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
-		<parent link="body_1" />
-		<child link="body_1_26_____.step" />
-		<axis xyz="0 0 0"/>
-	</joint>
-	<link name="body_1_27_prt0002_1">
-		<visual>
-			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0002_1.stl"/>
-			</geometry>
-			<material name="body_1_27_prt0002_1_material">
-				<color rgba="0.615686 0.811765 0.929412 1.0"/>
-			</material>
-		</visual>
-		<collision>
-			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0002_1.stl"/>
-			</geometry>
-			<material name="body_1_27_prt0002_1_material">
-				<color rgba="0.615686 0.811765 0.929412 1.0"/>
-			</material>
-		</collision>
-		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
-		</inertial>
-	</link>
-	<joint name="body_1_body_1_27_prt0002_1_fixing" type="fixed">
-		<origin xyz="-0.161772 -0.165809 -0.0987357" rpy="-3.14159 -6.48787e-16 -1.0472" />
-		<parent link="body_1" />
-		<child link="body_1_27_prt0002_1" />
-		<axis xyz="0 0 0"/>
-	</joint>
-	<link name="body_1_28_document">
-		<visual>
-			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
-			</geometry>
-			<material name="body_1_28_document_material">
-				<color rgba="0 0 0 1.0"/>
-			</material>
-		</visual>
-		<collision>
-			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
-			</geometry>
-			<material name="body_1_28_document_material">
-				<color rgba="0 0 0 1.0"/>
-			</material>
-		</collision>
-		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
-		</inertial>
-	</link>
-	<joint name="body_1_body_1_28_document_fixing" type="fixed">
-		<origin xyz="-0.179995 0.050142 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
-		<parent link="body_1" />
-		<child link="body_1_28_document" />
+		<child link="body_1_28_______.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
 	<link name="body_1_29_____.step">
@@ -861,7 +861,7 @@
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
 			</geometry>
 			<material name="body_1_29_____.step_material">
-				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+				<color rgba="0.784314 0.784314 0.784314 1.0"/>
 			</material>
 		</visual>
 		<collision>
@@ -869,13 +869,13 @@
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
 			</geometry>
 			<material name="body_1_29_____.step_material">
-				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+				<color rgba="0.784314 0.784314 0.784314 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0554267 0.0092 0.019123" rpy="0 0 0"/>
+			<mass value="1.44368e-05"/>
+			<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_29_____.step_fixing" type="fixed">
@@ -884,70 +884,186 @@
 		<child link="body_1_29_____.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_30_m3_40mm_supporter">
+	<link name="body_1_30_prt0002_1">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_40mm_supporter.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0002_1.stl"/>
 			</geometry>
-			<material name="body_1_30_m3_40mm_supporter_material">
-				<color rgba="0 0 0 1.0"/>
+			<material name="body_1_30_prt0002_1_material">
+				<color rgba="0.615686 0.811765 0.929412 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_40mm_supporter.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0002_1.stl"/>
 			</geometry>
-			<material name="body_1_30_m3_40mm_supporter_material">
-				<color rgba="0 0 0 1.0"/>
+			<material name="body_1_30_prt0002_1_material">
+				<color rgba="0.615686 0.811765 0.929412 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-0.0747424 -0.260504 -0.00127328" rpy="0 0 0"/>
+			<mass value="0.0568507"/>
+			<inertia ixx="1.27634e-05" ixy="2.10488e-06"  ixz="5.62847e-09" iyy="9.8255e-06" iyz="-1.35826e-08" izz="1.6021e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_30_m3_40mm_supporter_fixing" type="fixed">
-		<origin xyz="-0.0932773 0.19132 -0.0722613" rpy="-3.14159 -6.48787e-16 -1.0472" />
+	<joint name="body_1_body_1_30_prt0002_1_fixing" type="fixed">
+		<origin xyz="-0.161772 -0.165809 -0.0987357" rpy="-3.14159 -6.48787e-16 -1.0472" />
 		<parent link="body_1" />
-		<child link="body_1_30_m3_40mm_supporter" />
+		<child link="body_1_30_prt0002_1" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_31_12v.step">
+	<link name="body_1_31_m3_l30mm">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/12v.step.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_31_12v.step_material">
-				<color rgba="0.054902 0.054902 0.054902 1.0"/>
+			<material name="body_1_31_m3_l30mm_material">
+				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/12v.step.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_31_12v.step_material">
-				<color rgba="0.054902 0.054902 0.054902 1.0"/>
+			<material name="body_1_31_m3_l30mm_material">
+				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+			<mass value="0.000771083"/>
+			<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_31_12v.step_fixing" type="fixed">
+	<joint name="body_1_body_1_31_m3_l30mm_fixing" type="fixed">
+		<origin xyz="-0.179995 0.050142 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
+		<parent link="body_1" />
+		<child link="body_1_31_m3_l30mm" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_32_____.step">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
+			</geometry>
+			<material name="body_1_32_____.step_material">
+				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
+			</geometry>
+			<material name="body_1_32_____.step_material">
+				<color rgba="0.788235 0.788235 0.788235 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="0.0554267 0.0092 0.024203" rpy="0 0 0"/>
+			<mass value="1.44368e-05"/>
+			<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_32_____.step_fixing" type="fixed">
 		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
 		<parent link="body_1" />
-		<child link="body_1_31_12v.step" />
+		<child link="body_1_32_____.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_32_motor">
+	<link name="body_1_33_m3_40mm_supporter">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_40mm_supporter.stl"/>
+			</geometry>
+			<material name="body_1_33_m3_40mm_supporter_material">
+				<color rgba="0 0 0 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_40mm_supporter.stl"/>
+			</geometry>
+			<material name="body_1_33_m3_40mm_supporter_material">
+				<color rgba="0 0 0 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="0.18 -1.5606e-11 -0.02" rpy="0 0 0"/>
+			<mass value="0.00107203"/>
+			<inertia ixx="1.32091e-07" ixy="5.85025e-15"  ixz="3.17107e-16" iyy="1.32091e-07" iyz="2.04825e-16" izz="4.07814e-09" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_33_m3_40mm_supporter_fixing" type="fixed">
+		<origin xyz="-0.0932773 0.19132 -0.0722613" rpy="-3.14159 -6.48787e-16 -1.0472" />
+		<parent link="body_1" />
+		<child link="body_1_33_m3_40mm_supporter" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_34_ova5647_housing">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/ova5647_housing.stl"/>
+			</geometry>
+			<material name="body_1_34_ova5647_housing_material">
+				<color rgba="0.74902 0.74902 0.74902 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/ova5647_housing.stl"/>
+			</geometry>
+			<material name="body_1_34_ova5647_housing_material">
+				<color rgba="0.74902 0.74902 0.74902 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="-1.73614e-09 0.00204018 -1.6298e-10" rpy="0 0 0"/>
+			<mass value="0.000160007"/>
+			<inertia ixx="1.30632e-09" ixy="-2.459e-16"  ixz="2.21867e-16" iyy="2.34001e-09" iyz="0" izz="1.30632e-09" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_34_ova5647_housing_fixing" type="fixed">
+		<origin xyz="0.0982535 -0.0657325 0.0166604" rpy="-1.5708 1.34625 2.61799" />
+		<parent link="body_1" />
+		<child link="body_1_34_ova5647_housing" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_35_12v.step">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/12v.step.stl"/>
+			</geometry>
+			<material name="body_1_35_12v.step_material">
+				<color rgba="0.054902 0.054902 0.054902 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/12v.step.stl"/>
+			</geometry>
+			<material name="body_1_35_12v.step_material">
+				<color rgba="0.054902 0.054902 0.054902 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="0.0563657 0.0093 -0.0212145" rpy="0 0 0"/>
+			<mass value="0.000819298"/>
+			<inertia ixx="1.06136e-08" ixy="0"  ixz="-9.1615e-10" iyy="1.59365e-08" iyz="0" izz="1.27841e-08" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_35_12v.step_fixing" type="fixed">
+		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
+		<parent link="body_1" />
+		<child link="body_1_35_12v.step" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_36_motor">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/motor.stl"/>
 			</geometry>
-			<material name="body_1_32_motor_material">
+			<material name="body_1_36_motor_material">
 				<color rgba="0.768627 0.886275 0.952941 1.0"/>
 			</material>
 		</visual>
@@ -955,57 +1071,57 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/motor.stl"/>
 			</geometry>
-			<material name="body_1_32_motor_material">
+			<material name="body_1_36_motor_material">
 				<color rgba="0.768627 0.886275 0.952941 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-4.35415e-05 -3.52147e-09 0.0124478" rpy="0 0 0"/>
+			<mass value="0.0092524"/>
+			<inertia ixx="7.38756e-07" ixy="-2.99969e-14"  ixz="-3.76571e-09" iyy="6.65816e-07" iyz="-4.40126e-13" izz="3.84144e-07" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_32_motor_fixing" type="fixed">
+	<joint name="body_1_body_1_36_motor_fixing" type="fixed">
 		<origin xyz="0.0302674 -0.0685724 -0.0524413" rpy="-1.5708 1.06165e-15 -2.0944" />
 		<parent link="body_1" />
-		<child link="body_1_32_motor" />
+		<child link="body_1_36_motor" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_33_document">
+	<link name="body_1_37_m3_l30mm">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_33_document_material">
+			<material name="body_1_37_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_33_document_material">
+			<material name="body_1_37_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+			<mass value="0.000771083"/>
+			<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_33_document_fixing" type="fixed">
+	<joint name="body_1_body_1_37_m3_l30mm_fixing" type="fixed">
 		<origin xyz="-0.0301431 0.0517364 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_33_document" />
+		<child link="body_1_37_m3_l30mm" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_34_solenoid_body">
+	<link name="body_1_38_solenoid_body">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/solenoid_body.stl"/>
 			</geometry>
-			<material name="body_1_34_solenoid_body_material">
+			<material name="body_1_38_solenoid_body_material">
 				<color rgba="0.647059 0.647059 0.647059 1.0"/>
 			</material>
 		</visual>
@@ -1013,7 +1129,7 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/solenoid_body.stl"/>
 			</geometry>
-			<material name="body_1_34_solenoid_body_material">
+			<material name="body_1_38_solenoid_body_material">
 				<color rgba="0.647059 0.647059 0.647059 1.0"/>
 			</material>
 		</collision>
@@ -1023,18 +1139,47 @@
 			<inertia ixx="3.11153e-05" ixy="0"  ixz="0" iyy="6.81629e-05" iyz="0" izz="6.81629e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_34_solenoid_body_fixing" type="fixed">
+	<joint name="body_1_body_1_38_solenoid_body_fixing" type="fixed">
 		<origin xyz="-0.0239628 -0.141986 -0.340494" rpy="0.56097 -3.90241e-16 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_34_solenoid_body" />
+		<child link="body_1_38_solenoid_body" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_35_pcb.step">
+	<link name="body_1_39_ribbon_cam">
+		<visual>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/ribbon_cam.stl"/>
+			</geometry>
+			<material name="body_1_39_ribbon_cam_material">
+				<color rgba="1 0.945098 0.694118 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/ribbon_cam.stl"/>
+			</geometry>
+			<material name="body_1_39_ribbon_cam_material">
+				<color rgba="1 0.945098 0.694118 1.0"/>
+			</material>
+		</collision>
+		<inertial>
+			<origin xyz="1.99089e-07 0.000228244 0.00638241" rpy="0 0 0"/>
+			<mass value="3.74454e-06"/>
+			<inertia ixx="7.23059e-12" ixy="3.4024e-16"  ixz="-6.17293e-16" iyy="1.68188e-11" iyz="-1.15698e-12" izz="1.0004e-11" />
+		</inertial>
+	</link>
+	<joint name="body_1_body_1_39_ribbon_cam_fixing" type="fixed">
+		<origin xyz="0.0987576 -0.0657032 0.0166386" rpy="-2.91705 3.10865e-15 1.0472" />
+		<parent link="body_1" />
+		<child link="body_1_39_ribbon_cam" />
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="body_1_40_pcb.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/pcb.step.stl"/>
 			</geometry>
-			<material name="body_1_35_pcb.step_material">
+			<material name="body_1_40_pcb.step_material">
 				<color rgba="0.792157 0.792157 0.792157 1.0"/>
 			</material>
 		</visual>
@@ -1042,28 +1187,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/pcb.step.stl"/>
 			</geometry>
-			<material name="body_1_35_pcb.step_material">
+			<material name="body_1_40_pcb.step_material">
 				<color rgba="0.792157 0.792157 0.792157 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.00281781 -0.001 0.0038951" rpy="0 0 0"/>
+			<mass value="0.000524141"/>
+			<inertia ixx="5.10302e-09" ixy="0"  ixz="0" iyy="4.42503e-09" iyz="0" izz="8.05769e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_35_pcb.step_fixing" type="fixed">
+	<joint name="body_1_body_1_40_pcb.step_fixing" type="fixed">
 		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
 		<parent link="body_1" />
-		<child link="body_1_35_pcb.step" />
+		<child link="body_1_40_pcb.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_36_____.step">
+	<link name="body_1_41_____.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
 			</geometry>
-			<material name="body_1_36_____.step_material">
+			<material name="body_1_41_____.step_material">
 				<color rgba="0.788235 0.788235 0.788235 1.0"/>
 			</material>
 		</visual>
@@ -1071,28 +1216,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/____.step.stl"/>
 			</geometry>
-			<material name="body_1_36_____.step_material">
+			<material name="body_1_41_____.step_material">
 				<color rgba="0.788235 0.788235 0.788235 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0579666 0.0092 0.024203" rpy="0 0 0"/>
+			<mass value="1.44368e-05"/>
+			<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_36_____.step_fixing" type="fixed">
+	<joint name="body_1_body_1_41_____.step_fixing" type="fixed">
 		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
 		<parent link="body_1" />
-		<child link="body_1_36_____.step" />
+		<child link="body_1_41_____.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_37_1.14_tft_ips_-_13p_-_reverse_mount.step">
+	<link name="body_1_42_1.14_tft_ips_-_13p_-_reverse_mount.step">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/1.14_tft_ips_-_13p_-_reverse_mount.step.stl"/>
 			</geometry>
-			<material name="body_1_37_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
+			<material name="body_1_42_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
 				<color rgba="1 1 1 1.0"/>
 			</material>
 		</visual>
@@ -1100,57 +1245,57 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/1.14_tft_ips_-_13p_-_reverse_mount.step.stl"/>
 			</geometry>
-			<material name="body_1_37_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
+			<material name="body_1_42_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
 				<color rgba="1 1 1 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0578 0.0068 -6.64207e-06" rpy="0 0 0"/>
+			<mass value="0.000834"/>
+			<inertia ixx="6.2828e-08" ixy="0"  ixz="2.29432e-15" iyy="6.95e-08" iyz="0" izz="7.228e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_37_1.14_tft_ips_-_13p_-_reverse_mount.step_fixing" type="fixed">
+	<joint name="body_1_body_1_42_1.14_tft_ips_-_13p_-_reverse_mount.step_fixing" type="fixed">
 		<origin xyz="0.0335108 -0.0262976 -0.00118134" rpy="1.5708 -1.47879e-16 -2.12058" />
 		<parent link="body_1" />
-		<child link="body_1_37_1.14_tft_ips_-_13p_-_reverse_mount.step" />
+		<child link="body_1_42_1.14_tft_ips_-_13p_-_reverse_mount.step" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_38_document">
+	<link name="body_1_43_m3_l30mm">
 		<visual>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_38_document_material">
+			<material name="body_1_43_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
 		<collision>
 			<geometry>
-				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/document.stl"/>
+				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_l30mm.stl"/>
 			</geometry>
-			<material name="body_1_38_document_material">
+			<material name="body_1_43_m3_l30mm_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+			<mass value="0.000771083"/>
+			<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_38_document_fixing" type="fixed">
+	<joint name="body_1_body_1_43_m3_l30mm_fixing" type="fixed">
 		<origin xyz="-0.0669156 -0.0135498 -0.0297213" rpy="-3.14159 1.35133e-16 -0.523599" />
 		<parent link="body_1" />
-		<child link="body_1_38_document" />
+		<child link="body_1_43_m3_l30mm" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_39_m3_40mm_supporter">
+	<link name="body_1_44_m3_40mm_supporter">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_40mm_supporter.stl"/>
 			</geometry>
-			<material name="body_1_39_m3_40mm_supporter_material">
+			<material name="body_1_44_m3_40mm_supporter_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</visual>
@@ -1158,28 +1303,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/m3_40mm_supporter.stl"/>
 			</geometry>
-			<material name="body_1_39_m3_40mm_supporter_material">
+			<material name="body_1_44_m3_40mm_supporter_material">
 				<color rgba="0 0 0 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.18 -1.5606e-11 -0.02" rpy="0 0 0"/>
+			<mass value="0.00107203"/>
+			<inertia ixx="1.32091e-07" ixy="5.85025e-15"  ixz="3.17107e-16" iyy="1.32091e-07" iyz="2.04825e-16" izz="4.07814e-09" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_39_m3_40mm_supporter_fixing" type="fixed">
+	<joint name="body_1_body_1_44_m3_40mm_supporter_fixing" type="fixed">
 		<origin xyz="-0.0183473 0.19132 -0.0722613" rpy="-3.14159 -6.48787e-16 -1.0472" />
 		<parent link="body_1" />
-		<child link="body_1_39_m3_40mm_supporter" />
+		<child link="body_1_44_m3_40mm_supporter" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_40_prt0001_2">
+	<link name="body_1_45_prt0001_2">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0001_2.stl"/>
 			</geometry>
-			<material name="body_1_40_prt0001_2_material">
+			<material name="body_1_45_prt0001_2_material">
 				<color rgba="0.917647 0.917647 0.917647 1.0"/>
 			</material>
 		</visual>
@@ -1187,28 +1332,28 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0001_2.stl"/>
 			</geometry>
-			<material name="body_1_40_prt0001_2_material">
+			<material name="body_1_45_prt0001_2_material">
 				<color rgba="0.917647 0.917647 0.917647 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.0321927 -0.211212 -0.00127328" rpy="0 0 0"/>
+			<mass value="0.0568507"/>
+			<inertia ixx="1.27634e-05" ixy="2.10488e-06"  ixz="-5.62847e-09" iyy="9.8255e-06" iyz="1.35826e-08" izz="1.6021e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_40_prt0001_2_fixing" type="fixed">
+	<joint name="body_1_body_1_45_prt0001_2_fixing" type="fixed">
 		<origin xyz="-0.161772 -0.165809 -0.0987357" rpy="-3.14159 -6.48787e-16 -1.0472" />
 		<parent link="body_1" />
-		<child link="body_1_40_prt0001_2" />
+		<child link="body_1_45_prt0001_2" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<link name="body_1_41_prt0007">
+	<link name="body_1_46_prt0007">
 		<visual>
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0007.stl"/>
 			</geometry>
-			<material name="body_1_41_prt0007_material">
+			<material name="body_1_46_prt0007_material">
 				<color rgba="0.972549 0.529412 0.00392157 1.0"/>
 			</material>
 		</visual>
@@ -1216,20 +1361,20 @@
 			<geometry>
 				<mesh filename="file://$(find jetbot_description)/urdf/jetbot_soccer/prt0007.stl"/>
 			</geometry>
-			<material name="body_1_41_prt0007_material">
+			<material name="body_1_46_prt0007_material">
 				<color rgba="0.972549 0.529412 0.00392157 1.0"/>
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-0.0271197 -0.179256 -0.00120586" rpy="0 0 0"/>
+			<mass value="0.0568507"/>
+			<inertia ixx="8.73711e-06" ixy="-2.19732e-07"  ixz="-1.45771e-08" iyy="1.38518e-05" iyz="-1.91693e-09" izz="1.6021e-05" />
 		</inertial>
 	</link>
-	<joint name="body_1_body_1_41_prt0007_fixing" type="fixed">
+	<joint name="body_1_body_1_46_prt0007_fixing" type="fixed">
 		<origin xyz="-0.161772 -0.165809 -0.0987357" rpy="-3.14159 -6.07153e-16 -1.0472" />
 		<parent link="body_1" />
-		<child link="body_1_41_prt0007" />
+		<child link="body_1_46_prt0007" />
 		<axis xyz="0 0 0"/>
 	</joint>
 	<link name="horn4_1">
@@ -3115,9 +3260,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="-1.55276e-15 7.42182e-20 1.01138e-16" rpy="0 0 0"/>
+			<mass value="0.00102271"/>
+			<inertia ixx="3.68396e-09" ixy="0"  ixz="0" iyy="1.0111e-07" iyz="0" izz="1.01527e-07" />
 		</inertial>
 	</link>
 	<joint name="roller_1_roller_1_2_output_shaft_fixing" type="fixed">
@@ -3159,9 +3304,9 @@
 			</material>
 		</collision>
 		<inertial>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
-			<mass value="0"/>
-			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+			<origin xyz="0.04445 0.29536 0.137105" rpy="0 0 0"/>
+			<mass value="0.0115774"/>
+			<inertia ixx="1.72634e-07" ixy="0"  ixz="0" iyy="7.7112e-06" iyz="0" izz="7.7112e-06" />
 		</inertial>
 	</link>
 	<joint name="roller_stick_1_roller_stick_1_0_solenoid_stick_fixing" type="fixed">
@@ -3170,12 +3315,12 @@
 		<child link="roller_stick_1_0_solenoid_stick" />
 		<axis xyz="0 0 0"/>
 	</joint>
-	<joint name="stick" type="revolute">
+	<joint name="stick" type="prismatic">
 		<origin xyz="0.0612988 -0.0451083 -0.0897873" rpy="2.58062 7.70217e-16 2.61799" />
 		<parent link="body_1" />
 		<child link="roller_stick_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="-1e+16" upper="1e+16" effort="1.5" velocity="22" />
+		<limit lower="-0.02" upper="0.02" effort="1.5" velocity="22" />
 		<joint_properties friction="0.0"/>
 	</joint>
 </robot>
