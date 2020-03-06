@@ -26,6 +26,41 @@
     <material>Gazebo/RedBright</material>
   </gazebo>
 
+  <gazebo reference="wheel1">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+  </gazebo>
+
+  <gazebo reference="wheel2">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+  </gazebo>
+
+  <gazebo reference="wheel3">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+  </gazebo>
+
+  <gazebo reference="wheel4">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+  </gazebo>
+
+  <gazebo reference="roller">
+    <mu1>50</mu1>
+    <mu2>10</mu2>
+    <slip1>0.0</slip1>
+    <slip2>0.0</slip2>
+  </gazebo>
+
   <!-- camera -->
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">

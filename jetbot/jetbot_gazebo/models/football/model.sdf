@@ -21,7 +21,7 @@
          <collision name="collision">
             <geometry>
                <sphere>
-                  <radius>0.04</radius>
+                  <radius>0.035</radius>
                </sphere>
             </geometry>
             <surface>
@@ -50,7 +50,7 @@
          <visual name="visual">
             <geometry>
                <mesh>
-                  <scale>0.04 0.04 0.04</scale>
+                  <scale>0.035 0.035 0.035</scale>
                   <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/meshes/ball.dae</uri>
                </mesh>
             </geometry>

@@ -16,12 +16,12 @@
         <node name="robot1_controller_spawner" pkg="controller_manager" type="spawner" 
           args="--namespace=/robot1
           joint_state_controller
-          joint1_velocity_controller
-          joint2_velocity_controller
-          joint3_velocity_controller
-          joint4_velocity_controller
-          joint5_velocity_controller
-          joint6_position_controller
+          wheel1_velocity_controller
+          wheel2_velocity_controller
+          wheel3_velocity_controller
+          wheel4_velocity_controller
+          roller_velocity_controller
+          stick_velocity_controller
           --shutdown-timeout 3">
         </node>
         <!--
