@@ -167,27 +167,37 @@ First, adjust the speed of the wheels to approach to the ball.
 
 1. Command for wheel motor
 ```
-rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"
-rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"
-rostopic pub -1 /robot1/joint3_velocity_controller/command std_msgs/Float64 "data: 30"
-rostopic pub -1 /robot1/joint4_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/wheel1_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/wheel2_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/wheel3_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/wheel4_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Next, rotate a roller motor to pull the ball.
 
 2. Command for roller motor
 ```
-rostopic pub -1 /robot1/joint5_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Finally kick the ball via speed control of solenoid motor.
 
 3. Command for solenoid motor
 ```
-rostopic pub -1 /robot1/joint6_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
-Please check blog for video of that command(https://kimbring2.github.io/2019/10/26/jetbot.html#soccer_robot_design_simulation)
+If you run a 'main_soccer.py file in jetbot/jetbot_control file, you can give a command by typing a character.
+```
+s : stop
+f : forward
+l : left
+r : right
+h : hold ball
+k : kick ball
+```
+
+Please check blog for video of blog for wacthing how to give a command(https://kimbring2.github.io/2019/10/26/jetbot.html#soccer_robot_design_simulation)
 
 # License
 Apache License 2.0
