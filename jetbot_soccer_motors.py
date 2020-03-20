@@ -75,15 +75,70 @@ else:
     getch()
     quit()
 
-# simple string commands (left/right/forward/backward/stop)
-def on_cmd_str(msg):
+def on_cmd_str_wheel1(msg):
 	rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
 	vel = int(msg.data.lower())
 	print("vel: " + str(vel))
     
 	if ( (vel >= 0) | (vel <= 2047) ):
 		# Enable Dynamixel Torque
-		dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, DXL_ID, ADDR_MX_MOVING_SPEED, vel)
+		dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, 1, ADDR_MX_MOVING_SPEED, vel)
+		print("dxl_comm_result: " + str(dxl_comm_result))
+		if dxl_comm_result != COMM_SUCCESS:
+			print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
+		elif dxl_error != 0:
+			print("%s" % packetHandler.getRxPacketError(dxl_error))
+		else:
+			print("Dynamixel has been successfully connected")
+	else:
+		rospy.logerror(rospy.get_caller_id() + ' invalid cmd_str=%s', msg.data)
+        
+def on_cmd_str_wheel2(msg):
+	rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
+	vel = int(msg.data.lower())
+	print("vel: " + str(vel))
+    
+	if ( (vel >= 0) | (vel <= 2047) ):
+		# Enable Dynamixel Torque
+		dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, 2, ADDR_MX_MOVING_SPEED, vel)
+		print("dxl_comm_result: " + str(dxl_comm_result))
+		if dxl_comm_result != COMM_SUCCESS:
+			print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
+		elif dxl_error != 0:
+			print("%s" % packetHandler.getRxPacketError(dxl_error))
+		else:
+			print("Dynamixel has been successfully connected")
+	else:
+		rospy.logerror(rospy.get_caller_id() + ' invalid cmd_str=%s', msg.data)
+        
+        
+def on_cmd_str_wheel3(msg):
+	rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
+	vel = int(msg.data.lower())
+	print("vel: " + str(vel))
+    
+	if ( (vel >= 0) | (vel <= 2047) ):
+		# Enable Dynamixel Torque
+		dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, 3, ADDR_MX_MOVING_SPEED, vel)
+		print("dxl_comm_result: " + str(dxl_comm_result))
+		if dxl_comm_result != COMM_SUCCESS:
+			print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
+		elif dxl_error != 0:
+			print("%s" % packetHandler.getRxPacketError(dxl_error))
+		else:
+			print("Dynamixel has been successfully connected")
+	else:
+		rospy.logerror(rospy.get_caller_id() + ' invalid cmd_str=%s', msg.data)
+        
+
+def on_cmd_str_wheel4(msg):
+	rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
+	vel = int(msg.data.lower())
+	print("vel: " + str(vel))
+    
+	if ( (vel >= 0) | (vel <= 2047) ):
+		# Enable Dynamixel Torque
+		dxl_comm_result, dxl_error = packetHandler.write2ByteTxRx(portHandler, 4, ADDR_MX_MOVING_SPEED, vel)
 		print("dxl_comm_result: " + str(dxl_comm_result))
 		if dxl_comm_result != COMM_SUCCESS:
 			print("%s" % packetHandler.getTxRxResult(dxl_comm_result))
@@ -101,7 +156,10 @@ if __name__ == '__main__':
 	
 	# setup ros node
 	rospy.init_node('jetbot_soccer_motors')
-	rospy.Subscriber('~cmd_str', String, on_cmd_str)
+	rospy.Subscriber('~cmd_str_wheel1', String, on_cmd_str_wheel1)
+	rospy.Subscriber('~cmd_str_wheel2', String, on_cmd_str_wheel2)
+	rospy.Subscriber('~cmd_str_wheel3', String, on_cmd_str_wheel3)
+	rospy.Subscriber('~cmd_str_wheel4', String, on_cmd_str_wheel4)
 
 	# start running
 	rospy.spin()
