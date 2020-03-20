@@ -42,10 +42,10 @@ stick  = rospy.Publisher('/robot1/stick_velocity_controller/command', Float64, q
 rate = rospy.Rate(2000)
 
 stop_action = [0, 0, 0, 0, 30, 80]
-forward_action = [-20, 20, 20, -20, 30, 0]
-left_action = [20, 20, 20, 20, 30, 0]
-right_action = [-20, -20, -20, -20, 30, 0]
-bacward_action = [20, -20, -20, 20, 30, 0]
+forward_action = [-30, 30, 30, -30, 30, 0]
+left_action = [30, 30, 30, 30, 30, 0]
+right_action = [-30, -30, -30, -30, 30, 0]
+bacward_action = [30, -30, -30, 30, 30, 0]
 hold_action = [0, 0, 0, 0, 30, 0]
 kick_action = [0, 0, 0, 0, 0, -80]
 robot_action_list = [stop_action, forward_action, left_action, right_action, bacward_action, hold_action, kick_action,]

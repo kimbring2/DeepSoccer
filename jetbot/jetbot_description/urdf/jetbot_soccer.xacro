@@ -4180,8 +4180,8 @@
 		<parent link="body_1" />
 		<child link="roller_stick_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="-1e+16" upper="1e+16" effort="1.5" velocity="50" />
-		<joint_properties friction="0.0"/>
+		<limit lower="-0.02" upper="0.08" effort="50" velocity="100" />
+		<joint_properties friction="100.0"/>
 	</joint>
 
 	<transmission name="tran1">
