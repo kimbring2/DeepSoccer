@@ -129,7 +129,9 @@ $ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "out"
 After that, when the uploaded jetbot_ros.py file is executed, it is possible to receive the camera frame as an input and output the speed of the left and right motors as an input in the same manner as one method in Gazebo.
 ```$ python jetbot_ros.py ```
 
-Also in this code, the part that detected the soccer ball using cvlib can be done with Jetson board using jetson.utils, jetson.inference.
+In this code, the part that detected the soccer ball using cvlib can be done with Jetson board using jetson.utils, jetson.inference. To see this, look at the jetbot_soccer_main.py file. This file uses Jetson Inference's detecNet to find objects in the image file coming from the jetbot_camera ROS node.
+
+<img src="image/jetbot_soccer_detect_ball.jpeg" width="600">
 
 # Tensorflow model freezing for TensorRT inference
 Tensorflow model trained using Gazebo simulation can be used without installing Tensorflow on Jetson Nano. However, the saved model needs to be freezing by using first part of 'RL_model_froze.ipynb'. You need to change a 'model_dir = "/home/kimbring2/catkin_ws/src/jetbot/jetbot_control/src/drqn"' line for your workplace setting.
