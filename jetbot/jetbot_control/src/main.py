@@ -235,13 +235,17 @@ def state_callback(msg):
     global state_j 
     global d
 
-    # print("msg.name: " + str(msg.name))
+    #print("msg.name: " + str(msg.name))
     # msg.name: ['ground_plane', 'field', 'left_goal', 'right_goal', 'football', 'jetbot']
 
+    robot1_index = (msg.name).index("robot1")
     football_index = (msg.name).index("football")
     left_goal_index = (msg.name).index("left_goal")
     right_goal_index = (msg.name).index("right_goal")
     #print("football_index: " + str(football_index))
+
+    robot1_pose = (msg.pose)[robot1_index]
+    print("robot1_pose.: " + str(robot1_pose))
 
     football_pose = (msg.pose)[football_index]
     #print("football_pose.position.x: " + str(football_pose.position.x))
@@ -377,6 +381,7 @@ updateTarget(targetOps,sess)
 
 ############## ROS + Deep Learning Part ###############
 while not rospy.is_shutdown():
+    '''
     if np.random.rand(1) < e or total_steps < pre_train_steps:
         state1 = sess.run(mainQN.rnn_state, 
                           feed_dict = {mainQN.scalarInput:[s/255.0], mainQN.trainLength:1, mainQN.state_in:state, mainQN.batch_size:1})
@@ -385,8 +390,10 @@ while not rospy.is_shutdown():
         a, state1 = sess.run([mainQN.predict, mainQN.rnn_state],
                               feed_dict = {mainQN.scalarInput:[s/255.0], mainQN.trainLength:1, mainQN.state_in:state, mainQN.batch_size:1})
         a = a[0]
-    
-    robot1_action = robot_action_list[a]
+    '''
+    robot1_action = robot_action_list[2]
+    #print("robot1_action: " + str(robot1_action))
+
     pub_vel_left_1.publish(robot1_action[0])
     pub_vel_right_1.publish(robot1_action[1])
     #pub_vel_left_1.publish(0)
@@ -395,7 +402,7 @@ while not rospy.is_shutdown():
     #robot2_action = robot_action_list[a]
     #pub_vel_left_2.publish(robot2_action[0])
     #pub_vel_right_2.publish(robot2_action[1])
-
+    '''
     time.sleep(0.5)
     j = j + 1
     print("j: " + str(j))
@@ -481,5 +488,5 @@ while not rospy.is_shutdown():
     if total_steps % 100 == 0 and total_steps != 0:
         saver.save(sess, path + '/model-' + str(int(total_steps / 100)) + '.cptk')
         print ("Saved Model")
-    
+    '''
 rate.sleep()

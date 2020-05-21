@@ -6,192 +6,42 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<link name="body_1_0_camera_holder">
+<link name="body_1_0_part_13">
 <visual>
 <geometry>
-<mesh filename="package://camera_holder.stl"/>
+<mesh filename="package://part_13.stl"/>
 </geometry>
-<material name="body_1_0_camera_holder_material">
-<color rgba="0.498039 0.498039 0.498039 1.0"/>
+<material name="body_1_0_part_13_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
 </material>
 </visual>
 <collision>
 <geometry>
-<mesh filename="package://camera_holder.stl"/>
+<mesh filename="package://part_13.stl"/>
 </geometry>
-<material name="body_1_0_camera_holder_material">
-<color rgba="0.498039 0.498039 0.498039 1.0"/>
+<material name="body_1_0_part_13_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
 </material>
 </collision>
 <inertial>
-<origin xyz="0.341188 -0.0184062 0.00628482" rpy="0 0 0"/>
-<mass value="0.00309401"/>
-<inertia ixx="4.84446e-07" ixy="1.03899e-09"  ixz="-1.24063e-07" iyy="3.40447e-07" iyz="1.07635e-09" izz="4.68613e-07" />
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<joint name="body_1_body_1_0_camera_holder_fixing" type="fixed">
-<origin xyz="-0.281621 0.00079862 -0.0492607" rpy="-8.14376e-08 7.1782e-08 -1.52052" />
+<joint name="body_1_body_1_0_part_13_fixing" type="fixed">
+<origin xyz="-0.0599017 -0.223117 -0.0809911" rpy="3.14159 6.97139e-08 -1.54564" />
 <parent link="body_1" />
-<child link="body_1_0_camera_holder" />
+<child link="body_1_0_part_13" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_1_____.step">
-<visual>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_1_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_1_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0554267 0.0092 0.021663" rpy="0 0 0"/>
-<mass value="1.44368e-05"/>
-<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
-</inertial>
-</link>
-<joint name="body_1_body_1_1_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_1_____.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_2_m3_l30mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_2_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_2_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
-<mass value="0.000771083"/>
-<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_2_m3_l30mm_fixing" type="fixed">
-<origin xyz="-0.218953 -0.112302 -0.0818007" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_2_m3_l30mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_3_____.step">
-<visual>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_3_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_3_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0579666 0.0092 0.019123" rpy="0 0 0"/>
-<mass value="1.44368e-05"/>
-<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
-</inertial>
-</link>
-<joint name="body_1_body_1_3_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_3_____.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_4_picamerapcb">
-<visual>
-<geometry>
-<mesh filename="package://picamerapcb.stl"/>
-</geometry>
-<material name="body_1_4_picamerapcb_material">
-<color rgba="0 0.517647 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://picamerapcb.stl"/>
-</geometry>
-<material name="body_1_4_picamerapcb_material">
-<color rgba="0 0.517647 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.000339127 -0.000114193 0.000499726" rpy="0 0 0"/>
-<mass value="0.000788269"/>
-<inertia ixx="3.8565e-08" ixy="-2.25994e-13"  ixz="-7.47607e-13" iyy="3.68628e-08" iyz="1.35988e-14" izz="7.52997e-08" />
-</inertial>
-</link>
-<joint name="body_1_body_1_4_picamerapcb_fixing" type="fixed">
-<origin xyz="-0.282681 -0.347787 -0.0377769" rpy="3.14159 -1.34625 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_4_picamerapcb" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_5_prt0001_2">
-<visual>
-<geometry>
-<mesh filename="package://prt0001_2.stl"/>
-</geometry>
-<material name="body_1_5_prt0001_2_material">
-<color rgba="0.917647 0.917647 0.917647 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://prt0001_2.stl"/>
-</geometry>
-<material name="body_1_5_prt0001_2_material">
-<color rgba="0.917647 0.917647 0.917647 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0321927 -0.211212 -0.00127328" rpy="0 0 0"/>
-<mass value="0.0568507"/>
-<inertia ixx="1.27634e-05" ixy="2.10488e-06"  ixz="-5.62847e-09" iyy="9.8255e-06" iyz="1.35826e-08" izz="1.6021e-05" />
-</inertial>
-</link>
-<joint name="body_1_body_1_5_prt0001_2_fixing" type="fixed">
-<origin xyz="-0.0685872 -0.366471 -0.145572" rpy="-3.14159 -1.99925e-08 1.08383" />
-<parent link="body_1" />
-<child link="body_1_5_prt0001_2" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_6_solenoid_body">
+<link name="body_1_1_solenoid_body">
 <visual>
 <geometry>
 <mesh filename="package://solenoid_body.stl"/>
 </geometry>
-<material name="body_1_6_solenoid_body_material">
+<material name="body_1_1_solenoid_body_material">
 <color rgba="0.647059 0.647059 0.647059 1.0"/>
 </material>
 </visual>
@@ -199,7 +49,7 @@
 <geometry>
 <mesh filename="package://solenoid_body.stl"/>
 </geometry>
-<material name="body_1_6_solenoid_body_material">
+<material name="body_1_1_solenoid_body_material">
 <color rgba="0.647059 0.647059 0.647059 1.0"/>
 </material>
 </collision>
@@ -209,40 +59,190 @@
 <inertia ixx="3.11153e-05" ixy="0"  ixz="0" iyy="6.81629e-05" iyz="0" izz="6.81629e-05" />
 </inertial>
 </link>
-<joint name="body_1_body_1_6_solenoid_body_fixing" type="fixed">
-<origin xyz="-0.526429 -0.273262 -0.281591" rpy="-5.1286e-06 7.1782e-08 -1.52052" />
+<joint name="body_1_body_1_1_solenoid_body_fixing" type="fixed">
+<origin xyz="-0.522699 -0.257164 -0.281025" rpy="-5.12956e-06 7.06783e-08 -1.534" />
 <parent link="body_1" />
-<child link="body_1_6_solenoid_body" />
+<child link="body_1_1_solenoid_body" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_7_pcb.step">
+<link name="body_1_2_motor">
 <visual>
 <geometry>
-<mesh filename="package://pcb.step.stl"/>
+<mesh filename="package://motor.stl"/>
 </geometry>
-<material name="body_1_7_pcb.step_material">
-<color rgba="0.792157 0.792157 0.792157 1.0"/>
+<material name="body_1_2_motor_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
 </material>
 </visual>
 <collision>
 <geometry>
-<mesh filename="package://pcb.step.stl"/>
+<mesh filename="package://motor.stl"/>
 </geometry>
-<material name="body_1_7_pcb.step_material">
-<color rgba="0.792157 0.792157 0.792157 1.0"/>
+<material name="body_1_2_motor_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
 </material>
 </collision>
 <inertial>
-<origin xyz="0.00281781 -0.001 -0.00411411" rpy="0 0 0"/>
-<mass value="0.000473713"/>
-<inertia ixx="4.49035e-09" ixy="0"  ixz="0" iyy="3.87759e-09" iyz="0" izz="7.28246e-09" />
+<origin xyz="-4.35415e-05 -3.52147e-09 0.0124478" rpy="0 0 0"/>
+<mass value="0.0092524"/>
+<inertia ixx="7.38756e-07" ixy="-2.99969e-14"  ixz="-3.76571e-09" iyy="6.65816e-07" iyz="-4.40126e-13" izz="3.84144e-07" />
 </inertial>
 </link>
-<joint name="body_1_body_1_7_pcb.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
+<joint name="body_1_body_1_2_motor_fixing" type="fixed">
+<origin xyz="-0.318888 -0.263529 -0.10295" rpy="-1.5708 -8.32148e-08 -3.11644" />
 <parent link="body_1" />
-<child link="body_1_7_pcb.step" />
+<child link="body_1_2_motor" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_3_body_1">
+<visual>
+<geometry>
+<mesh filename="package://body_1.stl"/>
+</geometry>
+<material name="body_1_3_body_1_material">
+<color rgba="0.615686 0.811765 0.929412 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://body_1.stl"/>
+</geometry>
+<material name="body_1_3_body_1_material">
+<color rgba="0.615686 0.811765 0.929412 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0074183 0.00428296 0.00127" rpy="0 0 0"/>
+<mass value="0.0641892"/>
+<inertia ixx="0.000114848" ixy="-1.63955e-05"  ixz="0" iyy="9.59164e-05" iyz="0" izz="0.000210696" />
+</inertial>
+</link>
+<joint name="body_1_body_1_3_body_1_fixing" type="fixed">
+<origin xyz="-0.282828 -0.272179 -0.118531" rpy="3.14159 1.99925e-08 -2.05776" />
+<parent link="body_1" />
+<child link="body_1_3_body_1" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_4_____.step">
+<visual>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_4_____.step_material">
+<color rgba="0.196078 0.207843 0.262745 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_4_____.step_material">
+<color rgba="0.196078 0.207843 0.262745 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0566812 0.00635 0.0216284" rpy="0 0 0"/>
+<mass value="1.66881e-05"/>
+<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
+</inertial>
+</link>
+<joint name="body_1_body_1_4_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_4_____.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_5_antenna_hub.step">
+<visual>
+<geometry>
+<mesh filename="package://antenna_hub.step.stl"/>
+</geometry>
+<material name="body_1_5_antenna_hub.step_material">
+<color rgba="0.666667 0.694118 0.764706 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://antenna_hub.step.stl"/>
+</geometry>
+<material name="body_1_5_antenna_hub.step_material">
+<color rgba="0.666667 0.694118 0.764706 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.057953 0.0136724 0.0389997" rpy="0 0 0"/>
+<mass value="0.00502468"/>
+<inertia ixx="3.59049e-07" ixy="1.69985e-09"  ixz="6.81694e-12" iyy="1.10073e-07" iyz="9.90347e-12" izz="3.57826e-07" />
+</inertial>
+</link>
+<joint name="body_1_body_1_5_antenna_hub.step_fixing" type="fixed">
+<origin xyz="-0.370701 -0.277526 -0.0486944" rpy="1.5708 -7.1782e-08 1.62107" />
+<parent link="body_1" />
+<child link="body_1_5_antenna_hub.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_6_____.step">
+<visual>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_6_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_6_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0566812 0.00635 0.0241684" rpy="0 0 0"/>
+<mass value="1.66881e-05"/>
+<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
+</inertial>
+</link>
+<joint name="body_1_body_1_6_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_6_____.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_7_antenna_hub.step">
+<visual>
+<geometry>
+<mesh filename="package://antenna_hub.step.stl"/>
+</geometry>
+<material name="body_1_7_antenna_hub.step_material">
+<color rgba="0.666667 0.694118 0.764706 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://antenna_hub.step.stl"/>
+</geometry>
+<material name="body_1_7_antenna_hub.step_material">
+<color rgba="0.666667 0.694118 0.764706 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.057953 0.0136724 0.0389997" rpy="0 0 0"/>
+<mass value="0.00502468"/>
+<inertia ixx="3.59049e-07" ixy="1.69985e-09"  ixz="6.81694e-12" iyy="1.10073e-07" iyz="9.90347e-12" izz="3.57826e-07" />
+</inertial>
+</link>
+<joint name="body_1_body_1_7_antenna_hub.step_fixing" type="fixed">
+<origin xyz="-0.273229 -0.273176 -0.0486944" rpy="1.5708 -7.1782e-08 1.62107" />
+<parent link="body_1" />
+<child link="body_1_7_antenna_hub.step" />
 <axis xyz="0 0 0"/>
 </joint>
 
@@ -270,168 +270,18 @@
 </inertial>
 </link>
 <joint name="body_1_body_1_8_m3_l30mm_fixing" type="fixed">
-<origin xyz="-0.355969 -0.185964 -0.0818007" rpy="3.14159 8.48329e-08 -1.34599" />
+<origin xyz="-0.366305 -0.115477 -0.080991" rpy="3.14159 7.1782e-08 -1.52052" />
 <parent link="body_1" />
 <child link="body_1_8_m3_l30mm" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_9_suspention">
-<visual>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_9_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_9_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
-<mass value="0.00653441"/>
-<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
-</inertial>
-</link>
-<joint name="body_1_body_1_9_suspention_fixing" type="fixed">
-<origin xyz="-0.0310615 -0.124953 -0.121637" rpy="3.14159 -1.06701e-07 2.65463" />
-<parent link="body_1" />
-<child link="body_1_9_suspention" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_10_antennae.step">
-<visual>
-<geometry>
-<mesh filename="package://antennae.step.stl"/>
-</geometry>
-<material name="body_1_10_antennae.step_material">
-<color rgba="0.109804 0.109804 0.109804 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://antennae.step.stl"/>
-</geometry>
-<material name="body_1_10_antennae.step_material">
-<color rgba="0.109804 0.109804 0.109804 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0578996 0.0921429 0.0389994" rpy="0 0 0"/>
-<mass value="0.0180219"/>
-<inertia ixx="3.50659e-05" ixy="-1.16532e-07"  ixz="4.17062e-11" iyy="2.77141e-07" iyz="-6.64058e-10" izz="3.50587e-05" />
-</inertial>
-</link>
-<joint name="body_1_body_1_10_antennae.step_fixing" type="fixed">
-<origin xyz="-0.373519 -0.281052 -0.0492607" rpy="1.5708 -7.1782e-08 1.62107" />
-<parent link="body_1" />
-<child link="body_1_10_antennae.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_11_motor">
-<visual>
-<geometry>
-<mesh filename="package://motor.stl"/>
-</geometry>
-<material name="body_1_11_motor_material">
-<color rgba="0.768627 0.886275 0.952941 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://motor.stl"/>
-</geometry>
-<material name="body_1_11_motor_material">
-<color rgba="0.768627 0.886275 0.952941 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-4.35415e-05 -3.52147e-09 0.0124478" rpy="0 0 0"/>
-<mass value="0.0092524"/>
-<inertia ixx="7.38756e-07" ixy="-2.99969e-14"  ixz="-3.76571e-09" iyy="6.65816e-07" iyz="-4.40126e-13" izz="3.84144e-07" />
-</inertial>
-</link>
-<joint name="body_1_body_1_11_motor_fixing" type="fixed">
-<origin xyz="-0.321926 -0.281787 -0.103516" rpy="-1.5708 -8.19855e-08 -3.09898" />
-<parent link="body_1" />
-<child link="body_1_11_motor" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_12_body_1">
-<visual>
-<geometry>
-<mesh filename="package://body_1.stl"/>
-</geometry>
-<material name="body_1_12_body_1_material">
-<color rgba="0.615686 0.811765 0.929412 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://body_1.stl"/>
-</geometry>
-<material name="body_1_12_body_1_material">
-<color rgba="0.615686 0.811765 0.929412 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-0.0042406 0.00245989 0.00127" rpy="0 0 0"/>
-<mass value="0.0688077"/>
-<inertia ixx="0.00011923" ixy="-1.14504e-05"  ixz="0" iyy="0.000106119" iyz="0" izz="0.000225275" />
-</inertial>
-</link>
-<joint name="body_1_body_1_12_body_1_fixing" type="fixed">
-<origin xyz="-0.286288 -0.276388 -0.119097" rpy="3.14159 1.99925e-08 -2.05776" />
-<parent link="body_1" />
-<child link="body_1_12_body_1" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_13_suspention">
-<visual>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_13_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_13_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
-<mass value="0.00653441"/>
-<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
-</inertial>
-</link>
-<joint name="body_1_body_1_13_suspention_fixing" type="fixed">
-<origin xyz="-0.283189 -0.569604 -0.121637" rpy="-3.14159 3.53916e-08 0.56652" />
-<parent link="body_1" />
-<child link="body_1_13_suspention" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_14_____.step">
+<link name="body_1_9_____.step">
 <visual>
 <geometry>
 <mesh filename="package://____.step.stl"/>
 </geometry>
-<material name="body_1_14_____.step_material">
+<material name="body_1_9_____.step_material">
 <color rgba="0.196078 0.207843 0.262745 1.0"/>
 </material>
 </visual>
@@ -439,307 +289,7 @@
 <geometry>
 <mesh filename="package://____.step.stl"/>
 </geometry>
-<material name="body_1_14_____.step_material">
-<color rgba="0.196078 0.207843 0.262745 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0566812 0.00635 0.0216284" rpy="0 0 0"/>
-<mass value="1.66881e-05"/>
-<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
-</inertial>
-</link>
-<joint name="body_1_body_1_14_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_14_____.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_15_antenna_hub.step">
-<visual>
-<geometry>
-<mesh filename="package://antenna_hub.step.stl"/>
-</geometry>
-<material name="body_1_15_antenna_hub.step_material">
-<color rgba="0.666667 0.694118 0.764706 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://antenna_hub.step.stl"/>
-</geometry>
-<material name="body_1_15_antenna_hub.step_material">
-<color rgba="0.666667 0.694118 0.764706 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.057953 0.0136724 0.0389997" rpy="0 0 0"/>
-<mass value="0.00502468"/>
-<inertia ixx="3.59049e-07" ixy="1.69985e-09"  ixz="6.81694e-12" iyy="1.10073e-07" iyz="9.90347e-12" izz="3.57826e-07" />
-</inertial>
-</link>
-<joint name="body_1_body_1_15_antenna_hub.step_fixing" type="fixed">
-<origin xyz="-0.37306 -0.281032 -0.0492607" rpy="1.5708 -7.1782e-08 1.62107" />
-<parent link="body_1" />
-<child link="body_1_15_antenna_hub.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_16_antennae.step">
-<visual>
-<geometry>
-<mesh filename="package://antennae.step.stl"/>
-</geometry>
-<material name="body_1_16_antennae.step_material">
-<color rgba="0.109804 0.109804 0.109804 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://antennae.step.stl"/>
-</geometry>
-<material name="body_1_16_antennae.step_material">
-<color rgba="0.109804 0.109804 0.109804 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0578996 0.0921429 0.0389994" rpy="0 0 0"/>
-<mass value="0.0180219"/>
-<inertia ixx="3.50659e-05" ixy="-1.16532e-07"  ixz="4.17062e-11" iyy="2.77141e-07" iyz="-6.64058e-10" izz="3.50587e-05" />
-</inertial>
-</link>
-<joint name="body_1_body_1_16_antennae.step_fixing" type="fixed">
-<origin xyz="-0.276047 -0.276702 -0.0492607" rpy="1.5708 -7.1782e-08 1.62107" />
-<parent link="body_1" />
-<child link="body_1_16_antennae.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_17_ova5647_lens_fov">
-<visual>
-<geometry>
-<mesh filename="package://ova5647_lens_fov.stl"/>
-</geometry>
-<material name="body_1_17_ova5647_lens_fov_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://ova5647_lens_fov.stl"/>
-</geometry>
-<material name="body_1_17_ova5647_lens_fov_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="5.54032e-09 -0.000854564 -9.04488e-09" rpy="0 0 0"/>
-<mass value="0.000111896"/>
-<inertia ixx="3.19404e-10" ixy="-1.01e-15"  ixz="-8.05746e-16" iyy="4.5485e-10" iyz="1.33717e-15" izz="3.19403e-10" />
-</inertial>
-</link>
-<joint name="body_1_body_1_17_ova5647_lens_fov_fixing" type="fixed">
-<origin xyz="-0.282247 -0.354176 -0.0365232" rpy="-1.5708 1.34625 1.62107" />
-<parent link="body_1" />
-<child link="body_1_17_ova5647_lens_fov" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_18_____.step">
-<visual>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_18_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_18_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0566812 0.00635 0.0241684" rpy="0 0 0"/>
-<mass value="1.66881e-05"/>
-<inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
-</inertial>
-</link>
-<joint name="body_1_body_1_18_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_18_____.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_19_______.step">
-<visual>
-<geometry>
-<mesh filename="package://______.step.stl"/>
-</geometry>
-<material name="body_1_19_______.step_material">
-<color rgba="1 1 1 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://______.step.stl"/>
-</geometry>
-<material name="body_1_19_______.step_material">
-<color rgba="1 1 1 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-0.000399961 0.0109757 -0.000299917" rpy="0 0 0"/>
-<mass value="0.0249892"/>
-<inertia ixx="1.87787e-05" ixy="-9.12923e-12"  ixz="3.19582e-12" iyy="2.66904e-05" iyz="-2.04002e-11" izz="9.41616e-06" />
-</inertial>
-</link>
-<joint name="body_1_body_1_19_______.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_19_______.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_20_antenna_hub.step">
-<visual>
-<geometry>
-<mesh filename="package://antenna_hub.step.stl"/>
-</geometry>
-<material name="body_1_20_antenna_hub.step_material">
-<color rgba="0.666667 0.694118 0.764706 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://antenna_hub.step.stl"/>
-</geometry>
-<material name="body_1_20_antenna_hub.step_material">
-<color rgba="0.666667 0.694118 0.764706 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.057953 0.0136724 0.0389997" rpy="0 0 0"/>
-<mass value="0.00502468"/>
-<inertia ixx="3.59049e-07" ixy="1.69985e-09"  ixz="6.81694e-12" iyy="1.10073e-07" iyz="9.90347e-12" izz="3.57826e-07" />
-</inertial>
-</link>
-<joint name="body_1_body_1_20_antenna_hub.step_fixing" type="fixed">
-<origin xyz="-0.275588 -0.276682 -0.0492607" rpy="1.5708 -7.1782e-08 1.62107" />
-<parent link="body_1" />
-<child link="body_1_20_antenna_hub.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_21_solenoid_case_2">
-<visual>
-<geometry>
-<mesh filename="package://solenoid_case_2.stl"/>
-</geometry>
-<material name="body_1_21_solenoid_case_2_material">
-<color rgba="0.768627 0.886275 0.952941 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://solenoid_case_2.stl"/>
-</geometry>
-<material name="body_1_21_solenoid_case_2_material">
-<color rgba="0.768627 0.886275 0.952941 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-0.0545761 -0.188752 0.00726209" rpy="0 0 0"/>
-<mass value="0.0232328"/>
-<inertia ixx="6.5286e-06" ixy="0"  ixz="0" iyy="1.13466e-05" iyz="0" izz="1.7024e-05" />
-</inertial>
-</link>
-<joint name="body_1_body_1_21_solenoid_case_2_fixing" type="fixed">
-<origin xyz="-0.470711 -0.350536 -0.121637" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_21_solenoid_case_2" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_22_____.step">
-<visual>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_22_____.step_material">
-<color rgba="0.784314 0.784314 0.784314 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_22_____.step_material">
-<color rgba="0.784314 0.784314 0.784314 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0554267 0.0092 0.019123" rpy="0 0 0"/>
-<mass value="1.44368e-05"/>
-<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
-</inertial>
-</link>
-<joint name="body_1_body_1_22_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_22_____.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_23_m3_l30mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_23_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_23_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
-<mass value="0.000771083"/>
-<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_23_m3_l30mm_fixing" type="fixed">
-<origin xyz="-0.368664 -0.118983 -0.0815573" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_23_m3_l30mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_24_____.step">
-<visual>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_24_____.step_material">
-<color rgba="0.196078 0.207843 0.262745 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_24_____.step_material">
+<material name="body_1_9_____.step_material">
 <color rgba="0.196078 0.207843 0.262745 1.0"/>
 </material>
 </collision>
@@ -749,19 +299,19 @@
 <inertia ixx="8.97864e-12" ixy="0"  ixz="9.36698e-14" iyy="4.1144e-11" iyz="0" izz="3.55308e-11" />
 </inertial>
 </link>
-<joint name="body_1_body_1_24_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
+<joint name="body_1_body_1_9_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
 <parent link="body_1" />
-<child link="body_1_24_____.step" />
+<child link="body_1_9_____.step" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_25_prt0002_1">
+<link name="body_1_10_prt0002_1">
 <visual>
 <geometry>
 <mesh filename="package://prt0002_1.stl"/>
 </geometry>
-<material name="body_1_25_prt0002_1_material">
+<material name="body_1_10_prt0002_1_material">
 <color rgba="0.615686 0.811765 0.929412 1.0"/>
 </material>
 </visual>
@@ -769,7 +319,7 @@
 <geometry>
 <mesh filename="package://prt0002_1.stl"/>
 </geometry>
-<material name="body_1_25_prt0002_1_material">
+<material name="body_1_10_prt0002_1_material">
 <color rgba="0.615686 0.811765 0.929412 1.0"/>
 </material>
 </collision>
@@ -779,19 +329,19 @@
 <inertia ixx="1.27634e-05" ixy="2.10488e-06"  ixz="5.62847e-09" iyy="9.8255e-06" iyz="-1.35826e-08" izz="1.6021e-05" />
 </inertial>
 </link>
-<joint name="body_1_body_1_25_prt0002_1_fixing" type="fixed">
-<origin xyz="-0.068392 -0.364997 -0.145572" rpy="-3.14159 -2.06632e-08 1.09012" />
+<joint name="body_1_body_1_10_prt0002_1_fixing" type="fixed">
+<origin xyz="-0.0649312 -0.360788 -0.145005" rpy="-3.14159 -2.06632e-08 1.09012" />
 <parent link="body_1" />
-<child link="body_1_25_prt0002_1" />
+<child link="body_1_10_prt0002_1" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_26_solenoid_case_1">
+<link name="body_1_11_solenoid_case_1">
 <visual>
 <geometry>
 <mesh filename="package://solenoid_case_1.stl"/>
 </geometry>
-<material name="body_1_26_solenoid_case_1_material">
+<material name="body_1_11_solenoid_case_1_material">
 <color rgba="0.917647 0.917647 0.917647 1.0"/>
 </material>
 </visual>
@@ -799,7 +349,7 @@
 <geometry>
 <mesh filename="package://solenoid_case_1.stl"/>
 </geometry>
-<material name="body_1_26_solenoid_case_1_material">
+<material name="body_1_11_solenoid_case_1_material">
 <color rgba="0.917647 0.917647 0.917647 1.0"/>
 </material>
 </collision>
@@ -809,10 +359,460 @@
 <inertia ixx="6.5286e-06" ixy="0"  ixz="0" iyy="1.13466e-05" iyz="0" izz="1.7024e-05" />
 </inertial>
 </link>
-<joint name="body_1_body_1_26_solenoid_case_1_fixing" type="fixed">
-<origin xyz="-0.153714 -0.330635 -0.151609" rpy="-8.14376e-08 7.1782e-08 -1.52052" />
+<joint name="body_1_body_1_11_solenoid_case_1_fixing" type="fixed">
+<origin xyz="-0.150791 -0.319554 -0.151043" rpy="-8.23973e-08 7.06783e-08 -1.534" />
 <parent link="body_1" />
-<child link="body_1_26_solenoid_case_1" />
+<child link="body_1_11_solenoid_case_1" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_12_part_1">
+<visual>
+<geometry>
+<mesh filename="package://part_1.stl"/>
+</geometry>
+<material name="body_1_12_part_1_material">
+<color rgba="0.25098 0.25098 0.25098 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://part_1.stl"/>
+</geometry>
+<material name="body_1_12_part_1_material">
+<color rgba="0.25098 0.25098 0.25098 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0"/>
+<mass value="0"/>
+<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="body_1_body_1_12_part_1_fixing" type="fixed">
+<origin xyz="-0.280051 -0.342952 -0.0926791" rpy="6.97139e-08 8.32148e-08 0.0251544" />
+<parent link="body_1" />
+<child link="body_1_12_part_1" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_13_m3_l35mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l35mm.stl"/>
+</geometry>
+<material name="body_1_13_m3_l35mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l35mm.stl"/>
+</geometry>
+<material name="body_1_13_m3_l35mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.17 -3.57955e-11 -0.0175" rpy="0 0 0"/>
+<mass value="0.000921555"/>
+<inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_13_m3_l35mm_fixing" type="fixed">
+<origin xyz="-0.0927726 -0.415205 -0.118531" rpy="3.14159 -1.06701e-07 2.65463" />
+<parent link="body_1" />
+<child link="body_1_13_m3_l35mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_14_m3_l35mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l35mm.stl"/>
+</geometry>
+<material name="body_1_14_m3_l35mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l35mm.stl"/>
+</geometry>
+<material name="body_1_14_m3_l35mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.17 -3.57955e-11 -0.0175" rpy="0 0 0"/>
+<mass value="0.000921555"/>
+<inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_14_m3_l35mm_fixing" type="fixed">
+<origin xyz="-0.172405 -0.288254 -0.118531" rpy="3.14159 -1.06701e-07 2.65463" />
+<parent link="body_1" />
+<child link="body_1_14_m3_l35mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_15_jetson_nano_board">
+<visual>
+<geometry>
+<mesh filename="package://jetson_nano_board.stl"/>
+</geometry>
+<material name="body_1_15_jetson_nano_board_material">
+<color rgba="0.470588 0.470588 0.470588 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://jetson_nano_board.stl"/>
+</geometry>
+<material name="body_1_15_jetson_nano_board_material">
+<color rgba="0.470588 0.470588 0.470588 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0431301 0.0303966 0.0091596" rpy="0 0 0"/>
+<mass value="0.313249"/>
+<inertia ixx="0.000145269" ixy="-1.186e-05"  ixz="1.72812e-06" iyy="0.000198778" iyz="-2.02085e-05" izz="0.000304634" />
+</inertial>
+</link>
+<joint name="body_1_body_1_15_jetson_nano_board_fixing" type="fixed">
+<origin xyz="-0.247503 -0.294594 -0.0512344" rpy="3.14159 -8.14376e-08 -3.09132" />
+<parent link="body_1" />
+<child link="body_1_15_jetson_nano_board" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_16_prt0007_3">
+<visual>
+<geometry>
+<mesh filename="package://prt0007_3.stl"/>
+</geometry>
+<material name="body_1_16_prt0007_3_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://prt0007_3.stl"/>
+</geometry>
+<material name="body_1_16_prt0007_3_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0170541 -0.296506 -0.00120586" rpy="0 0 0"/>
+<mass value="0.0568507"/>
+<inertia ixx="8.73711e-06" ixy="-2.19732e-07"  ixz="1.45771e-08" iyy="1.38518e-05" iyz="1.91693e-09" izz="1.6021e-05" />
+</inertial>
+</link>
+<joint name="body_1_body_1_16_prt0007_3_fixing" type="fixed">
+<origin xyz="-0.0613331 -0.362222 -0.145005" rpy="-3.14159 -1.99925e-08 1.08383" />
+<parent link="body_1" />
+<child link="body_1_16_prt0007_3" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_17_m3_l30mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_17_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_17_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+<mass value="0.000771083"/>
+<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_17_m3_l30mm_fixing" type="fixed">
+<origin xyz="-0.256915 -0.04564 -0.0812344" rpy="3.14159 7.1782e-08 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_17_m3_l30mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_18_m3_l30mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_18_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_18_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+<mass value="0.000771083"/>
+<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_18_m3_l30mm_fixing" type="fixed">
+<origin xyz="-0.33177 -0.0489804 -0.0812344" rpy="3.14159 7.1782e-08 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_18_m3_l30mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_19_body_3">
+<visual>
+<geometry>
+<mesh filename="package://body_3.stl"/>
+</geometry>
+<material name="body_1_19_body_3_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://body_3.stl"/>
+</geometry>
+<material name="body_1_19_body_3_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.250754 0.114603 0.00127" rpy="0 0 0"/>
+<mass value="0.0740803"/>
+<inertia ixx="0.000127348" ixy="-7.58421e-09"  ixz="0" iyy="0.000127085" iyz="0" izz="0.000254353" />
+</inertial>
+</link>
+<joint name="body_1_body_1_19_body_3_fixing" type="fixed">
+<origin xyz="-0.181503 -0.0159228 -0.0486944" rpy="3.14159 7.1782e-08 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_19_body_3" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_20_suspention">
+<visual>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_20_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_20_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
+<mass value="0.00653441"/>
+<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
+</inertial>
+</link>
+<joint name="body_1_body_1_20_suspention_fixing" type="fixed">
+<origin xyz="-0.183086 -0.503899 -0.121071" rpy="-3.14159 3.60363e-08 0.56023" />
+<parent link="body_1" />
+<child link="body_1_20_suspention" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_21_____.step">
+<visual>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_21_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_21_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0579666 0.0092 0.021663" rpy="0 0 0"/>
+<mass value="1.44368e-05"/>
+<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
+</inertial>
+</link>
+<joint name="body_1_body_1_21_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_21_____.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_22_pcb.step">
+<visual>
+<geometry>
+<mesh filename="package://pcb.step.stl"/>
+</geometry>
+<material name="body_1_22_pcb.step_material">
+<color rgba="0.298039 0.298039 0.298039 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://pcb.step.stl"/>
+</geometry>
+<material name="body_1_22_pcb.step_material">
+<color rgba="0.298039 0.298039 0.298039 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.00115354 0.0049 -0.000292476" rpy="0 0 0"/>
+<mass value="0.022861"/>
+<inertia ixx="1.1405e-05" ixy="2.57626e-16"  ixz="6.63789e-09" iyy="3.74833e-05" iyz="4.54387e-16" izz="2.60906e-05" />
+</inertial>
+</link>
+<joint name="body_1_body_1_22_pcb.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_22_pcb.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_23_m3_l35mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l35mm.stl"/>
+</geometry>
+<material name="body_1_23_m3_l35mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l35mm.stl"/>
+</geometry>
+<material name="body_1_23_m3_l35mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.17 -3.57955e-11 -0.0175" rpy="0 0 0"/>
+<mass value="0.000921555"/>
+<inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_23_m3_l35mm_fixing" type="fixed">
+<origin xyz="-0.0577093 -0.348986 -0.118531" rpy="3.14159 -1.06701e-07 2.65463" />
+<parent link="body_1" />
+<child link="body_1_23_m3_l35mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_24_camera_holder">
+<visual>
+<geometry>
+<mesh filename="package://camera_holder.stl"/>
+</geometry>
+<material name="body_1_24_camera_holder_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://camera_holder.stl"/>
+</geometry>
+<material name="body_1_24_camera_holder_material">
+<color rgba="0.498039 0.498039 0.498039 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.341188 -0.0184062 0.00628482" rpy="0 0 0"/>
+<mass value="0.00309401"/>
+<inertia ixx="4.84446e-07" ixy="1.03899e-09"  ixz="-1.24063e-07" iyy="3.40447e-07" iyz="1.07635e-09" izz="4.68613e-07" />
+</inertial>
+</link>
+<joint name="body_1_body_1_24_camera_holder_fixing" type="fixed">
+<origin xyz="-0.279263 0.00430441 -0.0486944" rpy="-8.14376e-08 7.1782e-08 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_24_camera_holder" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_25_____.step">
+<visual>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_25_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_25_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0554267 0.0092 0.021663" rpy="0 0 0"/>
+<mass value="1.44368e-05"/>
+<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
+</inertial>
+</link>
+<joint name="body_1_body_1_25_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_25_____.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_26_m3_l30mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_26_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_26_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+<mass value="0.000771083"/>
+<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_26_m3_l30mm_fixing" type="fixed">
+<origin xyz="-0.216594 -0.108797 -0.0812344" rpy="3.14159 7.1782e-08 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_26_m3_l30mm" />
 <axis xyz="0 0 0"/>
 </joint>
 
@@ -834,24 +834,414 @@
 </material>
 </collision>
 <inertial>
-<origin xyz="0.0554267 0.0092 0.024203" rpy="0 0 0"/>
+<origin xyz="0.0579666 0.0092 0.019123" rpy="0 0 0"/>
 <mass value="1.44368e-05"/>
 <inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
 </inertial>
 </link>
 <joint name="body_1_body_1_27_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
 <parent link="body_1" />
 <child link="body_1_27_____.step" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_28_ova5647_housing">
+<link name="body_1_28_picamerapcb">
+<visual>
+<geometry>
+<mesh filename="package://picamerapcb.stl"/>
+</geometry>
+<material name="body_1_28_picamerapcb_material">
+<color rgba="0 0.517647 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://picamerapcb.stl"/>
+</geometry>
+<material name="body_1_28_picamerapcb_material">
+<color rgba="0 0.517647 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.000339127 -0.000114193 0.000499726" rpy="0 0 0"/>
+<mass value="0.000788269"/>
+<inertia ixx="3.8565e-08" ixy="-2.25994e-13"  ixz="-7.47607e-13" iyy="3.68628e-08" iyz="1.35988e-14" izz="7.52997e-08" />
+</inertial>
+</link>
+<joint name="body_1_body_1_28_picamerapcb_fixing" type="fixed">
+<origin xyz="-0.280322 -0.344281 -0.0372106" rpy="3.14159 -1.34625 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_28_picamerapcb" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_29_prt0001_2">
+<visual>
+<geometry>
+<mesh filename="package://prt0001_2.stl"/>
+</geometry>
+<material name="body_1_29_prt0001_2_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://prt0001_2.stl"/>
+</geometry>
+<material name="body_1_29_prt0001_2_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0321927 -0.211212 -0.00127328" rpy="0 0 0"/>
+<mass value="0.0568507"/>
+<inertia ixx="1.27634e-05" ixy="2.10488e-06"  ixz="-5.62847e-09" iyy="9.8255e-06" iyz="1.35826e-08" izz="1.6021e-05" />
+</inertial>
+</link>
+<joint name="body_1_body_1_29_prt0001_2_fixing" type="fixed">
+<origin xyz="-0.0651265 -0.362261 -0.145005" rpy="-3.14159 -1.99925e-08 1.08383" />
+<parent link="body_1" />
+<child link="body_1_29_prt0001_2" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_30_pcb.step">
+<visual>
+<geometry>
+<mesh filename="package://pcb.step.stl"/>
+</geometry>
+<material name="body_1_30_pcb.step_material">
+<color rgba="0.792157 0.792157 0.792157 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://pcb.step.stl"/>
+</geometry>
+<material name="body_1_30_pcb.step_material">
+<color rgba="0.792157 0.792157 0.792157 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.00281781 -0.001 -0.00411411" rpy="0 0 0"/>
+<mass value="0.000473713"/>
+<inertia ixx="4.49035e-09" ixy="0"  ixz="0" iyy="3.87759e-09" iyz="0" izz="7.28246e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_30_pcb.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_30_pcb.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_31_m3_l30mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_31_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_31_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+<mass value="0.000771083"/>
+<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_31_m3_l30mm_fixing" type="fixed">
+<origin xyz="-0.353611 -0.182458 -0.0812344" rpy="3.14159 8.48329e-08 -1.34599" />
+<parent link="body_1" />
+<child link="body_1_31_m3_l30mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_32_suspention">
+<visual>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_32_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_32_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
+<mass value="0.00653441"/>
+<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
+</inertial>
+</link>
+<joint name="body_1_body_1_32_suspention_fixing" type="fixed">
+<origin xyz="-0.0276007 -0.120744 -0.121071" rpy="3.14159 -1.06701e-07 2.65463" />
+<parent link="body_1" />
+<child link="body_1_32_suspention" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_33_antennae.step">
+<visual>
+<geometry>
+<mesh filename="package://antennae.step.stl"/>
+</geometry>
+<material name="body_1_33_antennae.step_material">
+<color rgba="0.109804 0.109804 0.109804 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://antennae.step.stl"/>
+</geometry>
+<material name="body_1_33_antennae.step_material">
+<color rgba="0.109804 0.109804 0.109804 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0578996 0.0921429 0.0389994" rpy="0 0 0"/>
+<mass value="0.0180219"/>
+<inertia ixx="3.50659e-05" ixy="-1.16532e-07"  ixz="4.17062e-11" iyy="2.77141e-07" iyz="-6.64058e-10" izz="3.50587e-05" />
+</inertial>
+</link>
+<joint name="body_1_body_1_33_antennae.step_fixing" type="fixed">
+<origin xyz="-0.371161 -0.277546 -0.0486944" rpy="1.5708 -7.1782e-08 1.62107" />
+<parent link="body_1" />
+<child link="body_1_33_antennae.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_34_suspention">
+<visual>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_34_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_34_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
+<mass value="0.00653441"/>
+<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
+</inertial>
+</link>
+<joint name="body_1_body_1_34_suspention_fixing" type="fixed">
+<origin xyz="-0.279728 -0.565395 -0.121071" rpy="-3.14159 3.53915e-08 0.56652" />
+<parent link="body_1" />
+<child link="body_1_34_suspention" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_35_antennae.step">
+<visual>
+<geometry>
+<mesh filename="package://antennae.step.stl"/>
+</geometry>
+<material name="body_1_35_antennae.step_material">
+<color rgba="0.109804 0.109804 0.109804 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://antennae.step.stl"/>
+</geometry>
+<material name="body_1_35_antennae.step_material">
+<color rgba="0.109804 0.109804 0.109804 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0578996 0.0921429 0.0389994" rpy="0 0 0"/>
+<mass value="0.0180219"/>
+<inertia ixx="3.50659e-05" ixy="-1.16532e-07"  ixz="4.17062e-11" iyy="2.77141e-07" iyz="-6.64058e-10" izz="3.50587e-05" />
+</inertial>
+</link>
+<joint name="body_1_body_1_35_antennae.step_fixing" type="fixed">
+<origin xyz="-0.273689 -0.273197 -0.0486944" rpy="1.5708 -7.1782e-08 1.62107" />
+<parent link="body_1" />
+<child link="body_1_35_antennae.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_36_ova5647_lens_fov">
+<visual>
+<geometry>
+<mesh filename="package://ova5647_lens_fov.stl"/>
+</geometry>
+<material name="body_1_36_ova5647_lens_fov_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://ova5647_lens_fov.stl"/>
+</geometry>
+<material name="body_1_36_ova5647_lens_fov_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="5.54032e-09 -0.000854564 -9.04488e-09" rpy="0 0 0"/>
+<mass value="0.000111896"/>
+<inertia ixx="3.19404e-10" ixy="-1.01e-15"  ixz="-8.05746e-16" iyy="4.5485e-10" iyz="1.33717e-15" izz="3.19403e-10" />
+</inertial>
+</link>
+<joint name="body_1_body_1_36_ova5647_lens_fov_fixing" type="fixed">
+<origin xyz="-0.279889 -0.35067 -0.0359569" rpy="-1.5708 1.34625 1.62107" />
+<parent link="body_1" />
+<child link="body_1_36_ova5647_lens_fov" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_37_______.step">
+<visual>
+<geometry>
+<mesh filename="package://______.step.stl"/>
+</geometry>
+<material name="body_1_37_______.step_material">
+<color rgba="1 1 1 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://______.step.stl"/>
+</geometry>
+<material name="body_1_37_______.step_material">
+<color rgba="1 1 1 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.000399961 0.0109757 -0.000299917" rpy="0 0 0"/>
+<mass value="0.0249892"/>
+<inertia ixx="1.87787e-05" ixy="-9.12923e-12"  ixz="3.19582e-12" iyy="2.66904e-05" iyz="-2.04002e-11" izz="9.41616e-06" />
+</inertial>
+</link>
+<joint name="body_1_body_1_37_______.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_37_______.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_38_solenoid_case_2">
+<visual>
+<geometry>
+<mesh filename="package://solenoid_case_2.stl"/>
+</geometry>
+<material name="body_1_38_solenoid_case_2_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://solenoid_case_2.stl"/>
+</geometry>
+<material name="body_1_38_solenoid_case_2_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0545761 -0.188752 0.00726209" rpy="0 0 0"/>
+<mass value="0.0232328"/>
+<inertia ixx="6.5286e-06" ixy="0"  ixz="0" iyy="1.13466e-05" iyz="0" izz="1.7024e-05" />
+</inertial>
+</link>
+<joint name="body_1_body_1_38_solenoid_case_2_fixing" type="fixed">
+<origin xyz="-0.468028 -0.335181 -0.121071" rpy="3.14159 7.06783e-08 -1.534" />
+<parent link="body_1" />
+<child link="body_1_38_solenoid_case_2" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_39_____.step">
+<visual>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_39_____.step_material">
+<color rgba="0.784314 0.784314 0.784314 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_39_____.step_material">
+<color rgba="0.784314 0.784314 0.784314 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0554267 0.0092 0.019123" rpy="0 0 0"/>
+<mass value="1.44368e-05"/>
+<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
+</inertial>
+</link>
+<joint name="body_1_body_1_39_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_39_____.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_40_____.step">
+<visual>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_40_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://____.step.stl"/>
+</geometry>
+<material name="body_1_40_____.step_material">
+<color rgba="0.788235 0.788235 0.788235 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0554267 0.0092 0.024203" rpy="0 0 0"/>
+<mass value="1.44368e-05"/>
+<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
+</inertial>
+</link>
+<joint name="body_1_body_1_40_____.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_40_____.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_41_ova5647_housing">
 <visual>
 <geometry>
 <mesh filename="package://ova5647_housing.stl"/>
 </geometry>
-<material name="body_1_28_ova5647_housing_material">
+<material name="body_1_41_ova5647_housing_material">
 <color rgba="0.74902 0.74902 0.74902 1.0"/>
 </material>
 </visual>
@@ -859,7 +1249,7 @@
 <geometry>
 <mesh filename="package://ova5647_housing.stl"/>
 </geometry>
-<material name="body_1_28_ova5647_housing_material">
+<material name="body_1_41_ova5647_housing_material">
 <color rgba="0.74902 0.74902 0.74902 1.0"/>
 </material>
 </collision>
@@ -869,19 +1259,19 @@
 <inertia ixx="1.30632e-09" ixy="-2.459e-16"  ixz="2.21867e-16" iyy="2.34001e-09" iyz="0" izz="1.30632e-09" />
 </inertial>
 </link>
-<joint name="body_1_body_1_28_ova5647_housing_fixing" type="fixed">
-<origin xyz="-0.282496 -0.349344 -0.0354189" rpy="-1.5708 1.34625 1.62107" />
+<joint name="body_1_body_1_41_ova5647_housing_fixing" type="fixed">
+<origin xyz="-0.280138 -0.345838 -0.0348527" rpy="-1.5708 1.34625 1.62107" />
 <parent link="body_1" />
-<child link="body_1_28_ova5647_housing" />
+<child link="body_1_41_ova5647_housing" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_29_12v.step">
+<link name="body_1_42_12v.step">
 <visual>
 <geometry>
 <mesh filename="package://12v.step.stl"/>
 </geometry>
-<material name="body_1_29_12v.step_material">
+<material name="body_1_42_12v.step_material">
 <color rgba="0.054902 0.054902 0.054902 1.0"/>
 </material>
 </visual>
@@ -889,7 +1279,7 @@
 <geometry>
 <mesh filename="package://12v.step.stl"/>
 </geometry>
-<material name="body_1_29_12v.step_material">
+<material name="body_1_42_12v.step_material">
 <color rgba="0.054902 0.054902 0.054902 1.0"/>
 </material>
 </collision>
@@ -899,19 +1289,19 @@
 <inertia ixx="1.06136e-08" ixy="0"  ixz="-9.1615e-10" iyy="1.59365e-08" iyz="0" izz="1.27841e-08" />
 </inertial>
 </link>
-<joint name="body_1_body_1_29_12v.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
+<joint name="body_1_body_1_42_12v.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
 <parent link="body_1" />
-<child link="body_1_29_12v.step" />
+<child link="body_1_42_12v.step" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_30_m3_l35mm">
+<link name="body_1_43_m3_l35mm">
 <visual>
 <geometry>
 <mesh filename="package://m3_l35mm.stl"/>
 </geometry>
-<material name="body_1_30_m3_l35mm_material">
+<material name="body_1_43_m3_l35mm_material">
 <color rgba="0 0 0 1.0"/>
 </material>
 </visual>
@@ -919,7 +1309,7 @@
 <geometry>
 <mesh filename="package://m3_l35mm.stl"/>
 </geometry>
-<material name="body_1_30_m3_l35mm_material">
+<material name="body_1_43_m3_l35mm_material">
 <color rgba="0 0 0 1.0"/>
 </material>
 </collision>
@@ -929,79 +1319,19 @@
 <inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
 </inertial>
 </link>
-<joint name="body_1_body_1_30_m3_l35mm_fixing" type="fixed">
-<origin xyz="-0.21093 -0.358683 -0.119097" rpy="3.14159 -1.06701e-07 2.65463" />
+<joint name="body_1_body_1_43_m3_l35mm_fixing" type="fixed">
+<origin xyz="-0.207469 -0.354474 -0.118531" rpy="3.14159 -1.06701e-07 2.65463" />
 <parent link="body_1" />
-<child link="body_1_30_m3_l35mm" />
+<child link="body_1_43_m3_l35mm" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_31_m3_l35mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l35mm.stl"/>
-</geometry>
-<material name="body_1_31_m3_l35mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l35mm.stl"/>
-</geometry>
-<material name="body_1_31_m3_l35mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.17 -3.57955e-11 -0.0175" rpy="0 0 0"/>
-<mass value="0.000921555"/>
-<inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_31_m3_l35mm_fixing" type="fixed">
-<origin xyz="-0.0962334 -0.419415 -0.119097" rpy="3.14159 -1.06701e-07 2.65463" />
-<parent link="body_1" />
-<child link="body_1_31_m3_l35mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_32_m3_l35mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l35mm.stl"/>
-</geometry>
-<material name="body_1_32_m3_l35mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l35mm.stl"/>
-</geometry>
-<material name="body_1_32_m3_l35mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.17 -3.57955e-11 -0.0175" rpy="0 0 0"/>
-<mass value="0.000921555"/>
-<inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_32_m3_l35mm_fixing" type="fixed">
-<origin xyz="-0.175866 -0.292464 -0.119097" rpy="3.14159 -1.06701e-07 2.65463" />
-<parent link="body_1" />
-<child link="body_1_32_m3_l35mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_33_body_2">
+<link name="body_1_44_body_2">
 <visual>
 <geometry>
 <mesh filename="package://body_2.stl"/>
 </geometry>
-<material name="body_1_33_body_2_material">
+<material name="body_1_44_body_2_material">
 <color rgba="0.647059 0.647059 0.647059 1.0"/>
 </material>
 </visual>
@@ -1009,59 +1339,29 @@
 <geometry>
 <mesh filename="package://body_2.stl"/>
 </geometry>
-<material name="body_1_33_body_2_material">
+<material name="body_1_44_body_2_material">
 <color rgba="0.647059 0.647059 0.647059 1.0"/>
 </material>
 </collision>
 <inertial>
-<origin xyz="0.0126897 0.219957 0.00328514" rpy="0 0 0"/>
-<mass value="0.0830203"/>
-<inertia ixx="0.000146046" ixy="-2.8224e-06"  ixz="-6.44174e-06" iyy="0.000146699" iyz="-2.09866e-06" izz="0.000285666" />
+<origin xyz="0.0118001 0.220906 0.0032867" rpy="0 0 0"/>
+<mass value="0.0829562"/>
+<inertia ixx="0.000145984" ixy="7.96628e-07"  ixz="-4.12503e-06" iyy="0.000135134" iyz="-1.93985e-06" izz="0.00027404" />
 </inertial>
 </link>
-<joint name="body_1_body_1_33_body_2_fixing" type="fixed">
-<origin xyz="-0.0679969 -0.258035 -0.0815573" rpy="3.14159 7.11556e-08 -1.52819" />
+<joint name="body_1_body_1_44_body_2_fixing" type="fixed">
+<origin xyz="-0.0642126 -0.258945 -0.0809911" rpy="3.14159 6.97139e-08 -1.54564" />
 <parent link="body_1" />
-<child link="body_1_33_body_2" />
+<child link="body_1_44_body_2" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_34_jetson_nano_board">
-<visual>
-<geometry>
-<mesh filename="package://jetson_nano_board.stl"/>
-</geometry>
-<material name="body_1_34_jetson_nano_board_material">
-<color rgba="0.470588 0.470588 0.470588 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://jetson_nano_board.stl"/>
-</geometry>
-<material name="body_1_34_jetson_nano_board_material">
-<color rgba="0.470588 0.470588 0.470588 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0431301 0.0303966 0.0091596" rpy="0 0 0"/>
-<mass value="0.313249"/>
-<inertia ixx="0.000145269" ixy="-1.186e-05"  ixz="1.72812e-06" iyy="0.000198778" iyz="-2.02085e-05" izz="0.000304634" />
-</inertial>
-</link>
-<joint name="body_1_body_1_34_jetson_nano_board_fixing" type="fixed">
-<origin xyz="-0.249861 -0.2981 -0.0518007" rpy="3.14159 -8.14376e-08 -3.09132" />
-<parent link="body_1" />
-<child link="body_1_34_jetson_nano_board" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_35_ribbon_cam">
+<link name="body_1_45_ribbon_cam">
 <visual>
 <geometry>
 <mesh filename="package://ribbon_cam.stl"/>
 </geometry>
-<material name="body_1_35_ribbon_cam_material">
+<material name="body_1_45_ribbon_cam_material">
 <color rgba="1 0.945098 0.694118 1.0"/>
 </material>
 </visual>
@@ -1069,7 +1369,7 @@
 <geometry>
 <mesh filename="package://ribbon_cam.stl"/>
 </geometry>
-<material name="body_1_35_ribbon_cam_material">
+<material name="body_1_45_ribbon_cam_material">
 <color rgba="1 0.945098 0.694118 1.0"/>
 </material>
 </collision>
@@ -1079,19 +1379,19 @@
 <inertia ixx="7.23059e-12" ixy="3.4024e-16"  ixz="-6.17293e-16" iyy="1.68188e-11" iyz="-1.15698e-12" izz="1.0004e-11" />
 </inertial>
 </link>
-<joint name="body_1_body_1_35_ribbon_cam_fixing" type="fixed">
-<origin xyz="-0.282198 -0.349751 -0.0354408" rpy="-2.91705 8.14376e-08 0.0502736" />
+<joint name="body_1_body_1_45_ribbon_cam_fixing" type="fixed">
+<origin xyz="-0.27984 -0.346245 -0.0348745" rpy="-2.91705 8.14376e-08 0.0502736" />
 <parent link="body_1" />
-<child link="body_1_35_ribbon_cam" />
+<child link="body_1_45_ribbon_cam" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_36_pcb.step">
+<link name="body_1_46_pcb.step">
 <visual>
 <geometry>
 <mesh filename="package://pcb.step.stl"/>
 </geometry>
-<material name="body_1_36_pcb.step_material">
+<material name="body_1_46_pcb.step_material">
 <color rgba="0.792157 0.792157 0.792157 1.0"/>
 </material>
 </visual>
@@ -1099,7 +1399,7 @@
 <geometry>
 <mesh filename="package://pcb.step.stl"/>
 </geometry>
-<material name="body_1_36_pcb.step_material">
+<material name="body_1_46_pcb.step_material">
 <color rgba="0.792157 0.792157 0.792157 1.0"/>
 </material>
 </collision>
@@ -1109,310 +1409,10 @@
 <inertia ixx="5.10302e-09" ixy="0"  ixz="0" iyy="4.42503e-09" iyz="0" izz="8.05769e-09" />
 </inertial>
 </link>
-<joint name="body_1_body_1_36_pcb.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
+<joint name="body_1_body_1_46_pcb.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
 <parent link="body_1" />
-<child link="body_1_36_pcb.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_37_____.step">
-<visual>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_37_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://____.step.stl"/>
-</geometry>
-<material name="body_1_37_____.step_material">
-<color rgba="0.788235 0.788235 0.788235 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0579666 0.0092 0.024203" rpy="0 0 0"/>
-<mass value="1.44368e-05"/>
-<inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
-</inertial>
-</link>
-<joint name="body_1_body_1_37_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_37_____.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_38_prt0007_3">
-<visual>
-<geometry>
-<mesh filename="package://prt0007_3.stl"/>
-</geometry>
-<material name="body_1_38_prt0007_3_material">
-<color rgba="0.498039 0.498039 0.498039 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://prt0007_3.stl"/>
-</geometry>
-<material name="body_1_38_prt0007_3_material">
-<color rgba="0.498039 0.498039 0.498039 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-0.0170541 -0.296506 -0.00120586" rpy="0 0 0"/>
-<mass value="0.0568507"/>
-<inertia ixx="8.73711e-06" ixy="-2.19732e-07"  ixz="1.45771e-08" iyy="1.38518e-05" iyz="1.91693e-09" izz="1.6021e-05" />
-</inertial>
-</link>
-<joint name="body_1_body_1_38_prt0007_3_fixing" type="fixed">
-<origin xyz="-0.0647939 -0.366432 -0.145572" rpy="-3.14159 -1.99925e-08 1.08383" />
-<parent link="body_1" />
-<child link="body_1_38_prt0007_3" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_39_1.14_tft_ips_-_13p_-_reverse_mount.step">
-<visual>
-<geometry>
-<mesh filename="package://1.14_tft_ips_-_13p_-_reverse_mount.step.stl"/>
-</geometry>
-<material name="body_1_39_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
-<color rgba="1 1 1 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://1.14_tft_ips_-_13p_-_reverse_mount.step.stl"/>
-</geometry>
-<material name="body_1_39_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
-<color rgba="1 1 1 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0578 0.0068 -6.64207e-06" rpy="0 0 0"/>
-<mass value="0.000834"/>
-<inertia ixx="6.2828e-08" ixy="0"  ixz="2.29432e-15" iyy="6.95e-08" iyz="0" izz="7.228e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_39_1.14_tft_ips_-_13p_-_reverse_mount.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_39_1.14_tft_ips_-_13p_-_reverse_mount.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_40_m3_l30mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_40_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_40_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
-<mass value="0.000771083"/>
-<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_40_m3_l30mm_fixing" type="fixed">
-<origin xyz="-0.259273 -0.0491458 -0.0818007" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_40_m3_l30mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_41_suspention">
-<visual>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_41_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_41_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
-<mass value="0.00653441"/>
-<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
-</inertial>
-</link>
-<joint name="body_1_body_1_41_suspention_fixing" type="fixed">
-<origin xyz="-0.53966 -0.424318 -0.121637" rpy="-3.14159 1.06701e-07 -0.486967" />
-<parent link="body_1" />
-<child link="body_1_41_suspention" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_42_m3_l30mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_42_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_42_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
-<mass value="0.000771083"/>
-<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_42_m3_l30mm_fixing" type="fixed">
-<origin xyz="-0.334129 -0.0524862 -0.0818007" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_42_m3_l30mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_43_body_3">
-<visual>
-<geometry>
-<mesh filename="package://body_3.stl"/>
-</geometry>
-<material name="body_1_43_body_3_material">
-<color rgba="0.917647 0.917647 0.917647 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://body_3.stl"/>
-</geometry>
-<material name="body_1_43_body_3_material">
-<color rgba="0.917647 0.917647 0.917647 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.250754 0.114603 0.00127" rpy="0 0 0"/>
-<mass value="0.0740803"/>
-<inertia ixx="0.000127348" ixy="-7.58421e-09"  ixz="0" iyy="0.000127085" iyz="0" izz="0.000254353" />
-</inertial>
-</link>
-<joint name="body_1_body_1_43_body_3_fixing" type="fixed">
-<origin xyz="-0.183861 -0.0194286 -0.0492607" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_43_body_3" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_44_gearbox">
-<visual>
-<geometry>
-<mesh filename="package://gearbox.stl"/>
-</geometry>
-<material name="body_1_44_gearbox_material">
-<color rgba="0.231373 0.380392 0.705882 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://gearbox.stl"/>
-</geometry>
-<material name="body_1_44_gearbox_material">
-<color rgba="0.231373 0.380392 0.705882 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="4.83699e-18 -2.58534e-16 0.0170962" rpy="0 0 0"/>
-<mass value="0.0218513"/>
-<inertia ixx="3.91997e-06" ixy="0"  ixz="0" iyy="3.66242e-06" iyz="0" izz="1.61449e-06" />
-</inertial>
-</link>
-<joint name="body_1_body_1_44_gearbox_fixing" type="fixed">
-<origin xyz="-0.320869 -0.306565 -0.103516" rpy="-1.5708 -8.19855e-08 -3.09898" />
-<parent link="body_1" />
-<child link="body_1_44_gearbox" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_45_m3_l30mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_45_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l30mm.stl"/>
-</geometry>
-<material name="body_1_45_m3_l30mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
-<mass value="0.000771083"/>
-<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_45_m3_l30mm_fixing" type="fixed">
-<origin xyz="-0.253487 -0.178799 -0.0818007" rpy="3.14159 7.1782e-08 -1.52052" />
-<parent link="body_1" />
-<child link="body_1_45_m3_l30mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_46_suspention">
-<visual>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_46_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://suspention.stl"/>
-</geometry>
-<material name="body_1_46_suspention_material">
-<color rgba="0.647059 0.647059 0.647059 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
-<mass value="0.00653441"/>
-<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
-</inertial>
-</link>
-<joint name="body_1_body_1_46_suspention_fixing" type="fixed">
-<origin xyz="-0.186547 -0.508109 -0.121637" rpy="-3.14159 3.60363e-08 0.56023" />
-<parent link="body_1" />
-<child link="body_1_46_suspention" />
+<child link="body_1_46_pcb.step" />
 <axis xyz="0 0 0"/>
 </joint>
 
@@ -1434,24 +1434,144 @@
 </material>
 </collision>
 <inertial>
-<origin xyz="0.0579666 0.0092 0.021663" rpy="0 0 0"/>
+<origin xyz="0.0579666 0.0092 0.024203" rpy="0 0 0"/>
 <mass value="1.44368e-05"/>
 <inertia ixx="1.51981e-10" ixy="0"  ixz="-1.79403e-15" iyy="2.13123e-12" iyz="0" izz="1.51976e-10" />
 </inertial>
 </link>
 <joint name="body_1_body_1_47_____.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
 <parent link="body_1" />
 <child link="body_1_47_____.step" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_48_prt0007">
+<link name="body_1_48_1.14_tft_ips_-_13p_-_reverse_mount.step">
+<visual>
+<geometry>
+<mesh filename="package://1.14_tft_ips_-_13p_-_reverse_mount.step.stl"/>
+</geometry>
+<material name="body_1_48_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
+<color rgba="1 1 1 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://1.14_tft_ips_-_13p_-_reverse_mount.step.stl"/>
+</geometry>
+<material name="body_1_48_1.14_tft_ips_-_13p_-_reverse_mount.step_material">
+<color rgba="1 1 1 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0578 0.0068 -6.64207e-06" rpy="0 0 0"/>
+<mass value="0.000834"/>
+<inertia ixx="6.2828e-08" ixy="0"  ixz="2.29432e-15" iyy="6.95e-08" iyz="0" izz="7.228e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_48_1.14_tft_ips_-_13p_-_reverse_mount.step_fixing" type="fixed">
+<origin xyz="-0.28264 -0.270685 -0.0526944" rpy="1.5708 -8.17417e-08 -3.09557" />
+<parent link="body_1" />
+<child link="body_1_48_1.14_tft_ips_-_13p_-_reverse_mount.step" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_49_suspention">
+<visual>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_49_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://suspention.stl"/>
+</geometry>
+<material name="body_1_49_suspention_material">
+<color rgba="0.647059 0.647059 0.647059 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.0966663 -0.251313 0.00346267" rpy="0 0 0"/>
+<mass value="0.00653441"/>
+<inertia ixx="6.72251e-07" ixy="0"  ixz="0" iyy="1.24547e-06" iyz="1.8087e-10" izz="1.75555e-06" />
+</inertial>
+</link>
+<joint name="body_1_body_1_49_suspention_fixing" type="fixed">
+<origin xyz="-0.536199 -0.420109 -0.121071" rpy="-3.14159 1.06701e-07 -0.486967" />
+<parent link="body_1" />
+<child link="body_1_49_suspention" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_50_gearbox">
+<visual>
+<geometry>
+<mesh filename="package://gearbox.stl"/>
+</geometry>
+<material name="body_1_50_gearbox_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://gearbox.stl"/>
+</geometry>
+<material name="body_1_50_gearbox_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="4.83699e-18 -2.58534e-16 0.0170962" rpy="0 0 0"/>
+<mass value="0.0218513"/>
+<inertia ixx="3.91997e-06" ixy="0"  ixz="0" iyy="3.66242e-06" iyz="0" izz="1.61449e-06" />
+</inertial>
+</link>
+<joint name="body_1_body_1_50_gearbox_fixing" type="fixed">
+<origin xyz="-0.318264 -0.288322 -0.10295" rpy="-1.5708 -8.32148e-08 -3.11644" />
+<parent link="body_1" />
+<child link="body_1_50_gearbox" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_51_m3_l30mm">
+<visual>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_51_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://m3_l30mm.stl"/>
+</geometry>
+<material name="body_1_51_m3_l30mm_material">
+<color rgba="0 0 0 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.16 -6.55175e-11 -0.015" rpy="0 0 0"/>
+<mass value="0.000771083"/>
+<inertia ixx="5.51132e-08" ixy="4.40552e-15"  ixz="2.36036e-16" iyy="5.51132e-08" iyz="1.55903e-16" izz="3.0332e-09" />
+</inertial>
+</link>
+<joint name="body_1_body_1_51_m3_l30mm_fixing" type="fixed">
+<origin xyz="-0.251129 -0.175294 -0.0812344" rpy="3.14159 7.1782e-08 -1.52052" />
+<parent link="body_1" />
+<child link="body_1_51_m3_l30mm" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="body_1_52_prt0007">
 <visual>
 <geometry>
 <mesh filename="package://prt0007.stl"/>
 </geometry>
-<material name="body_1_48_prt0007_material">
+<material name="body_1_52_prt0007_material">
 <color rgba="0.972549 0.529412 0.00392157 1.0"/>
 </material>
 </visual>
@@ -1459,7 +1579,7 @@
 <geometry>
 <mesh filename="package://prt0007.stl"/>
 </geometry>
-<material name="body_1_48_prt0007_material">
+<material name="body_1_52_prt0007_material">
 <color rgba="0.972549 0.529412 0.00392157 1.0"/>
 </material>
 </collision>
@@ -1469,19 +1589,19 @@
 <inertia ixx="8.73711e-06" ixy="-2.19732e-07"  ixz="-1.45771e-08" iyy="1.38518e-05" iyz="-1.91693e-09" izz="1.6021e-05" />
 </inertial>
 </link>
-<joint name="body_1_body_1_48_prt0007_fixing" type="fixed">
-<origin xyz="-0.0647939 -0.366432 -0.145572" rpy="-3.14159 -1.99925e-08 1.08383" />
+<joint name="body_1_body_1_52_prt0007_fixing" type="fixed">
+<origin xyz="-0.0613331 -0.362222 -0.145005" rpy="-3.14159 -1.99925e-08 1.08383" />
 <parent link="body_1" />
-<child link="body_1_48_prt0007" />
+<child link="body_1_52_prt0007" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="body_1_49_m3_l35mm">
+<link name="body_1_53_m3_l35mm">
 <visual>
 <geometry>
 <mesh filename="package://m3_l35mm.stl"/>
 </geometry>
-<material name="body_1_49_m3_l35mm_material">
+<material name="body_1_53_m3_l35mm_material">
 <color rgba="0 0 0 1.0"/>
 </material>
 </visual>
@@ -1489,7 +1609,7 @@
 <geometry>
 <mesh filename="package://m3_l35mm.stl"/>
 </geometry>
-<material name="body_1_49_m3_l35mm_material">
+<material name="body_1_53_m3_l35mm_material">
 <color rgba="0 0 0 1.0"/>
 </material>
 </collision>
@@ -1499,70 +1619,10 @@
 <inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
 </inertial>
 </link>
-<joint name="body_1_body_1_49_m3_l35mm_fixing" type="fixed">
-<origin xyz="-0.100986 -0.289719 -0.119097" rpy="3.14159 -1.06701e-07 2.65463" />
+<joint name="body_1_body_1_53_m3_l35mm_fixing" type="fixed">
+<origin xyz="-0.0975257 -0.28551 -0.118531" rpy="3.14159 -1.06701e-07 2.65463" />
 <parent link="body_1" />
-<child link="body_1_49_m3_l35mm" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_50_pcb.step">
-<visual>
-<geometry>
-<mesh filename="package://pcb.step.stl"/>
-</geometry>
-<material name="body_1_50_pcb.step_material">
-<color rgba="0.298039 0.298039 0.298039 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://pcb.step.stl"/>
-</geometry>
-<material name="body_1_50_pcb.step_material">
-<color rgba="0.298039 0.298039 0.298039 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.00115354 0.0049 -0.000292476" rpy="0 0 0"/>
-<mass value="0.022861"/>
-<inertia ixx="1.1405e-05" ixy="2.57626e-16"  ixz="6.63789e-09" iyy="3.74833e-05" iyz="4.54387e-16" izz="2.60906e-05" />
-</inertial>
-</link>
-<joint name="body_1_body_1_50_pcb.step_fixing" type="fixed">
-<origin xyz="-0.284998 -0.274191 -0.0532607" rpy="1.5708 -8.17417e-08 -3.09557" />
-<parent link="body_1" />
-<child link="body_1_50_pcb.step" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="body_1_51_m3_l35mm">
-<visual>
-<geometry>
-<mesh filename="package://m3_l35mm.stl"/>
-</geometry>
-<material name="body_1_51_m3_l35mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://m3_l35mm.stl"/>
-</geometry>
-<material name="body_1_51_m3_l35mm_material">
-<color rgba="0 0 0 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.17 -3.57955e-11 -0.0175" rpy="0 0 0"/>
-<mass value="0.000921555"/>
-<inertia ixx="8.78424e-08" ixy="5.12742e-15"  ixz="2.80925e-16" iyy="8.78424e-08" iyz="1.83386e-16" izz="3.55567e-09" />
-</inertial>
-</link>
-<joint name="body_1_body_1_51_m3_l35mm_fixing" type="fixed">
-<origin xyz="-0.0611701 -0.353195 -0.119097" rpy="3.14159 -1.06701e-07 2.65463" />
-<parent link="body_1" />
-<child link="body_1_51_m3_l35mm" />
+<child link="body_1_53_m3_l35mm" />
 <axis xyz="0 0 0"/>
 </joint>
 
@@ -1573,42 +1633,12 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<link name="roller_1_0_output_shaft">
-<visual>
-<geometry>
-<mesh filename="package://output_shaft.stl"/>
-</geometry>
-<material name="roller_1_0_output_shaft_material">
-<color rgba="0.917647 0.917647 0.917647 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://output_shaft.stl"/>
-</geometry>
-<material name="roller_1_0_output_shaft_material">
-<color rgba="0.917647 0.917647 0.917647 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-1.55276e-15 7.42182e-20 1.01138e-16" rpy="0 0 0"/>
-<mass value="0.00102271"/>
-<inertia ixx="3.68396e-09" ixy="0"  ixz="0" iyy="1.0111e-07" iyz="0" izz="1.01527e-07" />
-</inertial>
-</link>
-<joint name="roller_1_roller_1_0_output_shaft_fixing" type="fixed">
-<origin xyz="5.55112e-17 -5.55112e-17 0" rpy="-3.58157e-19 -7.71743e-21 -1.43275e-19" />
-<parent link="roller_1" />
-<child link="roller_1_0_output_shaft" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="roller_1_1_roller_core">
+<link name="roller_1_0_roller_core">
 <visual>
 <geometry>
 <mesh filename="package://roller_core.stl"/>
 </geometry>
-<material name="roller_1_1_roller_core_material">
+<material name="roller_1_0_roller_core_material">
 <color rgba="0.972549 0.529412 0.00392157 1.0"/>
 </material>
 </visual>
@@ -1616,7 +1646,7 @@
 <geometry>
 <mesh filename="package://roller_core.stl"/>
 </geometry>
-<material name="roller_1_1_roller_core_material">
+<material name="roller_1_0_roller_core_material">
 <color rgba="0.972549 0.529412 0.00392157 1.0"/>
 </material>
 </collision>
@@ -1626,19 +1656,19 @@
 <inertia ixx="1.75599e-07" ixy="3.36415e-10"  ixz="0" iyy="1.69834e-06" iyz="0" izz="1.69854e-06" />
 </inertial>
 </link>
-<joint name="roller_1_roller_1_1_roller_core_fixing" type="fixed">
-<origin xyz="-0.010626 0.128506 -0.0653485" rpy="-1.97249e-16 -1.52326e-16 3.25078e-16" />
+<joint name="roller_1_roller_1_0_roller_core_fixing" type="fixed">
+<origin xyz="-0.010626 0.128506 -0.0653485" rpy="-1.95976e-16 -1.52316e-16 3.33366e-16" />
 <parent link="roller_1" />
-<child link="roller_1_1_roller_core" />
+<child link="roller_1_0_roller_core" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="roller_1_2_roller">
+<link name="roller_1_1_roller">
 <visual>
 <geometry>
 <mesh filename="package://roller.stl"/>
 </geometry>
-<material name="roller_1_2_roller_material">
+<material name="roller_1_1_roller_material">
 <color rgba="0.768627 0.886275 0.952941 1.0"/>
 </material>
 </visual>
@@ -1646,7 +1676,7 @@
 <geometry>
 <mesh filename="package://roller.stl"/>
 </geometry>
-<material name="roller_1_2_roller_material">
+<material name="roller_1_1_roller_material">
 <color rgba="0.768627 0.886275 0.952941 1.0"/>
 </material>
 </collision>
@@ -1656,15 +1686,45 @@
 <inertia ixx="5.54858e-06" ixy="0"  ixz="0" iyy="1.12601e-05" iyz="0" izz="1.12601e-05" />
 </inertial>
 </link>
-<joint name="roller_1_roller_1_2_roller_fixing" type="fixed">
-<origin xyz="-0.0106197 0.0432059 -0.0646269" rpy="-5.02314e-17 -4.08377e-17 7.75361e-16" />
+<joint name="roller_1_roller_1_1_roller_fixing" type="fixed">
+<origin xyz="-0.0106197 0.0432059 -0.0646269" rpy="-4.85247e-17 -4.08218e-17 7.87558e-16" />
 <parent link="roller_1" />
-<child link="roller_1_2_roller" />
+<child link="roller_1_1_roller" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="roller_1_2_output_shaft">
+<visual>
+<geometry>
+<mesh filename="package://output_shaft.stl"/>
+</geometry>
+<material name="roller_1_2_output_shaft_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://output_shaft.stl"/>
+</geometry>
+<material name="roller_1_2_output_shaft_material">
+<color rgba="0.917647 0.917647 0.917647 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-1.55276e-15 7.42182e-20 1.01138e-16" rpy="0 0 0"/>
+<mass value="0.00102271"/>
+<inertia ixx="3.68396e-09" ixy="0"  ixz="0" iyy="1.0111e-07" iyz="0" izz="1.01527e-07" />
+</inertial>
+</link>
+<joint name="roller_1_roller_1_2_output_shaft_fixing" type="fixed">
+<origin xyz="5.55112e-17 0 0" rpy="-1.69295e-19 -6.4833e-21 4.02361e-19" />
+<parent link="roller_1" />
+<child link="roller_1_2_output_shaft" />
 <axis xyz="0 0 0"/>
 </joint>
 
 <joint name="roller" type="revolute">
-<origin xyz="-0.319783 -0.332041 -0.103516" rpy="-3.14056 -8.19855e-08 -3.09898" />
+<origin xyz="-0.317623 -0.313813 -0.10295" rpy="-3.14056 -8.32148e-08 -3.11644" />
 <parent link="body_1" />
 <child link="roller_1" />
 <axis xyz="-1 0 0"/>
@@ -1679,42 +1739,12 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<link name="horn4_1_0_horn">
-<visual>
-<geometry>
-<mesh filename="package://horn.stl"/>
-</geometry>
-<material name="horn4_1_0_horn_material">
-<color rgba="0.231373 0.380392 0.705882 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://horn.stl"/>
-</geometry>
-<material name="horn4_1_0_horn_material">
-<color rgba="0.231373 0.380392 0.705882 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="0.171498 -0.217932 0.000383662" rpy="0 0 0"/>
-<mass value="0.000726561"/>
-<inertia ixx="1.98867e-08" ixy="0"  ixz="0" iyy="1.98867e-08" iyz="0" izz="3.88102e-08" />
-</inertial>
-</link>
-<joint name="horn4_1_horn4_1_0_horn_fixing" type="fixed">
-<origin xyz="0.171498 0.217932 0.00431" rpy="-3.14159 -4.57429e-14 3.14159" />
-<parent link="horn4_1" />
-<child link="horn4_1_0_horn" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="horn4_1_1_mx-12w_horn">
+<link name="horn4_1_0_mx-12w_horn">
 <visual>
 <geometry>
 <mesh filename="package://mx-12w_horn.stl"/>
 </geometry>
-<material name="horn4_1_1_mx-12w_horn_material">
+<material name="horn4_1_0_mx-12w_horn_material">
 <color rgba="0.980392 0.713725 0.00392157 1.0"/>
 </material>
 </visual>
@@ -1722,7 +1752,7 @@
 <geometry>
 <mesh filename="package://mx-12w_horn.stl"/>
 </geometry>
-<material name="horn4_1_1_mx-12w_horn_material">
+<material name="horn4_1_0_mx-12w_horn_material">
 <color rgba="0.980392 0.713725 0.00392157 1.0"/>
 </material>
 </collision>
@@ -1732,10 +1762,40 @@
 <inertia ixx="5.26427e-08" ixy="0"  ixz="-3.27772e-13" iyy="5.23755e-08" iyz="2.27658e-16" izz="9.81044e-08" />
 </inertial>
 </link>
-<joint name="horn4_1_horn4_1_1_mx-12w_horn_fixing" type="fixed">
-<origin xyz="0 0 0.0012" rpy="2.31228e-17 1.42879e-18 -1.1534e-17" />
+<joint name="horn4_1_horn4_1_0_mx-12w_horn_fixing" type="fixed">
+<origin xyz="1.38778e-17 0 0.0012" rpy="-1.7791e-18 -5.05601e-18 6.79004e-18" />
 <parent link="horn4_1" />
-<child link="horn4_1_1_mx-12w_horn" />
+<child link="horn4_1_0_mx-12w_horn" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="horn4_1_1_horn">
+<visual>
+<geometry>
+<mesh filename="package://horn.stl"/>
+</geometry>
+<material name="horn4_1_1_horn_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://horn.stl"/>
+</geometry>
+<material name="horn4_1_1_horn_material">
+<color rgba="0.231373 0.380392 0.705882 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="0.171498 -0.217932 0.000383662" rpy="0 0 0"/>
+<mass value="0.000726561"/>
+<inertia ixx="1.98867e-08" ixy="0"  ixz="0" iyy="1.98867e-08" iyz="0" izz="3.88102e-08" />
+</inertial>
+</link>
+<joint name="horn4_1_horn4_1_1_horn_fixing" type="fixed">
+<origin xyz="0.171498 0.217932 0.00431" rpy="-3.14159 -4.58188e-14 -3.14159" />
+<parent link="horn4_1" />
+<child link="horn4_1_1_horn" />
 <axis xyz="0 0 0"/>
 </joint>
 
@@ -1763,14 +1823,566 @@
 </inertial>
 </link>
 <joint name="horn4_1_horn4_1_2_main_frame_fixing" type="fixed">
-<origin xyz="0.0678046 0.04517 0.0423198" rpy="2.07893e-14 3.77567e-16 1.5708" />
+<origin xyz="0.0678046 0.04517 0.0423198" rpy="2.06812e-14 3.32723e-16 1.5708" />
 <parent link="horn4_1" />
 <child link="horn4_1_2_main_frame" />
 <axis xyz="0 0 0"/>
 </joint>
 
+<link name="wheel2_sub2_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub2_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub2_1_wheel2_sub2_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-4.22678e-17 1.18541e-18 -3.45848e-18" />
+<parent link="wheel2_sub2_1" />
+<child link="wheel2_sub2_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub1" type="revolute">
+<origin xyz="-0.00825 0.0142894 0.0189056" rpy="3.14159 -2.12521e-14 -3.14159" />
+<parent link="horn4_1" />
+<child link="wheel2_sub2_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub7_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub7_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub7_1_wheel2_sub7_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-3.68532e-17 1.10848e-17 2.75791e-17" />
+<parent link="wheel2_sub7_1" />
+<child link="wheel2_sub7_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub2" type="revolute">
+<origin xyz="0.00825 0.0142894 0.0189056" rpy="-1.76028e-14 3.08347e-14 1.86088e-12" />
+<parent link="horn4_1" />
+<child link="wheel2_sub7_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub3_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub3_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub3_1_wheel2_sub3_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-6.80295e-18 -1.35131e-17 -5.14927e-18" />
+<parent link="wheel2_sub3_1" />
+<child link="wheel2_sub3_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub3" type="revolute">
+<origin xyz="0.0165 1.11022e-16 0.0189056" rpy="1.5708 -0.523599 -1.5708" />
+<parent link="horn4_1" />
+<child link="wheel2_sub3_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub9_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub9_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub9_1_wheel2_sub9_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="5.74847e-18 -2.51487e-18 1.57462e-17" />
+<parent link="wheel2_sub9_1" />
+<child link="wheel2_sub9_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub4" type="revolute">
+<origin xyz="0.00825 -0.0142894 0.0189056" rpy="3.14159 -2.10031e-14 3.14159" />
+<parent link="horn4_1" />
+<child link="wheel2_sub9_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub5_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub5_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub5_1_wheel2_sub5_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-2.44241e-17 5.23385e-18 -1.82848e-17" />
+<parent link="wheel2_sub5_1" />
+<child link="wheel2_sub5_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub5" type="revolute">
+<origin xyz="-0.00825 -0.0142894 0.0189056" rpy="-1.70853e-14 3.0742e-14 4.49393e-12" />
+<parent link="horn4_1" />
+<child link="wheel2_sub5_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub4_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub4_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub4_1_wheel2_sub4_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-6.80295e-18 -1.35131e-17 -5.14927e-18" />
+<parent link="wheel2_sub4_1" />
+<child link="wheel2_sub4_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub6" type="revolute">
+<origin xyz="-0.0165 -5.55112e-17 0.0189056" rpy="1.5708 -0.523599 -1.5708" />
+<parent link="horn4_1" />
+<child link="wheel2_sub4_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub1_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub1_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub1_1_wheel2_sub1_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-2.80964e-17 1.7684e-18 5.06008e-17" />
+<parent link="wheel2_sub1_1" />
+<child link="wheel2_sub1_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub7" type="revolute">
+<origin xyz="3.05311e-16 -0.0165 0.0102056" rpy="-3.14159 -1.25206e-14 2.61799" />
+<parent link="horn4_1" />
+<child link="wheel2_sub1_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub8_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub8_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub8_1_wheel2_sub8_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-4.02605e-17 -1.7648e-17 1.50698e-17" />
+<parent link="wheel2_sub8_1" />
+<child link="wheel2_sub8_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub8" type="revolute">
+<origin xyz="0.0142894 -0.00825 0.0102056" rpy="1.5708 -0.523599 -2.0944" />
+<parent link="horn4_1" />
+<child link="wheel2_sub8_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub10_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub10_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub10_1_wheel2_sub10_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="3.09699e-17 2.27732e-17 -2.86819e-18" />
+<parent link="wheel2_sub10_1" />
+<child link="wheel2_sub10_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub9" type="revolute">
+<origin xyz="0.0142894 0.00825 0.0102056" rpy="1.5708 -0.523599 -1.0472" />
+<parent link="horn4_1" />
+<child link="wheel2_sub10_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub12_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub12_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub12_1_wheel2_sub12_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-2.03699e-17 -6.68359e-17 -3.67224e-18" />
+<parent link="wheel2_sub12_1" />
+<child link="wheel2_sub12_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub10" type="revolute">
+<origin xyz="-0.0142894 0.00825 0.0102056" rpy="1.5708 -0.523599 -2.0944" />
+<parent link="horn4_1" />
+<child link="wheel2_sub12_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub6_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub6_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub6_1_wheel2_sub6_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-8.75686e-18 -2.60078e-17 -5.775e-18" />
+<parent link="wheel2_sub6_1" />
+<child link="wheel2_sub6_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub11" type="revolute">
+<origin xyz="-0.0142894 -0.00825 0.0102056" rpy="1.5708 -0.523599 -1.0472" />
+<parent link="horn4_1" />
+<child link="wheel2_sub6_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel2_sub11_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel2_sub11_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub11_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel2_sub11_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel2_sub11_1_wheel2_sub11_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-7.25459e-17 -1.44936e-17 2.82005e-17" />
+<parent link="wheel2_sub11_1" />
+<child link="wheel2_sub11_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel2_sub12" type="revolute">
+<origin xyz="-2.35922e-16 0.0165 0.0102056" rpy="-3.14159 -1.11289e-14 2.61799" />
+<parent link="horn4_1" />
+<child link="wheel2_sub11_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="wheel4" type="revolute">
-<origin xyz="-0.226759 -0.326225 -0.144332" rpy="1.5708 1.43948 1.08383" />
+<origin xyz="-0.223298 -0.322015 -0.143766" rpy="1.5708 1.43948 1.08383" />
 <parent link="body_1" />
 <child link="horn4_1" />
 <axis xyz="0 0 -1"/>
@@ -1785,42 +2397,12 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<link name="horn2_1_0_mx-12w_horn">
-<visual>
-<geometry>
-<mesh filename="package://mx-12w_horn.stl"/>
-</geometry>
-<material name="horn2_1_0_mx-12w_horn_material">
-<color rgba="0.980392 0.713725 0.00392157 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://mx-12w_horn.stl"/>
-</geometry>
-<material name="horn2_1_0_mx-12w_horn_material">
-<color rgba="0.980392 0.713725 0.00392157 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-7.34452e-06 2.08999e-11 -0.000177486" rpy="0 0 0"/>
-<mass value="0.00165194"/>
-<inertia ixx="5.26427e-08" ixy="0"  ixz="-3.27772e-13" iyy="5.23755e-08" iyz="2.27658e-16" izz="9.81044e-08" />
-</inertial>
-</link>
-<joint name="horn2_1_horn2_1_0_mx-12w_horn_fixing" type="fixed">
-<origin xyz="-6.93889e-18 0 0.0012" rpy="-1.11142e-19 -3.19256e-18 1.37671e-19" />
-<parent link="horn2_1" />
-<child link="horn2_1_0_mx-12w_horn" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="horn2_1_1_main_frame">
+<link name="horn2_1_0_main_frame">
 <visual>
 <geometry>
 <mesh filename="package://main_frame.stl"/>
 </geometry>
-<material name="horn2_1_1_main_frame_material">
+<material name="horn2_1_0_main_frame_material">
 <color rgba="0.980392 0.713725 0.00392157 1.0"/>
 </material>
 </visual>
@@ -1828,7 +2410,7 @@
 <geometry>
 <mesh filename="package://main_frame.stl"/>
 </geometry>
-<material name="horn2_1_1_main_frame_material">
+<material name="horn2_1_0_main_frame_material">
 <color rgba="0.980392 0.713725 0.00392157 1.0"/>
 </material>
 </collision>
@@ -1838,19 +2420,19 @@
 <inertia ixx="8.90861e-07" ixy="-1.42505e-11"  ixz="8.5139e-12" iyy="8.90905e-07" iyz="-1.47974e-11" izz="1.3508e-06" />
 </inertial>
 </link>
-<joint name="horn2_1_horn2_1_1_main_frame_fixing" type="fixed">
-<origin xyz="0.04517 -0.0678046 0.0423198" rpy="1.06618e-14 2.4458e-15 2.39095e-16" />
+<joint name="horn2_1_horn2_1_0_main_frame_fixing" type="fixed">
+<origin xyz="0.04517 -0.0678046 0.0423198" rpy="1.08806e-14 2.25562e-15 1.3988e-16" />
 <parent link="horn2_1" />
-<child link="horn2_1_1_main_frame" />
+<child link="horn2_1_0_main_frame" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="horn2_1_2_horn">
+<link name="horn2_1_1_horn">
 <visual>
 <geometry>
 <mesh filename="package://horn.stl"/>
 </geometry>
-<material name="horn2_1_2_horn_material">
+<material name="horn2_1_1_horn_material">
 <color rgba="0.231373 0.380392 0.705882 1.0"/>
 </material>
 </visual>
@@ -1858,7 +2440,7 @@
 <geometry>
 <mesh filename="package://horn.stl"/>
 </geometry>
-<material name="horn2_1_2_horn_material">
+<material name="horn2_1_1_horn_material">
 <color rgba="0.231373 0.380392 0.705882 1.0"/>
 </material>
 </collision>
@@ -1868,15 +2450,597 @@
 <inertia ixx="1.98867e-08" ixy="0"  ixz="0" iyy="1.98867e-08" iyz="0" izz="3.88102e-08" />
 </inertial>
 </link>
-<joint name="horn2_1_horn2_1_2_horn_fixing" type="fixed">
-<origin xyz="0.217932 -0.171498 0.00431" rpy="-3.14159 -1.05447e-14 1.5708" />
+<joint name="horn2_1_horn2_1_1_horn_fixing" type="fixed">
+<origin xyz="0.217932 -0.171498 0.00431" rpy="-3.14159 -1.0473e-14 1.5708" />
 <parent link="horn2_1" />
-<child link="horn2_1_2_horn" />
+<child link="horn2_1_1_horn" />
 <axis xyz="0 0 0"/>
 </joint>
 
+<link name="horn2_1_2_mx-12w_horn">
+<visual>
+<geometry>
+<mesh filename="package://mx-12w_horn.stl"/>
+</geometry>
+<material name="horn2_1_2_mx-12w_horn_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://mx-12w_horn.stl"/>
+</geometry>
+<material name="horn2_1_2_mx-12w_horn_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-7.34452e-06 2.08999e-11 -0.000177486" rpy="0 0 0"/>
+<mass value="0.00165194"/>
+<inertia ixx="5.26427e-08" ixy="0"  ixz="-3.27772e-13" iyy="5.23755e-08" iyz="2.27658e-16" izz="9.81044e-08" />
+</inertial>
+</link>
+<joint name="horn2_1_horn2_1_2_mx-12w_horn_fixing" type="fixed">
+<origin xyz="6.93889e-18 0 0.0012" rpy="-1.77561e-22 4.95731e-17 -1.98513e-19" />
+<parent link="horn2_1" />
+<child link="horn2_1_2_mx-12w_horn" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="wheel3_sub6_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub6_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub6_1_wheel3_sub6_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="9.6636e-17 -5.67798e-17 -3.13151e-17" />
+<parent link="wheel3_sub6_1" />
+<child link="wheel3_sub6_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub1" type="revolute">
+<origin xyz="0.0142894 0.00825 0.0189056" rpy="1.5708 -0.523599 2.0944" />
+<parent link="horn2_1" />
+<child link="wheel3_sub6_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub2_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub2_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub2_1_wheel3_sub2_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.55738e-20 -1.11451e-19 1.60966e-17" />
+<parent link="wheel3_sub2_1" />
+<child link="wheel3_sub2_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub2" type="revolute">
+<origin xyz="-1.17961e-16 0.0165 0.0189056" rpy="1.5708 -0.523599 -3.14159" />
+<parent link="horn2_1" />
+<child link="wheel3_sub2_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub3_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub3_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub3_1_wheel3_sub3_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-2.05207e-18 -2.07385e-17 3.65189e-19" />
+<parent link="wheel3_sub3_1" />
+<child link="wheel3_sub3_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub3" type="revolute">
+<origin xyz="-0.0142894 0.00825 0.0189056" rpy="1.5708 -0.523599 -2.0944" />
+<parent link="horn2_1" />
+<child link="wheel3_sub3_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub1_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub1_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub1_1_wheel3_sub1_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.19083e-16 -7.62783e-17 6.29702e-17" />
+<parent link="wheel3_sub1_1" />
+<child link="wheel3_sub1_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub4" type="revolute">
+<origin xyz="-0.0142894 -0.00825 0.0189056" rpy="1.5708 -0.523599 2.0944" />
+<parent link="horn2_1" />
+<child link="wheel3_sub1_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub12_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub12_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub12_1_wheel3_sub12_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.07784e-17 -1.91435e-17 -9.67424e-17" />
+<parent link="wheel3_sub12_1" />
+<child link="wheel3_sub12_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub5" type="revolute">
+<origin xyz="0.0142894 -0.00825 0.0189056" rpy="1.5708 -0.523599 -2.0944" />
+<parent link="horn2_1" />
+<child link="wheel3_sub12_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub9_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub9_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub9_1_wheel3_sub9_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.55738e-20 -1.11451e-19 1.60966e-17" />
+<parent link="wheel3_sub9_1" />
+<child link="wheel3_sub9_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub6" type="revolute">
+<origin xyz="6.245e-17 -0.0165 0.0189056" rpy="1.5708 -0.523599 -3.14159" />
+<parent link="horn2_1" />
+<child link="wheel3_sub9_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub5_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub5_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub5_1_wheel3_sub5_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="6.0165e-17 -4.59548e-17 -3.54613e-17" />
+<parent link="wheel3_sub5_1" />
+<child link="wheel3_sub5_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub7" type="revolute">
+<origin xyz="0.00825 0.0142894 0.0102056" rpy="1.5708 -0.523599 2.61799" />
+<parent link="horn2_1" />
+<child link="wheel3_sub5_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub4_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub4_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub4_1_wheel3_sub4_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-9.7381e-17 -1.54562e-17 -1.76325e-17" />
+<parent link="wheel3_sub4_1" />
+<child link="wheel3_sub4_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub8" type="revolute">
+<origin xyz="0.0165 -5.55112e-17 0.0102056" rpy="-1.45843e-14 2.07784e-14 -1.0472" />
+<parent link="horn2_1" />
+<child link="wheel3_sub4_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub11_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub11_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub11_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub11_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub11_1_wheel3_sub11_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="9.62624e-17 -1.03175e-17 3.24856e-17" />
+<parent link="wheel3_sub11_1" />
+<child link="wheel3_sub11_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub9" type="revolute">
+<origin xyz="0.00825 -0.0142894 0.0102056" rpy="1.5708 -0.523599 -2.61799" />
+<parent link="horn2_1" />
+<child link="wheel3_sub11_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub8_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub8_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub8_1_wheel3_sub8_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="4.68881e-17 5.05653e-17 -1.97925e-17" />
+<parent link="wheel3_sub8_1" />
+<child link="wheel3_sub8_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub10" type="revolute">
+<origin xyz="-0.00825 -0.0142894 0.0102056" rpy="1.5708 -0.523599 2.61799" />
+<parent link="horn2_1" />
+<child link="wheel3_sub8_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub10_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub10_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub10_1_wheel3_sub10_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="3.41213e-17 2.79617e-17 6.7109e-17" />
+<parent link="wheel3_sub10_1" />
+<child link="wheel3_sub10_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub11" type="revolute">
+<origin xyz="-0.00825 0.0142894 0.0102056" rpy="1.5708 -0.523599 -2.61799" />
+<parent link="horn2_1" />
+<child link="wheel3_sub10_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel3_sub7_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel3_sub7_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel3_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel3_sub7_1_wheel3_sub7_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-9.7381e-17 -1.54562e-17 -1.76325e-17" />
+<parent link="wheel3_sub7_1" />
+<child link="wheel3_sub7_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel3_sub12" type="revolute">
+<origin xyz="-0.0165 -8.32667e-17 0.0102056" rpy="-1.45843e-14 2.07784e-14 -1.0472" />
+<parent link="horn2_1" />
+<child link="wheel3_sub7_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="wheel1" type="revolute">
-<origin xyz="-0.232506 -0.21886 -0.144332" rpy="1.5708 0.00210312 2.13103" />
+<origin xyz="-0.229045 -0.21465 -0.143766" rpy="1.5708 0.00210312 2.13103" />
 <parent link="body_1" />
 <child link="horn2_1" />
 <axis xyz="0 0 -1"/>
@@ -1915,7 +3079,7 @@
 </inertial>
 </link>
 <joint name="horn1_1_horn1_1_0_horn_fixing" type="fixed">
-<origin xyz="-0.171498 -0.217932 0.00431" rpy="3.14159 2.43739e-16 2.70708e-17" />
+<origin xyz="-0.171498 -0.217932 0.00431" rpy="3.14159 2.14007e-16 -2.63992e-17" />
 <parent link="horn1_1" />
 <child link="horn1_1_0_horn" />
 <axis xyz="0 0 0"/>
@@ -1945,7 +3109,7 @@
 </inertial>
 </link>
 <joint name="horn1_1_horn1_1_1_main_frame_fixing" type="fixed">
-<origin xyz="0.04517 -0.0678046 0.0423198" rpy="-1.71224e-16 1.60243e-15 7.53542e-17" />
+<origin xyz="0.04517 -0.0678046 0.0423198" rpy="-1.16728e-16 1.57167e-15 8.4169e-18" />
 <parent link="horn1_1" />
 <child link="horn1_1_1_main_frame" />
 <axis xyz="0 0 0"/>
@@ -1975,25 +3139,25 @@
 </inertial>
 </link>
 <joint name="horn1_1_horn1_1_2_mx-12w_horn_fixing" type="fixed">
-<origin xyz="-2.77556e-17 4.16334e-17 0.0012" rpy="-8.41319e-17 -2.56047e-18 9.98967e-18" />
+<origin xyz="0 2.77556e-17 0.0012" rpy="3.40236e-17 3.42024e-18 -1.43643e-18" />
 <parent link="horn1_1" />
 <child link="horn1_1_2_mx-12w_horn" />
 <axis xyz="0 0 0"/>
 </joint>
 
-<link name="subwheel_1_1">
+<link name="wheel4_sub11_1">
 <inertial>
 <origin xyz="0 0 0" rpy="0 0 0" />
 <mass value="1e-9" />
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<link name="subwheel_1_1_0_sub_wheel">
+<link name="wheel4_sub11_1_0_sub_wheel">
 <visual>
 <geometry>
 <mesh filename="package://sub_wheel.stl"/>
 </geometry>
-<material name="subwheel_1_1_0_sub_wheel_material">
+<material name="wheel4_sub11_1_0_sub_wheel_material">
 <color rgba="0.768627 0.886275 0.952941 1.0"/>
 </material>
 </visual>
@@ -2001,7 +3165,7 @@
 <geometry>
 <mesh filename="package://sub_wheel.stl"/>
 </geometry>
-<material name="subwheel_1_1_0_sub_wheel_material">
+<material name="wheel4_sub11_1_0_sub_wheel_material">
 <color rgba="0.768627 0.886275 0.952941 1.0"/>
 </material>
 </collision>
@@ -2011,24 +3175,530 @@
 <inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
 </inertial>
 </link>
-<joint name="subwheel_1_1_subwheel_1_1_0_sub_wheel_fixing" type="fixed">
-<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-7.23277e-17 4.91292e-18 7.41974e-18" />
-<parent link="subwheel_1_1" />
-<child link="subwheel_1_1_0_sub_wheel" />
+<joint name="wheel4_sub11_1_wheel4_sub11_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="4.379e-17 2.60996e-17 -1.29708e-18" />
+<parent link="wheel4_sub11_1" />
+<child link="wheel4_sub11_1_0_sub_wheel" />
 <axis xyz="0 0 0"/>
 </joint>
 
 <joint name="wheel4_sub1" type="revolute">
 <origin xyz="0.0142894 -0.00825 0.0189056" rpy="-1.5708 0.523599 -2.0944" />
 <parent link="horn1_1" />
-<child link="subwheel_1_1" />
+<child link="wheel4_sub11_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub5_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub5_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub5_1_wheel4_sub5_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.14724e-17 -2.90875e-18 3.80662e-17" />
+<parent link="wheel4_sub5_1" />
+<child link="wheel4_sub5_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub2" type="revolute">
+<origin xyz="0.0142894 0.00825 0.0189056" rpy="-1.5708 0.523599 -1.0472" />
+<parent link="horn1_1" />
+<child link="wheel4_sub5_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub3_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub3_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub3_1_wheel4_sub3_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="3.97092e-17 2.40466e-18 4.08111e-19" />
+<parent link="wheel4_sub3_1" />
+<child link="wheel4_sub3_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub3" type="revolute">
+<origin xyz="8.32667e-17 0.0165 0.0189056" rpy="1.10713e-14 -6.22131e-15 0.523599" />
+<parent link="horn1_1" />
+<child link="wheel4_sub3_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub6_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub6_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub6_1_wheel4_sub6_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.51485e-17 -1.05333e-17 -3.19179e-17" />
+<parent link="wheel4_sub6_1" />
+<child link="wheel4_sub6_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub4" type="revolute">
+<origin xyz="-0.0142894 0.00825 0.0189056" rpy="-1.5708 0.523599 -2.0944" />
+<parent link="horn1_1" />
+<child link="wheel4_sub6_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub10_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub10_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub10_1_wheel4_sub10_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-2.90759e-18 1.07843e-17 2.11356e-17" />
+<parent link="wheel4_sub10_1" />
+<child link="wheel4_sub10_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub5" type="revolute">
+<origin xyz="-0.0142894 -0.00825 0.0189056" rpy="-1.5708 0.523599 -1.0472" />
+<parent link="horn1_1" />
+<child link="wheel4_sub10_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub9_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub9_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub9_1_wheel4_sub9_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="3.97092e-17 2.40466e-18 4.08111e-19" />
+<parent link="wheel4_sub9_1" />
+<child link="wheel4_sub9_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub6" type="revolute">
+<origin xyz="0 -0.0165 0.0189056" rpy="1.10713e-14 -6.22131e-15 0.523599" />
+<parent link="horn1_1" />
+<child link="wheel4_sub9_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub8_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub8_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub8_1_wheel4_sub8_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="4.50536e-18 -8.16484e-18 -5.18513e-18" />
+<parent link="wheel4_sub8_1" />
+<child link="wheel4_sub8_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub7" type="revolute">
+<origin xyz="0.00825 -0.0142894 0.0102056" rpy="3.14159 -1.40394e-14 3.14159" />
+<parent link="horn1_1" />
+<child link="wheel4_sub8_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub7_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub7_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub7_1_wheel4_sub7_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="5.85173e-17 -2.73888e-18 -5.0708e-17" />
+<parent link="wheel4_sub7_1" />
+<child link="wheel4_sub7_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub8" type="revolute">
+<origin xyz="-0.00825 -0.0142894 0.0102056" rpy="-1.5708 0.523599 -0.523599" />
+<parent link="horn1_1" />
+<child link="wheel4_sub7_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub4_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub4_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub4_1_wheel4_sub4_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="1.14114e-17 -1.50646e-18 -6.64922e-17" />
+<parent link="wheel4_sub4_1" />
+<child link="wheel4_sub4_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub9" type="revolute">
+<origin xyz="-0.0165 9.71445e-17 0.0102056" rpy="-1.5708 0.523599 -1.5708" />
+<parent link="horn1_1" />
+<child link="wheel4_sub4_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub1_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub1_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub1_1_wheel4_sub1_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-3.47956e-17 3.99725e-17 4.62138e-17" />
+<parent link="wheel4_sub1_1" />
+<child link="wheel4_sub1_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub10" type="revolute">
+<origin xyz="0.00825 0.0142894 0.0102056" rpy="-1.5708 0.523599 -0.523599" />
+<parent link="horn1_1" />
+<child link="wheel4_sub1_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub12_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub12_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub12_1_wheel4_sub12_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-5.86213e-17 6.3523e-18 2.91641e-18" />
+<parent link="wheel4_sub12_1" />
+<child link="wheel4_sub12_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub11" type="revolute">
+<origin xyz="-0.00825 0.0142894 0.0102056" rpy="3.14159 -1.44076e-14 -3.14159" />
+<parent link="horn1_1" />
+<child link="wheel4_sub12_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel4_sub2_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel4_sub2_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel4_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel4_sub2_1_wheel4_sub2_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="1.14114e-17 -1.50646e-18 -6.64922e-17" />
+<parent link="wheel4_sub2_1" />
+<child link="wheel4_sub2_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel4_sub12" type="revolute">
+<origin xyz="0.0165 6.93889e-17 0.0102056" rpy="-1.5708 0.523599 -1.5708" />
+<parent link="horn1_1" />
+<child link="wheel4_sub2_1" />
 <axis xyz="-0.866025 0.5 0"/>
 <limit effort="1.5" velocity="22" />
 <joint_properties friction="0.0"/>
 </joint>
 
 <joint name="wheel3" type="revolute">
-<origin xyz="-0.341484 -0.331191 -0.144332" rpy="1.5708 -1.44174 -1.00428" />
+<origin xyz="-0.338023 -0.326981 -0.143766" rpy="1.5708 -1.44174 -1.00428" />
 <parent link="body_1" />
 <child link="horn1_1" />
 <axis xyz="0 0 -1"/>
@@ -2043,42 +3713,12 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<link name="horn4_2_0_main_frame">
-<visual>
-<geometry>
-<mesh filename="package://main_frame.stl"/>
-</geometry>
-<material name="horn4_2_0_main_frame_material">
-<color rgba="0.980392 0.713725 0.00392157 1.0"/>
-</material>
-</visual>
-<collision>
-<geometry>
-<mesh filename="package://main_frame.stl"/>
-</geometry>
-<material name="horn4_2_0_main_frame_material">
-<color rgba="0.980392 0.713725 0.00392157 1.0"/>
-</material>
-</collision>
-<inertial>
-<origin xyz="-0.0451702 0.0678046 -0.0277669" rpy="0 0 0"/>
-<mass value="0.0101782"/>
-<inertia ixx="8.90861e-07" ixy="-1.42505e-11"  ixz="8.5139e-12" iyy="8.90905e-07" iyz="-1.47974e-11" izz="1.3508e-06" />
-</inertial>
-</link>
-<joint name="horn4_2_horn4_2_0_main_frame_fixing" type="fixed">
-<origin xyz="-0.04517 0.0678046 0.0423198" rpy="6.61237e-15 7.52169e-17 -3.14159" />
-<parent link="horn4_2" />
-<child link="horn4_2_0_main_frame" />
-<axis xyz="0 0 0"/>
-</joint>
-
-<link name="horn4_2_1_horn">
+<link name="horn4_2_0_horn">
 <visual>
 <geometry>
 <mesh filename="package://horn.stl"/>
 </geometry>
-<material name="horn4_2_1_horn_material">
+<material name="horn4_2_0_horn_material">
 <color rgba="0.231373 0.380392 0.705882 1.0"/>
 </material>
 </visual>
@@ -2086,7 +3726,7 @@
 <geometry>
 <mesh filename="package://horn.stl"/>
 </geometry>
-<material name="horn4_2_1_horn_material">
+<material name="horn4_2_0_horn_material">
 <color rgba="0.231373 0.380392 0.705882 1.0"/>
 </material>
 </collision>
@@ -2096,10 +3736,40 @@
 <inertia ixx="1.98867e-08" ixy="0"  ixz="0" iyy="1.98867e-08" iyz="0" izz="3.88102e-08" />
 </inertial>
 </link>
-<joint name="horn4_2_horn4_2_1_horn_fixing" type="fixed">
-<origin xyz="0.171498 0.217932 0.00431" rpy="-3.14159 7.52169e-17 -3.14159" />
+<joint name="horn4_2_horn4_2_0_horn_fixing" type="fixed">
+<origin xyz="0.171498 0.217932 0.00431" rpy="-3.14159 1.22265e-16 -3.14159" />
 <parent link="horn4_2" />
-<child link="horn4_2_1_horn" />
+<child link="horn4_2_0_horn" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<link name="horn4_2_1_main_frame">
+<visual>
+<geometry>
+<mesh filename="package://main_frame.stl"/>
+</geometry>
+<material name="horn4_2_1_main_frame_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://main_frame.stl"/>
+</geometry>
+<material name="horn4_2_1_main_frame_material">
+<color rgba="0.980392 0.713725 0.00392157 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0451702 0.0678046 -0.0277669" rpy="0 0 0"/>
+<mass value="0.0101782"/>
+<inertia ixx="8.90861e-07" ixy="-1.42505e-11"  ixz="8.5139e-12" iyy="8.90905e-07" iyz="-1.47974e-11" izz="1.3508e-06" />
+</inertial>
+</link>
+<joint name="horn4_2_horn4_2_1_main_frame_fixing" type="fixed">
+<origin xyz="0.0678046 0.04517 0.0423198" rpy="1.15963e-14 8.29034e-15 1.5708" />
+<parent link="horn4_2" />
+<child link="horn4_2_1_main_frame" />
 <axis xyz="0 0 0"/>
 </joint>
 
@@ -2127,14 +3797,566 @@
 </inertial>
 </link>
 <joint name="horn4_2_horn4_2_2_mx-12w_horn_fixing" type="fixed">
-<origin xyz="5.55112e-17 0 0.0012" rpy="4.02064e-20 6.21402e-17 -1.27856e-19" />
+<origin xyz="0 2.77556e-17 0.0012" rpy="5.56872e-21 1.50924e-17 -1.52212e-20" />
 <parent link="horn4_2" />
 <child link="horn4_2_2_mx-12w_horn" />
 <axis xyz="0 0 0"/>
 </joint>
 
+<link name="wheel1_sub3_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub3_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub3_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub3_1_wheel1_sub3_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.09819e-17 -1.10663e-19 -1.73115e-19" />
+<parent link="wheel1_sub3_1" />
+<child link="wheel1_sub3_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub1" type="revolute">
+<origin xyz="-0.0142894 -0.00825 0.0102056" rpy="3.14159 -1.61341e-14 -1.5708" />
+<parent link="horn4_2" />
+<child link="wheel1_sub3_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub7_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub7_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub7_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub7_1_wheel1_sub7_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-7.90652e-21 -1.76332e-21 -4.23187e-18" />
+<parent link="wheel1_sub7_1" />
+<child link="wheel1_sub7_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub2" type="revolute">
+<origin xyz="5.55112e-17 -0.0165 0.0102056" rpy="-1.5708 0.523599 -1.26353e-14" />
+<parent link="horn4_2" />
+<child link="wheel1_sub7_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub11_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub11_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub11_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub11_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub11_1_wheel1_sub11_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="2.25457e-17 -1.6482e-17 -1.7757e-17" />
+<parent link="wheel1_sub11_1" />
+<child link="wheel1_sub11_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub3" type="revolute">
+<origin xyz="-0.0142894 0.00825 0.0102056" rpy="-3.14159 -1.42129e-14 -2.61799" />
+<parent link="horn4_2" />
+<child link="wheel1_sub11_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub8_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub8_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub8_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub8_1_wheel1_sub8_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="1.02437e-19 8.9986e-20 2.11984e-18" />
+<parent link="wheel1_sub8_1" />
+<child link="wheel1_sub8_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub4" type="revolute">
+<origin xyz="-1.11022e-16 0.0165 0.0102056" rpy="-1.5708 0.523599 -1.45363e-14" />
+<parent link="horn4_2" />
+<child link="wheel1_sub8_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub10_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub10_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub10_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub10_1_wheel1_sub10_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-6.20648e-17 -4.12145e-17 -7.14868e-17" />
+<parent link="wheel1_sub10_1" />
+<child link="wheel1_sub10_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub5" type="revolute">
+<origin xyz="-0.00825 0.0142894 0.0189056" rpy="-3.23107e-15 1.83642e-14 1.0472" />
+<parent link="horn4_2" />
+<child link="wheel1_sub10_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub9_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub9_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub9_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub9_1_wheel1_sub9_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="4.52064e-17 1.6031e-17 2.84495e-18" />
+<parent link="wheel1_sub9_1" />
+<child link="wheel1_sub9_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub6" type="revolute">
+<origin xyz="-0.00825 -0.0142894 0.0189056" rpy="-1.5708 0.523599 -0.523599" />
+<parent link="horn4_2" />
+<child link="wheel1_sub9_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub4_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub4_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub4_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub4_1_wheel1_sub4_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="3.41276e-17 2.49721e-17 1.30673e-17" />
+<parent link="wheel1_sub4_1" />
+<child link="wheel1_sub4_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub7" type="revolute">
+<origin xyz="0.00825 -0.0142894 0.0189056" rpy="-1.5708 0.523599 0.523599" />
+<parent link="horn4_2" />
+<child link="wheel1_sub4_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub1_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub1_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub1_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub1_1_wheel1_sub1_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-1.00478e-16 -7.53965e-18 4.31091e-17" />
+<parent link="wheel1_sub1_1" />
+<child link="wheel1_sub1_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub8" type="revolute">
+<origin xyz="-0.0165 5.55112e-17 0.0189056" rpy="3.14159 -1.65835e-14 -2.0944" />
+<parent link="horn4_2" />
+<child link="wheel1_sub1_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub12_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub12_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub12_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub12_1_wheel1_sub12_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="1.18981e-17 1.43442e-17 -5.06067e-18" />
+<parent link="wheel1_sub12_1" />
+<child link="wheel1_sub12_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub9" type="revolute">
+<origin xyz="0.00825 0.0142894 0.0189056" rpy="-1.5708 0.523599 -0.523599" />
+<parent link="horn4_2" />
+<child link="wheel1_sub12_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub6_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub6_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub6_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub6_1_wheel1_sub6_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="-8.72376e-18 1.48926e-17 -9.4126e-17" />
+<parent link="wheel1_sub6_1" />
+<child link="wheel1_sub6_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub10" type="revolute">
+<origin xyz="0.0165 -2.77556e-17 0.0189056" rpy="1.94368e-14 -1.8273e-15 2.0944" />
+<parent link="horn4_2" />
+<child link="wheel1_sub6_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub5_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub5_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub5_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub5_1_wheel1_sub5_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="1.10048e-17 -1.01991e-17 -6.46638e-17" />
+<parent link="wheel1_sub5_1" />
+<child link="wheel1_sub5_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub11" type="revolute">
+<origin xyz="0.0142894 -0.00825 0.0102056" rpy="3.14159 1.25893e-14 0.523599" />
+<parent link="horn4_2" />
+<child link="wheel1_sub5_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="wheel1_sub2_1">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<link name="wheel1_sub2_1_0_sub_wheel">
+<visual>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</visual>
+<collision>
+<geometry>
+<mesh filename="package://sub_wheel.stl"/>
+</geometry>
+<material name="wheel1_sub2_1_0_sub_wheel_material">
+<color rgba="0.768627 0.886275 0.952941 1.0"/>
+</material>
+</collision>
+<inertial>
+<origin xyz="-0.0533831 0.0534947 -0.0321134" rpy="0 0 0"/>
+<mass value="9.9564e-05"/>
+<inertia ixx="9.26988e-10" ixy="4.8503e-10"  ixz="2.09591e-13" iyy="1.48655e-09" iyz="-2.62533e-14" izz="1.76782e-09" />
+</inertial>
+</link>
+<joint name="wheel1_sub2_1_wheel1_sub2_1_0_sub_wheel_fixing" type="fixed">
+<origin xyz="0.0534199 -0.0535157 0.032114" rpy="8.97244e-17 -1.42063e-20 -1.3284e-19" />
+<parent link="wheel1_sub2_1" />
+<child link="wheel1_sub2_1_0_sub_wheel" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="wheel1_sub12" type="revolute">
+<origin xyz="0.0142894 0.00825 0.0102056" rpy="3.14159 -1.59107e-14 -1.5708" />
+<parent link="horn4_2" />
+<child link="wheel1_sub2_1" />
+<axis xyz="-0.866025 0.5 0"/>
+<limit effort="1.5" velocity="22" />
+<joint_properties friction="0.0"/>
+</joint>
+
 <joint name="wheel2" type="revolute">
-<origin xyz="-0.344029 -0.223181 -0.144332" rpy="1.5708 -0.00111608 -2.05776" />
+<origin xyz="-0.340568 -0.218972 -0.143766" rpy="1.5708 -0.00111608 -2.05776" />
 <parent link="body_1" />
 <child link="horn4_2" />
 <axis xyz="0 0 -1"/>
@@ -2173,14 +4395,14 @@
 </inertial>
 </link>
 <joint name="roller_stick_1_roller_stick_1_0_solenoid_stick_fixing" type="fixed">
-<origin xyz="-0.04445 -0.29536 -0.137105" rpy="5.8239e-22 -1.33241e-23 -1.97415e-18" />
+<origin xyz="-0.04445 -0.29536 -0.137105" rpy="4.67567e-22 5.22435e-25 8.86323e-18" />
 <parent link="roller_stick_1" />
 <child link="roller_stick_1_0_solenoid_stick" />
 <axis xyz="0 0 0"/>
 </joint>
 
 <joint name="stick" type="revolute">
-<origin xyz="-0.28338 -0.317566 -0.136623" rpy="-5.1286e-06 7.1782e-08 -1.52052" />
+<origin xyz="-0.281228 -0.278693 -0.136057" rpy="-5.12956e-06 7.06783e-08 -1.534" />
 <parent link="body_1" />
 <child link="roller_stick_1" />
 <axis xyz="-1 0 0"/>
