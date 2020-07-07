@@ -225,5 +225,13 @@ k : kick ball
 
 Please check blog for video of blog for wacthing how to give a command(https://kimbring2.github.io/2019/10/26/jetbot.html#soccer_robot_design_simulation)
 
+# Teleoperation for Jetbot soccer version
+Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
+
+[![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
+You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
+
 # License
 Apache License 2.0
