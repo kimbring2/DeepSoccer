@@ -1,45 +1,48 @@
 # Introduction
-I started this is a project for making NVIDIA Jetbot playing soccer. I mainly use a Gazebo of ROS for traning Jetbot to play soccer. Traning Deep Learning algorithm is Reinforcmenet Learning. Thus, I need a virtual environment. After training, the trained model is moved to the actual Jetbot. I need to check that kind of approach will work well.
+I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well.
 
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project!</strong>
 
-You can see a original Jetbot related code at https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. But, there is no URDF file of Jetbot which is needed for simulating a robot in Gazebo. Thus, I change SDF file of Jetbot to URDF. 
-
-And all code are based on ROS URDF official tutorial http://gazebosim.org/tutorials?tut=ros_urdf where you can learn how to simulate a robot in Gazebo. I just chanage a simple 3-linkage, 2-joint arm robot of tutorial to Jetbot. 
-
+I can get a code of original Jetbot from https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo.
+All code are based on URDF official tutorial of ROS http://gazebosim.org/tutorials?tut=ros_urdf where I could learn how to make and simulate a robot in Gazebo. 
 I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please see it if you need more information about code. 
 
 # Python version
 Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7 version environment.
 
 # Python package
-I use a tensorflow-gpu==1.13.1 for neural network part. And opencv-python, cvlib(1.8.0), requests, progressbar, keras is neeed for soccer ball detection. 
+1. tensorflow-gpu==1.13.1 
+2. opencv-python
+3. cvlib(1.8.0), requests, progressbar, keras 
 
 # Reference
 1. Jetbot SDF file, ROS : [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
-2. Gazebo parameter : [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
+2. Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
 3. URDF file usage in Gazebo : [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
 4. Object detecion using cvlib: [Object detecion using cvlib](https://towardsdatascience.com/object-detection-with-less-than-10-lines-of-code-using-python-2d28eebc5b11)
-5. Soccer field, ball model: [Soccer field, ball model](https://github.com/RoboCup-MSL/MSL-Simulator)
+5. Soccer field, ball model : [Soccer field, ball model](https://github.com/RoboCup-MSL/MSL-Simulator)
 6. Reinforcement Learnig model : [Reinforcement Learnig model](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc)
 7. Inference saved model : [Tensorrt](http://litaotju.github.io/2019/01/24/Tensorflow-Tutorial-6,-Using-TensorRT-to-speedup-inference/)
-8. Onshape 3D model to URDF: [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
-9. GPIO control for solenoid electromagnet: https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
+8. Onshape 3D model to URDF : [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
+9. GPIO control for solenoid electromagnet : https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
+10. Ball kicking mechanism : https://www.youtube.com/watch?v=fVGrYoqn-EU
 
 # How to build ROS project
+At your terminal, run below command.
+
 ```
-cd ~/catkin_ws/src/
-git clone https://github.com/kimbring2/jetbot_gazebo.git
-cd ..
-catkin_make
-source devel/setup.bash
+$ cd ~/catkin_ws/src/
+$ git clone https://github.com/kimbring2/jetbot_gazebo.git
+$ cd ..
+$ catkin_make
+$ source devel/setup.bash
 ```
 # Dependent package install
 Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
 # How to view 3D model of Jetbot in Rviz
 ```
-roslaunch jetbot_description jetbot_rviz.launch
+$ roslaunch jetbot_description jetbot_rviz.launch
 ```
 
 # How to start control Jetbot in roslaunch
@@ -92,7 +95,7 @@ For robot1
 For robot2
 ```rostopic pub -1 /robot2/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-# Python code for Gazebo Simulator
+# Python code for Gazebo simulator
 Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
 It will send a velocity command to each wheel and show a camera sensor image. Furthermore, Tensorflow code for Reinforcement Learning is implemented. Jetbot is able to only learn how to track a soccer ball at now. However, I train more advanced behavior after finishing first task.
 
@@ -126,55 +129,53 @@ $ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "in"
 $ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "out"
 ```
 
-After that, when the uploaded jetbot_ros.py file is executed, it is possible to receive the camera frame as an input and output the speed of the left and right motors as an input in the same manner as one method in Gazebo.
+You can also give a control command using Python code. Run 'jetbot_ros.py' file.
 ```$ python jetbot_ros.py ```
 
-In this code, the part that detected the soccer ball using cvlib can be done with Jetson board using jetson.utils, jetson.inference. To see this, look at the jetbot_soccer_main.py file. This file uses Jetson Inference's detecNet to find objects in the image file coming from the jetbot_camera ROS node.
+That file receive a image frame from camera and send a velecity command to each wheel. In this code, detecting soccer ball is performed using jetson.utils, jetson.inference.
 
 <img src="image/jetbot_soccer_detect_ball.jpeg" width="600">
 
 # Tensorflow model freezing for TensorRT inference
-Tensorflow model trained using Gazebo simulation can be used without installing Tensorflow on Jetson Nano. However, the saved model needs to be freezing by using first part of 'RL_model_froze.ipynb'. You need to change a 'model_dir = "/home/kimbring2/catkin_ws/src/jetbot/jetbot_control/src/drqn"' line for your workplace setting.
+Tensorflow model trained using Gazebo simulation can be used without installing Tensorflow on Jetson Nano. However, model needs to be freezed. Please check a process for it at 'RL_model_froze.ipynb' file. You need to change a 'model_dir = "/home/kimbring2/catkin_ws/src/jetbot/jetbot_control/src/drqn"' line for your workplace setting.
 
 <img src="image/jetbot_frozen_graph.png" width="600">
 
-You should check a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
+You need to see a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
 
 # Modify Jetbot for soccer
-I remodel hardware of Jetbot because it is not suitable for soccer. The new Jetbot will secure a soccer ball and kick it. The wheels will also be changed to omniwheel type for moving more freely. Batterie and WiFi antennas of previous Jetbot seem to be reused for saving money.
+I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
 <img src="/image/jetbot_soccer_proto_2.png" width="600">
-
-There are two main types of equipment. They are divided for kicking and holding soccer ball. I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
+I use ancOnshape cloud 3D modeling to create a model. You can check and download my model from below link.
 
 [Modified Jetbot 3D model Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700)
 
 [![Protoype test](https://img.youtube.com/vi/zNTldaCe1ZQ/0.jpg)](https://youtu.be/zNTldaCe1ZQ "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-I complete design, production and assembly of prototype. Thus, I need to convert the 3D model of Onshape into a model for Gazebo simulation and make a code for controlloing Dynamixel.
+After making 3D modeling, I convert it to URDF format for Gazebo simulation. I find and use a very convenient tool for that(https://github.com/rhoban/onshape-to-robot/)  
 
 # Dynamixel SDK test
-The best way to use Dynamixel on Jetson Nano is to use the SDK provided by Robotis.
+The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTIS.
 
-1. Check your connection between motor and control board(I recommend checking a operation of motor using Dynamixel Wizard).
+1. Check your connection between motor and control board(I use a Dynamixel Wizard for checking a operation of motor).
 2. First, download a SDK from 'https://github.com/ROBOTIS-GIT/DynamixelSDK.git' to your Jetson Nano.
-3. Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py' first. I should show a return like a below picture
+3. Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py'.
+
 <img src="/image/dynamixel_ping_test.png" width="600">
 
-4. Open 'read_write.py' using a text editor and change a paramter for MX-12W(You can also change a parameter using Dynamixel Wizard).
+4. Open 'read_write.py' and change a parameter for MX-12W(You can also change the parameter using Dynamixel Wizard).
 <img src="/image/rw_setting.png" width="600">
 
-5. Run 'read_write.py' and you should see a success return like a below picture.
+5. Run 'read_write.py' and you should see a success message like a below.
 <img src="/image/rw_success.png" width="600">
 
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-Please check it for all motor of each wheel.
-
 # RViz test for Jetbot soccer version
-You can see a RViz 3D Model of Jetbot soccer using below command.
+You can see a RViz 3D model of Jetbot soccer using below command.
 ```
 roslaunch jetbot_description jetbot_soccer_rviz.launch
 ```
@@ -182,7 +183,7 @@ roslaunch jetbot_description jetbot_soccer_rviz.launch
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
 # Gazebo test for Jetbot soccer version
-After checking a Jetbot soccer version at RViz, try to control it at Gazebo simulation.
+After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
 roslaunch jetbot_gazebo main_soccer.launch
@@ -223,7 +224,7 @@ h : hold ball
 k : kick ball
 ```
 
-Please check blog for video of blog for wacthing how to give a command(https://kimbring2.github.io/2019/10/26/jetbot.html#soccer_robot_design_simulation)
+Please check video for checking how to give a command(https://www.youtube.com/watch?v=rTVKIcgdVGo)
 
 # Teleoperation test for real Jetbot soccer version
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
