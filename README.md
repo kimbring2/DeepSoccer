@@ -26,7 +26,7 @@ I use a tensorflow-gpu==1.13.1 for neural network part. And opencv-python, cvlib
 8. Onshape 3D model to URDF: [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
 9. GPIO control for solenoid electromagnet: https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
 
-# How to Build
+# How to build ROS project
 ```
 cd ~/catkin_ws/src/
 git clone https://github.com/kimbring2/jetbot_gazebo.git
@@ -37,17 +37,17 @@ source devel/setup.bash
 # Dependent package install
 Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
-# How to view in Rviz
+# How to view 3D model of Jetbot in Rviz
 ```
 roslaunch jetbot_description jetbot_rviz.launch
 ```
 
-# How to start Jetbot model and controllers using roslaunch
+# How to start control Jetbot in roslaunch
 ```
 roslaunch jetbot_gazebo main.launch
 ```
 
-# Soccer model path setting
+# Soccer object model path setting
 You should change a modeling path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
 
 It is just example line of uri. Please change all uri path for your PC environment.
@@ -141,13 +141,13 @@ Tensorflow model trained using Gazebo simulation can be used without installing 
 You should check a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
 
 # Modify Jetbot for soccer
-I am currently remodeling Jetbot's hardware because it is not suitable for soccer. The new Jetbot will secure a soccer ball and kick it. The wheels will also be changed to omniwheel type for moving more freely. Batterie and WiFi antennas of previous Jetbot seem to be reused for saving money.
+I remodel hardware of Jetbot because it is not suitable for soccer. The new Jetbot will secure a soccer ball and kick it. The wheels will also be changed to omniwheel type for moving more freely. Batterie and WiFi antennas of previous Jetbot seem to be reused for saving money.
 
 <img src="/image/jetbot_soccer_proto_1.png" width="600">
 
 There are two main types of equipment. They are divided for kicking and holding soccer ball. I am currently using the Onshape cloud service to create a model, so if you go to that link you will be able to see the work status.
 
-[Modified Jetbot Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700)
+[Modified Jetbot 3D model Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700)
 
 [![Protoype test 1](https://img.youtube.com/vi/zNTldaCe1ZQ/0.jpg)](https://youtu.be/zNTldaCe1ZQ "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
@@ -225,7 +225,7 @@ k : kick ball
 
 Please check blog for video of blog for wacthing how to give a command(https://kimbring2.github.io/2019/10/26/jetbot.html#soccer_robot_design_simulation)
 
-# Teleoperation for Jetbot soccer version
+# Teleoperation test for real Jetbot soccer version
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
 
 [![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
