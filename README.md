@@ -233,5 +233,18 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
+# Citation
+If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
+
+@misc{kim2020deepsoccer,
+  author = {Charles, P.W.D.},
+  title = {DeepSoccer},
+  year = {2020},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/kimbring2/DeepSoccer/}},
+  commit = {5689b3ab8934bc2f60360e3b180978b637fb2741}
+}
+
 # License
 Apache License 2.0
