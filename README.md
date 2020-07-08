@@ -238,7 +238,7 @@ You can use the gamepad for performing the basic actions for soccer. Multi playe
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 @misc{kim2020deepsoccer,
-  author = {Charles, P.W.D.},
+  author = {Dohyeong, Kim},
   title = {DeepSoccer},
   year = {2020},
   publisher = {GitHub},
