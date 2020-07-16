@@ -239,7 +239,7 @@ You can use the gamepad for performing the basic actions for soccer. Multi playe
 
 # Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
-
+-- <cite>
 @misc{kim2020deepsoccer,
   author = {Dohyeong, Kim},
   title = {DeepSoccer},
@@ -249,6 +249,7 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
   howpublished = {\url{https://github.com/kimbring2/DeepSoccer/}},
   commit = {5689b3ab8934bc2f60360e3b180978b637fb2741}
 }
+</cite>
 
 # License
 Apache License 2.0
