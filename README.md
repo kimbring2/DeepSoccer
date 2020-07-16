@@ -13,7 +13,7 @@ Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7
 # Python package
 1. tensorflow-gpu==1.13.1 
 2. opencv-python
-3. cvlib(1.8.0), requests, progressbar, keras 
+3. cvlib(0.1.0), requests, progressbar, keras 
 
 # Reference
 1. Jetbot SDF file, ROS : [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
