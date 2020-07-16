@@ -112,7 +112,7 @@
 
   <!-- lidar -->
   <gazebo reference="body_1_12_part_1">
-    <pose>1.5708 1.5708 1.5708 1.5708 1.5708 1.5708</pose>
+    <pose>-0.3 -0.3 -0.3 -0.3 -0.3 -0.3</pose>
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <visualize>true</visualize>
       <update_rate>40</update_rate>
@@ -121,8 +121,8 @@
           <horizontal>
             <samples>720</samples>
             <resolution>1</resolution>
-            <min_angle>-1.560796</min_angle>
-            <max_angle>-1.580796</max_angle>
+            <min_angle>-1.58</min_angle>
+            <max_angle>-1.56</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -146,4 +146,5 @@
       </plugin>
     </sensor>
   </gazebo>
+
 </robot>
