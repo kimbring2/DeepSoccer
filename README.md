@@ -27,6 +27,9 @@ Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7
 9. GPIO control for solenoid electromagnet : https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
 10. Ball kicking mechanism : https://www.youtube.com/watch?v=fVGrYoqn-EU
 
+# Simualtion, real part
+The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
+
 # How to build ROS project
 At your terminal, run below command.
 
