@@ -26,6 +26,7 @@ Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7
 8. Onshape 3D model to URDF : [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
 9. GPIO control for solenoid electromagnet : https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
 10. Ball kicking mechanism : https://www.youtube.com/watch?v=fVGrYoqn-EU
+11. How to read LaserScan data (ROS python) : https://www.theconstructsim.com/read-laserscan-data/
 
 # Simualtion, real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
