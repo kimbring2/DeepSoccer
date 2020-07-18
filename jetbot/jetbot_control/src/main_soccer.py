@@ -8,11 +8,14 @@ import os
 from collections import deque
 from os import listdir
 from os.path import isfile, join, isdir
+from pynput import keyboard
+
 
 ############## ROS Import ###############
 import rospy
 from gazebo_msgs.msg import ModelStates
 from gazebo_msgs.msg import ModelState
+from sensor_msgs.msg import LaserScan
 from gazebo_msgs.srv import SetModelState
 from sensor_msgs.msg import Image
 from std_msgs.msg import Float64
@@ -35,9 +38,76 @@ rospy.init_node('jetbot_soccer')
 bridge = CvBridge()
 
 
+class StepWatcher:
+    """ A simple class, set to watch its variable. """
+    def __init__(self, step_value):
+        self.step = step_value
+        self.action_list = []
+        self.step_list = []
+        self.frame_list = []
+        self.lidar_list = []
+
+    def set_value(self, new_step_value, image_frame, action, lidar_range):
+        if self.step != new_step_value:
+            #print("step value change")
+
+            self.step = new_step_value
+            self.step_list.append(new_step_value)
+            self.frame_list.append(image_frame)
+            self.action_list.append(action)
+            self.lidar_list.append(lidar_range)
+
+            #self.pre_change()
+            #self.post_change()
+
+    #def pre_change(self):
+        # do stuff before variable is about to be changed
+
+    #def post_change(self):
+        # do stuff right after variable has changed
+
+
+step_watcher = StepWatcher(0)
+step = 0
+action = 0
+lidar_range = 12
+
+action_list = []
+step_list = []
+frame_list = []
+lidar_list = []
+
+key_input = 's'
+def on_press(key):
+    global key_input
+    try:
+        key_input = key.char
+        print('alphanumeric key {0} pressed'.format(key.char))
+
+    except AttributeError:
+        key_input = key.char
+        print('special key {0} pressed'.format(key))
+
+
+def on_release(key):
+    #print('{0} released'.format(key))
+    if key == keyboard.Key.esc:
+        # Stop listener
+        return False
+
+
+listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+listener.start()
+
 def image_callback(msg):
+    global step
+    global action
+    global lidar_range
     # log some info about the image topic
     #rospy.loginfo(msg.header)
+
+    step += 1
+    print("step: " + str(step))
 
     # Try to convert the ROS Image message to a CV2 Image
     try:
@@ -47,8 +117,14 @@ def image_callback(msg):
 
     new_cv_image = cv2.resize(cv_image, (512, 512), interpolation=cv2.INTER_AREA)
 
-    cv2.imshow("Image of Robot Camera", new_cv_image)
-    cv2.waitKey(3)
+    step_watcher.set_value(step, new_cv_image, action, lidar_range)
+
+    #step_list.append(step.variable)
+    #frame_list.append(new_cv_image)
+    #action_list.append(action)
+    #lidar_list.append(lidar_range)
+    #cv2.imshow("Image of Robot Camera", new_cv_image)
+    #cv2.waitKey(3)
 
 
 def state_callback(msg):
@@ -81,6 +157,28 @@ def state_callback(msg):
     elif (football_pose.position.x > right_goal_pose.position.x):
         d = True
 
+
+def lidar_callback(msg):
+    global lidar_range
+
+    lidar_range = msg.ranges[360]
+    if lidar_range == float("inf"):
+        lidar_range = 12
+    #lidar_list.append(msg.ranges[360])
+    #print("len(msg.ranges): " + str(len(msg.ranges)))
+
+    # values at 0 degree
+    #print("msg.ranges[0]: " + str(msg.ranges[0]))
+
+    # values at 90 degree
+    #print("msg.ranges[360]: " + str(msg.ranges[360]))
+
+    # values at 180 degree
+    #print("msg.ranges[719]: " + str(msg.ranges[719]))
+
+    #print("")
+
+
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
 wheel1 = rospy.Publisher('/robot1/wheel1_velocity_controller/command', Float64, queue_size=5)
 wheel2 = rospy.Publisher('/robot1/wheel2_velocity_controller/command', Float64, queue_size=5)
@@ -91,6 +189,7 @@ stick  = rospy.Publisher('/robot1/stick_velocity_controller/command', Float64, q
 
 sub_image = rospy.Subscriber("/robot1/camera1/image_raw", Image, image_callback)
 sub_state = rospy.Subscriber('/gazebo/model_states', ModelStates, state_callback)
+sub_lidar = rospy.Subscriber('/jetbot/laser/scan', LaserScan, lidar_callback)
 
 rate = rospy.Rate(2000)
 
@@ -119,29 +218,50 @@ state_model.model_name = "football"
 state_model.pose = pose
 resp = set_state(state_model)
 
+pathOut = 'jetbot_soccer_data_1.avi'
+fps = 5
+size = (512,512)
+out = cv2.VideoWriter(pathOut, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
 
 ############## ROS + Deep Learning Part ###############
 while not rospy.is_shutdown():
-    key_input = raw_input('Enter your input:')
-    print("key_input: " + str(key_input))
-    
-    a = None
+    #key_input = raw_input('Enter your input:')
+    #print("key_input: " + str(key_input))
     if (key_input == 's'):
-        a = 0
+        action = 0
     elif (key_input == 'f'):
-        a = 1
+        action = 1
     elif (key_input == 'l'):
-        a = 2
+        action = 2
     elif (key_input == 'r'):
-        a = 3
+        action = 3
     elif (key_input == 'b'):
-        a = 4
+        action = 4
     elif (key_input == 'h'):
-        a = 5
+        action = 5
     elif (key_input == 'k'):
-        a = 6
+        action = 6
+    elif (key_input == 'q'):
+        print("exit program")
 
-    robot_action = robot_action_list[a]
+        # Save camera frame as video
+        frame_array = np.array(step_watcher.frame_list)
+        for i in range(len(frame_array)):
+            # writing to a image array
+            out.write(frame_array[i])
+
+        out.release()
+
+        #print("step_watcher.step_list: " + str(step_watcher.step_list))
+        #print("step_watcher.action_list: " + str(step_watcher.action_list))
+        #print("step_watcher.lidar_list: " + str(step_watcher.lidar_list))
+
+        state = {'step': step_watcher.step_list, 'action': step_watcher.action_list, 'lidar':  step_watcher.lidar_list}
+        np.save("jetbot_soccer_data_1.npy", state)
+
+        exit() 
+
+    robot_action = robot_action_list[action]
 
     wheel1.publish(robot_action[0])
     wheel2.publish(robot_action[1])
@@ -150,6 +270,6 @@ while not rospy.is_shutdown():
     roller.publish(robot_action[4])
     stick.publish(robot_action[5])
     
-    time.sleep(0.5)
+    #ttme.sleep(0.5)
  
 rate.sleep()
