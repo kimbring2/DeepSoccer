@@ -1,4 +1,4 @@
-# Introduction
+1. Introduction
 I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well.
 
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project!</strong>
