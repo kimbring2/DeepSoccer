@@ -68,12 +68,12 @@ If you get a 'RLException' error message, use 'source devel/setup.bash' command 
 
 <img src="image/Error_Message.png" width="600">
 
-## Could not find the GUI, install the 'joint_state_publisher_gui' package Error
+## 1) Could not find the GUI, install the 'joint_state_publisher_gui' package Error
 If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, use 'sudo apt install ros-melodic-joint-state-publisher-gui' command for installing it.
 
 <img src="image/joint_state_error.jpg" width="600">
 
-## Could not load controller Error
+## 2) Could not load controller Error
 If you get a 'Could not load controller' error message, try to install related package using below command at your terminal.
 
 ```
@@ -85,14 +85,14 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 # 12. How to manually send a wheel velocity commands
 The range of velocity that can be given to the wheel is 0 to 100.
 
-## Left Wheel 
+## 1) Left Wheel 
 For robot1
 ```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
 For robot2
 ```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-## Right Wheel
+## 2) Right Wheel
 For robot1
 ```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
