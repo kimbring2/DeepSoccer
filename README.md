@@ -231,12 +231,21 @@ Please check video for checking how to give a command(https://www.youtube.com/wa
 Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/jetbot/laser/scan'
 
 ```
-rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
+rostopic echo /jetbot/laser/scan -n1
 ```
+
+Among that information, range from robot to front object can be got by using Python
+```
+def lidar_callback(msg):
+    global lidar_range
+
+    lidar_range = msg.ranges[360]
+```
+
+Gazebo simulator visualize the range of the lidar sensor. You can see the range value of lidar sensor is changed depending on the distance between the robot and front obstacle.
 
 [![Jetbot soccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
-
 
 # 20. Teleoperation test for real Jetbot soccer version
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
