@@ -2,10 +2,10 @@
 I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well. I can get a code of original Jetbot from https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. All code are based on URDF official tutorial of ROS http://gazebosim.org/tutorials?tut=ros_urdf where I could learn how to make and simulate a robot in Gazebo. I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please see it if you need more information about code. 
 
 # 2. Software Dependency
-    ## 1) ROS, Gazebo
+> ## 1) ROS, Gazebo
 ROS Melodic, Gazebo 9
 
-    ## 2) Python package 
+## 2) Python package 
 Tensorflow 2.1.0, cvlib==0.1.8, requests, progressbar, keras, opencv-python
 
 # 3. Reference
