@@ -73,24 +73,26 @@ roslaunch jetbot_gazebo main.launch
 ```
 
 - Soccer object model path setting
-You should change a modeling path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
 
-It is just example line of uri. Please change all uri path for your PC environment.
+You should change a 3D model file path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
+
+Below is example line of uri. Please change all uri path for your PC environment.
 ```
 <uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
 ```
 
 - How to manually send a wheel velocity commands to Jetbot
+
 The range of velocity that can be given to the wheel is 0 to 100.
 
-* Left Wheel 
+    - Left Wheel 
 For robot1
 ```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
 For robot2
 ```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-* Right Wheel
+    - Right Wheel
 For robot1
 ```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
