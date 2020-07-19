@@ -89,20 +89,12 @@ Below is example line of uri. Please change all uri path for your PC environment
 ## 4) How to manually send a wheel velocity commands to Jetbot
 The range of velocity that can be given to the wheel is 0 to 100.
 
-- Left Wheel
-
-For robot1
+- Left Wheel(For robot1, robot2)
 ```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
-
-For robot2
 ```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-- Right Wheel
-
-For robot1
+- Right Wheel(For robot1, robot2)
 ```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
-
-For robot2
 ```rostopic pub -1 /robot2/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
 ## 5) Python code for Gazebo simulator
