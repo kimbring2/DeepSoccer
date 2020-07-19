@@ -24,7 +24,6 @@ Tensorflow 2.1.0, cvlib==0.1.8, requests, progressbar, keras, opencv-python
 13. Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
 
 # 4. Etc
-
 ## 1) Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
 
@@ -98,13 +97,13 @@ For robot1
 For robot2
 ```rostopic pub -1 /robot2/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-# 13. Python code for Gazebo simulator
+## 5) Python code for Gazebo simulator
 Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
 It will send a velocity command to each wheel and show a camera sensor image. Furthermore, Tensorflow code for Reinforcement Learning is implemented. Jetbot is able to only learn how to track a soccer ball at now. However, I train more advanced behavior after finishing first task.
 
 If you run a code, it will store a Tensorflow weight file at drqn folder of your workspace. 
 
-# 14. Python code for real Jetbot
+## 6) Python code for real Jetbot
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
 
 Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node.
@@ -139,14 +138,15 @@ That file receive a image frame from camera and send a velecity command to each 
 
 <img src="image/jetbot_soccer_detect_ball.jpeg" width="600">
 
-# 15. Tensorflow model freezing for TensorRT inference
+## 7) Tensorflow model freezing for TensorRT inference
 Tensorflow model trained using Gazebo simulation can be used without installing Tensorflow on Jetson Nano. However, model needs to be freezed. Please check a process for it at 'RL_model_froze.ipynb' file. You need to change a 'model_dir = "/home/kimbring2/catkin_ws/src/jetbot/jetbot_control/src/drqn"' line for your workplace setting.
 
 <img src="image/jetbot_frozen_graph.png" width="600">
 
 You need to see a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
 
-# 16. Modify Jetbot for soccer
+
+# 6. Jetbot soccer version
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
 <img src="/image/jetbot_soccer_proto_2.png" width="600">
@@ -159,7 +159,7 @@ I use ancOnshape cloud 3D modeling to create a model. You can check and download
 
 After making 3D modeling, I convert it to URDF format for Gazebo simulation. I find and use a very convenient tool for that(https://github.com/rhoban/onshape-to-robot/)  
 
-# 17. Dynamixel SDK test
+## 1) Dynamixel SDK test
 The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTIS.
 
 1. Check your connection between motor and control board(I use a Dynamixel Wizard for checking a operation of motor).
@@ -177,7 +177,7 @@ The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTI
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-# 18. RViz test for Jetbot soccer version
+## 2) RViz test for Jetbot soccer version
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
 roslaunch jetbot_description jetbot_soccer_rviz.launch
@@ -185,7 +185,7 @@ roslaunch jetbot_description jetbot_soccer_rviz.launch
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
-# 19. Gazebo test for Jetbot soccer version
+## 3) Gazebo test for Jetbot soccer version
 After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
@@ -195,7 +195,7 @@ roslaunch jetbot_gazebo main_soccer.launch
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
 First, adjust the speed of the wheels to approach to the ball.
 
-## 1. Command for wheel motor
+* Command for wheel motor
 ```
 rostopic pub -1 /robot1/wheel1_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/wheel2_velocity_controller/command std_msgs/Float64 "data: 30"
@@ -205,14 +205,14 @@ rostopic pub -1 /robot1/wheel4_velocity_controller/command std_msgs/Float64 "dat
 
 Next, rotate a roller motor to pull the ball.
 
-## 2. Command for roller motor
+* Command for roller motor
 ```
 rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Finally kick the ball via speed control of solenoid motor.
 
-## 3. Command for solenoid motor
+* Command for solenoid motor
 ```
 rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
@@ -229,7 +229,7 @@ k : kick ball
 
 Please check video for checking how to give a command(https://www.youtube.com/watch?v=rTVKIcgdVGo)
 
-## 4. Command for lidar sensor
+## 4) Command for lidar sensor
 Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/jetbot/laser/scan'
 
 ```
@@ -249,7 +249,7 @@ Gazebo simulator visualize the range of the lidar sensor. You can see the range 
 [![Jetbot soccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-# 20. Teleoperation test for real Jetbot soccer version
+## 5) Teleoperation test for real Jetbot soccer version
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
 
 [![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=2b6BUH5tF1g "Jetbot Soccer Play - Click to Watch!")
@@ -257,7 +257,7 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
-# 21. Citation
+# 7. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 <blockquote>
@@ -274,8 +274,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 </cite>
 </blockquote>
 
-# 22. Acknowledgement
+# 8. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project!</strong>
 
-# 23. License
+# 9. License
 Apache License 2.0
