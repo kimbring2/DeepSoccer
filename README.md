@@ -1,16 +1,14 @@
 # 1. Introduction
-I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well. I can get a code of original Jetbot from https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. All code are based on URDF official tutorial of ROS http://gazebosim.org/tutorials?tut=ros_urdf where I could learn how to make and simulate a robot in Gazebo. 
-I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please see it if you need more information about code. 
+I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well. I can get a code of original Jetbot from https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. All code are based on URDF official tutorial of ROS http://gazebosim.org/tutorials?tut=ros_urdf where I could learn how to make and simulate a robot in Gazebo. I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please see it if you need more information about code. 
 
-# 2. Python version
-Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7 version environment.
+# 2. Software Dependency
+## 1) ROS, Gazebo
+ROS Melodic, Gazebo 9
 
-# 3. Python package
-1. tensorflow-gpu==1.13.1 
-2. opencv-python
-3. cvlib(0.1.8), requests, progressbar, keras 
+## 2) Python package 
+Tensorflow 2.1.0, cvlib==0.1.8, requests, progressbar, keras, opencv-python
 
-# 4. Reference
+# 3. Reference
 1. Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
 2. Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
 3. URDF file usage in Gazebo: [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
@@ -25,10 +23,12 @@ Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7
 12. Convert Video to Images (Frames) & Images (Frames) to Video using OpenCV (Python) : https://medium.com/@iKhushPatel/convert-video-to-images-images-to-video-using-opencv-python-db27a128a481
 13. Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
 
-# 5. Simualtion, real part
+# 4. Etc
+
+## 1) Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
 
-# 6. How to build ROS project
+## 2) How to build ROS project
 At your terminal, run below command.
 
 ```
@@ -38,28 +38,11 @@ $ cd ..
 $ catkin_make
 $ source devel/setup.bash
 ```
-# 7. Dependent ROS package install
+
+## 3) Dependent ROS package install
 Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
-# 8. How to view 3D model of Jetbot in Rviz
-```
-$ roslaunch jetbot_description jetbot_rviz.launch
-```
-
-# 9. How to start control Jetbot in roslaunch
-```
-roslaunch jetbot_gazebo main.launch
-```
-
-# 10. Soccer object model path setting
-You should change a modeling path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
-
-It is just example line of uri. Please change all uri path for your PC environment.
-```
-<uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
-```
-
-# 11. Troubleshooting 
+# 5. Troubleshooting 
 ## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
 
@@ -79,17 +62,36 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 
 <img src="image/controller_error.png" width="600">
 
-# 12. How to manually send a wheel velocity commands to Jetbot
+# 6. Jetbot original version test
+## 1) How to view 3D model of Jetbot in Rviz
+```
+$ roslaunch jetbot_description jetbot_rviz.launch
+```
+
+## 2) How to start control Jetbot in roslaunch
+```
+roslaunch jetbot_gazebo main.launch
+```
+
+## 3) Soccer object model path setting
+You should change a modeling path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
+
+It is just example line of uri. Please change all uri path for your PC environment.
+```
+<uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
+```
+
+## 4) How to manually send a wheel velocity commands to Jetbot
 The range of velocity that can be given to the wheel is 0 to 100.
 
-## 1) Left Wheel 
+* Left Wheel 
 For robot1
 ```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
 For robot2
 ```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-## 2) Right Wheel
+* Right Wheel
 For robot1
 ```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
