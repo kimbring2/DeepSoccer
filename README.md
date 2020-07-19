@@ -50,12 +50,10 @@ Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools'
 # 5. Troubleshooting 
 ## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
-
 <img src="image/Error_Message.png" width="600">
 
 ## 2) Could not find the GUI, install the 'joint_state_publisher_gui' package Error
 If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, use 'sudo apt install ros-melodic-joint-state-publisher-gui' command for installing it.
-
 <img src="image/joint_state_error.jpg" width="600">
 
 ## 3) Could not load controller Error
