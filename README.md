@@ -1,10 +1,5 @@
 # 1. Introduction
-I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well.
-
-<img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project!</strong>
-
-I can get a code of original Jetbot from https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo.
-All code are based on URDF official tutorial of ROS http://gazebosim.org/tutorials?tut=ros_urdf where I could learn how to make and simulate a robot in Gazebo. 
+I started this project for making NVIDIA Jetbot to play soccer game. I mainly use a Gazebo of ROS for training Jetbot to play soccer using Deep Reinforcmenet Learning. After training in virtual environment, trained model is copied to real world Jetbot. I want to check that kind of approach works well. I can get a code of original Jetbot from https://github.com/dusty-nv/jetbot_ros/tree/master/gazebo. All code are based on URDF official tutorial of ROS http://gazebosim.org/tutorials?tut=ros_urdf where I could learn how to make and simulate a robot in Gazebo. 
 I will upload a detailed post to https://kimbring2.github.io/2019/10/26/jetbot.html. Please see it if you need more information about code. 
 
 # 2. Python version
@@ -13,20 +8,22 @@ Currently, Gazebo only can be operated on Python 2.7. Thus, you should use a 2.7
 # 3. Python package
 1. tensorflow-gpu==1.13.1 
 2. opencv-python
-3. cvlib(0.1.0), requests, progressbar, keras 
+3. cvlib(0.1.8), requests, progressbar, keras 
 
 # 4. Reference
-1. Jetbot SDF file, ROS : [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
+1. Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
 2. Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
-3. URDF file usage in Gazebo : [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
+3. URDF file usage in Gazebo: [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
 4. Object detecion using cvlib: [Object detecion using cvlib](https://towardsdatascience.com/object-detection-with-less-than-10-lines-of-code-using-python-2d28eebc5b11)
-5. Soccer field, ball model : [Soccer field, ball model](https://github.com/RoboCup-MSL/MSL-Simulator)
-6. Reinforcement Learnig model : [Reinforcement Learnig model](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc)
-7. Inference saved model : [Tensorrt](http://litaotju.github.io/2019/01/24/Tensorflow-Tutorial-6,-Using-TensorRT-to-speedup-inference/)
-8. Onshape 3D model to URDF : [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
+5. Soccer field, ball model: [Soccer field, ball model](https://github.com/RoboCup-MSL/MSL-Simulator)
+6. Reinforcement Learnig model: [Reinforcement Learnig model](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc)
+7. Inference saved model: [Tensorrt](http://litaotju.github.io/2019/01/24/Tensorflow-Tutorial-6,-Using-TensorRT-to-speedup-inference/)
+8. Onshape 3D model to URDF: [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
 9. GPIO control for solenoid electromagnet : https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
-10. Ball kicking mechanism : https://www.youtube.com/watch?v=fVGrYoqn-EU
-11. How to read LaserScan data (ROS python) : https://www.theconstructsim.com/read-laserscan-data/
+10. Ball kicking mechanism: https://www.youtube.com/watch?v=fVGrYoqn-EU
+11. How to read LaserScan data(ROS python): https://www.theconstructsim.com/read-laserscan-data/
+12. Convert Video to Images (Frames) & Images (Frames) to Video using OpenCV (Python) : https://medium.com/@iKhushPatel/convert-video-to-images-images-to-video-using-opencv-python-db27a128a481
+13. Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
 
 # 5. Simualtion, real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
@@ -82,7 +79,7 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 
 <img src="image/controller_error.png" width="600">
 
-# 12. How to manually send a wheel velocity commands
+# 12. How to manually send a wheel velocity commands to Jetbot
 The range of velocity that can be given to the wheel is 0 to 100.
 
 ## 1) Left Wheel 
@@ -196,7 +193,7 @@ roslaunch jetbot_gazebo main_soccer.launch
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
 First, adjust the speed of the wheels to approach to the ball.
 
-1. Command for wheel motor
+## 1. Command for wheel motor
 ```
 rostopic pub -1 /robot1/wheel1_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/wheel2_velocity_controller/command std_msgs/Float64 "data: 30"
@@ -206,14 +203,14 @@ rostopic pub -1 /robot1/wheel4_velocity_controller/command std_msgs/Float64 "dat
 
 Next, rotate a roller motor to pull the ball.
 
-2. Command for roller motor
+## 2. Command for roller motor
 ```
 rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Finally kick the ball via speed control of solenoid motor.
 
-3. Command for solenoid motor
+## 3. Command for solenoid motor
 ```
 rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
@@ -230,10 +227,21 @@ k : kick ball
 
 Please check video for checking how to give a command(https://www.youtube.com/watch?v=rTVKIcgdVGo)
 
+## 4. Command for lidar sensor
+Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/jetbot/laser/scan'
+
+```
+rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
+```
+
+[![Jetbot soccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
+
 # 20. Teleoperation test for real Jetbot soccer version
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
 
-[![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
+[![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=2b6BUH5tF1g "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
@@ -255,5 +263,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 </cite>
 </blockquote>
 
-# 22. License
+# 22. Acknowledgement
+<img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project!</strong>
+
+# 23. License
 Apache License 2.0
