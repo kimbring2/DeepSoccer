@@ -24,10 +24,10 @@ Tensorflow 2.1.0, cvlib==0.1.8, requests, progressbar, keras, opencv-python
 - Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
 
 # 4. Etc
-- Relationship between simualtion and real part
+## 1) Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
 
-- How to build ROS project
+## 2) How to build ROS project
 At your terminal, run below command.
 
 ```
@@ -38,21 +38,21 @@ $ catkin_make
 $ source devel/setup.bash
 ```
 
-- Dependent ROS package install
+## 3) Dependent ROS package install
 Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
 # 5. Troubleshooting 
-- RLException Error
+## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
 
 <img src="image/Error_Message.png" width="600">
 
-- Could not find the GUI, install the 'joint_state_publisher_gui' package Error
+## 2) Could not find the GUI, install the 'joint_state_publisher_gui' package Error
 If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, use 'sudo apt install ros-melodic-joint-state-publisher-gui' command for installing it.
 
 <img src="image/joint_state_error.jpg" width="600">
 
-- Could not load controller Error
+## 3) Could not load controller Error
 If you get a 'Could not load controller' error message, try to install related package using below command at your terminal.
 
 ```
@@ -62,18 +62,17 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 <img src="image/controller_error.png" width="600">
 
 # 6. Jetbot original version test
-- How to view 3D model of Jetbot in Rviz
+## 1) To view 3D model of Jetbot in Rviz
 ```
 $ roslaunch jetbot_description jetbot_rviz.launch
 ```
 
-- How to start control Jetbot in roslaunch
+## 2) To start control Jetbot in roslaunch
 ```
 roslaunch jetbot_gazebo main.launch
 ```
 
-- Soccer object model path setting
-
+## 3) Soccer object model path setting
 You should change a 3D model file path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
 
 Below is example line of uri. Please change all uri path for your PC environment.
@@ -81,18 +80,17 @@ Below is example line of uri. Please change all uri path for your PC environment
 <uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
 ```
 
-- How to manually send a wheel velocity commands to Jetbot
-
+## 4) How to manually send a wheel velocity commands to Jetbot
 The range of velocity that can be given to the wheel is 0 to 100.
 
-    - Left Wheel 
+- Left Wheel 
 For robot1
 ```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
 For robot2
 ```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
 
-    - Right Wheel
+- Right Wheel
 For robot1
 ```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
 
@@ -147,7 +145,6 @@ Tensorflow model trained using Gazebo simulation can be used without installing 
 
 You need to see a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
 
-
 # 6. Jetbot soccer version
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
@@ -164,16 +161,16 @@ After making 3D modeling, I convert it to URDF format for Gazebo simulation. I f
 ## 1) Dynamixel SDK test
 The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTIS.
 
-1. Check your connection between motor and control board(I use a Dynamixel Wizard for checking a operation of motor).
-2. First, download a SDK from 'https://github.com/ROBOTIS-GIT/DynamixelSDK.git' to your Jetson Nano.
-3. Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py'.
+- Check your connection between motor and control board(I use a Dynamixel Wizard for checking a operation of motor).
+- First, download a SDK from 'https://github.com/ROBOTIS-GIT/DynamixelSDK.git' to your Jetson Nano.
+- Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py'.
 
 <img src="/image/dynamixel_ping_test.png" width="600">
 
-4. Open 'read_write.py' and change a parameter for MX-12W(You can also change the parameter using Dynamixel Wizard).
+- Open 'read_write.py' and change a parameter for MX-12W(You can also change the parameter using Dynamixel Wizard).
 <img src="/image/rw_setting.png" width="600">
 
-5. Run 'read_write.py' and you should see a success message like a below.
+- Run 'read_write.py' and you should see a success message like a below.
 <img src="/image/rw_success.png" width="600">
 
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
@@ -197,7 +194,7 @@ roslaunch jetbot_gazebo main_soccer.launch
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
 First, adjust the speed of the wheels to approach to the ball.
 
-* Command for wheel motor
+- Command for wheel motor
 ```
 rostopic pub -1 /robot1/wheel1_velocity_controller/command std_msgs/Float64 "data: 30"
 rostopic pub -1 /robot1/wheel2_velocity_controller/command std_msgs/Float64 "data: 30"
@@ -207,14 +204,14 @@ rostopic pub -1 /robot1/wheel4_velocity_controller/command std_msgs/Float64 "dat
 
 Next, rotate a roller motor to pull the ball.
 
-* Command for roller motor
+- Command for roller motor
 ```
 rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Finally kick the ball via speed control of solenoid motor.
 
-* Command for solenoid motor
+- Command for solenoid motor
 ```
 rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
