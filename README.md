@@ -24,10 +24,10 @@ Tensorflow 2.1.0, cvlib==0.1.8, requests, progressbar, keras, opencv-python
 - Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
 
 # 4. Etc
-## 1) Relationship between simualtion and real part
+- Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
 
-## 2) How to build ROS project
+- How to build ROS project
 At your terminal, run below command.
 
 ```
@@ -38,21 +38,21 @@ $ catkin_make
 $ source devel/setup.bash
 ```
 
-## 3) Dependent ROS package install
+- Dependent ROS package install
 Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
 # 5. Troubleshooting 
-## 1) RLException Error
+- RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
 
 <img src="image/Error_Message.png" width="600">
 
-## 2) Could not find the GUI, install the 'joint_state_publisher_gui' package Error
+- Could not find the GUI, install the 'joint_state_publisher_gui' package Error
 If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, use 'sudo apt install ros-melodic-joint-state-publisher-gui' command for installing it.
 
 <img src="image/joint_state_error.jpg" width="600">
 
-## 3) Could not load controller Error
+- Could not load controller Error
 If you get a 'Could not load controller' error message, try to install related package using below command at your terminal.
 
 ```
@@ -62,17 +62,17 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 <img src="image/controller_error.png" width="600">
 
 # 6. Jetbot original version test
-## 1) How to view 3D model of Jetbot in Rviz
+- How to view 3D model of Jetbot in Rviz
 ```
 $ roslaunch jetbot_description jetbot_rviz.launch
 ```
 
-## 2) How to start control Jetbot in roslaunch
+- How to start control Jetbot in roslaunch
 ```
 roslaunch jetbot_gazebo main.launch
 ```
 
-## 3) Soccer object model path setting
+- Soccer object model path setting
 You should change a modeling path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
 
 It is just example line of uri. Please change all uri path for your PC environment.
@@ -80,7 +80,7 @@ It is just example line of uri. Please change all uri path for your PC environme
 <uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
 ```
 
-## 4) How to manually send a wheel velocity commands to Jetbot
+- How to manually send a wheel velocity commands to Jetbot
 The range of velocity that can be given to the wheel is 0 to 100.
 
 * Left Wheel 
