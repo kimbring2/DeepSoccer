@@ -272,7 +272,7 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 ```
 
 # 8. Acknowledgement
-<img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project from NVIDIA</strong>
+<img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
 
 # 9. License
 Apache License 2.0
