@@ -10,7 +10,7 @@ In addition to opening software, information about hardware of robot will be sha
 # 2. Software Dependency
 ## 1) ROS, Gazebo
 - ROS Melodic, Gazebo9
-- Gazebo only provides Python 2.7
+- Gazebo only provides Python 2.7(From ROS Noetic at Ubuntu 20.04, Python3 can be used)
 
 ## 2) Python 
 - Tensorflow 2.1.0
