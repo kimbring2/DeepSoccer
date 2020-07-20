@@ -74,17 +74,17 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 <img src="image/controller_error.png" width="600">
 
 # 6. Jetbot original version test
-## 1) To view 3D model of Jetbot in Rviz
+## 1) RViz test
 ```
 $ roslaunch jetbot_description jetbot_rviz.launch
 ```
 
-## 2) To start control Jetbot in roslaunch
+## 2) Gazebo test
 ```
 roslaunch jetbot_gazebo main.launch
 ```
 
-## 3) Soccer object model path setting
+## 3) Soccer object 3D model path setting 
 You should change a 3D model file path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
 
 Below is example line of uri. Please change all uri path for your PC environment.
@@ -92,7 +92,7 @@ Below is example line of uri. Please change all uri path for your PC environment
 <uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
 ```
 
-## 4) How to manually send a wheel velocity commands to Jetbot
+## 4) How to manually send a wheel velocity commands
 The range of velocity that can be given to the wheel is 0 to 100.
 
 - Left Wheel(For robot1, robot2)
@@ -109,7 +109,7 @@ It will send a velocity command to each wheel and show a camera sensor image. Fu
 
 If you run a code, it will store a Tensorflow weight file at drqn folder of your workspace. 
 
-## 6) Python code for real Jetbot
+## 6) Python code for real robot
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
 
 Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node.
@@ -182,7 +182,7 @@ The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTI
 [![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-## 2) RViz test for Jetbot soccer version
+## 2) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
 roslaunch jetbot_description jetbot_soccer_rviz.launch
@@ -190,7 +190,7 @@ roslaunch jetbot_description jetbot_soccer_rviz.launch
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
-## 3) Gazebo test for Jetbot soccer version
+## 3) Gazebo test
 After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
@@ -254,7 +254,7 @@ Gazebo simulator visualize the range of the lidar sensor. You can see the range 
 [![Jetbot soccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-## 5) Teleoperation test for real Jetbot soccer version
+## 5) Teleoperation test
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
 
 [![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=2b6BUH5tF1g "Jetbot Soccer Play - Click to Watch!")
