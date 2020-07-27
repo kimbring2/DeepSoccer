@@ -34,6 +34,7 @@ In addition to opening software, information about hardware of robot will be sha
 - How to read LaserScan data(ROS python): https://www.theconstructsim.com/read-laserscan-data/
 - Convert Video to Images (Frames) & Images (Frames) to Video using OpenCV (Python) : https://medium.com/@iKhushPatel/convert-video-to-images-images-to-video-using-opencv-python-db27a128a481
 - Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
+- How to use a Gazebo as type of OpenAI Gym : http://wiki.ros.org/openai_ros
 
 # 4. Etc
 ## 1) Relationship between simualtion and real part
@@ -262,7 +263,55 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
-# 7. Citation
+# 7. OpenAI gym type 
+Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
+
+DeepSoccer also provides a package for use a it as Gym format. First, download a pacakge from https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
+
+
+
+```
+#!/usr/bin/env python
+import gym
+import numpy
+import time
+import cv2
+
+# ROS packages required
+import rospy
+import rospkg
+from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
+
+rospy.init_node('example_deepsoccer_soccer_qlearn', anonymous=True, log_level=rospy.WARN)
+
+task_and_robot_environment_name = rospy.get_param('/deepsoccer/task_and_robot_environment_name')
+env = StartOpenAI_ROS_Environment(task_and_robot_environment_name)
+
+for i_episode in range(20):
+    observation = env.reset()
+
+    for t in range(100):
+        #env.render()
+        #print("observation[0].shape: " + str(observation[0].shape))
+
+        obs_image = observation[0]
+        cv2.imshow("obs_image", obs_image)
+        cv2.waitKey(3)
+
+        print("observation[1]: " + str(observation[1]))
+        print("observation[2]: " + str(observation[2]))
+        print("observation[3]: " + str(observation[3]))
+        action = env.action_space.sample()
+        observation, reward, done, info = env.step(action)
+        if done:
+            print("Episode finished after {} timesteps".format(t+1))
+            break
+
+env.close()
+```
+
+
+# 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -277,8 +326,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 8. Acknowledgement
+# 9. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
 
-# 9. License
+# 10. License
 Apache License 2.0
