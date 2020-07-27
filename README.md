@@ -263,12 +263,14 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
-# 7. OpenAI gym type 
+# 7. Use DeepSoccer as OpenAI Gym format 
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
 
-DeepSoccer also provides a package for use a it as Gym format. First, download a pacakge from https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
+DeepSoccer also provides a package for use a it as Gym format. First, download a my_deepsoccer_training pacakge from this repo. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
 
+The my_deepsoccer_training package is based on the my_turtlebot2_training package from the http://wiki.ros.org/openai_ros tutorial. I recommend that you first run a  tutorial package successfully.
 
+After installing the my_deepsoccer_training package, you can use DeepSoccer with the following Gym shape. The basic actions and observations are the same as described in the Jetbot soccer section. Action is an integer from 0 to 6, indicating STOP, FORWARD, LEFT, RIGHT, BACKWARD, HOLD, and KICK, respectively. Observations are image frame from camera, robot coordinates, and lidar sensor value.
 
 ```
 #!/usr/bin/env python
