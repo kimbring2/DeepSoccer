@@ -62,7 +62,11 @@ If you get a 'RLException' error message, use 'source devel/setup.bash' command 
 <img src="image/Error_Message.png" width="600">
 
 ## 2) Could not find the GUI, install the 'joint_state_publisher_gui' package Error
-If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, use 'sudo apt install ros-melodic-joint-state-publisher-gui' command for installing it.
+If you get that error when try to run 'roslaunch jetbot_description jetbot_rviz.launch' command, try to install related package using below command at your terminal.
+
+```
+$ sudo apt install ros-melodic-joint-state-publisher-gui
+```
 
 <img src="image/joint_state_error.jpg" width="600">
 
