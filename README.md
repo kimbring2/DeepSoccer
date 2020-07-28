@@ -79,6 +79,15 @@ $ sudo apt-get install ros-melodic-ros-control ros-melodic-ros-controllers
 
 <img src="image/controller_error.png" width="600">
 
+
+## 4) RViz 'No transform from' error
+
+If you get error message includes 'No transform from', try to install unicode ubuntu package and reboot.
+
+```
+$ sudo apt-get install unicode 
+```
+
 # 6. Jetbot original version test
 ## 1) RViz test
 ```
