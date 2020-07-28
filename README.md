@@ -46,14 +46,14 @@ At your terminal, run below command.
 
 ```
 $ cd ~/catkin_ws/src/
-$ git clone https://github.com/kimbring2/jetbot_gazebo.git
+$ git clone https://github.com/kimbring2/DeepSoccer.git
 $ cd ..
 $ catkin_make
 $ source devel/setup.bash
 ```
 
 ## 3) Dependent ROS package install
-Put a 'https://github.com/kimbring2/jetbot_soccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
+Put a 'https://github.com/kimbring2/DeepSoccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
 # 5. Troubleshooting 
 ## 1) RLException Error
