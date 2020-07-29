@@ -283,6 +283,7 @@ rospy.init_node('jetbot')
 sub_image_1 = rospy.Subscriber("/robot1/camera1/image_raw", Image, image_callback_1)
 sub_image_2 = rospy.Subscriber("/robot2/camera1/image_raw", Image, image_callback_2)
 sub_state = rospy.Subscriber('/gazebo/model_states', ModelStates, state_callback)
+
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
 
 pub_vel_left_1 = rospy.Publisher('/robot1/joint1_velocity_controller/command', Float64, queue_size=5)
@@ -464,7 +465,7 @@ while not rospy.is_shutdown():
         rAll = 0
         j = 0
 
-        reset_simulation()        
+        reset_simulation()
 
         set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
         pose = Pose() 

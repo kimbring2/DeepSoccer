@@ -6,6 +6,15 @@
     </plugin>
   </gazebo>
 
+  <gazebo>
+    <!-- joint torsional spring plugin -->
+    <plugin name="stick_solenoid_electromagnet_joint_spring" filename="libsolenoid_electromagnet_joint_spring_plugin.so">
+      <kx>1000000000</kx>
+      <set_point>0.0</set_point>
+      <joint>stick</joint>
+    </plugin>
+  </gazebo>
+
   <gazebo reference="body_1">
     <material>Gazebo/DarkGrey</material>
   </gazebo>
@@ -68,8 +77,8 @@
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>360</width>
-          <height>360</height>
+          <width>3280</width>
+          <height>2464</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -146,5 +155,4 @@
       </plugin>
     </sensor>
   </gazebo>
-
 </robot>

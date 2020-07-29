@@ -140,7 +140,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 238; 238; 238
-    Fixed Frame: world
+    Fixed Frame: chassis
     Frame Rate: 30
   Name: root
   Tools:

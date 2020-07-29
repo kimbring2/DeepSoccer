@@ -22,12 +22,7 @@
           wheel4_velocity_controller
           roller_velocity_controller
           stick_velocity_controller
-          --shutdown-timeout 3">
+          --shutdown-timeout 1000000000">
         </node>
-        <!--
-        <node name="rqt_robot_steering1" pkg="rqt_robot_steering" type="rqt_robot_steering">
-          <param name="default_topic" value="/robot1/joint1_velocity_controller/command"/>
-        </node>
-        -->
   </group>
 </launch>

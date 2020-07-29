@@ -357,6 +357,7 @@
 		<child link="body_1_11_solenoid_case_1" />
 		<axis xyz="0 0 0"/>
 	</joint>
+
 	<link name="body_1_12_part_1">
 		<visual>
 			<geometry>
@@ -386,6 +387,7 @@
 		<child link="body_1_12_part_1" />
 		<axis xyz="0 0 0"/>
 	</joint>
+
 	<link name="body_1_13_m3_l35mm">
 		<visual>
 			<geometry>
@@ -4238,7 +4240,7 @@
 		<parent link="body_1" />
 		<child link="roller_stick_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="-0.02" upper="0.05" effort="100" velocity="20" />
+		<limit lower="-0.01" upper="0.01" effort="30" velocity="200" />
 		<joint_properties friction="10.0"/>
 	</joint>
 

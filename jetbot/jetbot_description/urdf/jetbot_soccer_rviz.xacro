@@ -2,9 +2,10 @@
 <robot name="onshape" xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Used for fixing jetbot_soccer to Gazebo 'base_link' -->
     <link name="world" />
-    <joint name="fixed" type="fixed">
+    <joint name="world_joint" type="fixed">
       <parent link="world"/>
       <child link="body_1"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
     </joint>
 
 	<link name="body_1">
@@ -362,6 +363,7 @@
 		<child link="body_1_11_solenoid_case_1" />
 		<axis xyz="0 0 0"/>
 	</joint>
+
 	<link name="body_1_12_part_1">
 		<visual>
 			<geometry>
@@ -391,6 +393,7 @@
 		<child link="body_1_12_part_1" />
 		<axis xyz="0 0 0"/>
 	</joint>
+
 	<link name="body_1_13_m3_l35mm">
 		<visual>
 			<geometry>
@@ -1227,7 +1230,7 @@
 		</inertial>
 	</link>
 	<joint name="body_1_body_1_41_ova5647_housing_fixing" type="fixed">
-		<origin xyz="-0.280138 -0.345838 -0.0348527" rpy="-1.5708 1.34625 1.62107" />
+		<origin xyz="-0.280138 -0.345838 -0.0348527" rpy="-3.1416 2.91705 1.62107" />
 		<parent link="body_1" />
 		<child link="body_1_41_ova5647_housing" />
 		<axis xyz="0 0 0"/>
@@ -4243,7 +4246,7 @@
 		<parent link="body_1" />
 		<child link="roller_stick_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="-0.02" upper="0.02" effort="100" velocity="20" />
+		<limit lower="-0.01" upper="0.01" effort="100" velocity="20" />
 		<joint_properties friction="10.0"/>
 	</joint>
 </robot>

@@ -134,7 +134,6 @@
       </actuator>
     </transmission>
 
-
     <transmission name="tran2">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="right_wheel_hinge">
