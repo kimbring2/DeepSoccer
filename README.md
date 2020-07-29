@@ -35,7 +35,8 @@ In addition to opening software, information about hardware of robot will be sha
 - How to read LaserScan data(ROS python): https://www.theconstructsim.com/read-laserscan-data/
 - Convert Video to Images (Frames) & Images (Frames) to Video using OpenCV (Python) : https://medium.com/@iKhushPatel/convert-video-to-images-images-to-video-using-opencv-python-db27a128a481
 - Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
-- How to use a Gazebo as type of OpenAI Gym : http://wiki.ros.org/openai_ros
+- How to use a Gazebo as type of OpenAI Gym: http://wiki.ros.org/openai_ros
+- Solenoid joint spring plugin: https://github.com/aminsung/gazebo_joint_torsional_spring_plugin
 
 # 4. Etc
 ## 1) Relationship between simualtion and real part
@@ -277,6 +278,23 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
+## 6) Gazebo solenoid electromagnet joint plugin
+Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, so it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, solenoid_electromagnet_joint_spring_plugin package need be build using catkin_make command.
+
+```
+<gazebo>
+  <!-- solenoid electromagnet joint spring plugin -->
+  <plugin name="solenoid_electromagnet_joint_spring" filename="libgazebo_joint_torsional_spring.so">
+    <kx>1000000000</kx>
+    <set_point>0.0</set_point>
+    <joint>stick</joint>
+  </plugin>
+</gazebo>
+```
+
+The built custom plugin is used for sticks in multiple joints, so you can declare it in the jetbot_soccer.gazebo file as above.
+
+
 # 7. Use DeepSoccer as OpenAI Gym format 
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
 
@@ -329,7 +347,6 @@ for i_episode in range(20):
 
 env.close()
 ```
-
 
 # 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
