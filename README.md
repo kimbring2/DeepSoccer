@@ -281,14 +281,16 @@ You can use the gamepad for performing the basic actions for soccer. Multi playe
 ## 6) Gazebo solenoid electromagnet joint plugin
 Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, so it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, solenoid_electromagnet_joint_spring_plugin package need be build using catkin_make command.
 
+<img src="/image/Spring-Constant.jpg" width="600">
+
 ```
 <gazebo>
-  <!-- solenoid electromagnet joint spring plugin -->
-  <plugin name="solenoid_electromagnet_joint_spring" filename="libgazebo_joint_torsional_spring.so">
-    <kx>1000000000</kx>
-    <set_point>0.0</set_point>
-    <joint>stick</joint>
-  </plugin>
+   <!-- joint torsional spring plugin -->
+   <plugin name="stick_solenoid_electromagnet_joint_spring" filename="libsolenoid_electromagnet_joint_spring_plugin.so">
+     <kx>1000000000</kx>
+     <set_point>0.0</set_point>
+     <joint>stick</joint>
+   </plugin>
 </gazebo>
 ```
 
