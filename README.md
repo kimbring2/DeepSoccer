@@ -279,7 +279,7 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
 ## 6) Gazebo solenoid electromagnet joint plugin
-Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, so it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, solenoid_electromagnet_joint_spring_plugin package need be build using catkin_make command.
+Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, so it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, 'solenoid_electromagnet_joint_spring_plugin' package need be built using 'catkin_make' command.
 
 <img src="/image/Spring-Constant.jpg" width="600">
 
