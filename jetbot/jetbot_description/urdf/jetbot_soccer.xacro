@@ -4226,7 +4226,7 @@
 		<inertial>
 			<origin xyz="0.04445 0.29536 0.137105" rpy="0 0 0"/>
 			<mass value="0.0115774"/>
-			<inertia ixx="1.72634e-07" ixy="0"  ixz="0" iyy="7.7112e-06" iyz="0" izz="7.7112e-06" />
+			<inertia ixx="0" ixy="0"  ixz="0" iyy="0" iyz="0" izz="0" />
 		</inertial>
 	</link>
 	<joint name="roller_stick_1_roller_stick_1_0_solenoid_stick_fixing" type="fixed">
@@ -4247,10 +4247,10 @@
 	<transmission name="tran1">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="wheel1">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor1">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -4258,10 +4258,10 @@
     <transmission name="tran2">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="wheel2">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor2">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -4269,10 +4269,10 @@
 	<transmission name="tran3">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="wheel3">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor3">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
@@ -4280,10 +4280,10 @@
 	<transmission name="tran4">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="wheel4">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="motor4">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
