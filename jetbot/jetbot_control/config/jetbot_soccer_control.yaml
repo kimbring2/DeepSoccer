@@ -7,24 +7,18 @@ joint_state_controller:
 wheel1_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: wheel1
-  pid: {p: 100.0, i: 0.01, d: 10.0}
 wheel2_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: wheel2
-  pid: {p: 100.0, i: 0.01, d: 10.0}
 wheel3_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: wheel3
-  pid: {p: 100.0, i: 0.01, d: 10.0}
 wheel4_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: wheel4
-  pid: {p: 100.0, i: 0.01, d: 10.0}
 roller_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: roller
-  pid: {p: 100.0, i: 0.01, d: 10.0}
 stick_velocity_controller:
   type: velocity_controllers/JointVelocityController
   joint: stick
-  pid: {p: 100.0, i: 0.01, d: 10.0}

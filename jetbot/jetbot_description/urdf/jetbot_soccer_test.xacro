@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot name="jetbot_soccer" xmlns:xacro="http://www.ros.org/wiki/xacro">
-	<xacro:include filename="$(find jetbot_description)/urdf/jetbot_soccer.gazebo" />
+	<xacro:include filename="$(find jetbot_description)/urdf/jetbot_soccer_test.gazebo" />
 
 	<link name="body_1">
 		<inertial>
@@ -547,7 +547,7 @@
 		<parent link="body_1" />
 		<child link="roller_stick_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="0.01" upper="0.04" effort="30" velocity="200" />
+		<limit lower="-0.01" upper="0.01" effort="30" velocity="200" />
 		<joint_properties friction="10.0"/>
 	</joint>
 
@@ -4234,26 +4234,4 @@
         <mechanicalReduction>1</mechanicalReduction>
       </actuator>
     </transmission>
-
-    <transmission name="tran5">
-      <type>transmission_interface/SimpleTransmission</type>
-      <joint name="roller">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-      </joint>
-      <actuator name="motor5">
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        <mechanicalReduction>1</mechanicalReduction>
-      </actuator>
-    </transmission>
-
-    <transmission name="tran6">
-	  <type>transmission_interface/SimpleTransmission</type>
-	  <joint name="stick">
-	    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-	  </joint>  
-	  <actuator name="lift_motor">
-	    <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-	    <mechanicalReduction>1</mechanicalReduction>
-	  </actuator>
-  	</transmission>
 </robot>

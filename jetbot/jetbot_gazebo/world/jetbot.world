@@ -2,7 +2,7 @@
 <sdf version="1.4">
   <!-- We use a custom world for the jetbot so that the camera angle is launched correctly -->
   <world name="default">
-    <gravity>0 0 -9.81</gravity>
+    <gravity>0 0 -100</gravity>
 
     <include>
       <uri>model://ground_plane</uri>

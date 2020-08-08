@@ -8,7 +8,7 @@
       <link name="chassis">
          <self_collide>0</self_collide>
          <inertial>
-            <mass>0.041</mass>
+            <mass>0.00041</mass>
             <inertia>
                <ixx>3.2e-04</ixx>
                <iyy>3.2e-04</iyy>
@@ -26,7 +26,7 @@
             </geometry>
             <surface>
                <bounce>
-                  <restitution_coefficient>0.20</restitution_coefficient>
+                  <restitution_coefficient>0.020</restitution_coefficient>
                   <threshold>10</threshold>
                </bounce>
                <friction>

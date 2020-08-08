@@ -2,6 +2,7 @@
 <launch>
     <!-- This version uses the openai_ros environments -->
     <rosparam command="load" file="$(find my_deepsoccer_training)/config/my_deepsoccer_single_params.yaml" />
+    
     <!-- Launch the training system -->
     <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="gym_test.py" output="screen"/>
 </launch>
