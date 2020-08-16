@@ -307,7 +307,7 @@ The my_deepsoccer_training package is based on the my_turtlebot2_training packag
 After installing the my_deepsoccer_training package, you can use DeepSoccer with the following Gym shape. The basic actions and observations are the same as described in the Jetbot soccer section. Action is an integer from 0 to 6, indicating STOP, FORWARD, LEFT, RIGHT, BACKWARD, HOLD, and KICK, respectively. Observations are image frame from camera, robot coordinates, and lidar sensor value.
 
 ```
-roslaunch my_deepsoccer_training start_training.launch
+$ roslaunch my_deepsoccer_training start_training.launch
 ```
 
 ```
