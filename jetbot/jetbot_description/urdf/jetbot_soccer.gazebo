@@ -6,14 +6,15 @@
     </plugin>
   </gazebo>
 
+  
   <gazebo>
-    <!-- joint solenoid electromagnet spring plugin -->
     <plugin name="stick_solenoid_electromagnet_joint_spring" filename="libsolenoid_electromagnet_joint_spring_plugin.so">
       <kx>1000</kx>
-      <set_point>0.0</set_point>
+      <set_point>0.01</set_point>
       <joint>stick</joint>
     </plugin>
   </gazebo>
+
 
   <gazebo reference="body_1">
     <kp>5000000.0</kp>

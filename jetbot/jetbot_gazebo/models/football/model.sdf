@@ -8,11 +8,11 @@
       <link name="chassis">
          <self_collide>0</self_collide>
          <inertial>
-            <mass>0.00041</mass>
+            <mass>0.000041</mass>
             <inertia>
-               <ixx>3.2e-04</ixx>
-               <iyy>3.2e-04</iyy>
-               <izz>3.2e-04</izz>
+               <ixx>3.2e-8</ixx>
+               <iyy>3.2e-8</iyy>
+               <izz>3.2e-8</izz>
                <ixy>0</ixy>
                <ixz>0</ixz>
                <iyz>0</iyz>
@@ -26,14 +26,14 @@
             </geometry>
             <surface>
                <bounce>
-                  <restitution_coefficient>0.020</restitution_coefficient>
-                  <threshold>10</threshold>
+                  <restitution_coefficient>0.20</restitution_coefficient>
+                  <threshold>1</threshold>
                </bounce>
                <friction>
                   <torsional>
                      <coefficient>0.1</coefficient>
                      <use_patch_radius>true</use_patch_radius>
-                     <patch_radius>0.05</patch_radius>
+                     <patch_radius>0.03</patch_radius>
                   </torsional>
                   <ode>
                      <mu>1</mu>
@@ -42,7 +42,7 @@
                </friction>
                <contact>
                   <ode>
-                     <max_vel>5</max_vel>
+                     <max_vel>50</max_vel>
                   </ode>
                </contact>
             </surface>

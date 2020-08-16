@@ -505,7 +505,6 @@
 		<child link="body_1_28_picamerapcb" />
 		<axis xyz="0 0 0"/>
 	</joint>
-
 	<link name="roller_stick_1">
 		<inertial>
 			<origin xyz="0 0 0" rpy="0 0 0" />
@@ -547,8 +546,8 @@
 		<parent link="body_1" />
 		<child link="roller_stick_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="0.01" upper="0.04" effort="30" velocity="200" />
-		<joint_properties friction="10.0"/>
+		<limit lower="-0.02" upper="0.04" effort="30" velocity="30" />
+		<joint_properties friction="1.0"/>
 	</joint>
 
 	<link name="body_1_22_pcb.step">
