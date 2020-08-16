@@ -97,7 +97,7 @@ $ roslaunch jetbot_description jetbot_rviz.launch
 
 ## 2) Gazebo test
 ```
-roslaunch jetbot_gazebo main.launch
+$ roslaunch jetbot_gazebo main.launch
 ```
 
 ## 3) Soccer object 3D model path setting 
@@ -201,7 +201,7 @@ The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTI
 ## 2) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
-roslaunch jetbot_description jetbot_soccer_rviz.launch
+$ roslaunch jetbot_description jetbot_soccer_rviz.launch
 ```
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
@@ -210,7 +210,7 @@ After launching a RViz, you can control of each wheel and roller using dialog bo
 After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
-roslaunch jetbot_gazebo main_soccer.launch
+$ roslaunch jetbot_gazebo main_soccer.launch
 ```
 
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
@@ -218,24 +218,24 @@ First, adjust the speed of the wheels to approach to the ball.
 
 - Command for wheel motor
 ```
-rostopic pub -1 /robot1/wheel1_velocity_controller/command std_msgs/Float64 "data: 30"
-rostopic pub -1 /robot1/wheel2_velocity_controller/command std_msgs/Float64 "data: 30"
-rostopic pub -1 /robot1/wheel3_velocity_controller/command std_msgs/Float64 "data: 30"
-rostopic pub -1 /robot1/wheel4_velocity_controller/command std_msgs/Float64 "data: 30"
+$ rostopic pub -1 /robot1/wheel1_velocity_controller/command std_msgs/Float64 "data: 30"
+$ rostopic pub -1 /robot1/wheel2_velocity_controller/command std_msgs/Float64 "data: 30"
+$ rostopic pub -1 /robot1/wheel3_velocity_controller/command std_msgs/Float64 "data: 30"
+$ rostopic pub -1 /robot1/wheel4_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Next, rotate a roller motor to pull the ball.
 
 - Command for roller motor
 ```
-rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
+$ rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 Finally kick the ball via speed control of solenoid motor.
 
 - Command for solenoid motor
 ```
-rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
+$ rostopic pub -1 /robot1/stick_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
 If you run a 'main_soccer.py file in jetbot/jetbot_control file, you can give a command by typing a character.
@@ -254,7 +254,7 @@ Please check video for checking how to give a command(https://www.youtube.com/wa
 Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/jetbot/laser/scan'
 
 ```
-rostopic echo /jetbot/laser/scan -n1
+$ rostopic echo /jetbot/laser/scan -n1
 ```
 
 Among that information, range from robot to front object can be got by using Python
