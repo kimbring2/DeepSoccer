@@ -1,35 +1,30 @@
-# Gazebo Joint Torsional Spring Plugin 
-
-This Gazebo/ROS plugin allows you to easily add a torsional spring to your robot in Gazebo.
+# Gazebo Solenoid Electromagnet Spring plugin 
+This Gazebo/ROS plugin allows you to easily add a solenoid electromagnet spring to your robot in Gazebo.
 
 ### Installation
+Place this foler to your catkin workspace and use 'catkin_make' command.
 
-```shell
-cd ~/catkin_ws/src
-git clone git@github.com:aminsung/gazebo_joint_torsional_spring_plugin.git
-cd ~/catkin_ws
-catkin_make
-```
-
-### Adding the joint torsional spring plugin
-
+### Adding plugin
 This plugin attaches to a joint, so the plugin needs to be given a reference to that link.
 
-```xml
+```
 <robot>
-  <joint name="knee_joint">
-    ... joint description ...
-  </joint>
+  <joint name="stick" type="prismatic">
+		<origin xyz="-0.281228 -0.278693 -0.136057" rpy="-5.12956e-06 7.06783e-08 -1.534" />
+		<parent link="body_1" />
+		<child link="roller_stick_1" />
+		<axis xyz="-1 0 0"/>
+		<limit lower="-0.02" upper="0.01" effort="30" velocity="30" />
+		<joint_properties friction="1.0"/>
+	</joint>
     
   <gazebo>
-    <!-- joint torsional spring plugin -->
-    <plugin name="knee_joint_torsional_spring" filename="libgazebo_joint_torsional_spring.so">
-      <kx>0.1</kx>
-      <set_point>0.5</set_point>
-      <joint>knee_joint</joint>
+    <plugin name="stick_solenoid_electromagnet_joint_spring" filename="libsolenoid_electromagnet_joint_spring_plugin.so">
+      <kx>1000</kx>
+      <set_point>0.01</set_point>
+      <joint>stick</joint>
     </plugin>
   </gazebo>
-    
 </robot>
 ```
 
@@ -37,10 +32,6 @@ This plugin attaches to a joint, so the plugin needs to be given a reference to 
 
 ``kx`` : The spring coefficient in N-m
 
-``set_point`` : The angle at which the joint would feel no force in radians
+``set_point`` : The pooint at which the solenoid electromagnet joint would feel no force 
 
-``joint`` : Name of the joint to add the torsional spring to
-
-### Contribute
-
-If you find a bug in the code, feel free to submit a pull request.
+``joint`` : Name of the joint to add the solenoid electromagnet to
