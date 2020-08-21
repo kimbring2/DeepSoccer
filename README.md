@@ -8,7 +8,7 @@ In order to use the robot algorithm trained in the virtual simulation in the rea
 In addition to opening software, information about hardware of robot will be shared for making other reseachres, makers can use this project for their own purpose.
 
 [![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
+<strong>Project Introduction!</strong>
 
 
 # 2. Software Dependency
