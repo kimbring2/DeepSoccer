@@ -158,6 +158,18 @@ $ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "in"
 $ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "out"
 ```
 
+For getting lidar sensor distance and infrared object detection value.
+```
+$ sudo chmod a+rw /dev/ttyTHS1 
+$ rosrun jetbot_ros jetbot_soccer_lidar.py
+$ rostopic echo /jetbot_soccer_lidar
+```
+
+```
+$ rosrun jetbot_ros jetbot_soccer_infrared.py
+$ rostopic echo /jetbot_soccer_infrared
+```
+
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
 ```$ python jetson_soccer_main.py ```
 
@@ -236,7 +248,7 @@ Next, rotate a roller motor to pull the ball.
 $ rostopic pub -1 /robot1/roller_velocity_controller/command std_msgs/Float64 "data: 30"
 ```
 
-Finally kick the ball via speed control of solenoid motor.
+Finally, kick the ball via speed control of solenoid motor.
 
 - Command for solenoid motor
 ```
