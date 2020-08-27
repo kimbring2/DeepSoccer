@@ -256,10 +256,10 @@ k : kick ball
 Please check video for checking how to give a command(https://www.youtube.com/watch?v=rTVKIcgdVGo)
 
 ## 4) Command for lidar sensor
-Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/jetbot/laser/scan'
+Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/deepsoccer/laser/scan'
 
 ```
-$ rostopic echo /jetbot/laser/scan -n1
+$ rostopic echo /deepsoccer/laser/scan -n1
 ```
 
 Among that information, range from robot to front object can be got by using Python
