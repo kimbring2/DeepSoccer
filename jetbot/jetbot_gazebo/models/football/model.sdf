@@ -8,11 +8,11 @@
       <link name="chassis">
          <self_collide>0</self_collide>
          <inertial>
-            <mass>0.000041</mass>
+            <mass>0.0010</mass>
             <inertia>
-               <ixx>3.2e-8</ixx>
-               <iyy>3.2e-8</iyy>
-               <izz>3.2e-8</izz>
+               <ixx>3.2e-7</ixx>
+               <iyy>3.2e-7</iyy>
+               <izz>3.2e-7</izz>
                <ixy>0</ixy>
                <ixz>0</ixz>
                <iyz>0</iyz>
@@ -21,7 +21,7 @@
          <collision name="collision">
             <geometry>
                <sphere>
-                  <radius>0.030</radius>
+                  <radius>0.031</radius>
                </sphere>
             </geometry>
             <surface>
@@ -32,12 +32,11 @@
                <friction>
                   <torsional>
                      <coefficient>0.1</coefficient>
-                     <use_patch_radius>true</use_patch_radius>
-                     <patch_radius>0.03</patch_radius>
+                     <patch_radius>0.031</patch_radius>
                   </torsional>
                   <ode>
-                     <mu>1</mu>
-                     <mu2>1</mu2>
+                     <mu>10</mu>
+                     <mu2>5</mu2>
                   </ode>
                </friction>
                <contact>
@@ -50,7 +49,7 @@
          <visual name="visual">
             <geometry>
                <mesh>
-                  <scale>0.030 0.030 0.030</scale>
+                  <scale>0.031 0.031 0.031</scale>
                   <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/meshes/ball.dae</uri>
                </mesh>
             </geometry>
