@@ -84,13 +84,6 @@ namespace gazebo
 			   &SolenoidElectromagnetSpringPlugin::OnMsg, this);
 			//std::cout << "Subscribed to " << this->sub << std::endl;
 
-			//p: 100.0, i: 0.01, d: 10.0
-			// Setup a P-controller, with a gain of 0.1.
-			//this->pid = common::PID(100.0, 0.01, 10.0);
-
-		  	// Apply the P-controller to the joint.
-		  	//this->model->GetJointController()->SetVelocityPID(this->joint->GetScopedName(), this->pid);
-
 			this->forceIteration = 0;
 
 			// Initialize ros, if it has not already bee initialized.
@@ -140,17 +133,8 @@ namespace gazebo
 		{
 		  std::cout << "_msg->data: " << _msg->data << std::endl;
 		 
-		  // Set the joint's target velocity. This target velocity is just
-		  // for demonstration purposes.
-		  //this->model->GetJointController()->SetVelocityTarget(this->joint->GetScopedName(), _msg->data);
-		  //std::cout << "10000000 * float(_msg->data): " << 10000000 * float(_msg->data) << std::endl;
-		  
-		  //this->joint->SetForce(0, (1000.0 * (this->setPoint - current_angle)) );	
-		  //this->joint->SetForce(0,  -1.0 * float(_msg->data));
 		  for (int i = 0; i < 10; i++)
 		  	this->joint->SetForce(0, 1000 * float(_msg->data));
-		  //this->joint->SetVelocity(0, float(_msg->data));
-          //this->model->GetJointController()->SetVelocityTarget(this->joint->GetScopedName(), _msg->data);
 		}
 
 		/// \brief ROS helper function that processes messages
@@ -194,10 +178,6 @@ namespace gazebo
 
 	    /// \brief A subscriber to a named topic.
 	    private: transport::SubscriberPtr sub;
-
-	    /// \brief A PID controller for the joint.
-	    //private: common::PID pid;
-
 	};
 
 	GZ_REGISTER_MODEL_PLUGIN(SolenoidElectromagnetSpringPlugin)

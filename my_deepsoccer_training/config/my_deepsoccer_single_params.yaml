@@ -13,6 +13,9 @@ deepsoccer: #namespace
     nsteps: 10000
     running_step: 0.06 # Time for each step
 
+    save_path: "/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/"
+    save_file: "jetbot_soccer_data_1"
+
 deepsoccer_test: #namespace
     task_and_robot_environment_name: 'MyDeepSoccerSingleTest-v0'
     ros_ws_abspath: "/home/kimbring2/catkin_ws"
