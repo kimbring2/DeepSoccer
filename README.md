@@ -42,6 +42,7 @@ In addition to opening software, information about hardware of robot will be sha
 - How to use a Gazebo as type of OpenAI Gym: http://wiki.ros.org/openai_ros
 - Solenoid joint spring plugin: https://github.com/aminsung/gazebo_joint_torsional_spring_plugin
 - Custom control plugin for Gazebo: http://gazebosim.org/tutorials?tut=guided_i5&cat=
+- Forgetful Expirience Replay for Reinforcement Learning from Demonstrations: https://github.com/cog-isa/forger
 
 # 4. Etc
 ## 1) Relationship between simualtion and real part
