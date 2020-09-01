@@ -346,8 +346,9 @@
   </gazebo>
 
   <!-- camera -->
-  <gazebo reference="rspcameramia_1">
+  <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
+      <visualize>true</visualize>
       <update_rate>30.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -357,7 +358,7 @@
           <format>R8G8B8</format>
         </image>
         <clip>
-          <near>0.01</near>
+          <near>0.1</near>
           <far>50</far>
         </clip>
         <noise>
@@ -376,7 +377,7 @@
         <cameraName>camera1</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>body_1_41_ova5647_housing</frameName>
+        <frameName>camera_link</frameName>
         <!-- setting hackBaseline to anything but 0.0 will cause a misalignment
             between the gazebo sensor image and the frame it is supposed to
             be attached to -->

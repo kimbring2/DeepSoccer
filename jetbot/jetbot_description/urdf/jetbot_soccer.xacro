@@ -2511,6 +2511,37 @@
 		<limit lower="-1e+16" upper="1e+16" effort="1.5" velocity="50" />
 		<joint_properties friction="0.0"/>
 	</joint>
+
+	<xacro:property name="camera_link" value="0.001" /> <!-- Size of square 'camera' box -->
+
+	<joint name="camera_joint" type="fixed">
+    	<axis xyz="0 0 1"/>
+    	<origin xyz="0.00202223 -0.0745669 -0.0321728" rpy="0 0.3 -1.52052" />
+    	<parent link="rspcameramia_1"/>
+    	<child link="camera_link"/>
+  	</joint>
+
+	<!-- IR -->
+	<link name="camera_link">
+		<collision>
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	    	<geometry>
+	    		<box size="${camera_link} ${camera_link} ${camera_link}"/>
+	      	</geometry>
+	    </collision>
+
+	    <visual>
+	    	<origin xyz="0 0 0" rpy="0 0 0"/>
+	     	<material name="red"/>
+	    </visual>
+
+	    <inertial>
+	    	<mass value="1e-5" />
+	     	<origin xyz="0 0 0" rpy="0 0 0"/>
+	     	<inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+	  	</inertial>
+	</link>	
+
 	<link name="ir_sensor_1">
 		<collision>
 			<origin xyz="-0.0344401 -0.0499897 -0.113737" rpy="-3.81895e-08 -1.32836e-07 2.65463" />
