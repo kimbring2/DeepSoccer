@@ -1,0 +1,29 @@
+agent:
+  frames_to_update: 100
+  save_dir: "/home/kimbring2/catkin_ws/src/my_deepsoccer_training/src/train/deepsoccer_single/"
+  update_quantity: 60
+  update_target_net_mod: 1000
+  batch_size: 4
+  margin: 0.4
+  replay_start_size: 1000
+  gamma: 0.99
+  learning_rate: 0.0001
+  n_step: 10
+
+buffer:
+  size: 5000
+  episodes_to_decay: 1
+  min_demo_proportion: 0.
+
+wrappers:
+  frame_stack: 4
+  frame_skip: 4
+
+model_name: "deepsoccer_dqfd"
+tb_dir: "/home/kimbring2/catkin_ws/src/my_deepsoccer_training/src/train/tboard/"
+
+pretrain:
+  steps: 50000
+  min_demo_reward: 60.0
+
+episodes: 200

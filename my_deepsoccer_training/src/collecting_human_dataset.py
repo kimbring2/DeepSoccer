@@ -22,6 +22,7 @@ save_file = rospy.get_param('/deepsoccer/save_file')
 env = StartOpenAI_ROS_Environment(task_and_robot_environment_name)
 key_input = 'f'
 
+
 def on_press(key):
     global key_input
     try:
@@ -40,22 +41,7 @@ def on_release(key):
         return False
 
 
-path_video = save_path + save_file + '.avi'
-fps = 5
-size = (512,512)
-video_out = cv2.VideoWriter(path_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
-
-listener = keyboard.Listener(on_press=on_press, on_release=on_release)
-listener.start()
-
-for i_episode in range(20):
-    observation = env.reset()
-
-    frame_list = []
-    action_list = []
-    step_list = []
-    lidar_list = []
-    '''
+def reset_pose():
     set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
     pose = Pose() 
     pose.position.x = np.random.randint(1,20) / 10.0
@@ -71,16 +57,43 @@ for i_episode in range(20):
     state_model.model_name = "robot1"
     state_model.pose = pose
     resp = set_state(state_model)
-    '''
+
+
+path_video = save_path + save_file + '.avi'
+fps = 5
+size = (512,512)
+video_out = cv2.VideoWriter(path_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, size)
+
+listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+listener.start()
+
+frame_list = []
+cur_lidar_list = []
+cur_infrared_list = []
+next_lidar_list = []
+next_infrared_list = []
+
+episode_list = []
+action_list = []
+reward_list = []
+done_list = []
+step_list = []
+state_list = []
+next_state_list = []
+
+for i_episode in range(20):
+    observation = env.reset()
+    reset_pose()
     for t in range(5000):
         #env.render()
-        print("observation[0].shape: " + str(observation[0].shape))
+        #print("observation[0].shape: " + str(observation[0].shape))
 
         #cv2.imshow("obs_image", obs_image)
         #cv2.waitKey(3)
 
-        print("observation[1]: " + str(observation[1]))
-        print("observation[2]: " + str(observation[2]))
+        print("lidar: " + str(observation[1]))
+        print("infrared: " + str(observation[2]))
+        #print("infra: " + str(observation[2]))
         action = env.action_space.sample()
             
         print("key_input: " + str(key_input))
@@ -111,25 +124,46 @@ for i_episode in range(20):
 
             video_out.release()
 
-            state = {'step': step_list, 'action': action_list, 'lidar':  lidar_list}
+            save_data = {'episode': i_episode, 'step': step_list, 
+                          'state': {'lidar': cur_lidar_list, 'infrared': cur_infrared_list}, 
+                          'next_state': {'lidar': next_lidar_list, 'infrared': next_infrared_list}, 
+                          'action': action_list, 'reward': reward_list, 'done': done_list}
 
             path_npy = save_path + save_file + '.npy'
-            np.save(path_npy, state)
+            np.save(path_npy, save_data)
 
-            print("step_list: " + str(step_list))
-            print("action_list: " + str(action_list))
-            print("lidar_list: " + str(lidar_list))
+            #print("episode_list: " + str(episode_list))
+            #print("step_list: " + str(step_list))
+            #print("state_list: " + str(state_list))
+            #print("state_list: " + str(state_list))
+            #print("action_list: " + str(action_list))
+            #print("reward_list: " + str(reward_list))
+            #print("done_list: " + str(done_list))
 
             exit()
 
-        observation, reward, done, info = env.step(action)
+        observation1, reward, done, info = env.step(action)
+        episode_list.append(i_episode)
         step_list.append(t)
+
         frame_list.append(observation[0])
+
+        #state = {'lidar': observation[1], 'infrared': observation[2]}
+        cur_lidar_list.append(observation[1])
+        cur_infrared_list.append(observation[2])
+        #state_list.append(state)
+
+        #next_state = {'lidar': observation1[1], 'infrared': observation1[2]}
+        next_lidar_list.append(observation1[1])
+        next_infrared_list.append(observation1[2])
         action_list.append(action)
-        lidar_list.append(observation[1])
+        reward_list.append(reward)
+        done_list.append(done)
+
+        observation = observation1
 
         if done:
-            print("Episode finished after {} timesteps".format(t+1))
+            print("Episode finished after {} timesteps".format(t + 1))
             break
 
 env.close()
