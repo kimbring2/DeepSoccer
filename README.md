@@ -287,48 +287,31 @@ The my_deepsoccer_training package is based on the my_turtlebot2_training packag
 
 After installing the my_deepsoccer_training package, you can use DeepSoccer with the following Gym shape. The basic actions and observations are the same as described in the Jetbot soccer section. Action is an integer from 0 to 6, indicating STOP, FORWARD, LEFT, RIGHT, BACKWARD, HOLD, and KICK, respectively. Observations are image frame from camera, robot coordinates, and lidar sensor value.
 
+After changing a line of start_training.launch like below,
+
+```
+<node pkg="my_deepsoccer_training" name="deepsoccer_single" type="gym_test.py" output="screen"/>
+```
+
+You can check code for it at https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/gym_test.py.
+
+Start Gazebo by using below command.
 ```
 $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
+# 8. How to train DeepSoccer using Deep Reinforcement Learning
+After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball delicately. Thus, I assume that PPO alorithm do not work well.
+
 ```
-#!/usr/bin/env python
-import gym
-import numpy
-import time
-import cv2
+<node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
+```
 
-# ROS packages required
-import rospy
-import rospkg
-from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
+https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/train_single.py
 
-rospy.init_node('example_deepsoccer_soccer_qlearn', anonymous=True, log_level=rospy.WARN)
-
-task_and_robot_environment_name = rospy.get_param('/deepsoccer/task_and_robot_environment_name')
-env = StartOpenAI_ROS_Environment(task_and_robot_environment_name)
-
-for i_episode in range(20):
-    observation = env.reset()
-
-    for t in range(100):
-        #env.render()
-        #print("observation[0].shape: " + str(observation[0].shape))
-
-        obs_image = observation[0]
-        cv2.imshow("obs_image", obs_image)
-        cv2.waitKey(3)
-
-        print("observation[1]: " + str(observation[1]))
-        print("observation[2]: " + str(observation[2]))
-        print("observation[3]: " + str(observation[3]))
-        action = env.action_space.sample()
-        observation, reward, done, info = env.step(action)
-        if done:
-            print("Episode finished after {} timesteps".format(t+1))
-            break
-
-env.close()
+Start Gazebo by using below command.
+```
+$ roslaunch my_deepsoccer_training start_training.launch
 ```
 
 # 9. Citation
