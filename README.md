@@ -10,7 +10,6 @@ In addition to opening software, information about hardware of robot will be sha
 [![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
 <strong>Project Introduction!</strong>
 
-
 # 2. Software Dependency
 ## 1) ROS, Gazebo
 - ROS Melodic, Gazebo 9
@@ -95,43 +94,7 @@ If you get error message includes 'No transform from', try to install unicode ub
 $ sudo apt-get install unicode 
 ```
 
-# 6. Jetbot original version test
-## 1) RViz test
-```
-$ roslaunch jetbot_description jetbot_rviz.launch
-```
-
-## 2) Gazebo test
-```
-$ roslaunch jetbot_gazebo main.launch
-```
-
-## 3) Soccer object 3D model path setting 
-You should change a 3D model file path of jetbot/jetbot_gazebo/world/jetbot.world and sdf file at jetbot_gazebo/models/RoboCup15_MSL_Field, jetbot_gazebo/models/RoboCup15_MSL_Goal, jetbot_gazebo/models/football.
-
-Below is example line of uri. Please change all uri path for your PC environment.
-```
-<uri>file:///home/[your ubuntu account]/catkin_ws/src/jetbot_soccer/jetbot_gazebo/materials/scripts/gazebo.material</uri>
-```
-
-## 4) How to manually send a wheel velocity commands
-The range of velocity that can be given to the wheel is 0 to 100.
-
-- Left Wheel(For robot1, robot2)
-```rostopic pub -1 /robot1/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
-```rostopic pub -1 /robot2/joint1_velocity_controller/command std_msgs/Float64 "data: 30"```
-
-- Right Wheel(For robot1, robot2)
-```rostopic pub -1 /robot1/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
-```rostopic pub -1 /robot2/joint2_velocity_controller/command std_msgs/Float64 "data: 30"```
-
-## 5) Python code for Gazebo simulator
-Move to 'jetbot/jetbot_control/src/' folder and type ```python main.py```. 
-It will send a velocity command to each wheel and show a camera sensor image. Furthermore, Tensorflow code for Reinforcement Learning is implemented. Jetbot is able to only learn how to track a soccer ball at now. However, I train more advanced behavior after finishing first task.
-
-If you run a code, it will store a Tensorflow weight file at drqn folder of your workspace. 
-
-## 6) Python code for real robot
+## 5) Python code for real robot
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
 
 Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node.
@@ -178,14 +141,14 @@ That file receive a image frame from camera and send a velecity command to each 
 
 <img src="image/jetbot_soccer_detect_ball.jpeg" width="600">
 
-## 7) Tensorflow model freezing for TensorRT inference
+## 6) Tensorflow model freezing for TensorRT inference
 Tensorflow model trained using Gazebo simulation can be used without installing Tensorflow on Jetson Nano. However, model needs to be freezed. Please check a process for it at 'RL_model_froze.ipynb' file. You need to change a 'model_dir = "/home/kimbring2/catkin_ws/src/jetbot/jetbot_control/src/drqn"' line for your workplace setting.
 
 <img src="image/jetbot_frozen_graph.png" width="600">
 
 You need to see a inference output at bottom of cell and modify 'model-1.cptk.meta' for your checkpoint name.
 
-# 6. Jetbot soccer version
+# 6. DeepSoccer design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
 <img src="/image/jetbot_soccer_proto_2.png" width="600">
@@ -368,7 +331,7 @@ for i_episode in range(20):
 env.close()
 ```
 
-# 8. Citation
+# 9. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -383,8 +346,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 9. Acknowledgement
+# 10. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
 
-# 10. License
+# 11. License
 Apache License 2.0
