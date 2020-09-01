@@ -1,6 +1,7 @@
 import os
 import random
 import timeit
+import glob
 from collections import deque
 
 import numpy as np
@@ -12,13 +13,44 @@ from utils.tf_util import huber_loss, take_vector_elements
 from collections import deque
 
 from scipy import stats
+import cv2
 #from chainerrl.wrappers.atari_wrappers import LazyFrames
 #from utils.discretization import SmartDiscrete
+
+physical_devices = tf.config.list_physical_devices('GPU')
+try:
+  tf.config.experimental.set_memory_growth(physical_devices[0], True)
+except:
+  # Invalid device or cannot modify virtual devices once initialized.
+  pass
+
+import rospy
+from gazebo_msgs.msg import ModelState
+from gazebo_msgs.srv import SetModelState
+from geometry_msgs.msg import Pose
+
+
+def reset_pose():
+    set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+    pose = Pose() 
+    pose.position.x = np.random.randint(1,20) / 10.0
+    pose.position.y = np.random.randint(1,20) / 10.0
+    pose.position.z = 0.12
+  
+    pose.orientation.x = 0
+    pose.orientation.y = 0
+    pose.orientation.z = 0
+    pose.orientation.w = 0
+    
+    state_model = ModelState()   
+    state_model.model_name = "robot1"
+    state_model.pose = pose
+    resp = set_state(state_model)
 
 
 class Agent:
     def __init__(self, config, replay_buffer, build_model, obs_space, act_space,
-                 dtype_dict=None, log_freq=100):
+                 dtype_dict=None, log_freq=10):
         # global
         self.frames_to_update = config['frames_to_update']
         self.save_dir = config['save_dir']
@@ -42,6 +74,7 @@ class Agent:
         else:
             self.sampler = self.sample_generator
 
+        self.writer = tf.summary.create_file_writer("/home/kimbring2/catkin_ws/src/my_deepsoccer_training/src/train/tboard/")
         #print("obs_space['lidar'].shape: " + str(obs_space['lidar'].shape))
         #print("obs_space['camera']: " + str(obs_space['camera']))
         #print("obs_space['camera'].shape: " + str(obs_space['camera'].shape))
@@ -62,12 +95,16 @@ class Agent:
         self.avg_metrics = dict()
         self.action_dim = act_space.n
 
-    def train(self, env, episodes=200, seeds=None, name="max_model.ckpt", save_mod=50,
-              epsilon=0.1, final_epsilon=0.01, eps_decay=0.99, save_window=10):
+    def train(self, env, episodes=200, seeds=None, name="max_model.ckpt", save_mod=1,
+               epsilon=0.1, final_epsilon=0.01, eps_decay=0.99, save_window=1):
         scores, counter = [], 0
         max_reward = -np.inf
         window = deque([], maxlen=save_window)
         for e in range(episodes):
+            #print("self.save_dir: " + str(self.save_dir))
+            #self.save(os.path.join(self.save_dir, "{}_model.ckpt".format(e)))
+            #self.update_log()
+
             score, counter = self.train_episode(env, seeds, counter, epsilon)
             if self.replay_buff.get_stored_size() > self.replay_start_size:
                 epsilon = max(final_epsilon, epsilon * eps_decay)
@@ -78,7 +115,7 @@ class Agent:
                   .format(e, score, counter, epsilon, max_reward))
 
             tf.summary.scalar("reward", score, step=e)
-            tf.summary.flush()
+            self.writer.flush()
 
             avg_reward = sum(window) / len(window)
             if avg_reward >= max_reward:
@@ -101,12 +138,18 @@ class Agent:
             env.seed(random.choice(seeds))
 
         done, score, state = False, 0, env.reset()
+        reset_pose()
         while done is False:
             action = self.choose_act(state, epsilon)
             next_state, reward, done, _ = env.step(action)
             score += reward
-            self.perceive(to_demo=0, state=state, action=action, reward=reward, next_state=next_state,
-                            done=done, demo=False)
+
+            data_dict = {"to_demo": 1, "state": state, "action": action, "reward": reward, 
+                              "next_state": next_state, "done": done, "demo": 0}
+            self.perceive(data_dict)
+
+            #self.perceive(to_demo=0, state=state, action=action, reward=reward, next_state=next_state,
+            #                done=done, demo=False)
             counter += 1
             state = next_state
             if self.replay_buff.get_stored_size() > self.replay_start_size \
@@ -159,7 +202,11 @@ class Agent:
         start_time = timeit.default_timer()
         for batch in self.sampler(steps):
             indexes = batch.pop('indexes')
-            priorities = self.q_network_update(gamma=self.gamma, **batch)
+            #priorities = self.q_network_update(gamma=self.gamma, **batch)
+            priorities = self.q_network_update(gamma=self.gamma, state=batch['state'], action=batch['action'], next_state=batch['next_state'], 
+                done=batch['done'], reward=batch['reward'], demo=batch['demo'], n_state=batch['n_state'], n_done=batch['n_done'], n_reward=batch['n_reward'], 
+                actual_n=batch['actual_n'], weights=batch['weights'])
+            #state, action, next_state, done, reward, demo, n_state, n_done, n_reward, actual_n, weights, gamma
 
             self.schedule()
             self.priorities_store.append({'indexes': indexes.numpy(), 'priorities': priorities.numpy()})
@@ -169,6 +216,7 @@ class Agent:
             start_time = timeit.default_timer()
 
         while len(self.priorities_store) > 0:
+            #print("len(self.priorities_store): " + str(len(self.priorities_store)))
             priorities = self.priorities_store.pop(0)
             self.replay_buff.update_priorities(**priorities)
 
@@ -179,6 +227,7 @@ class Agent:
         while steps_done < steps:
             yield self.replay_buff.sample(self.batch_size)
             if len(self.priorities_store) > 0:
+                #print("len(self.priorities_store): " + str(len(self.priorities_store)))
                 priorities = self.priorities_store.pop(0)
                 self.replay_buff.update_priorities(**priorities)
 
@@ -186,8 +235,8 @@ class Agent:
 
     @tf.function
     def q_network_update(self, state, action, next_state, done, reward, demo,
-                         n_state, n_done, n_reward, actual_n, weights,
-                         gamma):
+                           n_state, n_done, n_reward, actual_n, weights,
+                           gamma):
         print("Q-nn_update tracing")
         online_variables = self.online_model.trainable_variables
         with tf.GradientTape() as tape:
@@ -252,133 +301,87 @@ class Agent:
         return j_e
 
     def add_demo(self, expert_data=1, fixed_reward=None):
-        always_attack = 0
-        frame_stack = 4
-        frame_skip = 4
-        #discrete_maker = SmartDiscrete(ignore_keys=["place", "nearbySmelt", "nearbyCraft",
-        #                                            "equip", "craft"],
-        #                                  always_attack=always_attack)
         threshold = 25
-        def _skip_stack(array):
-            if isinstance(array, list):
-                array = np.array(array)
-
-            frame_skip = 4
-            length = array.shape[0]
-            stack = [array[j:length-frame_skip+j+1] for j in range(frame_skip)]
-            return np.stack(stack, axis=-1)
-
         all_data = 0
         progress = tqdm(total=self.replay_buff.get_buffer_size())
+        #for l in range(0, 20):
+        #    progress.update(1)
 
-        # Read camera frame data
-        cap = cv2.VideoCapture('/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/jetbot_soccer_data.avi')
-        frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-        #print("frameCount: " + str(frameCount))
-        frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        buf = np.empty((frameCount, frameHeight, frameWidth, 3), np.dtype('uint8'))
-        fc = 0
-        ret = True
- 
-        while (fc < frameCount  and ret):
-            ret, buf[fc] = cap.read()
-            fc += 1
- 
-        # Read another data
-        data = np.load("/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/jetbot_soccer_data.npy", allow_pickle=True)
-        data_0 = np.reshape(data, 1)
-        data_1 = data_0[0]
-        print("len(data_1['state']['lidar']): " + str(len(data_1['state']['lidar'])))
-        state = []
-        next_state = []
-        for m in range(0, len(data_1['state']['lidar']) - 1):
-            frame_state_channel = buf[m]
-            frame_next_state_channel = buf[m+1]
+        file_list = glob.glob("/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/*.avi")
+        #print("file_list: " + str(file_list))
 
-            lidar_state_channel = (np.ones(shape=(512,512,1), dtype=np.float32)) * data_1['state']['lidar'][m] / 12
-            infrared_state_channel = (np.ones(shape=(512,512,1), dtype=np.float32)) * data_1['state']['infrared'][m] / 2.0
-            lidar_next_state_channel = (np.ones(shape=(512,512,1), dtype=np.float32)) * data_1['next_state']['lidar'][m] / 12
-            infrared_next_state_channel = (np.ones(shape=(512,512,1), dtype=np.float32)) * data_1['next_state']['infrared'][m] / 2.0
+        for file in glob.glob("/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/*.avi"):
+            #print(file)
+            file_name = file.split('/')[-1].split('.')[0]
+            #print("file_name: " + str(file_name))
 
-            state_channel1 = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
-            state_channel2 = np.concatenate((state_channel1, infrared_state_channel), axis=2)
-            next_state_channel1 = np.concatenate((frame_state_channel, lidar_next_state_channel), axis=2)
-            next_state_channel2 = np.concatenate((next_state_channel1, infrared_next_state_channel), axis=2)
+            # Read camera frame data
+            cap = cv2.VideoCapture('/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/' + file_name + '.avi')
+            frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            #print("frameCount: " + str(frameCount))
+            frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            #print("frameWidth: " + str(frameWidth))
+            #print("frameHeight: " + str(frameHeight))
+            buf = np.empty((frameCount, 128, 128, 3), np.dtype('uint8'))
+            fc = 0
+            ret = True
+            while (fc < frameCount and ret):
+                ret, image_frame = cap.read()
+                image_frame_resized = cv2.resize(image_frame, (128, 128), interpolation=cv2.INTER_AREA)
+                #print("image_frame_resized.shape: " + str(image_frame_resized.shape))
+                buf[fc] = image_frame_resized
+                fc += 1
 
-            state.append(state_channel2)
-            next_state.append(next_state_channel2)
+            state = []
+            next_state = []
 
-        #print("len(state): " + str(len(state)))
-        #print("len(next_state): " + str(len(next_state)))
+            # Read another data
+            data = np.load("/home/kimbring2/catkin_ws/src/my_deepsoccer_training/human_data/" + file_name + ".npy", allow_pickle=True)
+            data_0 = np.reshape(data, 1)
+            data_1 = data_0[0]
+            #print("len(data_1['state']['lidar']): " + str(len(data_1['state']['lidar'])))
+            for m in range(0, len(data_1['state']['lidar']) - 1):
+                frame_state_channel = buf[m]
+                frame_next_state_channel = buf[m+1]
 
-        action = data_1['action']
-        reward = data_1['reward']
-        done = data_1['done']
+                lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['state']['lidar'][m] / 12
+                infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['state']['infrared'][m] / 2.0
+                lidar_next_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['next_state']['lidar'][m] / 12
+                infrared_next_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['next_state']['infrared'][m] / 2.0
 
-        for k in range(0, len(next_state)):
-            print("state[k]: " + str(state[k]))
-            print("action[k]: " + str(action[k]))
-            print("reward[k]: " + str(reward[k]))
-            print("next_state[k]: " + str(next_state[k]))
-            print("done[k]: " + str(done[k]))
+                state_channel1 = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
+                state_channel2 = np.concatenate((state_channel1, infrared_state_channel), axis=2)
+                next_state_channel1 = np.concatenate((frame_state_channel, lidar_next_state_channel), axis=2)
+                next_state_channel2 = np.concatenate((next_state_channel1, infrared_next_state_channel), axis=2)
 
-            data_dict = {"to_demo": 1, "state": state[k], "action": action[k], "reward": reward[k], 
-                          "next_state": next_state[k], "done": done[k], "demo": int(expert_data)}
-            self.perceive(data_dict)
-            progress.update(1)
-        '''
-        data = minerl.data.make("MineRLTreechop-v0")
+                state.append(state_channel2)
+                next_state.append(next_state_channel2)
 
-        iteration = 0
-        for s, a, r, _, d in data.batch_iter(batch_size=1, num_epochs=100, seq_len=500):
-            r = r[0]
-            d = d.astype(int)
-            d = d[0]
-            iteration += 1
-            
-            if iteration >= 200000:
-                break
+            #print("len(state): " + str(len(state)))
+            #print("len(next_state): " + str(len(next_state)))
 
-            if sum(r) <= threshold:
-                continue
+            action = data_1['action']
+            reward = data_1['reward']
+            done = data_1['done']
 
-            reward = np.sum(_skip_stack(r), axis=1)
-            done = np.any(_skip_stack(d), axis=1)
-            action = {key: _skip_stack(value[0]) for key, value in a.items()}
-            for key, value in action.items():
-                if key != 'camera':
-                    most_freq, _ = stats.mode(value, axis=1)
-                    action[key] = np.squeeze(most_freq)
-                else:
-                    mean = np.mean(value, axis=-1)
-                    mask = np.abs(mean) > 1.2
-                    sign = np.sign(mean)
-                    argmax = np.argmax(np.abs(mean), axis=1)
-                    one_hot = np.eye(2)[argmax]
+            #print("len(next_state): " + str(len(next_state)))
+            #print("len(next_state[0]): " + str(len(next_state[0])))
+            for k in range(0, len(next_state)):
+                #print("k: " + str(k))
+                #print("state[k]: " + str(state[k]))
+                #print("action[k]: " + str(action[k]))
+                #print("reward[k]: " + str(reward[k]))
+                #print("next_state[k]: " + str(next_state[k]))
+                #print("done[k]: " + str(done[k]))
 
-                    tolist = (one_hot * sign * mask * 5 + 0).astype('int').tolist()
-                    action[key] = tolist
-
-            observation = s['pov']
-            observation = observation[0]
-            for i in range(frame_skip):
-                deque_state = deque([observation[i]] * frame_stack, maxlen=frame_stack)
-                state = LazyFrames(list(deque_state))
-                
-                for j in range(i, len(observation) - frame_skip, frame_skip):
-                    discrete_action = {key: value[j] for key, value in action.items()}
-                    discrete_action = discrete_maker.preprocess_action_dict(discrete_action)
-                    discrete_action = discrete_maker.get_key_by_action_dict(discrete_action)
-                    deque_state.append(observation[j + frame_skip])
-                    next_state = LazyFrames(list(deque_state))
-                    state = next_state
-            
-            for k in range(0, len(done)):
-                kwargs = {"to_demo"=1, "state"=state, "action"=discrete_action, "reward"=fixed_reward if fixed_reward else reward[k],
-                                "next_state"=next_state, "done"=done[k], "demo"=int(expert_data)}
-                self.perceive(kwargs)
+                data_dict = {"to_demo": 1, "state": state[k], "action": action[k], "reward": reward[k], 
+                              "next_state": next_state[k], "done": done[k], "demo": int(expert_data)}
+                self.perceive(data_dict)
                 progress.update(1)
+
+        '''
+        1. to_demo, n_reward, demo,n_done, actual_n, indexes, state, done, action, weights, reward, next_state
         '''
         print('demo data added to buff')
         progress.close()
@@ -404,7 +407,24 @@ class Agent:
                     break
 
     def choose_act(self, state, epsilon=0.01):
-        nn_input = np.array(state)[None]
+        #print("state[0].shape: " + str(state[0].shape))
+        #print("state[1]: " + str(state[1]))
+        #print("state[2]: " + str(state[2]))
+
+        frame_state_channel = cv2.resize(state[0], (128, 128), interpolation=cv2.INTER_AREA)
+        lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * state[1] / 12
+        infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * state[2] / 2.0
+
+        state_channel1 = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
+        state_channel2 = np.concatenate((state_channel1, infrared_state_channel), axis=2)
+        nn_input = np.reshape(state_channel2, (1, 128, 128, 5))
+
+        #nn_input = np.array(state)[None]
+        #nn_input = nn_input[0]
+        #nn_input = nn_input[0]
+        #print("type(nn_input): " + str(type(nn_input)))
+        #print("nn_input: " + str(nn_input))
+        #print("nn_input.shape: " + str(nn_input.shape))
         q_value = self.online_model(nn_input, training=False)
         if random.random() <= epsilon:
             return random.randint(0, self.action_dim - 1)
@@ -433,7 +453,7 @@ class Agent:
             print('  {}:     {:.5f}'.format(key, metric.result()))
             metric.reset_states()
 
-        tf.summary.flush()
+        self.writer.flush()
 
     def update_metrics(self, key, value):
         if key not in self.avg_metrics:
