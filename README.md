@@ -300,7 +300,7 @@ $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
 # 8. How to train DeepSoccer using Deep Reinforcement Learning
-After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball delicately. Thus, I assume that PPO alorithm do not work well.
+After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
 
 ```
 <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
