@@ -20,7 +20,6 @@ In addition to opening software, information about hardware of robot will be sha
 - Tensorflow 2.1.0
 - requests 
 - progressbar
-- keras
 - opencv-python
 
 # 3. Reference
