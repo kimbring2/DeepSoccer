@@ -302,11 +302,13 @@ $ roslaunch my_deepsoccer_training start_training.launch
 # 8. How to train DeepSoccer using Deep Reinforcement Learning
 After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
 
+The code related to this algorithm can be checked at https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER. You can train a robot using human demonstration data(https://drive.google.com/drive/folders/18kqrpbLMGEnAOd1QTHCRzL_VyUCGItcE?usp=sharing) and the following command at your terminal.
+
 ```
 <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
 ```
 
-https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/train_single.py
+The train_single.py file for this script is located at https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/train_single.py.
 
 Start Gazebo by using below command.
 ```
