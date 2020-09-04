@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.regularizers import l2
-from tensorflow.keras.layers import Dense, Conv2D, Flatten
+from tensorflow.keras.layers import Dense, Conv2D, Flatten, TimeDistributed, LSTM, Reshape
 import tensorflow.keras.backend as K
 from tensorflow.python.keras.engine.base_layer import InputSpec
 mapping = dict()
@@ -68,16 +68,31 @@ class ClassicCnn(tf.keras.Model):
         super(ClassicCnn, self).__init__()
         reg = l2(reg)
         kernel_init = tf.keras.initializers.VarianceScaling(scale=2.)
-        self.cnn = Sequential(Conv2D(filters[0], kernels[0], strides[0], activation=activation,
-                                     kernel_regularizer=reg, kernel_initializer=kernel_init), name='CNN')
+        self.cnn = Sequential()
         for f, k, s in zip(filters[1:], kernels[1:], strides[1:]):
             self.cnn.add(Conv2D(f, k, s, activation=activation, kernel_regularizer=reg,
                                 kernel_initializer=kernel_init))
+        # shape=(None, 61, 61, 128)
+
         self.cnn.add(Flatten())
+        # shape=(None, 476288)
+
+        self.cnn.add(Reshape((61, 61*128)))
+
+        #print(self.cnn)
+        #for layer in self.cnn:
+        #for layer in self.cnn.layers:
+        #    print(layer.output_shape)
+
+        #self.cnn.add(Reshape((frames,h*w*ch)))
+        self.model = Sequential()
+        self.model.add(self.cnn)
+        self.model.add(LSTM(61, return_sequences=True))
+        self.model.add(Flatten())
 
     @tf.function
     def call(self, inputs):
-        return self.cnn(inputs)
+        return self.model(inputs)
 
 
 class MLP(tf.keras.Model):
@@ -151,6 +166,7 @@ class NoisyDense(Dense):
             output = output + b
         if self.activation is not None:
             output = self.activation(output)
+
         output = tf.squeeze(output, axis=1)
         return output
 
@@ -158,9 +174,11 @@ class NoisyDense(Dense):
 @register("deepsoccer_dqfd")
 def make_model(name, obs_space, action_space, reg=1e-5):
     pov = tf.keras.Input(shape=(128, 128, 5))
-    normalized_pov = pov / 255
+    normalized_pov = pov
     pov_base = ClassicCnn([32, 128, 128], [8, 4, 3], [4, 2, 1], reg=reg)(normalized_pov)
-    head = DuelingModel([128], action_space.n, reg=reg)(pov_base)
+    #print(pov_base)
+
+    head = DuelingModel([256], action_space.n, reg=reg)(pov_base)
     model = tf.keras.Model(inputs={'pov': pov}, outputs=head, name=name)
     return model
 
