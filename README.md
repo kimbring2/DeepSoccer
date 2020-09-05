@@ -97,7 +97,10 @@ $ rosrun jetbot_ros jetbot_camera
 You can control a wheel motor using below Python script. 
 ```
 $ rosrun jetbot_ros jetbot_soccer_motors.py 
-$ rostopic pub -1 /jetbot_soccer_motors/cmd_str std_msgs/String --once "30"
+$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel1 std_msgs/String --once "'30'"
+$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel2 std_msgs/String --once "'30'"
+$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel3 std_msgs/String --once "'30'"
+$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel4 std_msgs/String --once "'30'"
 ```
 
 You can control a roller and solenoid motor using two Python script. 
