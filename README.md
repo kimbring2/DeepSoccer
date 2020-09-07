@@ -19,6 +19,7 @@ In addition to opening software, information about hardware of robot will be sha
 ## 2) Python 
 - Tensorflow 2.1.0
 - requests 
+- pynput
 - progressbar
 - opencv-python
 
