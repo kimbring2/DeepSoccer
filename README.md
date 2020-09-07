@@ -269,7 +269,7 @@ Since the jetbot soccer version uses solenoid electromagnet for kicking ball whi
 The built custom plugin is used for sticks in multiple joints, so you can declare it in the jetbot_soccer.gazebo file as above.
 
 
-# 7. Use DeepSoccer as OpenAI Gym format 
+## 7) Use DeepSoccer as OpenAI Gym format 
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
 
 DeepSoccer also provides a package for use a it as Gym format. First, download a my_deepsoccer_training pacakge from this repo. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
@@ -291,10 +291,10 @@ Start Gazebo by using below command.
 $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
-# 8. How to train DeepSoccer using Deep Reinforcement Learning
+## 8) How to train DeepSoccer using Deep Reinforcement Learning
 After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
 
-The code related to this algorithm can be checked at https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER. You can train a robot using human demonstration data(https://drive.google.com/drive/folders/18kqrpbLMGEnAOd1QTHCRzL_VyUCGItcE?usp=sharing) and the following command at your terminal.
+The code related to this algorithm is be located at https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER. You can train a robot using human demonstration data(https://drive.google.com/drive/folders/18kqrpbLMGEnAOd1QTHCRzL_VyUCGItcE?usp=sharing) and the following command at your terminal.
 
 ```
 <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
@@ -307,7 +307,23 @@ Start Gazebo by using below command.
 $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
-# 9. Citation
+## 9) Collect your human playing dataset
+Since Reinforcement Learning used in DeepSoccer is a method that uses expert data, user can control a robot directly. For using Python code for that, you need to change a line of launch file which is located in https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/collecting_human_dataset.py
+
+```
+<node pkg="my_deepsoccer_training" name="deepsoccer_single" type="collecting_human_dataset.py" output="screen"/>
+```
+
+And launch a Gazebo.
+```
+$ roslaunch my_deepsoccer_training start_training.launch
+```
+
+Once Gazebo is started, you can give commands to the robot using the keyboard keys. S is stop, f is forward, l is left, r is right, b is reverse, h is catching the soccer ball, k is kicking ball, and p is the running. When you press the q key, the recorded data is saved in the folder and the entire program ends.
+
+You can set the path and name of saving file by changing a save_path and save_file options of 'https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/my_deepsoccer_single_params.yaml' file.
+
+# 7. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -322,8 +338,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 10. Acknowledgement
+# 8. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
 
-# 11. License
+# 9. License
 Apache License 2.0
