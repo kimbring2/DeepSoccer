@@ -335,7 +335,7 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
   publisher = {GitHub},
   journal = {GitHub repository},
   howpublished = {\url{https://github.com/kimbring2/DeepSoccer/}},
-  commit = {5689b3ab8934bc2f60360e3b180978b637fb2741}
+  commit = {9ccab28a7e2a9a14caa119a765f95e2c6d0b044e}
 }
 ```
 
