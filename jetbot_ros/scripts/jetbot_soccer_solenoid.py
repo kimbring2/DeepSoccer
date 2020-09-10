@@ -10,16 +10,19 @@ output_pin = 18  # BOARD pin 12, BCM pin 18
 
 
 def on_cmd_str(msg):
-	rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
+    rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
 
-	if msg.data.lower() == "in":
-		curr_value = GPIO.HIGH
-		GPIO.output(output_pin, curr_value)
-	elif msg.data.lower() == "out":
-		curr_value = GPIO.LOW
-		GPIO.output(output_pin, curr_value)
-	else:
-		rospy.logerror(rospy.get_caller_id() + ' invalid cmd_str=%s', msg.data)
+    if msg.data.lower() == "in":
+        curr_value = GPIO.HIGH
+        GPIO.output(output_pin, curr_value)
+    elif msg.data.lower() == "out":
+        curr_value = GPIO.LOW
+        GPIO.output(output_pin, curr_value)
+        time.sleep(0.1)
+        curr_value = GPIO.HIGH
+        GPIO.output(output_pin, curr_value)
+    else:
+        rospy.logerror(rospy.get_caller_id() + ' invalid cmd_str=%s', msg.data)
 
 
 # initialization
