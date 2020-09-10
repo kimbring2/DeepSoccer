@@ -41,6 +41,7 @@ In addition to opening software, information about hardware of robot will be sha
 - Solenoid joint spring plugin: https://github.com/aminsung/gazebo_joint_torsional_spring_plugin
 - Custom control plugin for Gazebo: http://gazebosim.org/tutorials?tut=guided_i5&cat=
 - Forgetful Expirience Replay for Reinforcement Learning from Demonstrations: https://github.com/cog-isa/forger
+- Compiling ROS cv_bridge with Python3: https://cyaninfinite.com/ros-cv-bridge-with-python-3/
 
 # 4. Etc
 ## 1) Relationship between simualtion and real part
@@ -107,26 +108,26 @@ $ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel4 std_msgs/String --once "'30'
 You can control a roller and solenoid motor using two Python script. 
 ```
 $ rosrun jetbot_ros jetbot_soccer_roller.py 
-$ rostopic pub -1 /jetbot_soccer_roller/cmd_str std_msgs/String --once "in"
-$ rostopic pub -1 /jetbot_soccer_roller/cmd_str std_msgs/String --once "out"
+$ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "in"
+$ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "out"
 ```
 
 ```
 $ rosrun jetbot_ros jetbot_soccer_solenoid.py 
-$ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "in"
-$ rostopic pub -1 /jetbot_soccer_solenoid/cmd_str std_msgs/String --once "out"
+$ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "in"
+$ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "out"
 ```
 
 For getting lidar sensor distance and infrared object detection value.
 ```
 $ sudo chmod a+rw /dev/ttyTHS1 
 $ rosrun jetbot_ros jetbot_soccer_lidar.py
-$ rostopic echo /jetbot_soccer_lidar
+$ rostopic echo /deepsoccer_lidar
 ```
 
 ```
 $ rosrun jetbot_ros jetbot_soccer_infrared.py
-$ rostopic echo /jetbot_soccer_infrared
+$ rostopic echo /deepsoccer_infrared
 ```
 
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
