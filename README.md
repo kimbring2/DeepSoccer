@@ -327,17 +327,44 @@ You can train a robot using human demonstration data(https://drive.google.com/dr
 <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
 ```
 
-The train_single.py file for this script is located at [train_single.py file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/train_single.py).
+File for this script is located at [train_single.py file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/train_single.py). There are four important function in that file. 
+
+```
+agent.add_demo()
+agent.pre_train(config['pretrain']['steps'])
+agent.train(env, name="model.ckpt", episodes=config['episodes'])
+agent.test(env)
+```
+
+Human demonstration data is added to buffer by add_demo function. Next, agent is trained using pre_train function. After finishing pretraining, agent can be trained using a data from interaction between agent and environemnt using train() function. Every trained result is able to be checked by using test(function).
 
 Start Gazebo by using below command.
 ```
 $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
-All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml) file. Buffer size and pretrain steps are important just now.
-
+All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml). Buffer size and pretrain steps are important. Save_dir, tb_dir parameter means saving location of trained Tensorflow model and Tensorboard log file.   
 
 ## 10) Using pretrained model at Jetson Nano 
+In order to use the model trained by Gazebo simulation at Jetson Nano. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
+
+After placing [jetbot_ros folder](https://github.com/kimbring2/DeepSoccer/tree/master/jetbot_ros) to your ROS workspace of Jetson Nano, run below command.
+
+```
+$ roscore
+$ roslaunch jetbot_ros start.launch
+```
+
+It will launch all actuator and sensor ROS node. After that, change a pre_trained_model.ckpt folder path what you copied at [jetbot_soccer_main.py](https://github.com/kimbring2/DeepSoccer/blob/master/jetbot_ros/scripts/jetbot_soccer_main.py). Next, move to script folder of jetbot_ros ROS package and run below command.
+
+```
+$ python3 jetbot_soccer_main.py
+```
+
+Because Tensorflow 2 of Jetson Nano only can be run by Python3, you need to do one more job because cv_bridge of ROS melodic is not able to be ran at Python3. Please follow a intruction at https://cyaninfinite.com/ros-cv-bridge-with-python-3/.
+
+If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
+
 
 # 7. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
