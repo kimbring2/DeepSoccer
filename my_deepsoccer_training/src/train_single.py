@@ -109,38 +109,12 @@ make_model = get_network_builder('deepsoccer_dqfd')
 #env.action_space: Discrete(7)
 
 agent = Agent(agent_config, replay_buffer, make_model, env.observation_space,
-                env.action_space, dtype_dict)
-agent.add_demo()
-env.reset()
-agent.pre_train(config['pretrain']['steps'])
-scores_, _ = agent.train(env, name="model.ckpt", episodes=config['episodes'])
-print("scores_: " + str(scores_))
+                 env.action_space, dtype_dict)
+
+#agent.add_demo()
+#env.reset()
+#agent.pre_train(config['pretrain']['steps'])
+#scores_, _ = agent.train(env, name="model.ckpt", episodes=config['episodes'])
+#print("scores_: " + str(scores_))
+agent.test(env)
 env.close()
-'''
-for i_episode in range(20):
-    observation = env.reset()
-
-    frame_list = []
-    action_list = []
-    step_list = []
-    lidar_list = []
-    ir_list = []
-    
-    reset_pose()
-    for t in range(5000):
-        #env.render()
-        #print("observation[0].shape: " + str(observation[0].shape))
-
-        #cv2.imshow("obs_image", obs_image)
-        #cv2.waitKey(3)
-
-        #print("lidar: " + str(observation[1]))
-        #print("infra: " + str(observation[2]))
-        action = env.action_space.sample()
-            
-        observation, reward, done, info = env.step(action)
-
-        if done:
-            print("Episode finished after {} timesteps".format(t+1))
-            break
-'''
