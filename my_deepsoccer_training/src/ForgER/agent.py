@@ -7,6 +7,7 @@ from collections import deque
 import numpy as np
 import cv2
 import tensorflow as tf
+from tensorflow import keras
 from tqdm import tqdm
 from utils.tf_util import huber_loss, take_vector_elements
 
@@ -97,6 +98,9 @@ class Agent:
 
     def train(self, env, episodes=200, seeds=None, name="max_model.ckpt", save_mod=1,
                epsilon=0.1, final_epsilon=0.01, eps_decay=0.99, save_window=1):
+        #load_name = '38_model.ckpt'
+        #self.load(os.path.join(self.save_dir, name))
+
         scores, counter = [], 0
         max_reward = -np.inf
         window = deque([], maxlen=save_window)
@@ -140,7 +144,7 @@ class Agent:
 
         done, score, state = False, 0, env.reset()
 
-        frame_state_channel = cv2.resize(state[0], (128, 128), interpolation=cv2.INTER_AREA)
+        frame_state_channel = cv2.resize(state[0], (128, 128), interpolation=cv2.INTER_AREA) / 255.0
         lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * state[1] / 12
         infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * state[2] / 2.0
 
@@ -153,7 +157,7 @@ class Agent:
             action = self.choose_act(state_input_1, epsilon)
             next_state, reward, done, _ = env.step(action)
 
-            frame_next_state_channel = cv2.resize(next_state[0], (128, 128), interpolation=cv2.INTER_AREA)
+            frame_next_state_channel = cv2.resize(next_state[0], (128, 128), interpolation=cv2.INTER_AREA) / 255.0
             lidar_next_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * next_state[1] / 12
             infrared_next_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * next_state[2] / 2.0
 
@@ -176,8 +180,8 @@ class Agent:
 
             counter += 1
             state_input_1 = next_state_input_1
-            print("counter: " + str(counter))
-            print("self.replay_buff.get_stored_size(): " + str(self.replay_buff.get_stored_size()))
+            #print("counter: " + str(counter))
+            #print("self.replay_buff.get_stored_size(): " + str(self.replay_buff.get_stored_size()))
             if self.replay_buff.get_stored_size() > self.replay_start_size \
                     and counter % self.frames_to_update == 0:
                 #print("self.update(self.update_quantity)")
@@ -185,20 +189,39 @@ class Agent:
 
         return score, counter
 
-    def test(self, env, name="train/max_model.ckpt", number_of_trials=1, render=False):
+    def test(self, env, name="pre_trained_model.ckpt", number_of_trials=1, render=False):
         if name:
-            self.load(name)
+            #load_name = '38_model.ckpt'
+            self.load(os.path.join(self.save_dir, name))
+            #self.load(name)
 
         total_reward = 0
         for trial_index in range(number_of_trials):
             reward = 0
             done = False
             observation = env.reset()
-            rewards_dict = {}
+            reset_pose()
 
+            frame_state_channel = cv2.resize(observation[0], (128, 128), interpolation=cv2.INTER_AREA) / 255.0
+            lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * observation[1] / 12
+            infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * observation[2] / 2.0
+
+            state_channel1 = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
+            state_input = np.concatenate((state_channel1, infrared_state_channel), axis=2)
+            state_input_1 = np.reshape(state_input, (1, 128, 128, 5))
+
+            rewards_dict = {}
             while not done:
-                action = self.choose_act(observation)
+                action = self.choose_act(state_input_1)
                 observation, r, done, _ = env.step(action)
+                frame_state_channel = cv2.resize(observation[0], (128, 128), interpolation=cv2.INTER_AREA) / 255.0
+                lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * observation[1] / 12
+                infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * observation[2] / 2.0
+                #print("infrared_state_channel: " + str(infrared_state_channel))
+                state_channel1 = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
+                state_input = np.concatenate((state_channel1, infrared_state_channel), axis=2)
+                state_input_1 = np.reshape(state_input, (1, 128, 128, 5))
+
                 if render:
                     env.render()
 
@@ -369,8 +392,8 @@ class Agent:
             data_1 = data_0[0]
             #print("len(data_1['state']['lidar']): " + str(len(data_1['state']['lidar'])))
             for m in range(0, len(data_1['state']['lidar']) - 1):
-                frame_state_channel = buf[m]
-                frame_next_state_channel = buf[m+1]
+                frame_state_channel = buf[m] / 255.0
+                frame_next_state_channel = buf[m+1] / 255.0
 
                 lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['state']['lidar'][m] / 12
                 infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['state']['infrared'][m] / 2.0
@@ -379,7 +402,7 @@ class Agent:
 
                 state_channel1 = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
                 state_channel2 = np.concatenate((state_channel1, infrared_state_channel), axis=2)
-                next_state_channel1 = np.concatenate((frame_state_channel, lidar_next_state_channel), axis=2)
+                next_state_channel1 = np.concatenate((frame_next_state_channel, lidar_next_state_channel), axis=2)
                 next_state_channel2 = np.concatenate((next_state_channel1, infrared_next_state_channel), axis=2)
 
                 state.append(state_channel2)
@@ -458,10 +481,13 @@ class Agent:
         self.target_model.set_weights(self.online_model.get_weights())
 
     def save(self, out_dir=None):
-        self.online_model.save_weights(out_dir)
+        #print("out_dir: " + str(out_dir))
+        #self.online_model.save_weights(out_dir)
+        self.online_model.save(out_dir)
 
     def load(self, out_dir=None):
         self.online_model.load_weights(out_dir)
+        #self.online_model = tf.keras.models.load_model(out_dir)
 
     def update_log(self):
         update_frequency = len(self._run_time_deque) / sum(self._run_time_deque)
