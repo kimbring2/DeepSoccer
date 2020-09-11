@@ -11,8 +11,8 @@ agent:
   n_step: 10
 
 buffer:
-  size: 5000
-  episodes_to_decay: 1
+  size: 20000
+  episodes_to_decay: 2
   min_demo_proportion: 0.
 
 wrappers:
@@ -23,7 +23,7 @@ model_name: "deepsoccer_dqfd"
 tb_dir: "/home/kimbring2/catkin_ws/src/my_deepsoccer_training/src/train/tboard/"
 
 pretrain:
-  steps: 50000
+  steps: 100000
   min_demo_reward: 60.0
 
 episodes: 200
