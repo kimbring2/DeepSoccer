@@ -49,6 +49,9 @@ In addition to opening software, information about hardware of robot will be sha
 - Custom control plugin for Gazebo: http://gazebosim.org/tutorials?tut=guided_i5&cat=
 - Forgetful Expirience Replay for Reinforcement Learning from Demonstrations: https://github.com/cog-isa/forger
 - Compiling ROS cv_bridge with Python3: https://cyaninfinite.com/ros-cv-bridge-with-python-3/
+- Style Transfer for Sim2Real: https://github.com/cryu854/FastStyle
+- CycleGAN for Sim2Real: https://www.tensorflow.org/tutorials/generative/cyclegan
+- Image Segmentation for CycleGAN: https://www.kaggle.com/santhalnr/cityscapes-image-segmentation-pspnet
 
 # 4. Etc
 ## 1) Relationship between simualtion and real part
