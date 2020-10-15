@@ -10,6 +10,8 @@ In addition to opening software, information about hardware of robot will be sha
 [![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
 <strong>Project Introduction!</strong>
 
+More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
+
 # 2. Software Dependency
 ## 1) ROS, Gazebo
 - ROS Melodic, Gazebo 9
