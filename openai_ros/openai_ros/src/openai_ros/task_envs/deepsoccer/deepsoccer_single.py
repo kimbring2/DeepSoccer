@@ -49,7 +49,7 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
                                                " DOESNT exist, execute: mkdir -p " + ros_ws_abspath + \
                                                "/src;cd " + ros_ws_abspath + ";catkin_make"
 
-        ROSLauncher(rospackage_name="jetbot_gazebo",
+        ROSLauncher(rospackage_name="deepsoccer_gazebo",
                     launch_file_name="robots_soccer.launch",
                     ros_ws_abspath=ros_ws_abspath)
 

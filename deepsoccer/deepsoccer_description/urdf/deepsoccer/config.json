@@ -1,0 +1,9 @@
+{
+    "documentId": "bb0bda6b9da4f05bd10b3508",
+    "assemblyName": "DeepSoccer",
+    "outputFormat": "urdf",
+    "drawFrames": false,
+    "drawCollisions": false,
+    "useScads": true,
+    "mergeSTLs": true
+}

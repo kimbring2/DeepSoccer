@@ -1,0 +1,28 @@
+<launch>
+  <group ns="/robot1">
+    <param name="tf_prefix" value="deepsoccer1" />
+     <rosparam file="$(find deepsoccer_control)/config/deepsoccer_control.yaml" command="load" ns="/robot1" />
+
+     <param name="/robot1/robot_description" command="$(find xacro)/xacro --inorder '$(find deepsoccer_description)/urdf/deepsoccer.xacro'"/>
+        <node name="urdf_spawner_1" pkg="gazebo_ros" type="spawn_model"
+          args="-z 1.0 -unpause -urdf -model robot1 -param robot_description -x -1 -y 0.25 -z 0.2
+              -R 0 -P 0 -Y 1.57" respawn="false" output="screen">
+        </node>
+
+        <node pkg="robot_state_publisher" type="robot_state_publisher"  name="robot_state_publisher_1">
+          <param name="publish_frequency" type="double" value="30.0" />
+        </node>
+
+        <node name="robot1_controller_spawner" pkg="controller_manager" type="spawner" 
+          args="--namespace=/robot1
+          joint_state_controller
+          wheel1_velocity_controller
+          wheel2_velocity_controller
+          wheel3_velocity_controller
+          wheel4_velocity_controller
+          roller_velocity_controller
+          stick_velocity_controller
+          --shutdown-timeout 1000000000">
+        </node>
+  </group>
+</launch>

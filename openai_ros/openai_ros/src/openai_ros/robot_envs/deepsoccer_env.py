@@ -57,7 +57,7 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
         # None in this case
 
         # We launch the ROSlaunch that spawns the robot into the world
-        ROSLauncher(rospackage_name="jetbot_gazebo",
+        ROSLauncher(rospackage_name="deepsoccer_gazebo",
                     launch_file_name="main_soccer.launch",
                     ros_ws_abspath=ros_ws_abspath)
 

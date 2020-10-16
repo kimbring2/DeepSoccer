@@ -1,0 +1,12 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find deepsoccer_description)/urdf/deepsoccer_rviz.xacro'"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -model m2wr" />
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+        <param name="use_gui" value="True"/>
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find deepsoccer_description)/launch/deepsoccer.rviz"/>
+</launch>

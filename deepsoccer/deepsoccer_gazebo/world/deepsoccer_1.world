@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <!-- We use a custom world for the jetbot so that the camera angle is launched correctly -->
+  <world name="default">
+    <gravity>0 0 -9.81</gravity>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- RoboCup 2015 MSL Field -->
+    <include>
+        <pose>0 0 0 0 0 0</pose>
+        <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/models/RoboCup15_MSL_Field</uri>
+        <name>field</name>
+        <static>true</static>
+    </include>
+
+    <!-- RoboCup 2015 MSL Goal left -->
+    <include>
+        <pose>-6 0 0.01 0 0 3.14 </pose>
+        <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/models/RoboCup15_MSL_Goal</uri>
+        <name>left_goal</name>
+        <static>true</static>
+    </include>
+
+    <!-- RoboCup 2015 MSL Goal right -->
+    <include>
+        <pose>6 0 0.01 0 0 0 </pose>
+        <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/models/RoboCup15_MSL_Goal</uri>
+        <name>right_goal</name>
+        <static>true</static>
+    </include>
+
+    <!-- RoboCup 2015 MSL Football -->
+    <include>
+      <pose>-0.88 0.14 0.12 0 0 0</pose>
+      <uri>file:///home/kimbring2/catkin_ws/src/jetbot/jetbot_gazebo/models/football</uri>
+      <name>football</name>
+      <static>false</static>
+    </include>
+
+    <!-- Focus camera on tall pendulum -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+  </world>
+</sdf>
