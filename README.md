@@ -373,6 +373,9 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 # 7. Sim2Real method
 <img src="image/sim2real_instruction.png">
 
+[![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
 # 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
