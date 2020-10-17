@@ -370,8 +370,10 @@ Because Tensorflow 2 of Jetson Nano only can be run by Python3, you need to do o
 
 If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
 
+# 7. Sim2Real method
+<img src="sim2real_frame.png">
 
-# 7. Citation
+# 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -386,8 +388,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 8. Acknowledgement
+# 9. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
 
-# 9. License
+# 10. License
 Apache License 2.0
