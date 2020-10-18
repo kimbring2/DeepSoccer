@@ -411,7 +411,9 @@ As can be seen in the [real world dataset](https://drive.google.com/drive/folder
 
 <img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
 
-In order to solve this problem, I first decide that it is necessary to delete all objects except the goal, goalpost, and floor that the robot should recognize to play soccer. Segmentation using classic OpenCV method do not work. On the other hand, Deep Learning model using the ADE2DK dataset can segregate object well.
+In order to solve this problem, I first decide that it is necessary to delete all objects except the goal, goalpost, and floor that the robot should recognize to play soccer. Segmentation using classic OpenCV method do not work. On the other hand, Deep Learning model using the ADE2DK dataset can segregate object well. You can check [code for segmentation](https://github.com/kimbring2/DeepSoccer/blob/master/segmentation.ipynb). Robot do not have to separate all the object in the dataset. Thus, I modify the ADE20K dataset a bit like a below.
+
+<img src="/image/ADE_train_00006856_seg.png" width="400"> <img src="/image/ADE_train_00006856_seg_simple.png" width="400">
 
 [![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
