@@ -375,7 +375,7 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. 
 
 ## 2) Style transfer approach
-<img src="/image/raw-video.gif" width="550"> <img src="/image/styled-video.gif" width="300">
+<img src="/image/raw-video.gif" width="530"> <img src="/image/styled-video.gif" width="300">
 
 [![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
