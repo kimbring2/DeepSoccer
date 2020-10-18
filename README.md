@@ -407,7 +407,7 @@ You can save the pretrain model to your Jetson Nano and use the above code to tr
 ## 3) CycleGAN approach
 The method using CycleGAN is training a model by dataset of real and simulation world. For this method, I refer to the [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan)
 
-As can be seen in the real world dataset, there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the simulation world dataset without removing background objects, I am able to see the problem of the umbrella turning into goalpost.
+As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the umbrella turning into goalpost.
 
 <img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
 
