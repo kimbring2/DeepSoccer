@@ -381,6 +381,33 @@ I use a code of https://github.com/cryu854/FastStyle for Neural Style Transfer. 
 
 You can train your own model using code of that repo and real world image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1_JL-JK7uDjNfkDlSBvTzubzGzU5Vj51L?usp=sharing) of the DeepSoccer Gazebo simulation image.
 
+```
+import cv2
+import numpy as np
+import tensorflow as tf
+
+imported_style = tf.saved_model.load("/home/[your Jetson Nano user name]/style_model")
+f_style = imported_style.signatures["serving_default"]
+style_test_input = np.zeros([1,256,256,3])
+style_test_tensor = tf.convert_to_tensor(style_test_input, dtype=tf.float32)
+f_style(style_test_tensor)['output_1']
+
+cap = cv2.VideoCapture(gstreamer_pipeline(flip_method=0), cv2.CAP_GSTREAMER)
+if cap.isOpened() != 1:
+    continue
+
+ret, frame = cap.read()
+img = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
+            
+img = cv2.normalize(img, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
+resized = np.array([img])
+input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
+output_style = f_style(input_tensor)['output_1'].numpy()
+cv2.imwrite("output_style.jpg", output_style)
+```
+
+You can save the pretrain model to your Jetson Nano and use the above code to try to run Neural Style Transfer.
+
 ## 3) CycleGAN approach
 [![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
