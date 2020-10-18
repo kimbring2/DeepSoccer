@@ -372,7 +372,7 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 
 # 7. Sim2Real method
 ## 1) Concept intruction
-Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. 
+Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. Recently, there are several ways to apply deep learning to these Sim2Real. One of method is using Neural Style Transfer and another is applying CycleGAN. I apply both of methods to DeepSoccer and check it is working properly.
 
 ## 2) Style transfer approach
 <img src="/image/raw-video.gif" width="530"> <img src="/image/styled-video.gif" width="300">
