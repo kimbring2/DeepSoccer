@@ -405,17 +405,14 @@ cv2.imwrite("output_style.jpg", output_style)
 You can save the pretrain model to your Jetson Nano and use the above code to try to run Neural Style Transfer.
 
 ## 3) CycleGAN approach
-The method using CycleGAN is training a model by dataset of real and simulation world. For this method, I referr to the [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan)
+The method using CycleGAN is training a model by dataset of real and simulation world. For this method, I refer to the [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan)
 
+As can be seen in the real world dataset, there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the simulation world dataset without removing background objects, I am able to see the problem of the umbrella turning into goalpost.
 
 <img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
 
-
-
 [![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
-
-
 
 # 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
