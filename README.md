@@ -374,6 +374,8 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 ## 1) Concept intruction
 Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. Recently, there are several ways to apply deep learning to these Sim2Real. One of method is using Neural Style Transfer and another is applying CycleGAN. I apply both of methods to DeepSoccer and check it is working properly.
 
+<img src="/image/sim2real_concept.png" width="600">
+
 ## 2) Neural Style Transfer approach
 I use a code of https://github.com/cryu854/FastStyle for Neural Style Transfer. The advantage of this method is that you only need one conversion target style image without collecting train images separately, but this method does not completely convert to simulation.
 
