@@ -187,7 +187,7 @@ The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTI
 ## 2) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
-$ roslaunch jetbot_description jetbot_soccer_rviz.launch
+$ roslaunch deepsoccer_description deepsoccer_rviz.launch
 ```
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
@@ -196,7 +196,7 @@ After launching a RViz, you can control of each wheel and roller using dialog bo
 After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
-$ roslaunch jetbot_gazebo main_soccer.launch
+$ roslaunch deepsoccer_gazebo main_soccer.launch
 ```
 
 You can control of each wheel, roller, solenoid motor using 'rostopic pub' command.
