@@ -145,10 +145,6 @@ $ rostopic echo /deepsoccer_infrared
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
 ```$ python jetson_soccer_main.py ```
 
-That file receive a image frame from camera and send a velecity command to each wheel. In this code, detecting soccer ball is performed using jetson.utils, jetson.inference.
-
-<img src="image/jetbot_soccer_detect_ball.jpeg" width="600">
-
 # 6. DeepSoccer design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
