@@ -359,6 +359,11 @@ Because Tensorflow 2 of Jetson Nano only can be run by Python3, you need to do o
 
 If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
 
+[![Jetbot soccer Deep Reinforcement Learning training result](https://img.youtube.com/vi/Ur7L5j9fIwY/sddefault.jpg)](https://youtu.be/Ur7L5j9fIwY "Jetbot Soccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
+It is confirmed that robot do not show the same movement as the trained one when the raw camera frame is used as input to the RL model.
+
 # 7. Sim2Real method
 ## 1) Concept intruction
 Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. Recently, there are several ways to apply deep learning to these Sim2Real. One of method is using Neural Style Transfer and another is applying CycleGAN. I apply both of methods to DeepSoccer and check it is working properly.
