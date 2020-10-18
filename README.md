@@ -371,7 +371,11 @@ Because Tensorflow 2 of Jetson Nano only can be run by Python3, you need to do o
 If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
 
 # 7. Sim2Real method
-<img src="image/sim2real_instruction.png">
+## 1) Concept intruction
+Unlike humans, robots cannot respond appropriately to environment that is different from the simulation environment. Therefore, the real world information must be converted to the simulation environment. 
+
+## 2) Style transfer approach
+<img src="/image/raw-video.gif" width="459"> <img src="/image/styled-video.gif" width="450">
 
 [![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
