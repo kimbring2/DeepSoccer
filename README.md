@@ -405,8 +405,13 @@ cv2.imwrite("output_style.jpg", output_style)
 You can save the pretrain model to your Jetson Nano and use the above code to try to run Neural Style Transfer.
 
 ## 3) CycleGAN approach
+
+<img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
+
 [![Jetbot soccer lidar sensor simulation test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
+
+
 
 # 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
