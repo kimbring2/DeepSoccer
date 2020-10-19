@@ -105,12 +105,12 @@ First, set up ROS in actual Jetbot hardware based on manual of https://github.co
 Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node.
 ```
 $ roscore 
-$ rosrun jetbot_ros jetbot_camera 
+$ rosrun deepsoccer_ros deepsoccer_camera 
 ```
 
 You can control a wheel motor using below Python script. 
 ```
-$ rosrun jetbot_ros jetbot_soccer_motors.py 
+$ rosrun deepsoccer_ros deepsoccer_motors.py 
 $ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel1 std_msgs/String --once "'30'"
 $ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel2 std_msgs/String --once "'30'"
 $ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel3 std_msgs/String --once "'30'"
@@ -119,13 +119,13 @@ $ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel4 std_msgs/String --once "'30'
 
 You can control a roller and solenoid motor using two Python script. 
 ```
-$ rosrun jetbot_ros jetbot_soccer_roller.py 
+$ rosrun deepsoccer_ros deepsoccer_roller.py 
 $ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "in"
 $ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "out"
 ```
 
 ```
-$ rosrun jetbot_ros jetbot_soccer_solenoid.py 
+$ rosrun deepsoccer_ros deepsoccer_solenoid.py 
 $ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "in"
 $ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "out"
 ```
@@ -133,17 +133,17 @@ $ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "out"
 For getting lidar sensor distance and infrared object detection value.
 ```
 $ sudo chmod a+rw /dev/ttyTHS1 
-$ rosrun jetbot_ros jetbot_soccer_lidar.py
+$ rosrun deepsoccer_ros deepsoccer_lidar.py
 $ rostopic echo /deepsoccer_lidar
 ```
 
 ```
-$ rosrun jetbot_ros jetbot_soccer_infrared.py
+$ rosrun deepsoccer_ros deepsoccer_infrared.py
 $ rostopic echo /deepsoccer_infrared
 ```
 
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
-```$ python jetson_soccer_main.py ```
+```$ python deepsoccer_main.py ```
 
 # 6. DeepSoccer design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
