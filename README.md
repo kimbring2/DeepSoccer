@@ -412,6 +412,9 @@ You can save the pretrain model to your Jetson Nano and use the above code to tr
 ## 3) CycleGAN approach
 The method using CycleGAN is training a model by dataset of real and simulation world. For this method, I refer to the [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan).
 
+[![DeepSoccer cyclegan test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "DeepSoccer Play - Click to Watch!")
+<strong>Click to Watch!</strong>
+
 As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the chair turning into goalpost.
 
 <center><strong>Wrong generation of CycleGAN at DeepSoccer</strong></center>
@@ -455,10 +458,6 @@ cv2.imwrite("output_seg.jpg", output_seg)
 The floor have to be distinguished by the Deep Learning. However, the goal, goalpost have the primary colors such as green, and red. Thus, they can be found through the classic HSV conversion of OpenCV. You can see the original video and the result of applying each method in the video below at once.
 
 [![DeepSoccer segmentation test](https://img.youtube.com/vi/pFfysLZfcb4/sddefault.jpg)](https://youtu.be/pFfysLZfcb4 "DeepSoccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
-
-[![DeepSoccer cyclegan test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 # 8. Citation
