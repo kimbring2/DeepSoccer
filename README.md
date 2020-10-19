@@ -373,6 +373,8 @@ Unlike humans, robots cannot respond appropriately to environment that is differ
 ## 2) Neural Style Transfer approach
 I use a code of https://github.com/cryu854/FastStyle for Neural Style Transfer. The advantage of this method is that you only need one conversion target style image without collecting train images separately, but this method does not completely convert to simulation.
 
+<center><strong>Neural Style Transfer of DeepSoccer</strong></center>
+
 <img src="/image/raw-video.gif" width="530"> <img src="/image/styled-video.gif" width="300">
 
 You can train your own model using code of that repo and real world image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1_JL-JK7uDjNfkDlSBvTzubzGzU5Vj51L?usp=sharing) of the DeepSoccer Gazebo simulation image.
