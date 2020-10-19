@@ -32,17 +32,17 @@ print(f_seg(seg_test_tensor))
 #f_style(style_test_tensor)['output_1']
 
 path_raw_video = '/home/kimbring2/Desktop/raw_video.avi'
-path_dialation_video = '/home/kimbring2/Desktop/dialation_video.avi'
+path_dilation_video = '/home/kimbring2/Desktop/dilation_video.avi'
 path_blue_video = '/home/kimbring2/Desktop/blue_video.avi'
 path_green_video = '/home/kimbring2/Desktop/green_video.avi'
 path_segmented_video = '/home/kimbring2/Desktop/segmented_video.avi'
 
 fps = 5
-raw_video_out = cv2.VideoWriter(path_raw_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (256,256))
-dialation_video_out = cv2.VideoWriter(path_dialation_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (256,256))
-blue_video_out = cv2.VideoWriter(path_blue_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (256,256))
-green_video_out = cv2.VideoWriter(path_green_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (256,256))
-segmented_video_out = cv2.VideoWriter(path_segmented_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (256,256))
+raw_video_out = cv2.VideoWriter(path_raw_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (1280,720))
+dilation_video_out = cv2.VideoWriter(path_dilation_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (1280,720))
+blue_video_out = cv2.VideoWriter(path_blue_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (1280,720))
+green_video_out = cv2.VideoWriter(path_green_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (1280,720))
+segmented_video_out = cv2.VideoWriter(path_segmented_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (1280,720))
 
 def gstreamer_pipeline(
     capture_width=1280,
@@ -85,9 +85,9 @@ def show_camera():
                 
             ret, frame = cap.read()
             frame = cv2.rotate(frame, cv2.ROTATE_180)
+            raw_video_out.write(frame)
             img_ = cv2.resize(frame, (256, 256), interpolation=cv2.INTER_AREA)
             #cv2.imwrite("original_image.jpg", img_)
-            #raw_video_out.write(img_)
             
             img_ = cv2.normalize(img_, None, 0, 1, cv2.NORM_MINMAX, cv2.CV_32F)
             #cv_image = cv2.cvtColor(cv_image, cv2.COLOR_RGB2RGBA).astype(np.float32)
@@ -103,14 +103,17 @@ def show_camera():
             pred_mask = np.array(pred_mask)
             #print("pred_mask.shape: " + str(pred_mask.shape))
             #print("pred_mask: " + str(pred_mask))
-            #dialation_video_out.write(pred_mask)
             ret, thresh = cv2.threshold(pred_mask, 126, 255, cv2.THRESH_BINARY)
-
+            
             kernel = np.ones((5, 5), np.uint8)
             erodition_image = cv2.erode(thresh, kernel, iterations=2)  #// make dilation image
             dilation_image = cv2.dilate(erodition_image, kernel, iterations=2)  #// make dilation image
-            dilation_image = cv2.resize(np.float32(dilation_image), dsize=(1280,720), interpolation=cv2.INTER_AREA)
-            #cv2.imwrite("dilation_image.jpg", dilation_image)
+            dilation_image = cv2.resize(dilation_image, dsize=(1280,720), interpolation=cv2.INTER_AREA)
+            dilation_image = np.float32(dilation_image)
+            #dilation_image = cv2.resize(np.float32(dilation_image), dsize=(1280,720), interpolation=cv2.INTER_AREA)
+            dilation_image_rgb = cv2.cvtColor(dilation_image, cv2.COLOR_GRAY2RGB)
+            print("np.uint8(dilation_image_rgb).shape: " + str(np.uint8(dilation_image_rgb).shape))
+            dilation_video_out.write(np.uint8(dilation_image_rgb))
             dilation_image = dilation_image != 255.0
             
             # converting from BGR to HSV color space
@@ -130,7 +133,7 @@ def show_camera():
             blue_mask = cv2.dilate(blue_mask, kernel, iterations=1)  #// make dilation image
             blue = cv2.bitwise_and(frame, frame, mask=blue_mask)
             #cv2.imwrite("blue.jpg", blue)
-            #blue_video_out.write(blue)
+            blue_video_out.write(blue)
 
             # Green color
             low_green = np.array([25, 52, 72])
@@ -140,7 +143,7 @@ def show_camera():
             green_mask = cv2.dilate(green_mask, kernel, iterations=1)  #// make dilation image
             green = cv2.bitwise_and(frame, frame, mask=green_mask)
             #cv2.imwrite("green.jpg", green)
-            #green_video_out.write(green)
+            green_video_out.write(green)
 
             mask = dilation_image - green_mask - blue_mask
             #mask = green_mask + dilation_image
@@ -158,7 +161,7 @@ def show_camera():
             result[keep_mask] = result_mean
             #print("output: " + str(output))
             
-            print("result.shape: " + str(result.shape))
+            #print("result.shape: " + str(result.shape))
             #cv2.imwrite("segmented_image.jpg", result)
             segmented_video_out.write(result)
             '''
