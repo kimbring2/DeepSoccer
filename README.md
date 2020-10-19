@@ -373,7 +373,7 @@ Unlike humans, robots cannot respond appropriately to environment that is differ
 ## 2) Neural Style Transfer approach
 I use a code of https://github.com/cryu854/FastStyle for Neural Style Transfer. The advantage of this method is that you only need one conversion target style image without collecting train images separately, but this method does not completely convert to simulation.
 
-<center><strong>Neural Style Transfer of DeepSoccer</strong></center>
+<center><strong>Result of Neural Style Transfer at DeepSoccer</strong></center>
 
 <img src="/image/raw-video.gif" width="530"> <img src="/image/styled-video.gif" width="300">
 
@@ -412,7 +412,7 @@ The method using CycleGAN is training a model by dataset of real and simulation 
 
 As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the chair turning into goalpost.
 
-<center><strong>Wrong generaion of CycleGAN</strong></center>
+<center><strong>Wrong generation of CycleGAN at DeepSoccer</strong></center>
 
 <img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
 
