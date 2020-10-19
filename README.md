@@ -452,7 +452,7 @@ output_seg = f_seg(input_tensor)['conv2d_transpose_4'].numpy()
 cv2.imwrite("output_seg.jpg", output_seg)
 ```
 
-[![DeepSoccer segmentation test](https://youtu.be/pFfysLZfcb4)](https://youtu.be/pFfysLZfcb4 "DeepSoccer Play - Click to Watch!")
+[![DeepSoccer segmentation test](https://img.youtube.com/vi/pFfysLZfcb4/sddefault.jpg)](https://youtu.be/pFfysLZfcb4 "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 [![DeepSoccer cyclegan test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "DeepSoccer Play - Click to Watch!")
