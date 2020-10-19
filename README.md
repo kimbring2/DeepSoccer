@@ -410,15 +410,11 @@ The method using CycleGAN is training a model by dataset of real and simulation 
 
 As can be seen in the [real world dataset](https://drive.google.com/drive/folders/1TuaYWI191L0lc4EaDm23olSsToEQRHYY?usp=sharing), there are many objects in the background of the experimental site such as chair, and umbrella. If I train the CycleGAN model with the [simulation world dataset](https://drive.google.com/drive/folders/166qiiv2Wx0d6-DZBwHiI7Xgg6r_9gmfy?usp=sharing) without removing background objects, I am able to see the problem of the chair turning into goalpost.
 
-<img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400">
-
-<center><strong>Wrong generaion of CycleGAN</strong></center>
+<img src="/image/CycleGAN_wrong_case_4.png" width="400"> <img src="/image/CycleGAN_wrong_case_7.png" width="400"><center><strong>Wrong generaion of CycleGAN</strong></center>
 
 In order to solve this problem, I first decide that it is necessary to delete all objects except the goal, goalpost, and floor that the robot should recognize to play soccer. Segmentation using classic OpenCV method do not work. On the other hand, Deep Learning model using the [ADE20K dataset](https://groups.csail.mit.edu/vision/datasets/ADE20K/) can segregate object well. You can check [code for segmentation](https://github.com/kimbring2/DeepSoccer/blob/master/segmentation.ipynb). Robot do not have to separate all the object in the dataset. Thus, I simplify the ADE20K dataset a bit like a below.
 
-<img src="/image/ADE_train_00006856.jpg" width="300"> <img src="/image/ADE_train_00006856_seg.png" width="300"> <img src="/image/ADE_train_00006856_seg_simple.png" width="300">
-
-<center><strong>Simplied ADE20K image and mask</strong></center>
+<img src="/image/ADE_train_00006856.jpg" width="300"> <img src="/image/ADE_train_00006856_seg.png" width="300"> <img src="/image/ADE_train_00006856_seg_simple.png" width="300"><center><strong>Simplied ADE20K image and mask</strong></center>
 
 You can train your own model using code of that repo and simplified image. Altenatively, you can also use the [pretrained model](https://drive.google.com/drive/folders/1iupbJy7QFo1lMDjHIKqxjwvCm9LA9s1H?usp=sharing) of mine and below code.
 
