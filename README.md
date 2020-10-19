@@ -460,6 +460,8 @@ The floor have to be distinguished by the Deep Learning. However, the goal, goal
 [![DeepSoccer segmentation test](https://img.youtube.com/vi/pFfysLZfcb4/sddefault.jpg)](https://youtu.be/pFfysLZfcb4 "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
+you can try to make your own segmented image set for CycleGAN or get of mine from [segmented image](https://drive.google.com/drive/folders/1S4R7NGOu-IZZskSwGL5YXpU7-fVQLSqR?usp=sharing).
+
 # 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
