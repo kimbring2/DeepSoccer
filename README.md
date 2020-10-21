@@ -5,7 +5,7 @@ Due to the characteristic of Deep Learning, a large amount of training data is r
 
 In order to use the robot algorithm trained in the virtual simulation in the real world, technique for reducing gap between simulation and real world such as domain randomization will be used.
 
-In addition to opening software, information about hardware of robot will be shared for making other reseachres, makers can use this project for their own purpose.
+In addition to opening software, information about hardware of robot will be shared for making other researchers, makers can use this project for their own purpose.
 
 [![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
 <strong>Project Introduction!</strong>
@@ -25,7 +25,7 @@ More detailed instruction can be found at my [blog post of DeepSoccer](https://k
 - progressbar
 - opencv-python
 
-## 3) Jetson Nano
+## 3) Jetson Embedded Board
 - JetPack 4.4
 - ROS Melodic
 - Tensorflow 2.2.0
