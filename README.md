@@ -142,6 +142,12 @@ $ rosrun deepsoccer_ros deepsoccer_infrared.py
 $ rostopic echo /deepsoccer_infrared
 ```
 
+You can start all node by just one command line.
+
+```
+$ roslaunch deepsoccer_ros start.launch
+```
+
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
 ```$ python deepsoccer_main.py ```
 
