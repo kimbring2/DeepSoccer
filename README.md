@@ -6,6 +6,7 @@ Due to the characteristic of Deep Learning, a large amount of training data is r
 In order to use the robot algorithm trained in the virtual simulation in the real world, I use a CycleGAN for generating view of simulation world from view of real world. 
 
 Finally, hardware information of robot also will be shared as cad format for making other researchers, makers to use this project for their own purpose.
+
 [![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
 <strong>Project Introduction!</strong>
 
