@@ -1,12 +1,11 @@
 # 1. Introduction
-The purpose of this project is making a soccer robot. For this purpose, various methods and tools are introduced such as Robot Operation System (ROS) for robot control, Segmentation for removing irrelevant object, CycleGAN for simulation to real, and Deep Reinforcement Learning for controlling algorithm. 
+The purpose of this project is making a soccer robot. For this purpose, various methods and tools are introduced such as Robot Operation System (ROS) for robot control, and Deep Reinforcement Learning for controlling algorithm. 
 
-Due to the characteristic of Deep Learning, a large amount of training data is required. Thus, virtual simulation tool of ROS(Gazebo) is additionally used. The project uses the basic Deep Reinforcement Learning training and evaluation process. 
+Due to the characteristic of Deep Learning, a large amount of training data is required. Thus, virtual simulation tool of ROS called Gazebo is additionally used. The project uses the one of famous Deep Reinforcement Learning algorithm which uses a human expert data for improving performance.
 
-In order to use the robot algorithm trained in the virtual simulation in the real world, technique for reducing gap between simulation and real world such as domain randomization will be used.
+In order to use the robot algorithm trained in the virtual simulation in the real world, I use a CycleGAN for generating view of simulation world from view of real world. 
 
-In addition to opening software, information about hardware of robot will be shared for making other researchers, makers can use this project for their own purpose.
-
+Finally, hardware information of robot also will be shared as cad format for making other researchers, makers to use this project for their own purpose.
 [![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
 <strong>Project Introduction!</strong>
 
