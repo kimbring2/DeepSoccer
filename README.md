@@ -1,5 +1,5 @@
 # 1. Introduction
-The purpose of this project is making a soccer robot. For this purpose, various methods and tools are intoduced such as Robot Operation System (ROS) for robot control, Deep Reinforcement Learning for control algorithm. 
+The purpose of this project is making a soccer robot. For this purpose, various methods and tools are introduced such as Robot Operation System (ROS) for robot control, Deep Reinforcement Learning for control algorithm. 
 
 Due to the characteristic of Deep Learning, a large amount of training data is required. Thus, virtual simulation tool of ROS(Gazebo) is additionally used. The project uses the basic Deep Reinforcement Learning training and evaluation process. 
 
