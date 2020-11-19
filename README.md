@@ -474,19 +474,19 @@ The project needs to run three Deep Learning models together. However, Memory of
 However, I confirm that when using three 18650 batteries, the power turns off when trying to charge the capacitors for solenoid electromagnet because NX uses more power than the Nano. 
 
 - Circuit of DC Motor to Jetson Xavier NX
-<img src="/image/NX_DC_Motor.png" width="600">
+<img src="/image/NX_DC_Motor.png" width="800">
 
 - Circuit of Display to Jetson Xavier NX
-<img src="/image/NX_Display.png" width="600">
+<img src="/image/NX_Display.png" width="800">
 
 - Circuit of Dynamixel to Jetson Xavier NX
-<img src="/image/NX_Dynamixel.png" width="600">
+<img src="/image/NX_Dynamixel.png" width="800">
 
 - Circuit of Sensor to Jetson Xavier NX
-<img src="/image/NX_Sensor.png" width="600">
+<img src="/image/NX_Sensor.png" width="800">
 
 - Circuit of Solenoid to Jetson Xavier NX
-<img src="/image/NX_Solenoid.png" width="600">
+<img src="/image/NX_Solenoid.png" width="800">
 
 # 9. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
