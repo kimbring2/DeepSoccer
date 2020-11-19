@@ -468,7 +468,18 @@ The floor have to be distinguished by the Deep Learning. However, the goal, goal
 
 you can try to make your own segmented image set for CycleGAN or get of mine from [segmented image](https://drive.google.com/drive/folders/1S4R7NGOu-IZZskSwGL5YXpU7-fVQLSqR?usp=sharing).
 
-# 8. Citation
+# 8. Upgrade to Jetson Xavier NX
+The project needs to run three Deep Learning models together. However, Memory of Jetson Nano can not handle them at the same time. Fortunately,, NVIDIA is selling the Jetson Xavier NX, which looks similar to the Jetson Nano but has better performance.
+
+However, I confirm that when using three 18650 batteries, the power turns off when trying to charge the capacitors for solenoid electromagnet because NX uses more power than the Nano. 
+
+<img src="/image/NX_DC_Motor.png" width="600">
+<img src="/image/NX_Display.png" width="600">
+<img src="/image/NX_Dynamixel.png" width="600">
+<img src="/image/NX_Sensor.png" width="600">
+<img src="/image/NX_Solenoid.png" width="600">
+
+# 9. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -483,8 +494,8 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 9. Acknowledgement
+# 10. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
 
-# 10. License
+# 11. License
 Apache License 2.0
