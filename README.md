@@ -260,11 +260,9 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
 ## 6) Gazebo solenoid electromagnet joint plugin
-Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, so it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, 'solenoid_electromagnet_joint_spring_plugin' package need be built using 'catkin_make' command.
+Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, 'solenoid_electromagnet_joint_spring_plugin' package need be built using 'catkin_make' command.
 
 <center><strong>Spring equation for solenoid electromagnet </strong></center>
-
-<img src="/image/Spring-Constant.jpg" width="600">
 
 ```
 <gazebo>
@@ -277,7 +275,7 @@ Since the jetbot soccer version uses solenoid electromagnet for kicking ball whi
 </gazebo>
 ```
 
-The built custom plugin is used for sticks in multiple joints, so you can declare it in the jetbot_soccer.gazebo file as above.
+The built custom plugin is used for stick joint. You need to declare it in the jetbot_soccer.gazebo file as like above.
 
 ## 7) Use DeepSoccer as OpenAI Gym format 
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
