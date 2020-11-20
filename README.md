@@ -161,25 +161,7 @@ I use Onshape cloud 3D modeling program to create a model. You can check and dow
 
 After making 3D modeling, I convert it to URDF format for Gazebo simulation. I find and use a very convenient tool for that(https://github.com/rhoban/onshape-to-robot/)  
 
-## 1) Dynamixel SDK test
-The best way to use Dynamixel on Jetson Nano is using the SDK provided by ROBOTIS.
-
-- Check your connection between motor and control board(I use a Dynamixel Wizard for checking a operation of motor).
-- First, download a SDK from 'https://github.com/ROBOTIS-GIT/DynamixelSDK.git' to your Jetson Nano.
-- Move to 'DynamixelSDK/python/tests/protocol1_0' and run 'ping.py'.
-
-<img src="/image/dynamixel_ping_test.png" width="600">
-
-- Open 'read_write.py' and change a parameter for MX-12W(You can also change the parameter using Dynamixel Wizard).
-<img src="/image/rw_setting.png" width="600">
-
-- Run 'read_write.py' and you should see a success message like a below.
-<img src="/image/rw_success.png" width="600">
-
-[![Dynamixel test 2](https://img.youtube.com/vi/ZSii66zur4s/0.jpg)](https://youtu.be/ZSii66zur4s "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
-## 2) RViz test
+## 1) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
 $ roslaunch deepsoccer_description deepsoccer_rviz.launch
@@ -187,7 +169,7 @@ $ roslaunch deepsoccer_description deepsoccer_rviz.launch
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
-## 3) Gazebo test
+## 2) Gazebo test
 After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
@@ -231,7 +213,7 @@ k : kick ball
 
 Please check video for checking how to give a command(https://www.youtube.com/watch?v=rTVKIcgdVGo)
 
-## 4) Command for lidar sensor
+## 3) Command for lidar sensor
 Soccer robot need to check a obstacle of front side. Using only camera sensor is not enough for that. Thus, I decide adding lidar sensor. Information of lidar sensor can be checked by using ROS topic named '/deepsoccer/laser/scan'
 
 ```
@@ -251,7 +233,7 @@ Gazebo simulator visualize the range of the lidar sensor. You can see the range 
 [![Jetbot soccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/2b6BUH5tF1g "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-## 5) Teleoperation test
+## 4) Teleoperation test
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
 
 [![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
@@ -259,7 +241,7 @@ Like the original version of Jetbot, Jetbot soccer version can be controlled by 
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
 
-## 6) Gazebo solenoid electromagnet joint plugin
+## 5) Gazebo solenoid electromagnet joint plugin
 Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, 'solenoid_electromagnet_joint_spring_plugin' package need be built using 'catkin_make' command.
 
 <center><strong>Spring equation for solenoid electromagnet </strong></center>
@@ -277,7 +259,7 @@ Since the jetbot soccer version uses solenoid electromagnet for kicking ball whi
 
 The built custom plugin is used for stick joint. You need to declare it in the jetbot_soccer.gazebo file as like above.
 
-## 7) Use DeepSoccer as OpenAI Gym format 
+## 6) Use DeepSoccer as OpenAI Gym format 
 Most Deep Reinforcement Learning researchers are accustomed to Gym environment of OpenAI. There is package called openai_ros that allows user use a custom robot environment in the form of Gym. 
 
 DeepSoccer also provides a package for use a it as Gym format. First, download a my_deepsoccer_training pacakge from this repo. After that, copy it to the src folder under ROS workspace like a Jetbot package and build it.
@@ -299,7 +281,7 @@ Start Gazebo by using below command.
 $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
-## 8) Collect your playing dataset
+## 7) Collect your playing dataset
 Since Reinforcement Learning used in DeepSoccer is a method that uses expert data, user can control a robot directly. For using [collecting_human_dataset.py file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/collecting_human_dataset.py) for that, you need to change a line of launch file located in [launch folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/launch).
 
 ```
@@ -316,7 +298,7 @@ Once Gazebo is started, you can give commands to the robot using the keyboard ke
 You can set the path and name of saving file by changing a save_path and save_file options of [my_deepsoccer_single_params.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/my_deepsoccer_single_params.yaml).
 
 
-## 9) Training DeepSoccer using Deep Reinforcement Learning
+## 8) Training DeepSoccer using Deep Reinforcement Learning
 After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
 
 The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
@@ -345,7 +327,7 @@ $ roslaunch my_deepsoccer_training start_training.launch
 
 All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml). Buffer size and pretrain steps are important. Save_dir, tb_dir parameter means saving location of trained Tensorflow model and Tensorboard log file.   
 
-## 10) Using pretrained model at Jetson Nano 
+## 9) Using pretrained model at Jetson Nano 
 In order to use the model trained by Gazebo simulation at Jetson Nano. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
 
 After placing [jetbot_ros folder](https://github.com/kimbring2/DeepSoccer/tree/master/jetbot_ros) to your ROS workspace of Jetson Nano, run below command.
