@@ -289,12 +289,7 @@ Once Gazebo is started, you can give commands to the robot using the keyboard ke
 
 You can set the path and name of saving file by changing a save_path and save_file options of [my_deepsoccer_single_params.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/my_deepsoccer_single_params.yaml).
 
-
 ## 8) Training DeepSoccer using Deep Reinforcement Learning
-After making DeepSoccer in Openai Gym format, let's use it trarning robot using Deep Reinforcement Learning. Currently, the most commonly used Deep Reinforcement Learning algorithms like PPO are good when the action of the agent is relatively simple. However, DeepSoccer agent has to deal with soccer ball very delicately. Thus, I assume that PPO alorithm do not work well in this project. For that reason, I decide to use a one of Deep Reinforcement Learning method "Forgetful Experience Replay in Hierarchical Reinforcement Learning from Demonstrations", which operates in the complex environment like a soccer, by mixing trained agent data and expert demonstration data.
-
-The code related to this algorithm is be located at [ForgER folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/src/ForgER). 
-
 You can train a robot using human demonstration data(https://drive.google.com/drive/folders/18kqrpbLMGEnAOd1QTHCRzL_VyUCGItcE?usp=sharing). Change a line of launch file like that.
 
 ```
