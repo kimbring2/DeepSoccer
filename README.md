@@ -383,7 +383,7 @@ cv2.imwrite("output_style.jpg", output_style)
 You can save the pretrain model to your Jetson Nano and use the above code to try to run Neural Style Transfer.
 
 ## 3) CycleGAN approach
-The method using CycleGAN is training a model by dataset of real and simulation world. For this method, I refer to the [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan).
+The method using CycleGAN trains a model by dataset of real and simulation world. I find a code for that at [method of official Tensorflow website](https://www.tensorflow.org/tutorials/generative/cyclegan).
 
 [![DeepSoccer cyclegan test](https://img.youtube.com/vi/a5IjHdsv_eA/0.jpg)](https://youtu.be/a5IjHdsv_eA "DeepSoccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
