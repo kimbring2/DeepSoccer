@@ -7,9 +7,6 @@ In order to use the robot algorithm trained in the virtual simulation in the rea
 
 Finally, hardware information of robot also will be shared as cad format for making other researchers, makers to use this project for their own purpose.
 
-[![Project Introduction](https://img.youtube.com/vi/BQWncZ6QNDE/hqdefault.jpg)](https://youtu.be/BQWncZ6QNDE "Jetbot Soccer Play - Click to Watch!")
-<strong>Project Introduction!</strong>
-
 More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
 
 # 2. Software Dependency
@@ -432,25 +429,6 @@ The floor have to be distinguished by the Deep Learning. However, the goal, goal
 
 you can try to make your own segmented image set for CycleGAN or get of mine from [segmented image](https://drive.google.com/drive/folders/1S4R7NGOu-IZZskSwGL5YXpU7-fVQLSqR?usp=sharing).
 
-# 8. Upgrade to Jetson Xavier NX
-The project needs to run three Deep Learning models together. However, Memory of Jetson Nano can not handle them at the same time. Fortunately,, NVIDIA is selling the Jetson Xavier NX, which looks similar to the Jetson Nano but has better performance.
-
-However, I confirm that when using three 18650 batteries, the power turns off when trying to charge the capacitors for solenoid electromagnet because NX uses more power than the Nano. 
-
-- Circuit of DC Motor to Jetson Xavier NX
-<img src="/image/NX_DC_Motor.png" width="800">
-
-- Circuit of Display to Jetson Xavier NX
-<img src="/image/NX_Display.png" width="800">
-
-- Circuit of Dynamixel to Jetson Xavier NX
-<img src="/image/NX_Dynamixel.png" width="800">
-
-- Circuit of Sensor to Jetson Xavier NX
-<img src="/image/NX_Sensor.png" width="800">
-
-- Circuit of Solenoid to Jetson Xavier NX
-<img src="/image/NX_Solenoid.png" width="800">
 
 # 9. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
@@ -467,8 +445,10 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 10. Acknowledgement
-<img src="image/POM_Jetson.png"> <strong>I get a prize from NVIDIA for this project</strong>
+# 9. Acknowledgement
+<img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
 
-# 11. License
+<img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI special certification from NVIDIA by this project</strong>
+
+# 10. License
 Apache License 2.0
