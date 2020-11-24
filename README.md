@@ -154,7 +154,6 @@ You can also give a control command using Python code. Run 'jetson_soccer_main.p
 # 6. DeepSoccer design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
-<img src="/image/jetbot_soccer_proto_2.png" width="600">
 I use Onshape cloud 3D modeling program to create a model. You can check and download my model from below link.
 
 [Modified Jetbot 3D model Onshape link](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700)
