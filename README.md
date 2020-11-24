@@ -448,7 +448,7 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 # 9. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
 
-<img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI special certification from NVIDIA by this project</strong>
+<img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI Specialist certification from NVIDIA by this project</strong>
 
 # 10. License
 Apache License 2.0
