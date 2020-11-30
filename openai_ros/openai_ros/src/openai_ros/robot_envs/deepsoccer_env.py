@@ -28,8 +28,8 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
     """
     def __init__(self, ros_ws_abspath):
         """
-        Initializes a new TurtleBot2Env environment.
-        Turtlebot2 doesnt use controller_manager, therefore we wont reset the
+        Initializes a new DeepSoccer environment.
+        DeepSoccer doesnt use controller_manager, therefore we wont reset the
         controllers in the standard fashion. For the moment we wont reset them.
 
         To check any topic we need to have the simulations running, we need to do two things:
@@ -82,12 +82,12 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
         # We Start all the ROS related Subscribers and publishers
         #rospy.Subscriber("/robot1/camera1/image_raw", Image, self.image_callback)
         rospy.Subscriber('/gazebo/model_states', ModelStates, self._model_state_callback)
-        rospy.Subscriber('/deepsoccer/laser/scan', LaserScan, self._laser_scan_callback)
-        rospy.Subscriber('/deepsoccer/ir/scan', LaserScan, self._ir_scan_callback)
+        rospy.Subscriber('/robot1/laser/scan', LaserScan, self._laser_scan_callback)
+        rospy.Subscriber('/robot1/ir/scan', LaserScan, self._ir_scan_callback)
+        rospy.Subscriber("/robot1/camera/image_raw", Image, self._camera_rgb_image_raw_callback)
         #rospy.Subscriber("/odom", Odometry, self._odom_callback)
         #rospy.Subscriber("/camera/depth/image_raw", Image, self._camera_depth_image_raw_callback)
         #rospy.Subscriber("/camera/depth/points", PointCloud2, self._camera_depth_points_callback)
-        rospy.Subscriber("/robot1/camera1/image_raw", Image, self._camera_rgb_image_raw_callback)
         #rospy.Subscriber("/kobuki/laser/scan", LaserScan, self._laser_scan_callback)
 
         #self._cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
@@ -104,7 +104,7 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
         self.gazebo.pauseSim()
 
-        rospy.logdebug("Finished TurtleBot2Env INIT...")
+        rospy.logdebug("Finished MyDeepSoccerSingleEnv INIT...")
 
 
     def _model_state_callback(self, data):
@@ -179,45 +179,45 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
     def _check_camera_rgb_image_raw_ready(self):
         self.camera_rgb_image_raw = None
-        rospy.logdebug("Waiting for /robot1/camera1/image_raw to be READY...")
+        rospy.logdebug("Waiting for /robot1/camera/image_raw to be READY...")
         while self.camera_rgb_image_raw is None and not rospy.is_shutdown():
             try:
                 #self.camera_rgb_image_raw = rospy.wait_for_message("/camera/rgb/image_raw", Image, timeout=5.0)
-                self.camera_rgb_image_raw = rospy.wait_for_message("/robot1/camera1/image_raw", Image, timeout=5.0)
-                rospy.logdebug("Current /robot1/camera1/image_raw READY=>")
+                self.camera_rgb_image_raw = rospy.wait_for_message("/robot1/camera/image_raw", Image, timeout=5.0)
+                rospy.logdebug("Current /robot1/camera/image_raw READY=>")
 
             except:
-                rospy.logerr("Current /robot1/camera1/image_raw not ready yet, retrying for getting camera_rgb_image_raw")
+                rospy.logerr("Current /robot1/camera/image_raw not ready yet, retrying for getting camera_rgb_image_raw")
 
         return self.camera_rgb_image_raw
 
 
     def _check_ir_scan_ready(self):
-        # rospy.Subscriber('/deepsoccer/ir/scan', LaserScan, self.laser_callback)
+        # rospy.Subscriber('/robot1/ir/scan', LaserScan, self.laser_callback)
         self.laser_scan = None
-        rospy.logdebug("Waiting for /deepsoccer/ir/scan to be READY...")
+        rospy.logdebug("Waiting for /robot1/ir/scan to be READY...")
         while self.laser_scan is None and not rospy.is_shutdown():
             try:
-                self.laser_scan = rospy.wait_for_message("/deepsoccer/ir/scan", LaserScan, timeout=5.0)
-                rospy.logdebug("Current /deepsoccer/ir/scan READY=>")
+                self.laser_scan = rospy.wait_for_message("/robot1/ir/scan", LaserScan, timeout=5.0)
+                rospy.logdebug("Current /robot1/ir/scan READY=>")
 
             except:
-                rospy.logerr("Current /deepsoccer/ir/scan not ready yet, retrying for getting laser_scan")
+                rospy.logerr("Current /robot1/ir/scan not ready yet, retrying for getting laser_scan")
 
         return self.laser_scan
 
 
     def _check_laser_scan_ready(self):
-        # rospy.Subscriber('/deepsoccer/laser/scan', LaserScan, self.laser_callback)
+        # rospy.Subscriber('/robot1/laser/scan', LaserScan, self.laser_callback)
         self.laser_scan = None
-        rospy.logdebug("Waiting for /deepsoccer/laser/scan to be READY...")
+        rospy.logdebug("Waiting for /robot1/laser/scan to be READY...")
         while self.laser_scan is None and not rospy.is_shutdown():
             try:
-                self.laser_scan = rospy.wait_for_message("/deepsoccer/laser/scan", LaserScan, timeout=5.0)
-                rospy.logdebug("Current /deepsoccer/laser/scan READY=>")
+                self.laser_scan = rospy.wait_for_message("/robot1/laser/scan", LaserScan, timeout=5.0)
+                rospy.logdebug("Current /robot1/laser/scan READY=>")
 
             except:
-                rospy.logerr("Current /deepsoccer/laser/scan not ready yet, retrying for getting laser_scan")
+                rospy.logerr("Current /robot1/laser/scan not ready yet, retrying for getting laser_scan")
 
         return self.laser_scan
 
