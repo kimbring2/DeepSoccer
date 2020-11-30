@@ -9,30 +9,52 @@ from openai_ros.openai_ros_common import ROSLauncher
 import os
 import cv2
 import numpy as np
+import math
+import random
 
 from cv_bridge import CvBridge, CvBridgeError
 from gazebo_msgs.msg import ModelState
 from gazebo_msgs.srv import SetModelState
 from geometry_msgs.msg import Pose
+from tf.transformations import euler_from_quaternion, quaternion_from_euler
 bridge = CvBridge()
 
 
 def reset_pose():
     set_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
-    pose = Pose() 
-    pose.position.x = np.random.randint(1,20) / 10.0
-    pose.position.y = np.random.randint(1,20) / 10.0
-    pose.position.z = 0.12
+    pose_robot = Pose() 
+    pose_robot.position.x = np.random.randint(1,5) / 10.0
+    pose_robot.position.y = np.random.randint(1,5) / 10.0
+    pose_robot.position.z = 0.12
   
-    pose.orientation.x = 0
-    pose.orientation.y = 0
-    pose.orientation.z = 0
-    pose.orientation.w = 0
+    alpha = 2 * math.pi * random.random()
+    robot_quaternion = quaternion_from_euler(0, 0, alpha)
+    #print("robot_quaternion: " + str(robot_quaternion))
+
+    pose_robot.orientation.x = robot_quaternion[0]
+    pose_robot.orientation.y = robot_quaternion[1]
+    pose_robot.orientation.z = robot_quaternion[2]
+    pose_robot.orientation.w = robot_quaternion[3]
     
-    state_model = ModelState()   
-    state_model.model_name = "robot1"
-    state_model.pose = pose
-    resp = set_state(state_model)
+    state_model_robot = ModelState()   
+    state_model_robot.model_name = "robot1"
+    state_model_robot.pose = pose_robot
+    resp_robot = set_state(state_model_robot)
+
+    pose_ball = Pose() 
+    pose_ball.position.x = -np.random.randint(10,15) / 10.0
+    pose_ball.position.y = np.random.randint(-10,10) / 10.0
+    pose_ball.position.z = 0.12
+  
+    pose_ball.orientation.x = 0
+    pose_ball.orientation.y = 0
+    pose_ball.orientation.z = 0
+    pose_ball.orientation.w = 0
+    
+    state_model_ball = ModelState()   
+    state_model_ball.model_name = "football"
+    state_model_ball.pose = pose_ball
+    resp_ball = set_state(state_model_ball)
 
 
 class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
@@ -67,6 +89,8 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
 
         # We set the reward range, which is not compulsory but here we do it.
         self.reward_range = (-numpy.inf, numpy.inf)
+
+        self.ir_result = False 
 
         #number_observations = rospy.get_param('/turtlebot2/n_observations')
         """
@@ -274,6 +298,10 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
 
         # We only want the X and Y position and the Yaw
         #observations = discretized_laser_scan + odometry_array
+
+        #print("discretized_ir_scan: " + str(discretized_ir_scan))
+        # discretized_ir_scan: [False]
+        self.ir_result = discretized_ir_scan[0]
         observations = [new_cv_image] + discretized_laser_scan + discretized_ir_scan
 
         rospy.logdebug("Observations==>" + str(observations))
@@ -339,10 +367,42 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         #print("left_goal_pose.position.y: " + str(left_goal_pose.position.y))
         reward = 0
         if (football_pose.position.x < left_goal_pose.position.x):
-            reward = 1
+            reward += 10
         elif (football_pose.position.x > right_goal_pose.position.x):
-            reward = -1
+            reward += -10
 
+        #print("self.ir_result: " + str(self.ir_result))
+        if self.ir_result == True:
+            reward += 1
+
+        #if (robot1_pose.position.x >= 4):
+        #    self._episode_done = True
+        #elif (robot1_pose.position.y <= -4):
+        #    self._episode_done = True
+        orientation_q = robot1_pose.orientation
+        orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
+        (roll, pitch, yaw) = euler_from_quaternion(orientation_list)
+        #print("roll: " + str(roll))
+        #print("pitch: " + str(pitch))
+        yaw = math.degrees(yaw) + 180
+        #print("yaw: " + str(yaw))
+
+        x_diff = football_pose.position.x - robot1_pose.position.x
+        y_diff = football_pose.position.y - robot1_pose.position.y
+        distance = (((x_diff**2) + (y_diff**2) )**0.5)
+        #print("distance: " + str(distance))
+        #print("y_diff: " + str(y_diff))
+
+        tan_value = (y_diff) / (x_diff)
+        #print("cos_value: " + str(cos_value))
+        angle_value = math.atan(tan_value)
+        angle_value = math.degrees(angle_value) + 90
+        #print("yaw - angle_value: " + str(yaw - angle_value))
+        if distance <= 1.2 and (yaw - angle_value) <= 3:
+            reward += 0.5
+
+        if yaw - angle_value <= 80:
+            reward += 0.1
         '''
         if not done:
             if self.last_action == "FORWARDS":
@@ -367,6 +427,7 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         '''
         rospy.logdebug("reward=" + str(reward))
         self.cumulated_reward += reward
+
         rospy.logdebug("Cumulated_reward=" + str(self.cumulated_reward))
         self.cumulated_steps += 1
         #print("self.cumulated_steps=" + str(self.cumulated_steps))
