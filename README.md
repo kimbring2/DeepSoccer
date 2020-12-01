@@ -286,7 +286,7 @@ You can set the path and name of saving file by changing a save_path and save_fi
 ## 8) Training DeepSoccer using Deep Reinforcement Learning
 You can train a robot using human demonstration data(https://drive.google.com/drive/folders/18kqrpbLMGEnAOd1QTHCRzL_VyUCGItcE?usp=sharing). Change a line of launch file like that.
 
-<img src="/assets/deepsoccer_reward.png" width="800">
+<img src="/image/deepsoccer_reward.png" width="800">
 
 ```
 <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
