@@ -224,13 +224,13 @@ def lidar_callback(msg):
 
 Gazebo simulator visualize the range of the lidar sensor. You can see the range value of lidar sensor is changed depending on the distance between the robot and front obstacle.
 
-[![Jetbot soccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/2b6BUH5tF1g "Jetbot Soccer Play - Click to Watch!")
+[![DeepSoccer lidar sensor simulation test](http://i3.ytimg.com/vi/2b6BUH5tF1g/hqdefault.jpg)](https://youtu.be/2b6BUH5tF1g "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 ## 4) Teleoperation test
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
 
-[![Teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
+[![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
@@ -290,6 +290,16 @@ You can train a robot using human demonstration data(https://drive.google.com/dr
 <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="train_single.py" output="screen"/>
 ```
 
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||  
+[Prototype table]
+
 File for this script is located at [train_single.py file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/train_single.py). There are four important function in that file. 
 
 ```
@@ -333,10 +343,7 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 
 It is confirmed that robot do not show the same movement as the trained one when the raw camera frame is used as input to the RL model.
 
-# 7. Sim2Real method
-
-
-# 8. Citation
+# 7. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -351,10 +358,10 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 9. Acknowledgement
+# 8. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
 
 <img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI Specialist certification from NVIDIA by this project</strong>
 
-# 10. License
+# 9. License
 Apache License 2.0
