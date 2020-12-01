@@ -286,6 +286,10 @@ You can set the path and name of saving file by changing a save_path and save_fi
 ## 8) Training DeepSoccer using Deep Reinforcement Learning
 You can train a robot using human demonstration data(https://drive.google.com/drive/folders/18kqrpbLMGEnAOd1QTHCRzL_VyUCGItcE?usp=sharing). Change a line of launch file like that.
 
+Robot soccer is quite difficult to hold the ball accurately unlike soccer games where you can control a ball by just pressing a key. The process for the robot to hold the ball is divided into several stages. First stage is rotating angle of robot for capturing ball inside of front camera angle. Next, robot must move to the ball keeping it in the center of the camera in order to hold it by the roller. Finally, robot should move forward towards the goal post while fixing the ball to the roller. When robot get close enough to the goal post, it can kick the ball using solenoid electromagnet.
+
+
+
 <img src="/image/deepsoccer_reward.png" width="800">
 
 ```
