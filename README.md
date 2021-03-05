@@ -288,8 +288,6 @@ You can train a robot using human demonstration data(https://drive.google.com/dr
 
 Robot soccer is quite difficult to hold the ball accurately unlike soccer games where you can control a ball by just pressing a key. The process for the robot to hold the ball is divided into several stages. First stage is rotating angle of robot for capturing ball inside of front camera angle. Next, robot must move to the ball keeping it in the center of the camera in order to hold it by the roller. Finally, robot should move forward towards the goal post while fixing the ball to the roller. When robot get close enough to the goal post, it can kick the ball using solenoid electromagnet.
 
-
-
 <img src="/image/deepsoccer_reward.png" width="800">
 
 ```
@@ -314,8 +312,8 @@ $ roslaunch my_deepsoccer_training start_training.launch
 
 All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml). Buffer size and pretrain steps are important. Save_dir, tb_dir parameter means saving location of trained Tensorflow model and Tensorboard log file.   
 
-## 9) Using pretrained model at Jetson Nano 
-In order to use the model trained by Gazebo simulation at Jetson Nano. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
+## 9) Using pretrained model at Jetson board 
+In order to use the model trained by Gazebo simulation at Jetson embedded board. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
 
 After placing [DeepSoccer_ROS Package](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_ros) to your ROS workspace of Jetson Xavier NX, run below command.
 
