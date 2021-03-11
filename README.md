@@ -9,7 +9,16 @@ Finally, hardware information of robot also will be shared as cad format for mak
 
 More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
 
-# 2. Software Dependency
+# 2. Hardware assembly
+I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely.
+
+<img src="image/deepsoccer_hardware_v2_1.jpg" width="450"> <img src="image/deepsoccer_hardware_v2_3.jpg" width="450">
+
+I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
+
+After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
+
+# 3. Software Dependency
 ## 1) ROS, Gazebo
 - ROS Melodic, Gazebo 9
 - ROS openai_ros package
@@ -29,7 +38,7 @@ More detailed instruction can be found at my [blog post of DeepSoccer](https://k
 - Python2 for ROS acuator, sensor node
 - Python3 for ROS main node
 
-# 3. Reference
+# 4. Reference
 - Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
 - Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
 - URDF file usage in Gazebo: [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
@@ -52,7 +61,7 @@ More detailed instruction can be found at my [blog post of DeepSoccer](https://k
 - CycleGAN for Sim2Real: https://www.tensorflow.org/tutorials/generative/cyclegan
 - Image Segmentation for CycleGAN: https://www.kaggle.com/santhalnr/cityscapes-image-segmentation-pspnet
 
-# 4. Etc
+# 5. Etc
 ## 1) Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
 
@@ -70,7 +79,7 @@ $ source devel/setup.bash
 ## 3) Dependent ROS package install
 Put a 'https://github.com/kimbring2/DeepSoccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
 
-# 5. Troubleshooting 
+# 6. Troubleshooting 
 ## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
 
@@ -148,12 +157,7 @@ $ roslaunch deepsoccer_ros start.launch
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
 ```$ python deepsoccer_main.py ```
 
-# 6. DeepSoccer design
-I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
-
-I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
-
-After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
+# 7. Simulation unit test
 
 ## 1) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
@@ -337,7 +341,7 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 
 It is confirmed that robot do not show the same movement as the trained one when the raw camera frame is used as input to the RL model.
 
-# 7. Citation
+# 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -352,10 +356,10 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 8. Acknowledgement
+# 9. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
 
 <img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI Specialist certification from NVIDIA by this project</strong>
 
-# 9. License
+# 10. License
 Apache License 2.0
