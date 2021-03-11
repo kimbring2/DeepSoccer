@@ -1,9 +1,0 @@
-[Unit]
-Description=DeepSoccer stats display service
-[Service]
-Type=simple
-User=kimbring2
-ExecStart=/bin/sh -c "python3 /home/kimbring2/jetbot/jetbot/apps/stats.py"
-Restart=always
-[Install]
-WantedBy=multi-user.target
