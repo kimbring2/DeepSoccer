@@ -14,9 +14,7 @@ I remodel hardware of Jetbot because it is not suitable for soccer. As you know 
 
 <img src="image/deepsoccer_hardware_v2_1.jpg" width="450"> <img src="image/deepsoccer_hardware_v2_3.jpg" width="450">
 
-I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
-
-After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
+You can see detailed information about hardware design at https://kimbring2.github.io/2020/10/08/deepsoccer.html#design_deepsoccer.
 
 # 3. Software Dependency
 ## 1) ROS, Gazebo
@@ -158,6 +156,9 @@ You can also give a control command using Python code. Run 'jetson_soccer_main.p
 ```$ python deepsoccer_main.py ```
 
 # 7. Simulation unit test
+I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
+
+After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
 
 ## 1) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
