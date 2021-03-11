@@ -1,0 +1,24 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50  
+  
+# Position Controllers ---------------------------------------
+wheel1_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: wheel1
+wheel2_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: wheel2
+wheel3_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: wheel3
+wheel4_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: wheel4
+roller_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: roller
+stick_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: stick

@@ -1,0 +1,9 @@
+[Unit]
+Description=Jupyter Notebook Service
+[Service]
+Type=simple
+User=kimbring2
+ExecStart=/bin/sh -c "jupyter lab --ip=0.0.0.0 --no-browser"
+Restart=always
+[Install]
+WantedBy=multi-user.target

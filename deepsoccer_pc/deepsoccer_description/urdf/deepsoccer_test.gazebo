@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<robot>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="body_1">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="horn4_1_2_main_frame">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>50</mu1>
+    <mu2>25</mu2>
+  </gazebo>
+  <gazebo reference="horn2_1_0_main_frame">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>50</mu1>
+    <mu2>25</mu2>
+  </gazebo>
+  <gazebo reference="horn1_1_1_main_frame">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>50</mu1>
+    <mu2>25</mu2>
+  </gazebo>
+  <gazebo reference="horn4_2_1_main_frame">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>50</mu1>
+    <mu2>25</mu2>
+  </gazebo>
+
+  <!-- subwheel of omniwheel -->
+  <gazebo reference="wheel2_sub2_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub2_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub2_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub2_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub7_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub7_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub7_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub7_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub3_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub3_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub3_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub3_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub9_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub9_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub9_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub9_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub5_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub5_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub5_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub5_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub4_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub4_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub4_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub4_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub1_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub1_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub1_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub1_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub8_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub8_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub8_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub8_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub10_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub10_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub10_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub10_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub12_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub12_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub12_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub12_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub6_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub6_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub6_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub6_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+
+  <gazebo reference="wheel2_sub11_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel1_sub11_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel3_sub11_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <gazebo reference="wheel4_sub11_1_0_sub_wheel">
+    <kp>5000000.0</kp>
+    <kd>1.0</kd>
+    <mu1>5</mu1>
+    <mu2>1</mu2>
+  </gazebo>
+  <!-- subwheel of omniwheel -->
+
+</robot>

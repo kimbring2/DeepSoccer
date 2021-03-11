@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- Launch the training system -->
+    <node pkg="jetbot_ros" name="deepsoccer_camera" type="jetbot_camera" output="screen"/>
+    <node pkg="jetbot_ros" name="deepsoccer_motors" type="jetbot_soccer_motors.py" output="screen"/>
+    <node pkg="jetbot_ros" name="deepsoccer_solenoid" type="jetbot_soccer_solenoid.py" output="screen"/>
+    <node pkg="jetbot_ros" name="deepsoccer_roller" type="jetbot_soccer_roller.py" output="screen"/>
+    <node pkg="jetbot_ros" name="deepsoccer_lidar" type="jetbot_soccer_lidar.py" output="screen"/>
+    <node pkg="jetbot_ros" name="deepsoccer_infrared" type="jetbot_soccer_infrared.py" output="screen"/>
+</launch>
