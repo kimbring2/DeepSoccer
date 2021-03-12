@@ -320,14 +320,14 @@ All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_c
 ## 9) Using pretrained model at Jetson board 
 In order to use the model trained by Gazebo simulation at Jetson embedded board. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
 
-After placing [DeepSoccer_ROS Package](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_ros) to your ROS workspace of Jetson Xavier NX, run below command.
+After placing [DeepSoccer_ROS Package](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_jetson) to your ROS workspace of Jetson Xavier NX, run below command.
 
 ```
 $ roscore
 $ roslaunch deepsoccer_ros start.launch
 ```
 
-It will launch all actuator and sensor ROS node. After that, change a pre_trained_model.ckpt folder path what you copied at [deepsoccer_main.py](https://github.com/kimbring2/DeepSoccer/blob/master/jetbot_ros/scripts/deepsoccer_main.py). Next, move to script folder of deepsoccer_ros ROS package and run below command.
+It will launch all actuator and sensor ROS node. After that, change a pre_trained_model.ckpt folder path what you copied at [deepsoccer_main.py](https://github.com/kimbring2/DeepSoccer/blob/master/deepsoccer_jetson/scripts/deepsoccer_main.py). Next, move to script folder of deepsoccer_ros ROS package and run below command.
 
 ```
 $ python3 deepsoccer_main.py
