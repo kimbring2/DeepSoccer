@@ -2,16 +2,17 @@
 import rospy
 import time
 
-from Adafruit_MotorHAT import Adafruit_MotorHAT
+import RPi.GPIO as GPIO
+
 from std_msgs.msg import String
 
-
+'''
 # sets motor speed between [-1.0, 1.0]
 def set_speed(motor_ID, value):
 	max_pwm = 115.0
 	speed = int(min(max(abs(value * max_pwm), 0), max_pwm))
     
-	'''
+	
 	if motor_ID == 1:
 		motor = motor_left
 	elif motor_ID == 2:
@@ -19,20 +20,24 @@ def set_speed(motor_ID, value):
 	else:
 		rospy.logerror('set_speed(%d, %f) -> invalid motor_ID=%d', motor_ID, value, motor_ID)
 		return
-	'''
+	
 	motor.setSpeed(speed)
 	if value > 0:
 		motor.run(Adafruit_MotorHAT.FORWARD)
 	else:
 		motor.run(Adafruit_MotorHAT.BACKWARD)
+'''
 
+# Pin Definitions
+output_pin_1 = 5  # BCM pin 18, BOARD pin 12
+output_pin_2 = 6  # BCM pin 18, BOARD pin 12
 
 # stops all motors
-def all_stop():
-	motor.setSpeed(0)
+#def all_stop():
+#	motor.setSpeed(0)
 	#motor_right.setSpeed(0)
 
-	motor.run(Adafruit_MotorHAT.RELEASE)
+#	motor.run(Adafruit_MotorHAT.RELEASE)
 	#motor.run(Adafruit_MotorHAT.RELEASE)
 
 
@@ -49,13 +54,17 @@ def on_cmd_str(msg):
 	rospy.loginfo(rospy.get_caller_id() + ' cmd_str=%s', msg.data)
 
 	if msg.data.lower() == "in":
-		set_speed(motor_ID,   1.0)
+		#set_speed(motor_ID,   1.0)
 		#set_speed(motor_right_ID,  1.0)
-	elif msg.data.lower() == "out":
-		set_speed(motor_ID,  -1.0)
+		GPIO.setmode(GPIO.BCM)  # BCM pin-numbering scheme from Raspberry Pi
+		GPIO.setup(output_pin_1, GPIO.OUT, initial=GPIO.HIGH)
+		GPIO.setup(output_pin_2, GPIO.OUT, initial=GPIO.HIGH)
+	#elif msg.data.lower() == "out":
+		#set_speed(motor_ID,  -1.0)
 		#set_speed(motor_right_ID, -1.0)  
 	elif msg.data.lower() == "stop":
-		all_stop()
+		#all_stop()
+		GPIO.cleanup()
 	else:
 		rospy.logerror(rospy.get_caller_id() + ' invalid cmd_str=%s', msg.data)
 
@@ -63,16 +72,21 @@ def on_cmd_str(msg):
 # initialization
 if __name__ == '__main__':
 	# setup motor controller
-	motor_driver = Adafruit_MotorHAT(i2c_bus=1)
+	#motor_driver = Adafruit_MotorHAT(i2c_bus=1)
 
 	#motor_ID = 1
-	motor_ID = 2
+	#motor_ID = 2
 
-	motor = motor_driver.getMotor(motor_ID)
+	#motor = motor_driver.getMotor(motor_ID)
 
 	# stop the motors as precaution
-	all_stop()
+	#all_stop()
 
+	GPIO.setmode(GPIO.BCM)  # BCM pin-numbering scheme from Raspberry Pi
+    
+	GPIO.setup(output_pin_1, GPIO.OUT, initial=GPIO.HIGH)
+	GPIO.setup(output_pin_2, GPIO.OUT, initial=GPIO.HIGH)
+    
 	# setup ros node
 	rospy.init_node('deepsoccer_roller')
 	
