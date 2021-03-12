@@ -125,7 +125,7 @@ You can control a roller and solenoid motor using two Python script.
 ```
 $ rosrun deepsoccer_ros deepsoccer_roller.py 
 $ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "in"
-$ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "out"
+$ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "stop"
 ```
 
 ```
@@ -136,7 +136,7 @@ $ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "out"
 
 For getting lidar sensor distance and infrared object detection value.
 ```
-$ sudo chmod a+rw /dev/ttyTHS1 
+$ sudo chmod a+rw /dev/ttyTHS0
 $ rosrun deepsoccer_ros deepsoccer_lidar.py
 $ rostopic echo /deepsoccer_lidar
 ```
