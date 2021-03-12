@@ -40,7 +40,7 @@ def getTFminiData():
 if __name__ == '__main__':
     # UART Setup:
 	# Board pin-numbering scheme
-    ser = serial.Serial("/dev/ttyTHS1", 115200)
+    ser = serial.Serial("/dev/ttyTHS0", 115200)
     
 	# setup ros node
     pub = rospy.Publisher('deepsoccer_lidar', String, queue_size=10)
