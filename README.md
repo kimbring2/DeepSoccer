@@ -153,7 +153,10 @@ $ roslaunch deepsoccer_ros start.launch
 ```
 
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
-```$ python deepsoccer_main.py ```
+```
+$ source ~/cvbridge_build_ws/install/setup.bash --extend
+$ python deepsoccer_main.py 
+```
 
 # 7. Simulation unit test
 I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
