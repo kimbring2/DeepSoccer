@@ -23,7 +23,6 @@ Each ROS package for simulation and real robot is placed separately in two folde
 
 1. ROS package for simulation robot: https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc
 2. ROS package for real robot: https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_jetson
-3. Simulation to Real: 
 
 You can run each part separately. However, two part should be connected by sim2real method.
 
