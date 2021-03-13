@@ -58,12 +58,12 @@ You can also give a control command using Python code. Run 'jetson_soccer_main.p
 ```$ python deepsoccer_main.py ```
 
 # 3. Teleoperation test
-Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that teleoperation_soccer.ipynb file. Upload it to Jetson Nano and run it.
+Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that [teleoperation_soccer.ipynb](https://github.com/kimbring2/DeepSoccer/blob/master/etc/teleoperation_soccer.ipynb) file. Upload it to Jetson Nano and run it.
 
 [![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
 
-You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is little weak for playing real soccer.
+You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is still not enough to play real soccer.
 
 # 4. Using pretrained model at Jetson board 
 In order to use the model trained by Gazebo simulation at Jetson embedded board. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
