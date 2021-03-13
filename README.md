@@ -17,12 +17,14 @@ I remodel hardware of Jetbot because it is not suitable for soccer. As you know 
 You can see detailed information about hardware design at https://kimbring2.github.io/2020/10/08/deepsoccer.html#design_deepsoccer.
 
 # 3. Relationship between simualtion and real part
-The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
+The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together.
 
 Each ROS package for simulation and real robot is placed separately in two folder.
 
 1. ROS package for simulation robot: https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc
 2. ROS package for real robot: https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_jetson
+
+You can run each part separately. However, two part should be connected by sim2real method.
 
 # 4. Reference
 - Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
