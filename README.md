@@ -9,10 +9,10 @@ Finally, hardware information of robot also will be shared as cad format for mak
 
 More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
 
-# 2. Deepsoccer
+# 2. Robot design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely.
 
-<img src="image/deepsoccer_hardware_v2_1.jpg" width="450"> <img src="image/deepsoccer_hardware_v2_3.jpg" width="450">
+<img src="image/DeepSoccer_hardware_design.png" width="450"> <img src="image/deepsoccer_hardware_v2_1.jpg" width="450">
 
 You can see detailed information about hardware design at https://kimbring2.github.io/2020/10/08/deepsoccer.html#design_deepsoccer.
 
