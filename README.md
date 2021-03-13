@@ -16,6 +16,8 @@ I remodel hardware of Jetbot because it is not suitable for soccer. As you know 
 
 You can see detailed information about hardware design at https://kimbring2.github.io/2020/10/08/deepsoccer.html#design_deepsoccer.
 
+<img src="image/sim2real_instruction.png" width="800">
+
 # 3. Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together.
 
