@@ -103,7 +103,7 @@ If you get error message includes 'No transform from', try to install unicode ub
 $ sudo apt-get install unicode 
 ```
 
-## 5) Python code for real robot
+# 6. Real robot unit test
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
 
 Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node.
@@ -158,7 +158,7 @@ $ source ~/cvbridge_build_ws/install/setup.bash --extend
 $ python deepsoccer_main.py 
 ```
 
-# 7. Simulation unit test
+# 7. Simulation robot unit test
 I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
 After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
