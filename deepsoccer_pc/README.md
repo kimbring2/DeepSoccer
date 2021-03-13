@@ -1,62 +1,14 @@
-# 1. Introduction
-The purpose of this project is making a soccer robot. For this purpose, various methods and tools are introduced such as Robot Operation System (ROS) for robot control, and Deep Reinforcement Learning for controlling algorithm. 
-
-Due to the characteristic of Deep Learning, a large amount of training data is required. Thus, virtual simulation tool of ROS called Gazebo is additionally used. The project uses the one of famous Deep Reinforcement Learning algorithm which uses a human expert data for improving performance.
-
-In order to use the robot algorithm trained in the virtual simulation in the real world, I use a CycleGAN for generating view of simulation world from view of real world. 
-
-Finally, hardware information of robot also will be shared as cad format for making other researchers, makers to use this project for their own purpose.
-
-More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
-
-# 2. Software Dependency
-## 1) ROS, Gazebo
+# 1. Software Dependency
 - ROS Melodic, Gazebo 9
 - ROS openai_ros package
 - Gazebo only provides Python 2.7(From ROS Noetic at Ubuntu 20.04, Python3 can be used)
-
-## 2) Python 
 - Tensorflow 2.1.0
 - requests 
 - pynput
 - progressbar
 - opencv-python
 
-## 3) Jetson Embedded Board
-- JetPack 4.4
-- ROS Melodic
-- Tensorflow 2.2.0
-- Python2 for ROS acuator, sensor node
-- Python3 for ROS main node
-
-# 3. Reference
-- Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
-- Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
-- URDF file usage in Gazebo: [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
-- Object detecion using cvlib: [Object detecion using cvlib](https://towardsdatascience.com/object-detection-with-less-than-10-lines-of-code-using-python-2d28eebc5b11)
-- Soccer field, ball model: [Soccer field, ball model](https://github.com/RoboCup-MSL/MSL-Simulator)
-- Reinforcement Learnig model: [Reinforcement Learnig model](https://medium.com/emergent-future/simple-reinforcement-learning-with-tensorflow-part-6-partial-observability-and-deep-recurrent-q-68463e9aeefc)
-- Inference saved model: [Tensorrt](http://litaotju.github.io/2019/01/24/Tensorflow-Tutorial-6,-Using-TensorRT-to-speedup-inference/)
-- Onshape 3D model to URDF: [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/)
-- GPIO control for solenoid electromagnet : https://www.jetsonhacks.com/2019/06/07/jetson-nano-gpio/ ,https://github.com/NVIDIA/jetson-gpio
-- Ball kicking mechanism: https://www.youtube.com/watch?v=fVGrYoqn-EU
-- How to read LaserScan data(ROS python): https://www.theconstructsim.com/read-laserscan-data/
-- Convert Video to Images (Frames) & Images (Frames) to Video using OpenCV (Python) : https://medium.com/@iKhushPatel/convert-video-to-images-images-to-video-using-opencv-python-db27a128a481
-- Python Multithreading with pynput.keyboard.listener: https://stackoverflow.com/a/59520236/6152392
-- How to use a Gazebo as type of OpenAI Gym: http://wiki.ros.org/openai_ros
-- Solenoid joint spring plugin: https://github.com/aminsung/gazebo_joint_torsional_spring_plugin
-- Custom control plugin for Gazebo: http://gazebosim.org/tutorials?tut=guided_i5&cat=
-- Forgetful Expirience Replay for Reinforcement Learning from Demonstrations: https://github.com/cog-isa/forger
-- Compiling ROS cv_bridge with Python3: https://cyaninfinite.com/ros-cv-bridge-with-python-3/
-- Style Transfer for Sim2Real: https://github.com/cryu854/FastStyle
-- CycleGAN for Sim2Real: https://www.tensorflow.org/tutorials/generative/cyclegan
-- Image Segmentation for CycleGAN: https://www.kaggle.com/santhalnr/cityscapes-image-segmentation-pspnet
-
-# 4. Etc
-## 1) Relationship between simualtion and real part
-The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together. However, you can run only simulation without any actual hardware.
-
-## 2) How to build ROS project
+# 2. Usage
 At your terminal, run below command.
 
 ```
@@ -67,10 +19,7 @@ $ catkin_make
 $ source devel/setup.bash
 ```
 
-## 3) Dependent ROS package install
-Put a 'https://github.com/kimbring2/DeepSoccer/tree/master/spawn_robot_tools' folder to your 'catkin_ws/src' folder.
-
-# 5. Troubleshooting 
+# 3. Troubleshooting 
 ## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
 
@@ -96,65 +45,14 @@ If you get error message includes 'No transform from', try to install unicode ub
 $ sudo apt-get install unicode 
 ```
 
-## 5) Python code for real robot
-First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
-
-Then run roscore on Jetbot terminal and publish the camera frame using jetbot_camera node.
-```
-$ roscore 
-$ rosrun deepsoccer_ros deepsoccer_camera 
-```
-
-You can control a wheel motor using below Python script. 
-```
-$ rosrun deepsoccer_ros deepsoccer_motors.py 
-$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel1 std_msgs/String --once "'30'"
-$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel2 std_msgs/String --once "'30'"
-$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel3 std_msgs/String --once "'30'"
-$ rostopic pub -1 /deepsoccer_motors/cmd_str_wheel4 std_msgs/String --once "'30'"
-```
-
-You can control a roller and solenoid motor using two Python script. 
-```
-$ rosrun deepsoccer_ros deepsoccer_roller.py 
-$ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "in"
-$ rostopic pub -1 /deepsoccer_roller/cmd_str std_msgs/String --once "out"
-```
-
-```
-$ rosrun deepsoccer_ros deepsoccer_solenoid.py 
-$ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "in"
-$ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "out"
-```
-
-For getting lidar sensor distance and infrared object detection value.
-```
-$ sudo chmod a+rw /dev/ttyTHS1 
-$ rosrun deepsoccer_ros deepsoccer_lidar.py
-$ rostopic echo /deepsoccer_lidar
-```
-
-```
-$ rosrun deepsoccer_ros deepsoccer_infrared.py
-$ rostopic echo /deepsoccer_infrared
-```
-
-You can start all node by just one command line.
-
-```
-$ roslaunch deepsoccer_ros start.launch
-```
-
-You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
-```$ python deepsoccer_main.py ```
-
-# 6. DeepSoccer design
+# 4. DeepSoccer design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
 
 I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
 After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
 
+# 5. Unit test
 ## 1) RViz test
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
@@ -253,7 +151,8 @@ Since the jetbot soccer version uses solenoid electromagnet for kicking ball whi
 
 The built custom plugin is used for stick joint. You need to declare it in the jetbot_soccer.gazebo file as like above.
 
-## 6) Use DeepSoccer as OpenAI Gym format 
+# 6. Training robot in simulaation
+## 1) Use DeepSoccer as OpenAI Gym format 
 After changing a line of start_training.launch like below.
 
 ```
@@ -267,7 +166,7 @@ Start Gazebo by using below command.
 $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
-## 7) Collect your playing dataset
+## 2) Collect your playing dataset
 Since Reinforcement Learning used in DeepSoccer is a method that uses expert data, user can control a robot directly. For using [collecting_human_dataset.py file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/collecting_human_dataset.py) for that, you need to change a line of launch file located in [launch folder](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training/launch).
 
 ```
@@ -283,7 +182,7 @@ Once Gazebo is started, you can give commands to the robot using the keyboard ke
 
 You can set the path and name of saving file by changing a save_path and save_file options of [my_deepsoccer_single_params.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/my_deepsoccer_single_params.yaml).
 
-## 8) Training DeepSoccer using Deep Reinforcement Learning
+## 3) Training DeepSoccer using Deep Reinforcement Learning
 You can train a robot using human demonstration data(https://drive.google.com/drive/folders/1s6hmnXj9IfdfTJzRg9rVuYyJ65MTTluU?usp=sharing). Change a line of launch file like that.
 
 Robot soccer is quite difficult to hold the ball accurately unlike soccer games where you can control a ball by just pressing a key. The process for the robot to hold the ball is divided into several stages. First stage is rotating angle of robot for capturing ball inside of front camera angle. Next, robot must move to the ball keeping it in the center of the camera in order to hold it by the roller. Finally, robot should move forward towards the goal post while fixing the ball to the roller. When robot get close enough to the goal post, it can kick the ball using solenoid electromagnet.
@@ -311,51 +210,3 @@ $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
 All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml). Buffer size and pretrain steps are important. Save_dir, tb_dir parameter means saving location of trained Tensorflow model and Tensorboard log file.   
-
-## 9) Using pretrained model at Jetson board 
-In order to use the model trained by Gazebo simulation at Jetson embedded board. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
-
-After placing [DeepSoccer_ROS Package](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_ros) to your ROS workspace of Jetson Xavier NX, run below command.
-
-```
-$ roscore
-$ roslaunch deepsoccer_ros start.launch
-```
-
-It will launch all actuator and sensor ROS node. After that, change a pre_trained_model.ckpt folder path what you copied at [deepsoccer_main.py](https://github.com/kimbring2/DeepSoccer/blob/master/jetbot_ros/scripts/deepsoccer_main.py). Next, move to script folder of deepsoccer_ros ROS package and run below command.
-
-```
-$ python3 deepsoccer_main.py
-```
-
-Because Tensorflow 2 of Jetson Xavier NX only can be run by Python3, you need to do one more job because cv_bridge of ROS melodic is not able to be ran at Python3. Please follow a intruction at https://cyaninfinite.com/ros-cv-bridge-with-python-3/.
-
-If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
-
-[![Deepsoccer Deep Reinforcement Learning training result](https://img.youtube.com/vi/Ur7L5j9fIwY/sddefault.jpg)](https://youtu.be/Ur7L5j9fIwY "DeepSoccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
-It is confirmed that robot do not show the same movement as the trained one when the raw camera frame is used as input to the RL model.
-
-# 7. Citation
-If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
-
-```
-@misc{kim2020deepsoccer,
-  author = {Dohyeong, Kim},
-  title = {DeepSoccer},
-  year = {2020},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/kimbring2/DeepSoccer/}},
-  commit = {9ccab28a7e2a9a14caa119a765f95e2c6d0b044e}
-}
-```
-
-# 8. Acknowledgement
-<img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
-
-<img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI Specialist certification from NVIDIA by this project</strong>
-
-# 9. License
-Apache License 2.0
