@@ -89,14 +89,6 @@ https://www.ebay.com/itm/50mm-Engraving-Rubber-Roller-Brayer-Stamping-Printing-S
 
 For the part for grabiing the soccer ball, I use a part of engraving roller. The core of the roller is made by 3D printer and connected to a DC motor which is included in origin Jetbot.
 
-[![Roller standalone test](https://img.youtube.com/vi/u3jQLBPoC7Q/0.jpg)](https://youtu.be/u3jQLBPoC7Q "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
-After completing the operation test with the roller alone, it is mounted on the of the robot second body layer. Since then, I test whether robot can actually hold the ball.
-
-[![Roller installed test](https://img.youtube.com/vi/PC2Yblt2Gek/sddefault.jpg)](https://www.youtube.com/watch?v=PC2Yblt2Gek "DeepSoccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
-
 ## Solenoid
 For the part for kicking the soccer ball, I use a solenoid electromagnet. To control the solenoid electromagnet in the ROS, we should control GPIO using code. I use a GPIO library of Jetson (https://github.com/NVIDIA/jetson-gpio) provided by NVIDIA.
 
@@ -109,9 +101,6 @@ It is determined that directly connecting the solenoid motor directly to the 12V
 3. [Limit switch(Relay module can replace it)](https://www.aliexpress.com/item/32860423798.html?spm=a2g0s.9042311.0.0.2db94c4dNsaPDZ)
 
 After a 250v 1000uf capacitor and a ±45V-390V capacitor charger are added, a solenoid can push a heavy a billiard ball to considerable distance.
-
-[![Solenoid test 5](https://img.youtube.com/vi/n_TAL5K73aA/hqdefault.jpg)](https://youtu.be/n_TAL5K73aA "Jetbot Soccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
 
 # 3. Usage
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
