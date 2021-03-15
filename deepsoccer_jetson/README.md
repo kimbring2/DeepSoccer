@@ -39,34 +39,6 @@ After connecting the hardware, download the Jetbot package from https://github.c
 
 After that, try to register sevice to execut OLED file automatically when the board boot. First, move to /etc/systemd/system/ location of Ubuntu. Then, create a file named deepsoccer_stats.service with following contents.
 
-```
-[Unit]
-Description=DeepSoccer stats display service
-[Service]
-Type=simple
-User=kimbring2
-ExecStart=/bin/sh -c "python3 /home/kimbring2/jetbot/jetbot/apps/stats.py"
-Restart=always
-[Install]
-WantedBy=multi-user.target
-```
-
-Then, register the file as a service and start it as shown below.
-
-```
-$ systemctl daemon-reload
-$ systemctl enable deepsoccer_stats
-$ systemctl start deepsoccer_stats
-```
-
-The registered service can be confirmed with the following command.
-
-```
-sudo systemctl status deepsoccer_stats
-```
-
-<img src="/image/deepsoccer_oled_3.png" width="800">
-
 ## Wheel
 <img src="/image/NX_Dynamixel.png" width="800">
 
