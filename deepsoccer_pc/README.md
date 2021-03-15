@@ -46,11 +46,11 @@ $ sudo apt-get install unicode
 ```
 
 # 4. DeepSoccer design
-I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely. Battery, DC motor, WiFi antenna of previous Jetbot are reused for easy developing.
+Original Jetbot is not suitable for soccer because it can not kick and hold a ball. The redesigned robot has a rubber roller and solenoid electromagnet to do that task. Additionaly, normal wheel is changed to omniwheel for more dynamic movement.
 
-I use Onshape cloud 3D modeling program to create a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
+Onshape cloud is used to create and share a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
-After making 3D model, I convert it to URDF format for Gazebo simulation using [onshape-to-robot](https://github.com/rhoban/onshape-to-robot/).
+After making 3D model, it is converted to URDF format for Gazebo simulation. [Onshape-to-robot](https://github.com/rhoban/onshape-to-robot/) is used to it.
 
 # 5. Unit test
 ## 1) RViz test
@@ -126,7 +126,7 @@ Gazebo simulator visualize the range of the lidar sensor. You can see the range 
 <strong>Click to Watch!</strong>
 
 ## 4) Gazebo solenoid electromagnet joint plugin
-Since the jetbot soccer version uses solenoid electromagnet for kicking ball which has a spring, it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, 'solenoid_electromagnet_joint_spring_plugin' package need be built using 'catkin_make' command.
+Since the DeepSoccer uses solenoid electromagnet for kicking ball which has a spring, it cannot be implemented using default controller of Gazebo. In such a case, we are able to create a custom plugin. First, [solenoid electromagnet joint spring plugin](https://github.com/kimbring2/DeepSoccer/tree/master/solenoid_electromagnet_joint_spring_plugin) package need be built using 'catkin_make' command.
 
 <center><strong>Spring equation for solenoid electromagnet </strong></center>
 
