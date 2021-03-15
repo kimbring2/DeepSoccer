@@ -53,7 +53,7 @@ Onshape cloud is used to create and share a model. You can see [DeepSoccer 3D mo
 After making 3D model, it is converted to URDF format for Gazebo simulation. [Onshape-to-robot](https://github.com/rhoban/onshape-to-robot/) is used to it.
 
 # 5. Unit test
-## 1) RViz test
+## 1) RViz
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
 $ roslaunch deepsoccer_description deepsoccer_rviz.launch
@@ -61,7 +61,7 @@ $ roslaunch deepsoccer_description deepsoccer_rviz.launch
 
 After launching a RViz, you can control of each wheel and roller using dialog box.
 
-## 2) Gazebo test
+## 2) Gazebo
 After checking operation of each part at RViz, try to control it in Gazebo simulation.
 
 ```
