@@ -10,7 +10,7 @@ Finally, hardware information of robot also will be shared as 3D CAD format to a
 More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
 
 # 2. Prerequisite
-This project started from originally [Jetbot](https://www.amazon.com/Waveshare-JetBot-AI-Kit-Accessories/dp/B07V8JL4TF/?th=1). Therefore, the hardware and software are advanced one of of Jetbot. It is highly recommended that you first try to run original Jetbot before trying DeepSoccer.
+This project started from originally [Jetbot](https://www.amazon.com/Waveshare-JetBot-AI-Kit-Accessories/dp/B07V8JL4TF/?th=1). Therefore, the hardware and software are advanced form of Jetbot. It is highly recommended that you first try to run original Jetbot before trying DeepSoccer.
 
 <img src="image/DeepSoccer_Concept.png" width="800">
 
