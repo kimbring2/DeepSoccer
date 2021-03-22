@@ -1,15 +1,19 @@
 # 1. Introduction
-The purpose of this project is making a soccer robot. For this purpose, various methods and tools are introduced such as Robot Operation System (ROS) for robot control, and Deep Reinforcement Learning for controlling algorithm. 
+The purpose of this project is making a soccer robot. For this purpose, various methods and tools are used together such as Robot Operation System (ROS) for robot control, and Deep Reinforcement Learning for controlling algorithm. 
 
 Due to the characteristic of Deep Learning, a large amount of training data is required. Thus, virtual simulation tool of ROS called Gazebo is additionally used. The project uses the one of famous Deep Reinforcement Learning algorithm which uses a human expert data for improving performance.
 
 In order to use the robot algorithm trained in the virtual simulation in the real world, I use a CycleGAN for generating view of simulation world from view of real world. 
 
-Finally, hardware information of robot also will be shared as cad format for making other researchers, makers to use this project for their own purpose.
+Finally, hardware information of robot also will be shared as 3D CAD format to allow other researchers, makers can use this project for their own purpose.
 
 More detailed instruction can be found at my [blog post of DeepSoccer](https://kimbring2.github.io/2020/10/08/deepsoccer.html)
 
-# 2. Robot design
+# 2. Prerequisite
+
+<img src="image/DeepSoccer_Concept.png" width="800">
+
+# 3. Robot design
 I remodel hardware of Jetbot because it is not suitable for soccer. As you know easily, soccer robot needd a kicking and holding part. The Jetbot soccer version can hold a soccer ball and kick it. The wheel part is changed to omniwheel type for moving more freely.
 
 <img src="image/DeepSoccer_hardware_design.png" width="450"> <img src="image/deepsoccer_hardware_v2_1.jpg" width="450">
@@ -18,7 +22,7 @@ You can see detailed information about hardware design at https://kimbring2.gith
 
 <img src="image/sim2real_instruction.png" width="800">
 
-# 3. Relationship between simualtion and real part
+# 4. Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together.
 
 Each ROS package for simulation and real robot is placed separately in two folder.
@@ -29,7 +33,7 @@ Each ROS package for simulation and real robot is placed separately in two folde
 
 You can run each part separately. However, two part should be connected by sim2real method.
 
-# 4. Reference
+# 5. Reference
 - Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
 - Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
 - URDF file usage in Gazebo: [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
@@ -52,7 +56,7 @@ You can run each part separately. However, two part should be connected by sim2r
 - CycleGAN for Sim2Real: https://www.tensorflow.org/tutorials/generative/cyclegan
 - Image Segmentation for CycleGAN: https://www.kaggle.com/santhalnr/cityscapes-image-segmentation-pspnet
 
-# 5. Citation
+# 6. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -67,10 +71,10 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 6. Acknowledgement
+# 7. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
 
 <img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI Specialist certification from NVIDIA by this project</strong>
 
-# 7. License
+# 8. License
 Apache License 2.0
