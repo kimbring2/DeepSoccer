@@ -9,7 +9,7 @@
 - opencv-python
 
 # 2. Usage
-At your terminal, run below command.
+After installing software mentioned above, run below command.
 
 ```
 $ cd ~/catkin_ws/src/
