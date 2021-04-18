@@ -19,14 +19,19 @@ $ catkin_make
 $ source devel/setup.bash
 ```
 
-You can also use a Docker image for this repo using below command.
+You can also use a Docker image for this repo using below command. Afte that, you can connect to created container by VNC(http://127.0.0.1:6080/#/).
 
 ```
 $ docker run -it --rm -p 6080:80 --name=env_1 kimbring2/deepsoccer:latest
 ```
 
-Afte that, you can connect to created container by VNC(http://127.0.0.1:6080/#/).
+Because of low speed of Gazebo simulation in Docker image, you need to see Gazebo of it by using host PC. However, you shoud place ROS package to ' /root/catkin_ws/src' for rendering robot model. After that, get IP address of Docker image and connect to it by using below command.
 
+```
+$ export GAZEBO_MASTER_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' env_1)
+$ export GAZEBO_MASTER_URI=$GAZEBO_MASTER_IP:11345
+$ gzclient --verbose
+```
 
 # 3. Troubleshooting 
 ## 1) RLException Error
