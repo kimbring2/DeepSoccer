@@ -56,6 +56,8 @@ You can run each part separately. However, two part should be connected by sim2r
 - Style Transfer for Sim2Real: https://github.com/cryu854/FastStyle
 - CycleGAN for Sim2Real: https://www.tensorflow.org/tutorials/generative/cyclegan
 - Image Segmentation for CycleGAN: https://www.kaggle.com/santhalnr/cityscapes-image-segmentation-pspnet
+- Docker Gazebo: https://hub.docker.com/_/gazebo
+- Docker image for ROS melodic: https://github.com/fbottarel/docker-ros-desktop-full
 
 # 6. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
