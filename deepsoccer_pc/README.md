@@ -22,7 +22,7 @@ $ source devel/setup.bash
 You can also use a Docker image for this repo using below command.
 
 ```
-$ docker run -it --rm -p 6080:80 kimbring2/deepsoccer:latest
+$ docker run -it --rm -p 6080:80 --name=env_1 kimbring2/deepsoccer:latest
 ```
 
 Afte that, you can connect to created container by VNC(http://127.0.0.1:6080/#/).
