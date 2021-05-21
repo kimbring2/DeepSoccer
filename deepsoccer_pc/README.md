@@ -33,6 +33,14 @@ $ export GAZEBO_MASTER_URI=$GAZEBO_MASTER_IP:11345
 $ gzclient --verbose
 ```
 
+After connecting to the docker image with VNC, move to the catkin_ws folder. Then, you can start the simulation by executing the following command.
+
+```
+$ catkin_make
+$ source devel/setup.bash
+$ roslaunch my_deepsoccer_training start_training.launch
+```
+
 # 3. Troubleshooting 
 ## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
