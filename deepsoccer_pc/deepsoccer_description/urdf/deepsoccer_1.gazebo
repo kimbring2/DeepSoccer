@@ -20,15 +20,15 @@
   </gazebo>
 
   <gazebo reference="roller_1">
-    <mu1>150</mu1>
-    <mu2>75</mu2>
+    <mu1>300</mu1>
+    <mu2>150</mu2>
   </gazebo>
 
   <!-- camera -->
   <gazebo reference="camera_link">
     <sensor type="camera" name="camera1">
       <visualize>true</visualize>
-      <update_rate>30.0</update_rate>
+      <update_rate>60.0</update_rate>
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
@@ -53,7 +53,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>30.0</updateRate>
-        <cameraName>camera1</cameraName>
+        <cameraName>camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera_link</frameName>

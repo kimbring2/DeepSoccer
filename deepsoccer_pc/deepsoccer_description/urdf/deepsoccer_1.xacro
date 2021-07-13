@@ -318,7 +318,7 @@
 		<parent link="body_1" />
 		<child link="roller_1" />
 		<axis xyz="-1 0 0"/>
-		<limit lower="-1e+16" upper="1e+16" effort="1.5" velocity="200" />
+		<limit lower="-1e+16" upper="1e+16" effort="1.5" velocity="1000" />
 		<joint_properties friction="0.0"/>
 	</joint>
 	<link name="horn4_1">
