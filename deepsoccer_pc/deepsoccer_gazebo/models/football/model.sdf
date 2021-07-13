@@ -21,27 +21,28 @@
          <collision name="collision">
             <geometry>
                <sphere>
-                  <radius>0.031</radius>
+                  <radius>0.028</radius>
                </sphere>
             </geometry>
             <surface>
                <bounce>
-                  <restitution_coefficient>0.20</restitution_coefficient>
+                  <restitution_coefficient>0.0002</restitution_coefficient>
                   <threshold>1</threshold>
                </bounce>
                <friction>
                   <torsional>
-                     <coefficient>0.1</coefficient>
-                     <patch_radius>0.031</patch_radius>
+                     <coefficient>0.00001</coefficient>
+                     <patch_radius>0.00001</patch_radius>
                   </torsional>
                   <ode>
-                     <mu>10</mu>
-                     <mu2>5</mu2>
+                     <mu>50</mu>
+                     <mu2>25</mu2>
                   </ode>
                </friction>
                <contact>
                   <ode>
-                     <max_vel>50</max_vel>
+                     <max_vel>0.00001</max_vel>
+                     <min_depth>0.00001</min_depth>
                   </ode>
                </contact>
             </surface>
@@ -49,7 +50,7 @@
          <visual name="visual">
             <geometry>
                <mesh>
-                  <scale>0.031 0.031 0.031</scale>
+                  <scale>0.028 0.028 0.028</scale>
                   <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/meshes/ball.dae</uri>
                </mesh>
             </geometry>
