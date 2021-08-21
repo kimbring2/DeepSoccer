@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from gym.envs.registration import register
 from gym import envs
 
@@ -193,7 +193,7 @@ def RegisterOpenAI_Ros_Env(task_env, max_episode_steps=10000):
         # import our training environment
         from openai_ros.task_envs.wamv import wamv_nav_twosets_buoys
 
-    elif task_env == 'MyDeepSoccerSingle-v0':
+    elif task_env == 'DeepSoccerSingle-v0':
         register(
             id=task_env,
             entry_point='openai_ros.task_envs.deepsoccer.deepsoccer_single:DeepSoccerSingleEnv',
