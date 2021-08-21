@@ -17,29 +17,11 @@ $ git clone https://github.com/kimbring2/DeepSoccer.git
 $ cd ..
 $ catkin_make
 $ source devel/setup.bash
+$ roslaunch my_deepsoccer_training start_tutorial.launch
 ```
 
-You can also use a Docker image for this repo using below command. Afte that, you can connect to created container by VNC(http://127.0.0.1:6080/#/).
+It will start a [tutorial file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/gym_tutorial.py) of DeepSoccer as format of OpenAI Gym environment. 
 
-```
-$ docker run -it --rm -p 6080:80 --name=env_1 kimbring2/deepsoccer:latest
-```
-
-Because of low speed of Gazebo simulation in Docker image, you need to see Gazebo of it by using host PC. However, you shoud place ROS package to ' /root/catkin_ws/src' for rendering robot model. After that, get IP address of Docker image and connect to it by using below command.
-
-```
-$ export GAZEBO_MASTER_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' env_1)
-$ export GAZEBO_MASTER_URI=$GAZEBO_MASTER_IP:11345
-$ gzclient --verbose
-```
-
-After connecting to the docker image with VNC, move to the catkin_ws folder. Then, you can start the simulation by executing the following command.
-
-```
-$ catkin_make
-$ source devel/setup.bash
-$ roslaunch my_deepsoccer_training start_training.launch
-```
 
 # 3. Troubleshooting 
 ## 1) RLException Error
@@ -224,3 +206,20 @@ $ roslaunch my_deepsoccer_training start_training.launch
 ```
 
 All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml). Buffer size and pretrain steps are important. Save_dir, tb_dir parameter means saving location of trained Tensorflow model and Tensorboard log file.   
+
+# 6. Docker 
+You can also use a Docker image for this repo using below command. Afte that, you can connect to created container by VNC(http://127.0.0.1:6080/#/).
+
+```
+$ docker run -it --rm -p 6080:80 --name=env_1 kimbring2/deepsoccer:latest
+```
+
+Because of low speed of Gazebo simulation in Docker image, you need to see Gazebo of it by using host PC. However, you shoud place ROS package to ' /root/catkin_ws/src' for rendering robot model. After that, get IP address of Docker image and connect to it by using below command.
+
+```
+$ export GAZEBO_MASTER_IP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' env_1)
+$ export GAZEBO_MASTER_URI=$GAZEBO_MASTER_IP:11345
+$ gzclient --verbose
+```
+
+After connecting to the docker image with VNC, move to the catkin_ws folder. Then, you can start the simulation by executing the following command.
