@@ -29,7 +29,6 @@ def reset_pose():
   
     alpha = 2 * math.pi * random.random()
     robot_quaternion = quaternion_from_euler(0, 0, alpha)
-    #print("robot_quaternion: " + str(robot_quaternion))
 
     pose_robot.orientation.x = robot_quaternion[0]
     pose_robot.orientation.y = robot_quaternion[1]
@@ -65,7 +64,7 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         """
 
         # This is the path where the simulation files, the Task and the Robot gits will be downloaded if not there
-        ros_ws_abspath = rospy.get_param("/deepsoccer/ros_ws_abspath", None)
+        ros_ws_abspath = rospy.get_param("/deepsoccer_single/ros_ws_abspath", None)
         assert ros_ws_abspath is not None, "You forgot to set ros_ws_abspath in your yaml file of your main RL script. Set ros_ws_abspath: \'YOUR/SIM_WS/PATH\'"
         assert os.path.exists(ros_ws_abspath), "The Simulation ROS Workspace path " + ros_ws_abspath + \
                                                " DOESNT exist, execute: mkdir -p " + ros_ws_abspath + \
@@ -91,20 +90,6 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         self.reward_range = (-numpy.inf, numpy.inf)
 
         self.ir_result = False 
-
-        #number_observations = rospy.get_param('/turtlebot2/n_observations')
-        """
-        We set the Observation space for the 6 observations
-        cube_observations = [
-            round(current_disk_roll_vel, 0),
-            round(y_distance, 1),
-            round(roll, 1),
-            round(pitch, 1),
-            round(y_linear_speed,1),
-            round(yaw, 1),
-        ]
-        """
-
         self.last_action = None
 
         # Actions and Observations
@@ -133,8 +118,6 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         num_laser_readings = int(len(laser_scan.ranges)/self.new_ranges)
         high = numpy.full((num_laser_readings), self.max_laser_value)
         low = numpy.full((num_laser_readings), self.min_laser_value)
-        #print("high: " + str(high))
-        #print("low: " + str(low))
 
         self.observation_space = spaces.Dict({
             'lidar': spaces.Box(low=0, high=12, shape=(1,)),
@@ -143,9 +126,6 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         })
         
         # We only use two integers
-        #self.observation_space = spaces.Box(low, high)
-        #print("self.observation_space: " + str(self.observation_space))
-
         rospy.logdebug("ACTION SPACES TYPE===>"+str(self.action_space))
         rospy.logdebug("OBSERVATION SPACES TYPE===>"+str(self.observation_space))
 
@@ -156,13 +136,10 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
 
         self.cumulated_steps = 0.0
 
-        reset_pose()
-
     def _set_init_pose(self):
         """Sets the Robot in its init pose
         """
         self.move_base(0, 0, 0, 0, 0, 0)
-
         return True
 
     def _init_env_variables(self):
@@ -184,19 +161,13 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         #self.previous_distance_from_des_point = self.get_distance_from_desired_point(odometry.pose.pose.position)
         self.previous_distance_from_des_point = self.get_distance_from_desired_point(robot1_pose.position)
 
+        reset_pose()
+
     def _set_action(self, action):
         """
         This set action will Set the linear and angular speed of the turtlebot2
         based on the action number given.
         :param action: The action integer that set s what movement to do next.
-
-        stop_action = [0, 0, 0, 0, 30, 80]
-        forward_action = [-30, 30, 30, -30, 30, 0]
-        left_action = [30, 30, 30, 30, 30, 0]
-        right_action = [-30, -30, -30, -30, 30, 0]
-        bacward_action = [30, -30, -30, 30, 30, 0]
-        hold_action = [0, 0, 0, 0, 30, 0]
-        kick_action = [0, 0, 0, 0, 0, -80]
         """
 
         rospy.logdebug("Start Set Action ==>" + str(action))
@@ -205,34 +176,33 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
             self.move_base(0, 0, 0, 0, 0, 0)
             self.last_action = "STOP"
         elif action == 1: #FORWARD
-            self.move_base(-50, 50, 50, -50, 50, 0)
+            self.move_base(-50, 50, 50, -50, 75, 0)
             self.last_action = "FORWARD"
         elif action == 2: #LEFT
-            self.move_base(30, 30, 30, 30, 30, 0)
+            self.move_base(30, 30, 30, 30, 75, 0)
             self.last_action = "LEFT"
         elif action == 3: #RIGHT
-            self.move_base(-30, -30, -30, -30, 50, 0)
+            self.move_base(-30, -30, -30, -30, 75, 0)
             self.last_action = "RIGHT"
         elif action == 4: #BACKWARD
-            self.move_base(50, -50, -50, 50, 50, 0)
+            self.move_base(50, -50, -50, 50, 75, 0)
             self.last_action = "BACKWARD"
         elif action == 5: #HOLD
-            self.move_base(0, 0, 0, 0, 50, 0)
+            self.move_base(0, 0, 0, 0, 75, 0)
             self.last_action = "HOLD"
         elif action == 6: #KICK
             #self.move_base(0, 0, 0, 0, 0, -50)
             if self.last_action != "KICK":
-                self.move_base(0, 0, 0, 0, 100, -50)
+                self.move_base(0, 0, 0, 0, 75, -50)
                 self.last_action = "KICK"
             else:
-                self.move_base(0, 0, 0, 0, 50, 0)
+                self.move_base(0, 0, 0, 0, 75, 0)
         elif action == 7: #RUN
-            self.move_base(-80, 80, 80, -80, 50, 0)
+            self.move_base(-80, 80, 80, -80, 75, 0)
             self.last_action = "RUN"
 
         # We tell TurtleBot2 the linear and angular speed to set to execute
         #self.move_base(linear_speed, angular_speed, epsilon=0.05, update_rate=10)
-
         rospy.logdebug("END Set Action ==>" + str(action))
 
     def _get_obs(self):
@@ -250,12 +220,10 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         camera_frame = self.get_camera_rgb_image_raw()
         try:
             cv_image = bridge.imgmsg_to_cv2(camera_frame, "passthrough")
-        except CvBridgeError, e:
+        except e:
             rospy.logerr("CvBridge Error: {0}".format(e))
 
         new_cv_image = cv2.resize(cv_image, (512, 512), interpolation=cv2.INTER_AREA)
-        #cv2.imshow("Image of Robot Camera", new_cv_image)
-        #cv2.waitKey(3)
 
         laser_range = laser_scan.ranges[360]
         if laser_range == float("inf"):
@@ -268,39 +236,17 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
             ir_range = True
         else:
             ir_range = False
-        #if ir_range == float("inf"):
-        #    ir_range = 1
 
         discretized_ir_scan = [ir_range]
 
-        '''
-        discretized_laser_scan = self.discretize_observation( laser_scan,
-                                                                self.new_ranges
-                                                                )
-
-        discretized_ir_scan = self.discretize_observation( ir_scan,
-                                                                self.new_ranges
-                                                                )
-        '''
-        # We get the odometry so that SumitXL knows where it is.
-        #odometry = self.get_odom()
-        #x_position = odometry.pose.pose.position.x
-        #y_position = odometry.pose.pose.position.y
         model_state = self.get_model_state()
         robot1_index = (model_state.name).index("robot1")
         robot1_pose = (model_state.pose)[robot1_index]
         x_position = robot1_pose.position.x
         y_position = robot1_pose.position.y
 
-        # We round to only two decimals to avoid very big Observation space
-        #odometry_array = [round(x_position, 2),round(y_position, 2)]
         model_state_array = [round(x_position, 2),round(y_position, 2)]
 
-        # We only want the X and Y position and the Yaw
-        #observations = discretized_laser_scan + odometry_array
-
-        #print("discretized_ir_scan: " + str(discretized_ir_scan))
-        # discretized_ir_scan: [False]
         self.ir_result = discretized_ir_scan[0]
         observations = [new_cv_image] + discretized_laser_scan + discretized_ir_scan
 
@@ -325,11 +271,6 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
             left_goal_pose = (model_state.pose)[left_goal_index]
             right_goal_pose = (model_state.pose)[right_goal_index]
 
-            #print("robot1_pose.position.x: " + str(robot1_pose.position.x))
-            #print("robot1_pose.position.y: " + str(robot1_pose.position.y))
-            #print("football_pose.position.x: " + str(football_pose.position.x))
-            #print("left_goal_pose.position.x: " + str(left_goal_pose.position.x))
-            #print("left_goal_pose.position.y: " + str(left_goal_pose.position.y))
             if (football_pose.position.x < left_goal_pose.position.x):
                 self._episode_done = True
             elif (football_pose.position.x > right_goal_pose.position.x):
@@ -362,75 +303,38 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         left_goal_pose = (model_state.pose)[left_goal_index]
         right_goal_pose = (model_state.pose)[right_goal_index]
 
-        #print("football_pose.position.x: " + str(football_pose.position.x))
-        #print("left_goal_pose.position.x: " + str(left_goal_pose.position.x))
-        #print("left_goal_pose.position.y: " + str(left_goal_pose.position.y))
         reward = 0
         if (football_pose.position.x < left_goal_pose.position.x):
             reward += 10
         elif (football_pose.position.x > right_goal_pose.position.x):
             reward += -10
 
-        #print("self.ir_result: " + str(self.ir_result))
         if self.ir_result == True:
             reward += 1
 
-        #if (robot1_pose.position.x >= 4):
-        #    self._episode_done = True
-        #elif (robot1_pose.position.y <= -4):
-        #    self._episode_done = True
         orientation_q = robot1_pose.orientation
         orientation_list = [orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
         (roll, pitch, yaw) = euler_from_quaternion(orientation_list)
-        #print("roll: " + str(roll))
-        #print("pitch: " + str(pitch))
         yaw = math.degrees(yaw) + 180
-        #print("yaw: " + str(yaw))
 
         x_diff = football_pose.position.x - robot1_pose.position.x
         y_diff = football_pose.position.y - robot1_pose.position.y
         distance = (((x_diff**2) + (y_diff**2) )**0.5)
-        #print("distance: " + str(distance))
-        #print("y_diff: " + str(y_diff))
 
         tan_value = (y_diff) / (x_diff)
-        #print("cos_value: " + str(cos_value))
         angle_value = math.atan(tan_value)
         angle_value = math.degrees(angle_value) + 90
-        #print("yaw - angle_value: " + str(yaw - angle_value))
         if distance <= 1.2 and (yaw - angle_value) <= 3:
             reward += 0.5
 
         if yaw - angle_value <= 80:
             reward += 0.1
-        '''
-        if not done:
-            if self.last_action == "FORWARDS":
-                reward = self.forwards_reward
-            else:
-                reward = self.turn_reward
 
-            # If there has been a decrease in the distance to the desired point, we reward it
-            if distance_difference < 0.0:
-                rospy.logwarn("DECREASE IN DISTANCE GOOD")
-                reward += self.forwards_reward
-            else:
-                rospy.logerr("ENCREASE IN DISTANCE BAD")
-                reward += 0
-        else:
-            if self.is_in_desired_position(current_position):
-                reward = self.end_episode_points
-            else:
-                reward = -1 * self.end_episode_points
-
-        self.previous_distance_from_des_point = distance_from_des_point
-        '''
         rospy.logdebug("reward=" + str(reward))
         self.cumulated_reward += reward
 
         rospy.logdebug("Cumulated_reward=" + str(self.cumulated_reward))
         self.cumulated_steps += 1
-        #print("self.cumulated_steps=" + str(self.cumulated_steps))
         rospy.logdebug("Cumulated_steps=" + str(self.cumulated_steps))
 
         if self.cumulated_steps == 500:
@@ -451,26 +355,9 @@ class DeepSoccerSingleEnv(deepsoccer_env.DeepSoccerEnv):
         discretized_ranges = []
         mod = len(data.ranges) / new_ranges
 
-        #rospy.logwarn("data=" + str(data))
         rospy.logwarn("new_ranges=" + str(new_ranges))
         rospy.logwarn("mod=" + str(mod))
-        '''
-        for i, item in enumerate(data.ranges):
-            if (i%mod==0):
-                if item == float ('Inf') or numpy.isinf(item):
-                    discretized_ranges.append(self.max_laser_value)
-                elif numpy.isnan(item):
-                    discretized_ranges.append(self.min_laser_value)
-                else:
-                    discretized_ranges.append(int(item))
 
-                if (self.min_range > item > 0):
-                    rospy.logerr("done Validation >>> item=" + str(item) + "< " + str(self.min_range))
-                    self._episode_done = True
-                else:
-                    rospy.logwarn("NOT done Validation >>> item=" + str(item) + "< " + str(self.min_range))
-        '''
-        #print("discretized_ranges: " + str(discretized_ranges))
         lidar_range = data.ranges[360]
         if lidar_range == float("inf"):
             lidar_range = 12
