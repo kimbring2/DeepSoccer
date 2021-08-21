@@ -106,10 +106,8 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
         rospy.logdebug("Finished MyDeepSoccerSingleEnv INIT...")
 
-
     def _model_state_callback(self, data):
         self.model_state = data
-
 
     # Methods needed by the RobotGazeboEnv
     # ----------------------------
@@ -120,7 +118,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
         """
         self._check_all_sensors_ready()
         return True
-
 
     # CubeSingleDiskEnv virtual methods
     # ----------------------------
@@ -133,7 +130,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
         self._check_camera_rgb_image_raw_ready()
         self._check_laser_scan_ready()
         rospy.logdebug("ALL SENSORS READY")
-
 
     def _check_odom_ready(self):
         self.odom = None
@@ -148,7 +144,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
         return self.odom
 
-
     def _check_camera_depth_image_raw_ready(self):
         self.camera_depth_image_raw = None
         rospy.logdebug("Waiting for /camera/depth/image_raw to be READY...")
@@ -162,7 +157,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
         return self.camera_depth_image_raw
 
-
     def _check_camera_depth_points_ready(self):
         self.camera_depth_points = None
         rospy.logdebug("Waiting for /camera/depth/points to be READY...")
@@ -175,7 +169,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
                 rospy.logerr("Current /camera/depth/points not ready yet, retrying for getting camera_depth_points")
 
         return self.camera_depth_points
-
 
     def _check_camera_rgb_image_raw_ready(self):
         self.camera_rgb_image_raw = None
@@ -191,7 +184,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
         return self.camera_rgb_image_raw
 
-
     def _check_ir_scan_ready(self):
         # rospy.Subscriber('/robot1/ir/scan', LaserScan, self.laser_callback)
         self.laser_scan = None
@@ -206,7 +198,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
 
         return self.laser_scan
 
-
     def _check_laser_scan_ready(self):
         # rospy.Subscriber('/robot1/laser/scan', LaserScan, self.laser_callback)
         self.laser_scan = None
@@ -220,7 +211,6 @@ class DeepSoccerEnv(robot_gazebo_env.RobotGazeboEnv):
                 rospy.logerr("Current /robot1/laser/scan not ready yet, retrying for getting laser_scan")
 
         return self.laser_scan
-
 
     def _odom_callback(self, data):
         self.odom = data
