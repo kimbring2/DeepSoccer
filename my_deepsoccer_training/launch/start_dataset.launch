@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!-- This version uses the openai_ros environments -->
+    <rosparam command="load" file="$(find my_deepsoccer_training)/config/deepsoccer_params.yaml" />
+    
+    <!-- Launch the training system -->
+    <node pkg="my_deepsoccer_training" name="deepsoccer_single" type="collecting_human_dataset.py" output="screen"/>
+</launch>
