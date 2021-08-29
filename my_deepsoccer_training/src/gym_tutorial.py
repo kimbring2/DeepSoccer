@@ -22,6 +22,11 @@ from geometry_msgs.msg import Pose
 from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
+os.environ [ "TF_FORCE_GPU_ALLOW_GROWTH" ] = "true"
+gpus = tf.config.experimental.list_physical_devices('GPU')
+tf.config.experimental.set_virtual_device_configuration(gpus[0],
+            [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3500)])
+
 rospy.init_node('deepsoccer_openai_gym_tutorial', anonymous=True, log_level=rospy.WARN)
 
 task_and_robot_environment_name = rospy.get_param('/deepsoccer_single/task_and_robot_environment_name')
@@ -33,15 +38,15 @@ class OurModel(tf.keras.Model):
     def __init__(self, input_shape, action_space):
         super(OurModel, self).__init__()
         
-        self.conv_1 = Conv2D(16, 2, 1, padding="valid", activation="relu", kernel_regularizer='l2')
-    	self.conv_2 = Conv2D(32, 3, 1, padding="valid", activation="relu", kernel_regularizer='l2')
-    	self.conv_3 = Conv2D(32, 5, 1, padding="valid", activation="relu", kernel_regularizer='l2')
+        self.conv_1 = Conv2D(16, 8, 4, padding="valid", activation="relu", kernel_regularizer='l2')
+    	self.conv_2 = Conv2D(32, 4, 2, padding="valid", activation="relu", kernel_regularizer='l2')
+    	self.conv_3 = Conv2D(32, 3, 1, padding="valid", activation="relu", kernel_regularizer='l2')
 
     	self.lstm = LSTM(128, name="core_lstm", return_sequences=True, return_state=True, kernel_regularizer='l2')
 
-        self.dense_0 = Dense(512, activation='relu')
-        self.dense_1 = Dense(action_space)
-        self.dense_2 = Dense(1)
+        self.dense_0 = Dense(512, activation='relu', kernel_regularizer='l2')
+        self.dense_1 = Dense(action_space, kernel_regularizer='l2')
+        self.dense_2 = Dense(1, kernel_regularizer='l2')
         
     def call(self, input_, memory_state, carry_state):
     	batch_size = tf.shape(input_)[0]
@@ -52,11 +57,11 @@ class OurModel(tf.keras.Model):
     	#print("conv_3.shape: ", conv_3.shape)
 
         conv_flatten = Flatten()(conv_3)
-        conv_reshaped = Reshape((57*57, 32))(conv_flatten)
+        conv_reshaped = Reshape((4*4, 32))(conv_flatten)
         #print("conv_reshaped.shape: ", conv_reshaped.shape)
 
         lstm_outputs = tf.TensorArray(tf.float32, size=0, dynamic_size=True)
-        lstm_output = tf.zeros((57*57, 32))
+        lstm_output = tf.zeros((4*4, 32))
         for i in range(0, batch_size):
             lstm_input = tf.expand_dims(conv_reshaped[i], 0)
             initial_state = (memory_state, carry_state)
@@ -108,7 +113,7 @@ class A2CAgent:
         self.state_size = (64,64,5)
         self.action_size = self.env.action_space.n
         #print("self.action_size: ", self.action_size)
-        self.EPISODES, self.episode, self.max_average_reward, self.min_average_loss = 20000, 0, 10.0, 0.2 # specific for pong
+        self.EPISODES, self.episode, self.max_average_reward, self.min_average_loss = 2000000, 0, 10.0, 0.5 # specific for pong
         self.lr = 0.000025
 
         self.ROWS = 64
@@ -119,7 +124,7 @@ class A2CAgent:
         self.scores, self.episodes, self.average = [], [], []
 
         self.Save_Path = 'Models'
-        self.workspace_path = '/home/kimbring2/catkin_ws/src/my_deepsoccer_training' 
+        self.workspace_path = '/home/kimbring2/catkin_ws/src/my_deepsoccer_training/' 
         
         if not os.path.exists(self.Save_Path): os.makedirs(self.Save_Path)
         self.path = '{}_A2C_{}'.format(self.env_name, self.lr)
@@ -222,18 +227,18 @@ class A2CAgent:
         return next_memory_state, next_carry_state
 
     def load(self, model_name):
-        self.ActorCritic = load_model(model_name, compile=False)
-        #self.Critic = load_model(Critic_name, compile=False)
+        self.ActorCritic.load_weights(self.workspace_path + 'src/train/deepsoccer_single/' + model_name)
 
-    def save(self):
-        self.ActorCritic.save(self.model_name)
-        #self.Critic.save(self.Model_name + '_Critic.h5')
+    def save(self, model_name):
+        #print("save_model")
+        self.ActorCritic.save_weights(self.workspace_path + 'src/train/deepsoccer_single/' + model_name)
 
     pylab.figure(figsize=(18, 9))
     def PlotModel(self, score, episode):
         self.scores.append(score)
         self.episodes.append(episode)
         self.average.append(sum(self.scores[-50:]) / len(self.scores[-50:]))
+        '''
         if str(episode)[-2:] == "00":# much faster than episode % 100
             pylab.plot(self.episodes, self.scores, 'b')
             pylab.plot(self.episodes, self.average, 'r')
@@ -243,68 +248,78 @@ class A2CAgent:
                 pylab.savefig(self.path + ".png")
             except OSError:
                 pass
-
+        '''
         return self.average[-1]
     
     def sl_train(self):
         file_list = glob.glob(self.workspace_path + "/human_data/*.avi")
         for file in file_list:
-        	file_name = file.split('/')[-1].split('.')[0]
+            file_name = file.split('/')[-1].split('.')[0]
 
-        	# Read camera frame data
-	        cap = cv2.VideoCapture(self.workspace_path + '/human_data/' + file_name + '.avi')
-	        frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-	        frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-	        frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-	        fc = 0
-	        ret = True
+            # Read camera frame data
+            try:
+                cap = cv2.VideoCapture(self.workspace_path + '/human_data/' + file_name + '.avi')
+            except:
+                continue
 
-	        data = np.load(self.workspace_path + '/human_data/' + file_name + ".npy", allow_pickle=True)
-	        data_0 = np.reshape(data, 1)
-	        data_1 = data_0[0]
+            frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            fc = 0
+            ret = True
 
-	        states, actions = [], []
-	        memory_state = tf.zeros([1,128], dtype=np.float32)
-	        carry_state = tf.zeros([1,128], dtype=np.float32)
-	        while fc < frameCount and ret:
-	        	print("fc: ", fc)
-	        	ret, image_frame = cap.read()
-	        	image_frame_resized = cv2.resize(image_frame, (64,64), interpolation=cv2.INTER_AREA)
+            try:
+                data = np.load(self.workspace_path + '/human_data/' + file_name + ".npy", allow_pickle=True)
+                data_0 = np.reshape(data, 1)
+                data_1 = data_0[0]
+            except:
+                continue
 
-	        	frame_state_channel = image_frame_resized / 255.0
-	        	lidar_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * data_1['state']['lidar'][fc] / 12
-	        	infrared_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * data_1['state']['infrared'][fc] / 2.0
+            states, actions = [], []
+            memory_state = tf.zeros([1,128], dtype=np.float32)
+            carry_state = tf.zeros([1,128], dtype=np.float32)
+            while fc < frameCount and ret:
+                #print("fc: ", fc)
+                ret, image_frame = cap.read()
+                image_frame_resized = cv2.resize(image_frame, (64,64), interpolation=cv2.INTER_AREA)
 
-	        	state_channel = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
-	        	state_input = np.concatenate((state_channel, infrared_state_channel), axis=2)
-	        	state_input = np.reshape(state_input, (1,64,64,5))
+                frame_state_channel = image_frame_resized / 255.0
+                lidar_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * data_1['state']['lidar'][fc] / 12
+                infrared_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * data_1['state']['infrared'][fc] / 2.0
 
-	        	states.append(state_input)
-	        	actions.append(data_1['action'][fc])
+                state_channel = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
+                state_input = np.concatenate((state_channel, infrared_state_channel), axis=2)
+                state_input = np.reshape(state_input, (1,64,64,5))
 
-	        	fc += 1
-	        	if fc % 8 == 0:
-		            loss, next_memory_state, next_carry_state = self.sl_replay(states, actions, memory_state, carry_state)
-		            states, actions = [], []
+                states.append(state_input)
+                actions.append(data_1['action'][fc])
 
-		            memory_state = next_memory_state
-		            carry_state = next_carry_state
+                fc += 1
+                if fc % 8 == 0:
+                    loss, next_memory_state, next_carry_state = self.sl_replay(states, actions, memory_state, carry_state)
+                    states, actions = [], []
 
-		            # Update episode count
-		            average_loss = self.PlotModel(loss, self.episode)
-		            # saving best models
-		            if average_loss <= self.min_average_loss:
-		                self.min_average_loss = average_loss
-		                #self.save()
-		                SAVING = "SAVING"
-		            else:
-		                SAVING = ""
+                    memory_state = next_memory_state
+                    carry_state = next_carry_state
 
-		            print("episode: {}/{}, average_loss: {:.2f} {}".format(self.episode, self.EPISODES, average_loss, SAVING))
-		            if(self.episode < self.EPISODES):
-		                self.episode += 1
+                    # Update episode count
+                    average_loss = self.PlotModel(loss, self.episode)
+                    # saving best models
+                    if average_loss <= self.min_average_loss:
+                        self.min_average_loss = average_loss
+                        SAVING = "SAVING"
+                    else:
+                        SAVING = ""
+
+                    print("episode: {}/{}, average_loss: {:.2f} {}".format(self.episode, self.EPISODES, average_loss, SAVING))
+                    if(self.episode < self.EPISODES):
+                        self.episode += 1
+
+            self.save('sl_model')
 
     def rl_train(self):
+        self.load('sl_model')
+
         while self.episode < self.EPISODES:
             # Reset episode
             score, done, SAVING = 0, False, ''
@@ -323,9 +338,8 @@ class A2CAgent:
 
             initial_memory_state = memory_state
             initial_carry_state = carry_state
-            #while not done:
-            for i in range(0, 50):
-            	print("i: ", i)
+            for i in range(0, 800):
+            	#print("i: ", i)
                 action, next_memory_state, next_carry_state = agent.act(state_input, memory_state, carry_state)
                 next_state, reward, done, info = self.env.step(action)
                 #print("reward: ", reward)
@@ -351,8 +365,8 @@ class A2CAgent:
                                                                                      initial_memory_state, initial_carry_state)
                     states, actions, rewards = [], [], []
                     
-                    memory_state = next_memory_state
-                    carry_state = next_carry_state
+                    initial_memory_state = memory_state
+                    initial_carry_state =  carry_state
 
             # Update episode count
             average_reward = self.PlotModel(score, self.episode)
@@ -391,24 +405,5 @@ class A2CAgent:
 env_name = 'DeepSoccerSingle-v0'
 agent = A2CAgent(env_name)
 
-agent.rl_train()
-#agent.sl_train()
-'''
-for episode in range(20):
-    observation = env.reset()
-    for timestep in range(500):
-        action = env.action_space.sample()
-         
-        observation, reward, done, info = env.step(action)
-        print("observation camera: " + str(observation[0]))
-        print("observation lidar: " + str(observation[1]))
-        print("observation infra: " + str(observation[2]))
-        print("reward: " + str(reward))
-        print("done: " + str(reward))
-
-        if done:
-            print("Episode finished after {} timesteps".format(timestep + 1))
-            break
-
-env.close()
-'''
+agent.sl_train()
+#agent.rl_train()
