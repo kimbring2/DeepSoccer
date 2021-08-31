@@ -74,6 +74,14 @@ It is determined that directly connecting the solenoid motor directly to the 12V
 
 After a 250v 1000uf capacitor and a ±45V-390V capacitor charger are added, a solenoid can push a heavy a billiard ball to considerable distance.
 
+## Seosor
+In addition to the actuators, the robot must observe the current state to decide which action is best at now. For that, DeepSocce robot is equipped with an infrared sensor to check whether robot is holding a ball using roller front side obstacle to prevent crash.
+
+<img src="/image/NX_Sensor.png" width="800">
+
+1. [Infrared Sensor](https://ko.aliexpress.com/item/32391592655.html)
+2. [Ridar Sensor](https://www.adafruit.com/product/3978)
+
 # 3. Usage
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
 
