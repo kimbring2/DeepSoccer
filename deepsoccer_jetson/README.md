@@ -82,6 +82,8 @@ In addition to the actuators, the robot must observe the current state to decide
 1. [Infrared Sensor](https://ko.aliexpress.com/item/32391592655.html)
 2. [Ridar Sensor](https://www.adafruit.com/product/3978)
 
+The infrared sensor is needed to be connected to the GPIO for digital signals on the Jetson board because it gives 0 and 1 signals. The Lidar sensor which send a signal as UART format is connected to the GPIO of Jetson for UART.
+
 # 3. Usage
 First, set up ROS in actual Jetbot hardware based on manual of https://github.com/dusty-nv/jetbot_ros.
 
