@@ -153,6 +153,3 @@ $ python3 deepsoccer_main.py
 Because Tensorflow 2 of Jetson Xavier NX only can be run by Python3, you need to do one more job because cv_bridge of ROS melodic is not able to be ran at Python3. Please follow a intruction at https://cyaninfinite.com/ros-cv-bridge-with-python-3/.
 
 If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
-
-[![Deepsoccer Deep Reinforcement Learning training result](https://img.youtube.com/vi/Ur7L5j9fIwY/sddefault.jpg)](https://youtu.be/Ur7L5j9fIwY "DeepSoccer Play - Click to Watch!")
-<strong>Click to Watch!</strong>
