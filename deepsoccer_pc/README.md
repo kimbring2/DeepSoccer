@@ -24,7 +24,7 @@ It will start a [tutorial file](https://github.com/kimbring2/DeepSoccer/blob/mas
 
 You can also collect your playing dataset using 'roslaunch my_deepsoccer_training start_dataset.launch' command. After Gazebo screen is poped up, you can control robot using 8 command.
 
-<img src="/image/key_action_table.png" width="800">
+<img src="/image/key_action_table.png" width="400">
 
 The name of the replay file and the path to be saved can be set in the [config file][https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml].
 
