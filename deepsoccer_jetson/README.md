@@ -39,6 +39,32 @@ After connecting the hardware, download the Jetbot package from https://github.c
 
 After that, try to register sevice to execut OLED file automatically when the board boot. First, move to /etc/systemd/system/ location of Ubuntu. Then, create a file named deepsoccer_stats.service with following contents.
 
+```
+[Unit]
+Description=DeepSoccer stats display service
+[Service]
+Type=simple
+User=kimbring2
+ExecStart=/bin/sh -c "python3 /home/kimbring2/jetbot/jetbot/apps/stats.py"
+Restart=always
+[Install]
+WantedBy=multi-user.target
+```
+
+Then, register the file as a service and start it as shown below.
+
+```
+$ systemctl daemon-reload
+$ systemctl enable deepsoccer_stats
+$ systemctl start deepsoccer_stats
+```
+
+The registered service can be confirmed with the following command.
+
+```
+sudo systemctl status deepsoccer_stats
+```
+
 ## Wheel
 <img src="/image/NX_Dynamixel.png" width="800">
 
@@ -138,6 +164,44 @@ You can also give a control command using Python code. Run 'jetson_soccer_main.p
 
 # 4. Teleoperation test
 Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that [teleoperation_soccer.ipynb](https://github.com/kimbring2/DeepSoccer/blob/master/etc/teleoperation_soccer.ipynb) file. Upload it to Jetson Nano and run it.
+
+As with the original Jetbot, you can use a Jupyter Notebook to test a your code without connecting with monitor. First, insall Jupyter package and creates a configuration file using the following command.
+
+```
+$ pip3 install jupyterlab
+$ jupyter notebook --generate-config
+```
+
+Next, open ipython and generate a hash to set the password.
+
+```
+$ ipython
+
+In [1]: from IPython.lib import passwd
+
+In [2]: passwd()
+Enter password: 
+Verify password: 
+Out[2]: 'sha1:60f3ac9aec93:be2d6048e9b1e7ae0f1ccbad9d746734bf5c3797'
+```
+
+Next, record generated hash in the jupyter_notebook_config.json file created at previous step.
+
+```
+$ sudo vi ~/.jupyter/jupyter_notebook_config.json
+
+c = get_config()
+c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.open_browser = False
+c.NotebookApp.port = 8080
+c.NotebookApp.password = 'sha1:60f3ac9aec93:be2d6048e9b1e7ae0f1ccbad9d746734bf5c3797'
+```
+
+Finally, start Jupyter Notebook with the command below and enter the password you set earlier.
+
+```
+$ jupyter notebook
+```
 
 [![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
 <strong>Click to Watch!</strong>
