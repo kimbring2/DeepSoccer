@@ -22,6 +22,12 @@ $ roslaunch my_deepsoccer_training start_tutorial.launch
 
 It will start a [tutorial file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/gym_tutorial.py) of DeepSoccer as format of OpenAI Gym environment. 
 
+You can also collect your playing dataset using 'roslaunch my_deepsoccer_training start_dataset.launch' command. After Gazebo screen is poped up, you can control robot using 8 command.
+
+<img src="/image/key_action_table.png" width="800">
+
+The name of the replay file and the path to be saved can be set in the [config file][https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml].
+
 
 # 3. Troubleshooting 
 ## 1) RLException Error
