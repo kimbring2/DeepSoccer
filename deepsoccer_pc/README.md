@@ -26,7 +26,7 @@ You can also collect your playing dataset using 'roslaunch my_deepsoccer_trainin
 
 <img src="/image/key_action_table.png" width="400">
 
-The name of the replay file and the path to be saved can be set in the [config file][https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml].
+The name of the replay file and the path to be saved can be set in the [config file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml).
 
 
 # 3. Troubleshooting 
