@@ -22,10 +22,11 @@ from geometry_msgs.msg import Pose
 from openai_ros.openai_ros_common import StartOpenAI_ROS_Environment
 from tf.transformations import euler_from_quaternion, quaternion_from_euler
 
-os.environ [ "TF_FORCE_GPU_ALLOW_GROWTH" ] = "true"
-gpus = tf.config.experimental.list_physical_devices('GPU')
-tf.config.experimental.set_virtual_device_configuration(gpus[0],
-            [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3500)])
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+#os.environ [ "TF_FORCE_GPU_ALLOW_GROWTH" ] = "true"
+#gpus = tf.config.experimental.list_physical_devices('GPU')
+#tf.config.experimental.set_virtual_device_configuration(gpus[0],
+#            [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=3500)])
 
 rospy.init_node('deepsoccer_openai_gym_tutorial', anonymous=True, log_level=rospy.WARN)
 
@@ -57,11 +58,11 @@ class OurModel(tf.keras.Model):
     	#print("conv_3.shape: ", conv_3.shape)
 
         conv_flatten = Flatten()(conv_3)
-        conv_reshaped = Reshape((4*4, 32))(conv_flatten)
+        conv_reshaped = Reshape((12*12, 32))(conv_flatten)
         #print("conv_reshaped.shape: ", conv_reshaped.shape)
 
         lstm_outputs = tf.TensorArray(tf.float32, size=0, dynamic_size=True)
-        lstm_output = tf.zeros((4*4, 32))
+        lstm_output = tf.zeros((12*12, 32))
         for i in range(0, batch_size):
             lstm_input = tf.expand_dims(conv_reshaped[i], 0)
             initial_state = (memory_state, carry_state)
@@ -252,70 +253,76 @@ class A2CAgent:
         return self.average[-1]
     
     def sl_train(self):
-        file_list = glob.glob(self.workspace_path + "/human_data/*.avi")
-        for file in file_list:
-            file_name = file.split('/')[-1].split('.')[0]
+        #self.load('sl_model')
 
-            # Read camera frame data
-            try:
-                cap = cv2.VideoCapture(self.workspace_path + '/human_data/' + file_name + '.avi')
-            except:
-                continue
+        for i in range(0, 1000):
+            file_list = glob.glob(self.workspace_path + "/human_data/*.avi")
+            for file in file_list:
+                file_name = file.split('/')[-1].split('.')[0]
 
-            frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-            frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-            frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            fc = 0
-            ret = True
+                # Read camera frame data
+                try:
+                    cap = cv2.VideoCapture(self.workspace_path + '/human_data/' + file_name + '.avi')
+                except:
+                    continue
 
-            try:
-                data = np.load(self.workspace_path + '/human_data/' + file_name + ".npy", allow_pickle=True)
-                data_0 = np.reshape(data, 1)
-                data_1 = data_0[0]
-            except:
-                continue
+                frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+                frameWidth = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                frameHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                fc = 0
+                ret = True
 
-            states, actions = [], []
-            memory_state = tf.zeros([1,128], dtype=np.float32)
-            carry_state = tf.zeros([1,128], dtype=np.float32)
-            while fc < frameCount and ret:
-                #print("fc: ", fc)
-                ret, image_frame = cap.read()
-                image_frame_resized = cv2.resize(image_frame, (64,64), interpolation=cv2.INTER_AREA)
+                try:
+                    data = np.load(self.workspace_path + '/human_data/' + file_name + ".npy", allow_pickle=True)
+                    data_0 = np.reshape(data, 1)
+                    data_1 = data_0[0]
+                except:
+                    continue
 
-                frame_state_channel = image_frame_resized / 255.0
-                lidar_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * data_1['state']['lidar'][fc] / 12
-                infrared_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * data_1['state']['infrared'][fc] / 2.0
+                states, actions = [], []
+                memory_state = tf.zeros([1,128], dtype=np.float32)
+                carry_state = tf.zeros([1,128], dtype=np.float32)
+                while fc < frameCount and ret:
+                    #print("fc: ", fc)
+                    ret, image_frame = cap.read()
+                    image_frame_resized = cv2.resize(image_frame, (128,128), interpolation=cv2.INTER_AREA)
+                    cv2.imshow("image_frame_resized", image_frame_resized)
+                    cv2.waitKey(1)
 
-                state_channel = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
-                state_input = np.concatenate((state_channel, infrared_state_channel), axis=2)
-                state_input = np.reshape(state_input, (1,64,64,5))
+                    frame_state_channel = image_frame_resized / 255.0
+                    lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['state']['lidar'][fc] / 12
+                    infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * data_1['state']['infrared'][fc] / 2.0
 
-                states.append(state_input)
-                actions.append(data_1['action'][fc])
+                    state_channel = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
+                    state_input = np.concatenate((state_channel, infrared_state_channel), axis=2)
+                    state_input = np.reshape(state_input, (1,128,128,5))
 
-                fc += 1
-                if fc % 8 == 0:
-                    loss, next_memory_state, next_carry_state = self.sl_replay(states, actions, memory_state, carry_state)
-                    states, actions = [], []
+                    states.append(state_input)
+                    actions.append(data_1['action'][fc])
 
-                    memory_state = next_memory_state
-                    carry_state = next_carry_state
+                    fc += 1
+                    if fc % 8 == 0:
+                        states, actions = [], []
+                        '''
+                        loss, next_memory_state, next_carry_state = self.sl_replay(states, actions, memory_state, carry_state)
 
-                    # Update episode count
-                    average_loss = self.PlotModel(loss, self.episode)
-                    # saving best models
-                    if average_loss <= self.min_average_loss:
-                        self.min_average_loss = average_loss
-                        SAVING = "SAVING"
-                    else:
-                        SAVING = ""
+                        memory_state = next_memory_state
+                        carry_state = next_carry_state
 
-                    print("episode: {}/{}, average_loss: {:.2f} {}".format(self.episode, self.EPISODES, average_loss, SAVING))
-                    if(self.episode < self.EPISODES):
-                        self.episode += 1
+                        # Update episode count
+                        average_loss = self.PlotModel(loss, self.episode)
+                        # saving best models
+                        if average_loss <= self.min_average_loss:
+                            self.min_average_loss = average_loss
+                            SAVING = "SAVING"
+                        else:
+                            SAVING = ""
 
-            self.save('sl_model')
+                        print("episode: {}/{}, average_loss: {:.2f} {}".format(self.episode, self.EPISODES, average_loss, SAVING))
+                        if(self.episode < self.EPISODES):
+                            self.episode += 1
+                        '''
+                #self.save('sl_model')
 
     def rl_train(self):
         self.load('sl_model')
@@ -324,13 +331,16 @@ class A2CAgent:
             # Reset episode
             score, done, SAVING = 0, False, ''
             state = self.env.reset()
-            frame_state_channel = cv2.resize(state[0], (64,64), interpolation=cv2.INTER_AREA) / 255.0
-            lidar_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * state[1] / 12
-            infrared_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * state[2] / 2.0
+
+            image_frame_resized = cv2.resize(state[0], (128,128), interpolation=cv2.INTER_AREA)
+            image_frame_bgr = cv2.cvtColor(image_frame_resized, cv2.COLOR_RGB2BGR)
+            frame_state_channel = image_frame_bgr / 255.0
+            lidar_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * state[1] / 12
+            infrared_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * state[2] / 2.0
 
             state_channel = np.concatenate((frame_state_channel, lidar_state_channel), axis=2)
             state_input = np.concatenate((state_channel, infrared_state_channel), axis=2)
-            state_input = np.reshape(state_input, (1,64,64,5))
+            state_input = np.reshape(state_input, (1,128,128,5))
 
             states, actions, rewards = [], [], []
             memory_state = tf.zeros([1,128], dtype=np.float32)
@@ -342,14 +352,17 @@ class A2CAgent:
             	#print("i: ", i)
                 action, next_memory_state, next_carry_state = agent.act(state_input, memory_state, carry_state)
                 next_state, reward, done, info = self.env.step(action)
-                #print("reward: ", reward)
-                frame_next_state_channel = cv2.resize(next_state[0], (64,64), interpolation=cv2.INTER_AREA) / 255.0
-                lidar_next_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * next_state[1] / 12
-                infrared_next_state_channel = (np.ones(shape=(64,64,1), dtype=np.float32)) * next_state[2] / 2.0
+                next_image_frame_resized = cv2.resize(next_state[0], (128,128), interpolation=cv2.INTER_AREA)
+                next_image_frame_bgr = cv2.cvtColor(next_image_frame_resized, cv2.COLOR_RGB2BGR)
+                #cv2.imshow("image_frame_resized", image_frame_resized)
+                #cv2.waitKey(1)
+                frame_next_state_channel = next_image_frame_bgr / 255.0
+                lidar_next_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * next_state[1] / 12
+                infrared_next_state_channel = (np.ones(shape=(128,128,1), dtype=np.float32)) * next_state[2] / 2.0
 
                 next_state_channel = np.concatenate((frame_next_state_channel, lidar_next_state_channel), axis=2)
                 next_state_input = np.concatenate((next_state_channel, infrared_next_state_channel), axis=2)
-                next_state_input = np.reshape(next_state_input, (1,64,64,5))
+                next_state_input = np.reshape(next_state_input, (1,128,128,5))
 
                 states.append(state_input)
                 actions.append(action)
@@ -360,9 +373,14 @@ class A2CAgent:
 
                 memory_state = next_memory_state
                 carry_state = next_carry_state
+
+                if done == True:
+                    print("done: ", done)
+                    break
+
                 if i % 8 == 0:    
-                    next_memory_state, next_carry_state = self.rl_replay(states, actions, rewards, 
-                                                                                     initial_memory_state, initial_carry_state)
+                    #next_memory_state, next_carry_state = self.rl_replay(states, actions, rewards, 
+                    #                                                                 initial_memory_state, initial_carry_state)
                     states, actions, rewards = [], [], []
                     
                     initial_memory_state = memory_state
@@ -405,5 +423,5 @@ class A2CAgent:
 env_name = 'DeepSoccerSingle-v0'
 agent = A2CAgent(env_name)
 
-agent.sl_train()
-#agent.rl_train()
+#agent.sl_train()
+agent.rl_train()
