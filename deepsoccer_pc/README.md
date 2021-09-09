@@ -8,8 +8,8 @@
 - progressbar
 - opencv-python
 
-# 2. Network architecture
-<img src="/image/network_architecture_sim.png" width="600">
+# 2. Network Architecture
+<img src="/image/network_architecture_sim.png" width="800">
 
 # 3. Usage
 ## Training network using Supervised Learning
