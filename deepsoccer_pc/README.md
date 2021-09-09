@@ -9,11 +9,12 @@
 - opencv-python
 
 # 2. Usage
+## Training network using Supervised Learning
 After installing software mentioned above, download the [human expert data](https://drive.google.com/drive/folders/1QmYI_FL5cym3LTvm8hlLfZ1Bo50bUyfc?usp=sharing) from Google Drive. I collected that data manually. 
 
 After that, extract it to your workspace folder. You need to set a workspace_path in [yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml).
 
-After preparing the human expert data and config file, run below command.
+After preparing the human expert data and config file, run below command. It will start a [tutorial file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/gym_tutorial.py) of DeepSoccer as format of OpenAI Gym environment. 
 
 ```
 $ cd ~/catkin_ws/src/
@@ -24,13 +25,12 @@ $ source devel/setup.bash
 $ roslaunch my_deepsoccer_training start_tutorial.launch
 ```
 
-It will start a [tutorial file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/gym_tutorial.py) of DeepSoccer as format of OpenAI Gym environment. 
+Trained model, Tensorboard log are saved under 'src/train/' folder seperately. Try to check the loss is decreased under 0.3 point. If you set the sl_training config to False and run the start_tutorial.launch as like above, it will start the Reinforcmenet Learning phase using trained model.
 
-Trained model, Tensorboard log are saved under 'src/train/' folder seperately. Try to check the loss is decreased under 0.3 point.
-
+## Collection human expert data
 <img src="/image/key_action_table.png" width="400">
 
-You can also collect your playing dataset using 'roslaunch my_deepsoccer_training start_dataset.launch' command. After Gazebo screen is poped up, you can control robot using 8 command.
+You can also collect the human expert dataset using 'roslaunch my_deepsoccer_training start_dataset.launch' command. After Gazebo screen is poped up, you can control robot using 8 command.
 
 <img src="/image/loss_sl.png" width="400">
 
