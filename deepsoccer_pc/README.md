@@ -8,7 +8,10 @@
 - progressbar
 - opencv-python
 
-# 2. Usage
+# 2. Network architecture
+<img src="/image/network_architecture_sim.png" width="600">
+
+# 3. Usage
 ## Training network using Supervised Learning
 After installing software mentioned above, download the [human expert data](https://drive.google.com/drive/folders/1QmYI_FL5cym3LTvm8hlLfZ1Bo50bUyfc?usp=sharing) from Google Drive. I collected that data manually. 
 
@@ -36,7 +39,7 @@ You can also collect the human expert dataset using 'roslaunch my_deepsoccer_tra
 
 The name of the replay file and the path to be saved can be set in the [config file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml).
 
-# 3. Troubleshooting 
+# 4. Troubleshooting 
 ## 1) RLException Error
 If you get a 'RLException' error message, use 'source devel/setup.bash' command and try again.
 
@@ -62,14 +65,14 @@ If you get error message includes 'No transform from', try to install unicode ub
 $ sudo apt-get install unicode 
 ```
 
-# 4. DeepSoccer design
+# 5. DeepSoccer design
 Original Jetbot is not suitable for soccer because it can not kick and hold a ball. The redesigned robot has a rubber roller and solenoid electromagnet to do that task. Additionaly, normal wheel is changed to omniwheel for more dynamic movement.
 
 Onshape cloud is used to create and share a model. You can see [DeepSoccer 3D model](https://cad.onshape.com/documents/242e5d0f2f1cbff393c8e507/w/37c9eecd4ded31866f99420c/e/9a6f236fb48a5317e2b639700).
 
 After making 3D model, it is converted to URDF format for Gazebo simulation. [Onshape-to-robot](https://github.com/rhoban/onshape-to-robot/) is used to it.
 
-# 5. Unit test
+# 6. Unit test
 ## 1) RViz
 You can see a RViz 3D model of Jetbot soccer using below command.
 ```
@@ -160,7 +163,7 @@ Since the DeepSoccer uses solenoid electromagnet for kicking ball which has a sp
 
 The built custom plugin is used for stick joint. You need to declare it in the jetbot_soccer.gazebo file as like above.
 
-# 6. Training robot in simulaation
+# 7. Training robot in simulaation
 ## 1) Use DeepSoccer as OpenAI Gym format 
 After changing a line of start_training.launch like below.
 
@@ -220,7 +223,7 @@ $ roslaunch my_deepsoccer_training start_training.launch
 
 All parameters related to Reinforcmeent Learning can be checked at [deepsoccer_config.yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/deepsoccer_config.yaml). Buffer size and pretrain steps are important. Save_dir, tb_dir parameter means saving location of trained Tensorflow model and Tensorboard log file.   
 
-# 6. Docker 
+# 8. Docker 
 You can also use a Docker image for this repo using below command. Afte that, you can connect to created container by VNC(http://127.0.0.1:6080/#/).
 
 ```
