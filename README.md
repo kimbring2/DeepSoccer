@@ -31,15 +31,27 @@ You can see detailed information about hardware design at https://kimbring2.gith
 - Tensorflow 2.1.0
 - requests 
 - pynput
-- progressbar
 - opencv-python
 
 ## 2. Network Architecture
 <img src="/image/network_architecture_sim.png" width="800">
 
 ## 3. Usage
+### ROS package
+Please put [deepsoccer_pc](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc), [openai_ros](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros), [openai_ros](https://github.com/kimbring2/DeepSoccer/tree/master/openai_ros), [solenoid_electromagnet_joint_spring_plugin](https://github.com/kimbring2/DeepSoccer/tree/master/solenoid_electromagnet_joint_spring_plugin), [my_deepsoccer_training](https://github.com/kimbring2/DeepSoccer/tree/master/my_deepsoccer_training) folder to your ROS workspace. For example, my path '/home/kimbring2/catkin_ws/src'.
+
+Then, try to run below command to build all ROS package what we put.
+```
+$ cd ~/catkin_ws/src/
+$ git clone https://github.com/kimbring2/DeepSoccer.git
+$ cd ..
+$ catkin_make
+```
+
+If there are no error message, move to next.
+
 ### Set model file for soccer field
-First, Copy [deepsoccer_gazebo](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc/deepsoccer_gazebo) folder to '/home/[Your User Name]/.gazebo/models' for soccer field rendering.
+Copy [deepsoccer_gazebo](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc/deepsoccer_gazebo) folder to '/home/[Your User Name]/.gazebo/models' for soccer field rendering.
 
 ### Training network using Supervised Learning&Reinforcement Learning
 After setting everything mentioned above, download the [human expert data](https://drive.google.com/drive/folders/1QmYI_FL5cym3LTvm8hlLfZ1Bo50bUyfc?usp=sharing) from Google Drive. I collected that data manually. 
@@ -49,10 +61,6 @@ After that, extract it to your workspace folder. You need to set a workspace_pat
 After preparing the human expert data and config file, run below command. It will start a [tutorial file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/src/gym_tutorial.py) of DeepSoccer as format of OpenAI Gym environment. 
 
 ```
-$ cd ~/catkin_ws/src/
-$ git clone https://github.com/kimbring2/DeepSoccer.git
-$ cd ..
-$ catkin_make
 $ source devel/setup.bash
 $ roslaunch my_deepsoccer_training start_tutorial.launch
 ```
