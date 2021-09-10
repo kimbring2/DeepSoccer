@@ -12,8 +12,11 @@
 <img src="/image/network_architecture_sim.png" width="800">
 
 # 3. Usage
+## Set model file for soccer field
+First, Copy [deepsoccer_gazebo](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc/deepsoccer_gazebo) folder to '/home/[Your User Name]/.gazebo/models' for soccer field rendering.
+
 ## Training network using Supervised Learning
-After installing software mentioned above, download the [human expert data](https://drive.google.com/drive/folders/1QmYI_FL5cym3LTvm8hlLfZ1Bo50bUyfc?usp=sharing) from Google Drive. I collected that data manually. 
+After setting everything mentioned above, download the [human expert data](https://drive.google.com/drive/folders/1QmYI_FL5cym3LTvm8hlLfZ1Bo50bUyfc?usp=sharing) from Google Drive. I collected that data manually. 
 
 After that, extract it to your workspace folder. You need to set a workspace_path in [yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml).
 
