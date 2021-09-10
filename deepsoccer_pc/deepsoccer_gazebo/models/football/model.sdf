@@ -51,7 +51,7 @@
             <geometry>
                <mesh>
                   <scale>0.028 0.028 0.028</scale>
-                  <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/meshes/ball.dae</uri>
+                  <uri>model://deepsoccer_gazebo/meshes/ball.dae</uri>
                </mesh>
             </geometry>
          </visual>
