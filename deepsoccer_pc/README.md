@@ -15,7 +15,7 @@
 ## Set model file for soccer field
 First, Copy [deepsoccer_gazebo](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_pc/deepsoccer_gazebo) folder to '/home/[Your User Name]/.gazebo/models' for soccer field rendering.
 
-## Training network using Supervised Learning
+## Training network using Supervised Learning&Reinforcement Learning
 After setting everything mentioned above, download the [human expert data](https://drive.google.com/drive/folders/1QmYI_FL5cym3LTvm8hlLfZ1Bo50bUyfc?usp=sharing) from Google Drive. I collected that data manually. 
 
 After that, extract it to your workspace folder. You need to set a workspace_path in [yaml file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml).
@@ -33,18 +33,17 @@ $ roslaunch my_deepsoccer_training start_tutorial.launch
 
 Trained model, Tensorboard log are saved under 'src/train/' folder seperately. Try to check the loss is decreased under 0.3 point. 
 
+<img src="/image/loss_sl.png" width="400">
+
+If you set the sl_training config to False, pretrained_model to file name of trained model, it will start the Reinforcmenet Learning phase using trained model.
+
 [![DeepSoccer Supervised Learning demo](https://img.youtube.com/vi/64ENY3P8U88/sddefault.jpg)](https://youtube.com/watch?v=64ENY3P8U88 "DeepSoccer- Click to Watch!")
 <strong>Click to Watch!</strong>
-
-## Training network using Reinforcement Learning
-If you set the sl_training config to False and run the start_tutorial.launch as like above, it will start the Reinforcmenet Learning phase using trained model.
 
 ## Collection human expert data
 <img src="/image/key_action_table.png" width="400">
 
 You can also collect the human expert dataset using 'roslaunch my_deepsoccer_training start_dataset.launch' command. After Gazebo screen is poped up, you can control robot using 8 command.
-
-<img src="/image/loss_sl.png" width="400">
 
 The name of the replay file and the path to be saved can be set in the [config file](https://github.com/kimbring2/DeepSoccer/blob/master/my_deepsoccer_training/config/deepsoccer_params.yaml).
 
