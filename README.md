@@ -23,7 +23,7 @@ You can see detailed information about hardware design at https://kimbring2.gith
 
 <img src="image/sim2real_instruction.png" width="800">
 
-# 1. Simulation
+# 5. Simulation
 ## 1. Software Dependency
 - ROS Melodic, Gazebo 9
 - ROS openai_ros package
@@ -116,7 +116,7 @@ $ gzclient --verbose
 
 After connecting to the docker image with VNC, move to the catkin_ws folder. Then, you can start the simulation by executing the following command.
 
-# 4. Relationship between simualtion and real part
+# 6. Relationship between simualtion and real part
 The purpose of this project is to train Jetbot to play soccer based on simulation and then apply trained model to actual Jetbot. Therefore, I am currently updating the code and description of the current simulation robot and the actual robot to this repository together.
 
 Each ROS package for simulation and real robot is placed separately in two folder.
@@ -127,7 +127,7 @@ Each ROS package for simulation and real robot is placed separately in two folde
 
 You can run each part separately. However, two part should be connected by sim2real method.
 
-# 5. Reference
+# 7. Reference
 - Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
 - Gazebo parameter setting: [Gazebo parameter](https://github.com/CentroEPiaggio/irobotcreate2ros)
 - URDF file usage in Gazebo: [URDF file usage in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
@@ -152,7 +152,7 @@ You can run each part separately. However, two part should be connected by sim2r
 - Docker Gazebo: https://hub.docker.com/_/gazebo
 - Docker image for ROS melodic: https://github.com/fbottarel/docker-ros-desktop-full
 
-# 6. Citation
+# 8. Citation
 If you use DeepSoccer to conduct research, we ask that you cite the following paper as a reference:
 
 ```
@@ -167,10 +167,10 @@ If you use DeepSoccer to conduct research, we ask that you cite the following pa
 }
 ```
 
-# 7. Acknowledgement
+# 9. Acknowledgement
 <img src="image/POM_Jetson.png"> <strong>I receive a prize from NVIDIA for this project</strong>
 
 <img src="image/Jetson_AI_Specialist.png"> <strong>I receive Jetson AI Specialist certification from NVIDIA by this project</strong>
 
-# 8. License
+# 10. License
 Apache License 2.0
