@@ -21,8 +21,6 @@ I remodel hardware of Jetbot because it is not suitable for soccer. As you know 
 
 You can see detailed information about hardware design at https://kimbring2.github.io/2020/10/08/deepsoccer.html#design_deepsoccer.
 
-<img src="image/sim2real_instruction.png" width="800">
-
 # 5. Simulation
 ## 1. Software Dependency
 - ROS Melodic, Gazebo 9
@@ -134,6 +132,8 @@ Each ROS package for simulation and real robot is placed separately in two folde
 3. Simulation to Real to connect 1, 2 method: https://github.com/kimbring2/DeepSoccer/blob/master/sim2real
 
 You can run each part separately. However, two part should be connected by sim2real method.
+
+<img src="image/sim2real_instruction.png" width="800">
 
 # 7. Reference
 - Jetbot SDF file, ROS: [Jetbot SDF file, ROS](https://github.com/dusty-nv/jetbot_ros)
