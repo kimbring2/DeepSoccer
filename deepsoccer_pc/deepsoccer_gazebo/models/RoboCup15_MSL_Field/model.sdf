@@ -32,8 +32,8 @@
         </geometry>
         <material>
           <script>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/scripts/</uri>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/textures/</uri>
+            <uri>model://deepsoccer_gazebo/materials/scripts/</uri>
+            <uri>model://deepsoccer_gazebo/materials/textures/</uri>
             <name>RoboCup/Carpet</name>
           </script>
         </material>
@@ -50,12 +50,13 @@
         </geometry>
         <material>
           <script>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/scripts/</uri>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/textures/</uri>
+            <uri>model://deepsoccer_gazebo/materials/scripts/</uri>
+            <uri>model://deepsoccer_gazebo/materials/textures/</uri>
             <name>RoboCup/FieldBorder</name>
           </script>
         </material>
       </visual>
+
       <visual name="base2">
         <pose>0 -2.35 0.01 0 0 0</pose>
         <cast_shadows>false</cast_shadows>
@@ -67,12 +68,13 @@
         </geometry>
         <material>
           <script>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/scripts/</uri>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/textures/</uri>
+            <uri>model://deepsoccer_gazebo/materials/scripts/</uri>
+            <uri>>model://deepsoccer_gazebo/materials/textures/</uri>
             <name>RoboCup/FieldBorder</name>
           </script>
         </material>
       </visual>
+
       <visual name="base3">
         <pose>3.37 0 0.01 0 0 0</pose>
         <cast_shadows>false</cast_shadows>
@@ -84,12 +86,13 @@
         </geometry>
         <material>
           <script>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/scripts/</uri>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/textures/</uri>
+            <uri>>model://deepsoccer_gazebo/materials/scripts/</uri>
+            <uri>>model://deepsoccer_gazebo/materials/textures/</uri>
             <name>RoboCup/FieldBorder</name>
           </script>
         </material>
       </visual>
+
       <visual name="base4">
         <pose>-3.37 0 0.01 0 0 0</pose>
         <cast_shadows>false</cast_shadows>
@@ -101,8 +104,8 @@
         </geometry>
         <material>
           <script>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/scripts/</uri>
-            <uri>file:///home/kimbring2/catkin_ws/src/deepsoccer/deepsoccer_gazebo/materials/textures/</uri>
+            <uri>model://deepsoccer_gazebo/materials/scripts/</uri>
+            <uri>model://deepsoccer_gazebo/materials/textures/</uri>
             <name>RoboCup/FieldBorder</name>
           </script>
         </material>
