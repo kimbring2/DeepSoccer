@@ -92,7 +92,7 @@ class DeepSoccerModel(tf.keras.Model):
 
 def get_model(action_space):
     input_ = tf.keras.Input(shape=(128, 128, 5))
-    memory_state = tf.keras.Input(shape=(128))
+    memory_state = tf.keras.Input(shape=(128)) 
     carry_state = tf.keras.Input(shape=(128))
 
     conv_1 = Conv2D(16, 8, 4, padding="valid", activation="relu", kernel_regularizer='l2')(input_)
@@ -107,9 +107,10 @@ def get_model(action_space):
         kernel_regularizer='l2')(conv_reshaped, initial_state=initial_state)
 
     lstm_output_flatten = Flatten()(lstm_output)
+    flatten = Dense(512, activation='relu', kernel_regularizer='l2')(lstm_output_flatten)
 
-    action_logit = Dense(action_space, kernel_regularizer='l2')(lstm_output_flatten)
-    value = Dense(1, kernel_regularizer='l2')(lstm_output_flatten)
+    action_logit = Dense(action_space, kernel_regularizer='l2')(flatten)
+    value = Dense(1, kernel_regularizer='l2')(flatten)
         
     model = tf.keras.Model(inputs={'input_': input_, 'memory_state': memory_state, 'carry_state': carry_state}, 
                                 outputs={'action_logit': action_logit, 'value':value, 'final_memory_state': final_memory_state, 
@@ -315,7 +316,6 @@ class A2CAgent:
                 states, actions = [], []
                 memory_state = tf.zeros([1,128], dtype=np.float32)
                 carry_state = tf.zeros([1,128], dtype=np.float32)
-                self.save('sl' + '_' + str(total_step))
                 while fc < frameCount and ret:
                     #print("fc: ", fc)
                     ret, image_frame = cap.read()
