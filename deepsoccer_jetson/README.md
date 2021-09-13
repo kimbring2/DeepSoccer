@@ -208,7 +208,11 @@ $ jupyter notebook
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is still not enough to play real soccer.
 
-# 5. Using pretrained model at Jetson board 
+# 5. Using pretrained model at Jetson board
+## Network Architecture
+<img src="/image/network_architecture_real.png" width="800">
+
+## Usage
 In order to use the model trained by Gazebo simulation at Jetson embedded board. You need to copy a folder named pre_trained_model.ckpt generated after training at previous step. Inside the folder, there are assets and variables folders, and frozen model named saved_model.pb.
 
 After placing [DeepSoccer_ROS Package](https://github.com/kimbring2/DeepSoccer/tree/master/deepsoccer_jetson) to your ROS workspace of Jetson Xavier NX, run below command.
