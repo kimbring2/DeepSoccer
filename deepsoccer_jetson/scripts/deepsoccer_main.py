@@ -17,48 +17,65 @@ from cv_bridge import CvBridge, CvBridgeError
 
 #net = jetson.inference.detectNet("ssd-mobilenet-v2")
 
-
 import tensorflow as tf
 
 path_raw_video = '/home/kimbring2/Desktop/raw_video.avi'
-path_styled_video = '/home/kimbring2/Desktop/styled_video.avi'
+path_segmentation_video = '/home/kimbring2/Desktop/segmentation_video.avi'
+path_generated_video = '/home/kimbring2/Desktop/generated_video.avi'
 fps = 5
 size = (512,512)
 
-raw_video_out = cv2.VideoWriter(path_raw_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (1280,720))
-styled_video_out = cv2.VideoWriter(path_styled_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (128,128))
+raw_video_out = cv2.VideoWriter(path_raw_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (640,360))
+segmentation_video_out = cv2.VideoWriter(path_segmentation_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (640,360))
+#generated_video_out = cv2.VideoWriter(path_generated_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (128,128))
 
 imported_rl = tf.saved_model.load("/home/kimbring2/Desktop/rl_model")
-imported_style = tf.saved_model.load("/home/kimbring2/Desktop/style_model")
+imported_segmentation = tf.saved_model.load("/home/kimbring2/Desktop/seg_model")
 #imported_cyclegan = tf.saved_model.load("/home/kimbring2/Desktop/cyclegan_model")
 
 f_rl = imported_rl.signatures["serving_default"]
-f_style = imported_style.signatures["serving_default"]
+f_seg = imported_segmentation.signatures["serving_default"]
 #f_cyclegan = imported_cyclegan.signatures["serving_default"]
 
 rl_test_input = np.zeros([1,128,128,5])
-style_test_input = np.zeros([1,256,256,3])
+seg_test_input = np.zeros([1,256,256,3])
 #cyclegan_test_input = np.zeros([1,256,256,3])
 
 rl_test_tensor = tf.convert_to_tensor(rl_test_input, dtype=tf.float32)
-style_test_tensor = tf.convert_to_tensor(style_test_input, dtype=tf.float32)
+seg_test_tensor = tf.convert_to_tensor(seg_test_input, dtype=tf.float32)
 #cyclegan_test_tensor = tf.convert_to_tensor(cyclegan_test_input, dtype=tf.float32)
 
-print(f_rl(rl_test_tensor)['dueling_model'].numpy()[0])
-time.sleep(2)
-print(f_style(style_test_tensor)['output_1'].numpy()[0])
-#print(f_cyclegan(cyclegan_test_tensor)['output_1'].numpy()[0])
+memory_state = tf.zeros([1,128], dtype=np.float32)
+carry_state = tf.zeros([1,128], dtype=np.float32)
+
+f_rl = imported_rl.signatures["serving_default"]
+rl_test_input = np.zeros([1,128,128,5])
+
+print(f_rl(input_1=rl_test_tensor, input_2=memory_state, input_3=carry_state)['core_lstm'].numpy()[0])
+print(f_rl(input_1=rl_test_tensor, input_2=memory_state, input_3=carry_state)['core_lstm_1'].numpy()[0])
+print(f_rl(input_1=rl_test_tensor, input_2=memory_state, input_3=carry_state)['dense_1'].numpy()[0])
+
+time.sleep(1)
+print(f_seg(seg_test_tensor)['conv2d_transpose_4'].numpy()[0])
+
+#time.sleep(1)
+#print(f_cyclegan(cyclegan_test_tensor)['conv2d_transpose_7'].numpy()[0])
 
 bridge = CvBridge()
 
 camera_frame = np.zeros([128,128,3])
+step = 0
 def image_callback(msg):
     global camera_frame
+    global step
     
     #print("image_callback")
     cv_image = bridge.imgmsg_to_cv2(msg, "passthrough")
-    #raw_video_out.write(cv_image)
-        
+    cv_image = cv2.resize(cv_image, (640, 360), interpolation=cv2.INTER_AREA)
+    
+    frame = cv_image
+    raw_video_out.write(cv_image)
+    
     cv_image_shape = cv_image.shape
     #print("cv_image.shape: " + str(cv_image.shape))
     width = cv_image_shape[1]
@@ -70,13 +87,69 @@ def image_callback(msg):
     
     resized = np.array([cv_image])
     input_tensor = tf.convert_to_tensor(resized, dtype=tf.float32)
-    output = f_style(input_tensor)['output_1'].numpy()[0]
+    #output = f_cyclegan(input_tensor)['conv2d_transpose_7'].numpy()[0]
+    
+    pred_mask = f_seg(input_tensor)['conv2d_transpose_4']
+    pred_mask = tf.argmax(pred_mask, axis=-1)
+    pred_mask = pred_mask[..., tf.newaxis]
+    pred_mask = pred_mask[0]
+    pred_mask = tf.keras.preprocessing.image.array_to_img(pred_mask)
+    pred_mask = np.array(pred_mask)
+    ret, thresh = cv2.threshold(pred_mask, 126, 255, cv2.THRESH_BINARY)
+
+    kernel = np.ones((5, 5), np.uint8)
+    erudition_image = cv2.erode(thresh, kernel, iterations=2)  #// make dilation image
+    dilation_image = cv2.dilate(erudition_image, kernel, iterations=2)  #// make dilation image
+    dilation_image = cv2.resize(np.float32(dilation_image), dsize=(640,360), interpolation=cv2.INTER_AREA)
+    #plt.imshow(dilation_image)
+    dilation_image = dilation_image != 255.0
+
+    # converting from BGR to HSV color space
+    hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+    # Red color
+    low_red = np.array([120, 155, 84])
+    high_red = np.array([179, 255, 255])
+    red_mask = cv2.inRange(hsv_frame, low_red, high_red)
+    red = cv2.bitwise_and(frame, frame, mask=red_mask)
+
+    # Blue color
+    low_blue = np.array([110, 130, 2])
+    high_blue = np.array([126, 255, 255])
+    blue_mask = cv2.inRange(hsv_frame, low_blue, high_blue)
+    kernel = np.ones((10, 10), np.uint8)
+    blue_mask = cv2.dilate(blue_mask, kernel, iterations=1)  #// make dilation image
+    blue = cv2.bitwise_and(frame, frame, mask=blue_mask)
+
+    # Green color
+    low_green = np.array([25, 52, 72])
+    high_green = np.array([60, 255, 255])
+    green_mask = cv2.inRange(hsv_frame, low_green, high_green)
+    kernel = np.ones((5, 5), np.uint8)
+    green_mask = cv2.dilate(green_mask, kernel, iterations=1)  #// make dilation image
+    green = cv2.bitwise_and(frame, frame, mask=green_mask)
+
+    mask = green_mask + blue_mask + dilation_image
+
+    result = cv2.bitwise_and(frame, frame, mask=mask)
+    #result_mean = np.mean(result)
+    #for i in range(0, result.shape[0]):
+    #    for j in range(0, result.shape[1]):
+    #        if result[i,j,0] == 0 and result[i,j,1] == 0 and result[i,j,2] == 0:
+    #            result[i][j] = result_mean     
+    
+    #cv2.imwrite("/home/kimbring2/Desktop/output_seg" + "_" + str(step)+ "_.jpg", result)
+    print("result.shape: " + str(result.shape))
+    segmentation_video_out.write(np.uint8(result))
     
     #camera_frame = cv2.resize(cv_image, (128, 128), interpolation=cv2.INTER_AREA)
-    camera_frame = cv2.resize(output, (128, 128), interpolation=cv2.INTER_AREA)
+    camera_frame = cv2.resize(result, (128, 128), interpolation=cv2.INTER_AREA)
+    
+    step += 1
     #print("camera_frame.shape: " + str(camera_frame.shape))
+    #print("camera_frame: " + str(camera_frame))
     #print("")
-    #styled_video_out.write(np.uint8(camera_frame))
+    #generated_video_out.write(camera_frame * 255.0)
     #print("cv_image.shape: " + str(cv_image.shape))
     #print("type(cv_image): " + str(type(cv_image)))
     
@@ -138,6 +211,8 @@ robot_action_list = [stop_action, forward_action, left_action, right_action, bac
 
 
 ############## ROS + Deep Learning Part ###############
+memory_state = np.zeros([1,128], dtype=np.float32)
+carry_state = np.zeros([1,128], dtype=np.float32)
 while not rospy.is_shutdown():
     #print("start")
     
@@ -163,11 +238,19 @@ while not rospy.is_shutdown():
     #print("state_channel2.shape: " + str(state_channel2.shape))
     
     state_channel_tensor = tf.convert_to_tensor(state_channel2, dtype=tf.float32)
-    predict_value = f_rl(state_channel_tensor)['dueling_model'].numpy()[0]
-    #print("predict_value: " + str(predict_value))
-    action_index = np.argmax(predict_value, axis=0)
-    #action_index = 0
+    memory_state = tf.convert_to_tensor(memory_state, dtype=tf.float32)
+    carry_state = tf.convert_to_tensor(carry_state, dtype=tf.float32)
+    prediction = f_rl(input_1=state_channel_tensor, input_2=memory_state, input_3=carry_state)
+    action_logit = prediction['dense_1'].numpy()[0]
+    memory_state = prediction['core_lstm'].numpy()
+    carry_state = prediction['core_lstm_1'].numpy()
+    #predict_value = f_rl(state_channel_tensor)['dueling_model'].numpy()[0].numpy()[0]
+    #print("action_logit: " + str(action_logit))
+    #print("memory_state.shape: " + str(memory_state.shape))
+    #print("carry_state.shape: " + str(carry_state.shape))
+    action_index = np.argmax(action_logit, axis=0)
     print("action_index: " + str(action_index))
+    action_index = 0
     action = robot_action_list[action_index]
     
     wheel1_action = action[0]
