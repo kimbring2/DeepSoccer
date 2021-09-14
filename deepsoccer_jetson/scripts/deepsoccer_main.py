@@ -20,30 +20,30 @@ from cv_bridge import CvBridge, CvBridgeError
 import tensorflow as tf
 
 path_raw_video = '/home/kimbring2/Desktop/raw_video.avi'
-path_segmentation_video = '/home/kimbring2/Desktop/segmentation_video.avi'
-path_generated_video = '/home/kimbring2/Desktop/generated_video.avi'
+path_seg_video = '/home/kimbring2/Desktop/segmentation_video.avi'
+path_gen_video = '/home/kimbring2/Desktop/generated_video.avi'
 fps = 5
 size = (512,512)
 
 raw_video_out = cv2.VideoWriter(path_raw_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (640,360))
-segmentation_video_out = cv2.VideoWriter(path_segmentation_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (640,360))
-#generated_video_out = cv2.VideoWriter(path_generated_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (128,128))
+seg_video_out = cv2.VideoWriter(path_seg_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (640,360))
+gan_video_out = cv2.VideoWriter(path_gen_video, cv2.VideoWriter_fourcc(*'DIVX'), fps, (256,256))
 
 imported_rl = tf.saved_model.load("/home/kimbring2/Desktop/rl_model")
-imported_segmentation = tf.saved_model.load("/home/kimbring2/Desktop/seg_model")
-#imported_cyclegan = tf.saved_model.load("/home/kimbring2/Desktop/cyclegan_model")
+imported_seg = tf.saved_model.load("/home/kimbring2/Desktop/seg_model")
+imported_gan = tf.saved_model.load("/home/kimbring2/Desktop/cyclegan_model")
 
 f_rl = imported_rl.signatures["serving_default"]
-f_seg = imported_segmentation.signatures["serving_default"]
-#f_cyclegan = imported_cyclegan.signatures["serving_default"]
+f_seg = imported_seg.signatures["serving_default"]
+f_gan = imported_gan.signatures["serving_default"]
 
 rl_test_input = np.zeros([1,128,128,5])
 seg_test_input = np.zeros([1,256,256,3])
-#cyclegan_test_input = np.zeros([1,256,256,3])
+gan_test_input = np.zeros([1,256,256,3])
 
 rl_test_tensor = tf.convert_to_tensor(rl_test_input, dtype=tf.float32)
 seg_test_tensor = tf.convert_to_tensor(seg_test_input, dtype=tf.float32)
-#cyclegan_test_tensor = tf.convert_to_tensor(cyclegan_test_input, dtype=tf.float32)
+gan_test_tensor = tf.convert_to_tensor(gan_test_input, dtype=tf.float32)
 
 memory_state = tf.zeros([1,128], dtype=np.float32)
 carry_state = tf.zeros([1,128], dtype=np.float32)
@@ -58,8 +58,8 @@ print(f_rl(input_1=rl_test_tensor, input_2=memory_state, input_3=carry_state)['d
 time.sleep(1)
 print(f_seg(seg_test_tensor)['conv2d_transpose_4'].numpy()[0])
 
-#time.sleep(1)
-#print(f_cyclegan(cyclegan_test_tensor)['conv2d_transpose_7'].numpy()[0])
+time.sleep(1)
+print(f_gan(gan_test_tensor)['conv2d_transpose_7'].numpy()[0])
 
 bridge = CvBridge()
 
@@ -101,7 +101,6 @@ def image_callback(msg):
     erudition_image = cv2.erode(thresh, kernel, iterations=2)  #// make dilation image
     dilation_image = cv2.dilate(erudition_image, kernel, iterations=2)  #// make dilation image
     dilation_image = cv2.resize(np.float32(dilation_image), dsize=(640,360), interpolation=cv2.INTER_AREA)
-    #plt.imshow(dilation_image)
     dilation_image = dilation_image != 255.0
 
     # converting from BGR to HSV color space
@@ -132,43 +131,37 @@ def image_callback(msg):
     mask = green_mask + blue_mask + dilation_image
 
     result = cv2.bitwise_and(frame, frame, mask=mask)
-    #result_mean = np.mean(result)
-    #for i in range(0, result.shape[0]):
-    #    for j in range(0, result.shape[1]):
-    #        if result[i,j,0] == 0 and result[i,j,1] == 0 and result[i,j,2] == 0:
-    #            result[i][j] = result_mean     
+    result_mean = np.mean(result)
+
+    indy, indx, indz = np.where((result==0))
+    result[indy, indx, indz] = result_mean
     
     #cv2.imwrite("/home/kimbring2/Desktop/output_seg" + "_" + str(step)+ "_.jpg", result)
-    print("result.shape: " + str(result.shape))
-    segmentation_video_out.write(np.uint8(result))
+    print("result: " + str(result))
+    seg_video_out.write(np.uint8(result))
+    
+    test_image = result
+    test_image = (test_image / 127.5) - 1
+
+    test_tensor = tf.convert_to_tensor(test_image, dtype=tf.float32)
+    test_tensor = tf.image.resize(test_tensor, [256, 256], method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+    test_tensor = tf.reshape(test_tensor, [1,256,256,3], name=None)
+
+    #generate_images(f_gan, test_tensor)
+    prediction = f_gan(test_tensor)['conv2d_transpose_7'].numpy()
+    print("prediction: ", prediction)
+    
+    gan_result = prediction[0]* 0.5 + 0.5
+    print("gan_result.shape: ", gan_result.shape)
+    cv2.imwrite("/home/kimbring2/Desktop/output_gan" + "_" + str(step)+ "_.jpg", gan_result * 255.0)
+    gan_video_out.write(np.uint8(gan_result * 255.0))
+    #gan_result = gan_result * 255
     
     #camera_frame = cv2.resize(cv_image, (128, 128), interpolation=cv2.INTER_AREA)
-    camera_frame = cv2.resize(result, (128, 128), interpolation=cv2.INTER_AREA)
+    camera_frame = cv2.resize(gan_result, (128, 128), interpolation=cv2.INTER_AREA)
     
     step += 1
-    #print("camera_frame.shape: " + str(camera_frame.shape))
-    #print("camera_frame: " + str(camera_frame))
-    #print("")
-    #generated_video_out.write(camera_frame * 255.0)
-    #print("cv_image.shape: " + str(cv_image.shape))
-    #print("type(cv_image): " + str(type(cv_image)))
     
-    #cuda_image = jetson.utils.cudaFromNumpy(cv_image)
-    #array = jetson.utils.cudaToNumpy(cuda_image, 720, 1280, 3)
-    #jetson.utils.saveImageRGBA("cuda-from-numpy.jpg", cuda_image, 720, 1280)
-    #print("cv_image.shape: " + str(cv_image.shape))
-    #detections = net.Detect(cuda_image, width, height, "box,labels,conf")
-
-    # print the detections
-    #print("detected {:d} objects in image".format(len(detections)))
-
-    #for detection in detections:
-    #    print(detection)
-    
-    #cv2.imwrite("camera_frame.jpg", camera_frame)
-    #jetson.utils.saveImageRGBA("detected_image.jpg", cv_image, width, height)
-
-
 lidar_value = 0
 def lidar_callback(msg):
     global lidar_value
