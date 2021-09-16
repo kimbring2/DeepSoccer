@@ -90,7 +90,7 @@ For the part for grabiing the soccer ball, I use a part of engraving roller. The
 ## Solenoid
 For the part for kicking the soccer ball, I use a solenoid electromagnet. To control the solenoid electromagnet in the ROS, we should control GPIO using code. I use a GPIO library of Jetson (https://github.com/NVIDIA/jetson-gpio) provided by NVIDIA.
 
-It is determined that directly connecting the solenoid motor directly to the 12V power supply can not enough force to kick the ball far. Thus, large capacity capacitor and charging circuit for it is added. Thankfully I could find circuit and component for this at https://drive.google.com/file/d/17twkN9F0Dghrc06b_U9Iviq9Si9rsyOG/view.
+It is determined that directly connecting the solenoid motor directly to the 12V power supply can not enough force to kick the ball far. Therefore, large capacity capacitor and charging circuit for it is added. Thankfully I could find circuit and component for this at https://drive.google.com/file/d/17twkN9F0Dghrc06b_U9Iviq9Si9rsyOG/view.
 
 <img src="/image/NX_Solenoid.png" width="800">
 
@@ -143,7 +143,7 @@ $ rostopic pub -1 /deepsoccer_solenoid/cmd_str std_msgs/String --once "out"
 
 For getting lidar sensor distance and infrared object detection value.
 ```
-$ sudo chmod a+rw /dev/ttyTHS1 
+$ sudo chmod a+rw /dev/ttyTHS0
 $ rosrun deepsoccer_ros deepsoccer_lidar.py
 $ rostopic echo /deepsoccer_lidar
 ```
@@ -163,9 +163,9 @@ You can also give a control command using Python code. Run 'jetson_soccer_main.p
 ```$ python deepsoccer_main.py ```
 
 # 4. Teleoperation test
-Like the original version of Jetbot, Jetbot soccer version can be controlled by gamepad. You can check a code for that [teleoperation_soccer.ipynb](https://github.com/kimbring2/DeepSoccer/blob/master/etc/teleoperation_soccer.ipynb) file. Upload it to Jetson Nano and run it.
+Like the original version of Jetbot, DeepSoccer can be controlled by gamepad. You can check a code for that [teleoperation_soccer.ipynb](https://github.com/kimbring2/DeepSoccer/blob/master/etc/teleoperation_soccer.ipynb) file.
 
-As with the original Jetbot, you can use a Jupyter Notebook to test a your code without connecting with monitor. First, insall Jupyter package and creates a configuration file using the following command.
+Upload it to Jetson board and run the Jupyter Notebook. Below command is for setting Jupyter Notebook to use it as remotely.
 
 ```
 $ pip3 install jupyterlab
@@ -197,16 +197,23 @@ c.NotebookApp.port = 8080
 c.NotebookApp.password = 'sha1:60f3ac9aec93:be2d6048e9b1e7ae0f1ccbad9d746734bf5c3797'
 ```
 
-Finally, start Jupyter Notebook with the command below and enter the password you set earlier.
+Finally, start Jupyter Notebook with the password you set.
 
 ```
 $ jupyter notebook
 ```
 
+Before that, you need to open port for Dynamixel controller and Lidar sensor via below command.
+
+```
+$ sudo chmod a+rw /dev/ttyUSB0
+$ sudo chmod a+rw /dev/ttyTHS0
+```
+
+The teleoperation Notebook first checks every sensor, actuators works well separetely. After that, it connects them to PS4 controller like a original Jetbot. 
+
 [![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "DeepSoccer Teleoperation - Click to Watch!")
 <strong>Click to Watch!</strong>
-
-You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is still not enough to play real soccer.
 
 # 5. Using pretrained model at Jetson board
 ## Network Architecture
