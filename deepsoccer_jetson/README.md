@@ -203,7 +203,7 @@ Finally, start Jupyter Notebook with the command below and enter the password yo
 $ jupyter notebook
 ```
 
-[![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "Jetbot Soccer Play - Click to Watch!")
+[![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "DeepSoccer Teleoperation - Click to Watch!")
 <strong>Click to Watch!</strong>
 
 You can use the gamepad for performing the basic actions for soccer. Multi players will be able to play robot soccer together if power of robot is a bit more reinforced. It is still not enough to play real soccer.
@@ -231,3 +231,7 @@ $ python3 deepsoccer_main.py
 Because Tensorflow 2 of Jetson Xavier NX only can be run by Python3, you need to do one more job because cv_bridge of ROS melodic is not able to be ran at Python3. Please follow a intruction at https://cyaninfinite.com/ros-cv-bridge-with-python-3/.
 
 If the tasks described on the above site are completed successfully, DeepSoccer start to control acuator based on the data from real sensor.
+
+[![DeepSoccer sim2real test](https://img.youtube.com/vi/Co2rw6-GZbE/sddefault.jpg)](https://www.youtube.com/watch?v=Co2rw6-GZbE "DeepSoccer Sim2Real - Click to Watch!")
+<strong>Click to Watch!</strong>
+
