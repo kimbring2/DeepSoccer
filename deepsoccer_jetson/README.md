@@ -210,9 +210,9 @@ $ sudo chmod a+rw /dev/ttyUSB0
 $ sudo chmod a+rw /dev/ttyTHS0
 ```
 
-The teleoperation Notebook first checks every sensor, actuators works well separetely. After that, it connects them to PS4 controller like a original Jetbot. 
+The teleoperation Notebook first checks camera, lidar, infrared, wheel works well separetely. After that, it connects them to PS4 controller like a original Jetbot. 
 
-<img src="/image/teleoperation_ps4.png" width="800">
+<img src="/image/teleoperation_ps4.png" width="400">
 
 [![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "DeepSoccer Teleoperation - Click to Watch!")
 <strong>Click to Watch!</strong>
@@ -243,4 +243,3 @@ If the tasks described on the above site are completed successfully, DeepSoccer 
 
 [![DeepSoccer sim2real test](https://img.youtube.com/vi/Co2rw6-GZbE/sddefault.jpg)](https://www.youtube.com/watch?v=Co2rw6-GZbE "DeepSoccer Sim2Real - Click to Watch!")
 <strong>Click to Watch!</strong>
-
