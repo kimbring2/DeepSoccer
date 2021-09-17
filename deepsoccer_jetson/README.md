@@ -212,6 +212,8 @@ $ sudo chmod a+rw /dev/ttyTHS0
 
 The teleoperation Notebook first checks every sensor, actuators works well separetely. After that, it connects them to PS4 controller like a original Jetbot. 
 
+<img src="/image/teleoperation_ps4.png" width="800">
+
 [![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "DeepSoccer Teleoperation - Click to Watch!")
 <strong>Click to Watch!</strong>
 
