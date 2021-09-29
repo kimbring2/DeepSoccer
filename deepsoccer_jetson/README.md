@@ -74,6 +74,7 @@ The U2D2 board and U2D2 power hub can be purchased at the Robotis shopping mall.
 2. [U2D2 Power Hub](http://www.robotis.us/u2d2-power-hub-board-set/)
 3. [Dynamixel MX-12W](https://www.robotis.us/dynamixel-mx-12w/)
 4. [Omniwheel(Korea local shop)](http://robomecha.co.kr/product/detail.html?product_no=10&cate_no=1&display_group=2)
+5. [DC-DC buck converter LM2596](https://ko.aliexpress.com/item/33004374185.html?spm=a2g0o.productlist.0.0.4f587784osAdIi&algo_pvid=dd6d66e5-5d20-40f5-bbcc-ec9299c5d90e&algo_exp_id=dd6d66e5-5d20-40f5-bbcc-ec9299c5d90e-8&pdp_ext_f=%7B%22sku_id%22%3A%2267088944738%22%7D)
 
 ID and communication method and firmware version of of Dynamixel can given via a program provided by ROBOTIS. I test a motor seperately before installing it to robot body. A power supply and TTL communication can be done by using a U2D2 board and power hub.
 
