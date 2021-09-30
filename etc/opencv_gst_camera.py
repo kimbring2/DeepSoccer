@@ -16,7 +16,8 @@ class OpenCvGstCamera(CameraBase):
     fps = traitlets.Integer(default_value=30).tag(config=True)
     capture_width = traitlets.Integer(default_value=640).tag(config=True)
     capture_height = traitlets.Integer(default_value=360).tag(config=True)
-    step = 0
+    record_step = 0
+    record_flag = False
 
     def __init__(self, *args, **kwargs):
         self.value = np.empty((self.height, self.width, 3), dtype=np.uint8)
@@ -47,16 +48,22 @@ class OpenCvGstCamera(CameraBase):
             re, image = self.cap.read()
             if re:
                 self.value = image
-                self.video_out.write(image)
-                #cv2.imwrite("/home/kimbring2/Desktop/image_out_" + str(self.step) + ".jpg", image)
-                self.step += 1
+                if self.record_flag == True:
+                    self.video_out.write(image)
+                    #cv2.imwrite("/home/kimbring2/Desktop/image_out_" + str(self.step) + ".jpg", image)
+                    self.record_step += 1
             else:
                 break
                 
     def _gst_str(self):
         return 'nvarguscamerasrc sensor-mode=3 ! video/x-raw(memory:NVMM), width=%d, height=%d, format=(string)NV12, framerate=(fraction)%d/1 ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! videoconvert ! appsink' % (
                 self.capture_width, self.capture_height, self.fps, self.width, self.height)
-    
+    def record_start(self):
+        self.record_flag = True
+
+    def record_stop(self):
+        self.record_flag = False
+
     def start(self):
         if not self.cap.isOpened():
             self.cap.open(self._gst_str(), cv2.CAP_GSTREAMER)
