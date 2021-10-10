@@ -11,11 +11,11 @@ class OpenCvGstCamera(CameraBase):
     value = traitlets.Any()
     
     # config
-    width = traitlets.Integer(default_value=640).tag(config=True)
-    height = traitlets.Integer(default_value=360).tag(config=True)
+    width = traitlets.Integer(default_value=816).tag(config=True)
+    height = traitlets.Integer(default_value=616).tag(config=True)
     fps = traitlets.Integer(default_value=30).tag(config=True)
-    capture_width = traitlets.Integer(default_value=640).tag(config=True)
-    capture_height = traitlets.Integer(default_value=360).tag(config=True)
+    capture_width = traitlets.Integer(default_value=816).tag(config=True)
+    capture_height = traitlets.Integer(default_value=616).tag(config=True)
     record_step = 0
     record_flag = False
 
@@ -24,7 +24,7 @@ class OpenCvGstCamera(CameraBase):
         super().__init__(self, *args, **kwargs)
         
         path_video = "/home/kimbring2/Desktop/content_video.avi"
-        self.video_out = cv2.VideoWriter(path_video, cv2.VideoWriter_fourcc(*'DIVX'), 5, (640, 360))
+        self.video_out = cv2.VideoWriter(path_video, cv2.VideoWriter_fourcc(*'DIVX'), 30, (816, 616))
 
         try:
             self.cap = cv2.VideoCapture(self._gst_str(), cv2.CAP_GSTREAMER)
