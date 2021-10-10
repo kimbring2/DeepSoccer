@@ -221,7 +221,28 @@ The teleoperation Notebook first checks camera, lidar, infrared, wheel works wel
 <strong>Click to Watch!</strong>
 
 ## Collection real world data 
-<img src="/image/content_video_sample.mp4" width="400">
+For Simulation to real conversion, the camera video data when robot plays soccer in the real world is required. You can record the camera image while you are operating the robot via the PS4 controller. Since the original Jetbot do not have a recording function, you need to copy modified [opencv_gst_camera.py] (https://github.com/kimbring2/DeepSoccer/blob/master/etc/opencv_gst_camera.py) file to camera folder of jetbot Python package.
+
+```
+import jetbot
+print(jetbot.__file__)
+/usr/local/lib/python3.6/dist-packages/jetbot-0.4.3-py3.6.egg/jetbot/__init__.py
+```
+
+After copying the file, you can use the the record_start and record_stop function. The video file is basically saved under the Desktop folder as content_video.avi name and format.
+
+```
+from jetbot import Camera
+
+camera = Camera.instance()
+
+camera.record_start()
+camera.record_stop()
+```
+
+https://github.com/kimbring2/DeepSoccer/blob/master/image/content_video_sample.mp4
+
+Saved video file can be converted to a image file via the following command to use as the dataset.
 
 $ ffmpeg -i content_video_1.avi -vf fps=30 out%d.png
 
