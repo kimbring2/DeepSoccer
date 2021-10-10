@@ -163,9 +163,10 @@ $ roslaunch deepsoccer_ros start.launch
 You can also give a control command using Python code. Run 'jetson_soccer_main.py' file at Jetson Nano terminal.
 ```$ python deepsoccer_main.py ```
 
-# 4. Teleoperation test
+# 4. Teleoperation
 Like the original version of Jetbot, DeepSoccer can be controlled by gamepad. You can check a code for that [teleoperation_soccer.ipynb](https://github.com/kimbring2/DeepSoccer/blob/master/etc/teleoperation_soccer.ipynb) file.
 
+## Setting Jupyter Notebook
 Upload it to Jetson board and run the Jupyter Notebook. Below command is for setting Jupyter Notebook to use it as remotely.
 
 ```
@@ -211,12 +212,18 @@ $ sudo chmod a+rw /dev/ttyUSB0
 $ sudo chmod a+rw /dev/ttyTHS0
 ```
 
+## Controlling robot using PS4
 The teleoperation Notebook first checks camera, lidar, infrared, wheel works well separetely. After that, it connects them to PS4 controller like a original Jetbot. 
 
 <img src="/image/teleoperation_ps4.png" width="400">
 
 [![DeepSoccer teleoperation test](https://img.youtube.com/vi/vONoIruznlw/hqdefault.jpg)](https://www.youtube.com/watch?v=vONoIruznlw "DeepSoccer Teleoperation - Click to Watch!")
 <strong>Click to Watch!</strong>
+
+## Collection real world data 
+<img src="/image/content_video_sample.mp4" width="400">
+
+$ ffmpeg -i content_video_1.avi -vf fps=30 out%d.png
 
 # 5. Using pretrained model at Jetson board
 ## Network Architecture
